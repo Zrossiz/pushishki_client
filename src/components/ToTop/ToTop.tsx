@@ -9,7 +9,7 @@ export const ToTop = () => {
         });
       };
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} onClick={() => scrollToTop()}>
             <Image src="/icons/TopArrow.svg" width={42} height={42} alt="Наверх" />
         </div>
     )

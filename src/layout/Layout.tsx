@@ -6,6 +6,7 @@ import { Manrope, Roboto } from "next/font/google";
 import cn from 'classnames';
 import { Header } from "./Header/Header";
 import { Footer } from "./Footer/Footer";
+import { ToTop } from "@/components";
 
 const manropeFont = Manrope({
     subsets: ["latin"],
@@ -37,6 +38,7 @@ const Layout = ({children}: ILayoutProps): JSX.Element => {
                 <div className={styles.footer}>
                     <Footer />
                 </div>
+                <ToTop />
             </div>
         </>
     )
