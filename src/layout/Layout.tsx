@@ -10,10 +10,12 @@ import { Footer } from "./Footer/Footer";
 const manropeFont = Manrope({
     subsets: ["latin"],
     weight: ["500", "400"],
+    preload: false
   });
 
 const robotoFont = Roboto({
-    weight: ["700"]
+    weight: ["700"],
+    preload: false
 })
 
 const Layout = ({children}: ILayoutProps): JSX.Element => {
