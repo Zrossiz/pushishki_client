@@ -4,6 +4,8 @@ import { ILayoutProps } from "./Layout.props";
 import { FunctionComponent } from "react";
 import { Manrope, Roboto } from "next/font/google";
 import cn from 'classnames';
+import { Header } from "./Header/Header";
+import { Footer } from "./Footer/Footer";
 
 const manropeFont = Manrope({
     subsets: ["latin"],
@@ -20,16 +22,19 @@ const Layout = ({children}: ILayoutProps): JSX.Element => {
             <Head>
                 <title>Пушишки</title>
             </Head>
-            <div>
-                <div className={cn(
-                    styles.header, 
+            <div className={cn(
                     manropeFont.className,
                     robotoFont.className
-                )}></div>
+                )}>
+                <div className={styles.header}>
+                    <Header />
+                </div>
                 <main className={styles.main}>
                     {children}
                 </main>
-                <div className={styles.footer}></div>
+                <div className={styles.footer}>
+                    <Footer />
+                </div>
             </div>
         </>
     )
