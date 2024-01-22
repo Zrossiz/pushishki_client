@@ -8,13 +8,13 @@ import { Header } from "./Header/Header";
 import { Footer } from "./Footer/Footer";
 import { ToTop } from "@/components";
 
-const manropeFont = Manrope({
+const manrope = Manrope({
     subsets: ["latin"],
     weight: ["500", "400"],
     preload: false
   });
 
-const robotoFont = Roboto({
+const roboto = Roboto({
     weight: ["700"],
     preload: false
 })
@@ -26,8 +26,8 @@ const Layout = ({children}: ILayoutProps): JSX.Element => {
                 <title>Пушишки</title>
             </Head>
             <div className={cn(
-                    manropeFont.className,
-                    robotoFont.className
+                    manrope.className,
+                    roboto.className
                 )}>
                 <div className={styles.header}>
                     <Header />
