@@ -1,4 +1,4 @@
-import { CategoryNavigation } from '@/components';
+import { CategoryNavigation, Navigation } from '@/components';
 import styles from './Header.module.scss';
 import Image from 'next/image';
 
@@ -12,7 +12,9 @@ export const Header = () => {
                 <div className={styles.categoryNavWrapper}>
                     <CategoryNavigation />
                 </div>
-                <div className={styles.navWrapper}></div>
+                <div className={styles.navWrapper}>
+                    <Navigation />
+                </div>
             </div>
         </header>
     )

@@ -1,0 +1,29 @@
+.wrapper {
+    display: flex;
+
+    .favoriteWrapper {
+        margin-right: 16px;
+        display: flex;
+        align-items: center;
+    }
+
+    .basketWrapper {
+        padding: 8px 30px;
+        border-radius: 30px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border: 1px solid #fff;
+
+        a {
+            display: flex;
+            align-items: center;
+        }
+
+        .text {
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 32px;
+            font-weight: 700;
+            margin-left: 6px;
+        }
+    }
+}
