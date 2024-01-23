@@ -1,2 +1,3 @@
-export * from './ToTop/ToTop'
-export * from './WhatsApp/WhatsApp'
+export * from './ToTop/ToTop';
+export * from './WhatsApp/WhatsApp';
+export * from './CategoryNavigation/CategoryNavigation';
