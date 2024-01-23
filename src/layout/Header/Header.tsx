@@ -7,13 +7,15 @@ export const Header = () => {
     return (
         <header>
             <div className={styles.headerWrapper}>
-                <div className={styles.logoWrapper}>
-                    <Link href='/'>
-                        <Image src="/Logo.svg" width={188} height={42} alt="Логотип" />
-                    </Link>
-                </div>
-                <div className={styles.categoryNavWrapper}>
-                    <CategoryNavigation />
+                <div className={styles.logoCategoryWrapper}>
+                    <div className={styles.logoWrapper}>
+                        <Link href='/'>
+                            <Image src="/Logo.svg" width={188} height={42} alt="Логотип" />
+                        </Link>
+                    </div>
+                    <div className={styles.categoryNavWrapper}>
+                        <CategoryNavigation />
+                    </div>
                 </div>
                 <div className={styles.navWrapper}>
                     <Navigation />
