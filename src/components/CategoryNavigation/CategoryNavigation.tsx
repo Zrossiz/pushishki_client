@@ -34,7 +34,7 @@ export const CategoryNavigation = () => {
             <ul>
                 {categories.map((item, index) => (
                     <li key={index}>
-                        <Link href={`/categories/${item.slug}`}>
+                        <Link className={styles.link} href={`/categories/${item.slug}`}>
                             {item.name}
                         </Link>
                     </li>
