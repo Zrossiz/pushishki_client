@@ -1,14 +1,19 @@
 .headerWrapper {
     display: flex;
     justify-content: space-between;
-}
 
-.categoryNavWrapper {
-    display: flex;
-    align-items: center;
-}
+    .logoWrapper {
+        display: flex;
+        align-items: center;
+    }
 
-.navWrapper {
-    display: flex;
-    align-items: center;
+    .categoryNavWrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .navWrapper {
+        display: flex;
+        align-items: center;
+    }
 }
