@@ -27,7 +27,8 @@ const Layout = ({children}: ILayoutProps): JSX.Element => {
             </Head>
             <div className={cn(
                     manrope.className,
-                    roboto.className
+                    roboto.className,
+                    styles.globalWrapper
                 )}>
                 <div className={styles.header}>
                     <Header />
