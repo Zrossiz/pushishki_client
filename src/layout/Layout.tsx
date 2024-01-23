@@ -38,8 +38,10 @@ const Layout = ({children}: ILayoutProps): JSX.Element => {
                 <div className={styles.footer}>
                     <Footer />
                 </div>
-                <ToTop />
-                <WhatsApp />
+                <div className={styles.staticWrapper}>
+                  <ToTop />
+                  <WhatsApp />
+                </div>
             </div>
         </>
     )
