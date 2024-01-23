@@ -6,7 +6,7 @@ export const WhatsApp = () => {
     return (
         <div className={styles.wrapper}>
             <Link href="#">
-                <Image src="/icons/WhatsApp.svg" height={48} width={48} alt="WhatsApp" />
+                <Image src="/icons/WhatsApp.svg" height={30} width={30} alt="WhatsApp" />
             </Link>
         </div>
     )

@@ -3,12 +3,12 @@
     justify-content: center;
     align-items: center;
     background-color: #298F07;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     transition: 0.6s;
 
-    &:hover {   
+    &:hover {
         transform: scale(1.05);
     }
 }

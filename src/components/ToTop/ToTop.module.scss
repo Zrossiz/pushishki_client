@@ -4,15 +4,38 @@
     align-items: center;
     background-color: #f1f1f1;
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
-    
+    opacity: 1;
+    transition: 0.6s;
+    animation: opacity 1s ease-in-out;
+    overflow: hidden;
+
     img {
         transition: 0.6s;
     }
 
     &:hover img {
         transform: translateY(-4px);
-    } 
+    }
+}
+
+.hidden {
+    height: 0;
+    opacity: 0;
+}
+
+@keyframes opacity {
+    10% {
+        opacity: 0.1;
+    }
+
+    30% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
 }
