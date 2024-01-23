@@ -1,13 +1,16 @@
 import { CategoryNavigation, Navigation } from '@/components';
 import styles from './Header.module.scss';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const Header = () => {
     return (
         <header>
             <div className={styles.headerWrapper}>
                 <div className={styles.logoWrapper}>
-                    <Image src="/Logo.svg" width={188} height={42} alt="Логотип" />
+                    <Link href='/'>
+                        <Image src="/Logo.svg" width={188} height={42} alt="Логотип" />
+                    </Link>
                 </div>
                 <div className={styles.categoryNavWrapper}>
                     <CategoryNavigation />
