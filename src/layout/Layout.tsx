@@ -9,53 +9,47 @@ import { Footer } from "./Footer/Footer";
 import { ToTop, WhatsApp } from "@/components";
 
 const manrope = Manrope({
-    subsets: ["latin"],
-    weight: ["500", "400"],
-    preload: false
-  });
+  subsets: ["latin"],
+  weight: ["500", "400"],
+  preload: false
+});
 
-const roboto = Roboto({
-    weight: ["700"],
-    preload: false
-})
-
-const Layout = ({children}: ILayoutProps): JSX.Element => {
-    return (
-        <>
-            <Head>
-                <title>Пушишки</title>
-            </Head>
-            <div className={cn(
-                    manrope.className,
-                    roboto.className,
-                    styles.globalWrapper
-                )}>
-                <div className={styles.header}>
-                    <Header />
-                </div>
-                <main className={styles.main}>
-                    {children}
-                </main>
-                <div className={styles.footer}>
-                    <Footer />
-                </div>
-                <div className={styles.staticWrapper}>
-                  <ToTop />
-                  <WhatsApp />
-                </div>
-            </div>
-        </>
-    )
+const Layout = ({ children }: ILayoutProps): JSX.Element => {
+  return (
+    <>
+      <Head>
+        <title>Пушишки</title>
+      </Head>
+      <div className={cn(
+        manrope.className,
+        styles.globalWrapper
+      )}>
+        <div className={styles.header}>
+          <Header />
+        </div>
+        <main className={styles.main}>
+          {children}
+        </main>
+        <div className={styles.footer}>
+          <Footer />
+        </div>
+        <div className={styles.staticWrapper}>
+          <ToTop />
+          <WhatsApp />
+        </div>
+      </div>
+    </>
+  )
 }
 
 export const withLayout = <T extends Record<string, unknown>>(
-    Component: FunctionComponent<T>
-  ) => {
-    return function withLayoutComponent(props: T): JSX.Element {
-      return (
-        <Layout>
-          <Component {...props} />
-        </Layout>
-      );
-    };
+  Component: FunctionComponent<T>
+) => {
+  return function withLayoutComponent(props: T): JSX.Element {
+    return (
+      <Layout>
+        <Component {...props} />
+      </Layout>
+    );
   };
+};
