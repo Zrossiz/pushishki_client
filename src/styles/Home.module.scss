@@ -1,0 +1,21 @@
+.firstDisplay {
+
+    .backgroundImgWrapper {
+        position: relative;
+        max-width: 1780px;
+
+        .backgroundImg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("/mainBg.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 860px;
+            width: 100%;
+            z-index: 1;
+            overflow: hidden;
+            object-fit: contain;
+        }
+    }
+}

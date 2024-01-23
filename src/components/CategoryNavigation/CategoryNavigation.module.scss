@@ -22,6 +22,7 @@
             border-bottom: 2px solid #f1f1f1;
             opacity: 0;
             transition: 0.6s;
+            z-index: 2;
         }
 
         &:hover::after {
