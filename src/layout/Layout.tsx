@@ -6,7 +6,7 @@ import { Manrope, Roboto } from "next/font/google";
 import cn from 'classnames';
 import { Header } from "./Header/Header";
 import { Footer } from "./Footer/Footer";
-import { ToTop } from "@/components";
+import { ToTop, WhatsApp } from "@/components";
 
 const manrope = Manrope({
     subsets: ["latin"],
@@ -39,6 +39,7 @@ const Layout = ({children}: ILayoutProps): JSX.Element => {
                     <Footer />
                 </div>
                 <ToTop />
+                <WhatsApp />
             </div>
         </>
     )
