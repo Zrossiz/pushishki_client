@@ -31,17 +31,15 @@ const categories = [
 export const CategoryNavigation = () => {
     return (
         <div className={styles.wrapper}>
-            <nav>
-                <ul>
-                    {categories.map((item, index) => (
-                        <li key={index}>
-                            <Link href={`/categories/${item.slug}`}>
-                                {item.name}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+            <ul>
+                {categories.map((item, index) => (
+                    <li key={index}>
+                        <Link href={`/categories/${item.slug}`}>
+                            {item.name}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
