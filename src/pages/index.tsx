@@ -46,6 +46,9 @@ const Home = () => {
           </div>
         </div >
       </section >
+      <section className={styles.newProducts}>
+
+      </section>
     </>
   );
 }
