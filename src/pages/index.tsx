@@ -1,5 +1,6 @@
 import { withLayout } from "@/layout/Layout";
 import styles from '../styles/Home.module.scss';
+import Link from "next/link";
 
 
 const Home = () => {
@@ -18,7 +19,24 @@ const Home = () => {
             <span>и</span>&nbsp;радости ребенку
           </h1>
         </div>
-      </section>
+        <div className={styles.chooseWrapper}>
+          <div className={styles.categoriesWrapper}>
+            <Link href="/categories/spectehnika" className={styles.category}>
+              Спецтехника
+            </Link>
+            <Link href="/categories/velotehnika" className={styles.category}>
+              Велотехника
+            </Link>
+            <Link href="/categories/electocary" className={styles.category}>
+              Электрокары
+            </Link>
+            <Link href="/categories" className={styles.category}>
+              И многое другое
+            </Link>
+          </div >
+          <div className={styles.chooseCategoryWrapper}></div>
+        </div >
+      </section >
     </>
   );
 }
