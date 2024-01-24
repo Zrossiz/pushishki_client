@@ -1,6 +1,5 @@
 import { withLayout } from "@/layout/Layout";
 import styles from '../styles/Home.module.scss';
-import Image from "next/image";
 
 
 const Home = () => {
@@ -10,7 +9,16 @@ const Home = () => {
         <div className={styles.backgroundImgWrapper}>
           <div className={styles.backgroundImg}></div>
         </div>
-        <div>title</div>
+        <div className={styles.titleWrapper}>
+          <h1>
+            Доставка электромоб
+            <span>и</span>
+            лей
+            <br />
+            <span>и</span> радост
+            <span>и</span> ребенку
+          </h1>
+        </div>
       </section>
     </>
   );

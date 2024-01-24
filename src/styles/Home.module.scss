@@ -1,5 +1,24 @@
 .firstDisplay {
 
+    .titleWrapper {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-top: 58px;
+
+        h1 {
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 80px;
+            letter-spacing: 4px;
+
+            span {
+                text-transform: uppercase;
+                font-style: italic;
+            }
+        }
+    }
+
     .backgroundImgWrapper {
         position: relative;
         max-width: 1780px;
@@ -13,7 +32,7 @@
             background-repeat: no-repeat;
             height: 860px;
             width: 100%;
-            z-index: 1;
+            z-index: -1;
             overflow: hidden;
             object-fit: contain;
         }
