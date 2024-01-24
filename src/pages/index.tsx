@@ -1,7 +1,7 @@
 import { withLayout } from "@/layout/Layout";
 import styles from '../styles/Home.module.scss';
 import Link from "next/link";
-
+import Image from "next/image";
 
 const Home = () => {
   return (
@@ -34,7 +34,16 @@ const Home = () => {
               И многое другое
             </Link>
           </div >
-          <div className={styles.chooseCategoryWrapper}></div>
+          <div className={styles.chooseCategoryWrapper}>
+            <Link href="/categories" className={styles.viewCategories}>
+              Подобрать
+              <br />
+              электромобиль
+              <div className={styles.iconWrapper}>
+                <Image src="/icons/Settings.svg" width={30} height={30} alt="Категории" />
+              </div>
+            </Link>
+          </div>
         </div >
       </section >
     </>
