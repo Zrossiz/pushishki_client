@@ -4,13 +4,20 @@
         display: flex;
         justify-content: center;
         text-align: center;
-        padding-top: 58px;
 
         h1 {
             text-transform: uppercase;
             color: #fff;
-            font-size: 80px;
+            font-size: 70px;
             letter-spacing: 4px;
+            max-width: 1100px;
+            padding-top: 44px;
+
+
+            @media screen and (max-width: 1400px) {
+                font-size: 50px;
+                padding-top: 30px;
+            }
 
             span {
                 text-transform: uppercase;

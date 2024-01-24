@@ -11,12 +11,11 @@ const Home = () => {
         </div>
         <div className={styles.titleWrapper}>
           <h1>
-            Доставка электромоб
+            Доставка&nbsp;электромоб
             <span>и</span>
             лей
             <br />
-            <span>и</span> радост
-            <span>и</span> ребенку
+            <span>и</span>&nbsp;радости ребенку
           </h1>
         </div>
       </section>
