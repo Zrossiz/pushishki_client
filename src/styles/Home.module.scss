@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     height: 630px;
+    border-radius: 40px;
+    overflow: hidden;
 
 
     .titleWrapper {
@@ -106,4 +108,10 @@
         }
     }
 
+}
+
+.newProducts {
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 40px;
 }
