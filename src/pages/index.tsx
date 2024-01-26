@@ -49,7 +49,7 @@ const Home = () => {
         </div >
       </section >
       <section className={styles.newProducts}>
-        <HTag>Новинки</HTag>
+        <HTag tag="h2">Новинки</HTag>
         <Slider />
       </section>
     </>
