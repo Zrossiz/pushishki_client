@@ -3,7 +3,6 @@ import styles from '../styles/Home.module.scss';
 import Link from "next/link";
 import Image from "next/image";
 import { Slider } from "@/components";
-import { HTag } from "@/elements";
 
 const Home = () => {
   return (
@@ -49,7 +48,6 @@ const Home = () => {
         </div >
       </section >
       <section className={styles.newProducts}>
-        <HTag tag="h2">Новинки</HTag>
         <Slider />
       </section>
     </>
