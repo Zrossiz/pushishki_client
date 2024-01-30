@@ -1,2 +1,1 @@
-export * from './Category'
-export * from './Slider'
+export * from './Category';

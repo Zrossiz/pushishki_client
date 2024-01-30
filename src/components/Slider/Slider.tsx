@@ -5,21 +5,27 @@ import styles from './Slider.module.scss';
 import Link from 'next/link';
 import { HTag } from '@/elements';
 import React from 'react';
-import { SliderNavProps } from '@/types';
+import cn from 'classnames';
 
-const SwiperButtonNext = ({ children }: SliderNavProps) => {
+const SwiperButtonNext = () => {
     const swiper = useSwiper();
-    return <button onClick={() => swiper.slideNext()}>{children}</button>;
+    return (
+        <button className={cn(styles.navButton)} onClick={() => swiper.slideNext()}>
+            <Image src={'/icons/SliderNavArrow.svg'} width={24} height={24} alt='Дальше' />
+        </button>
+    );
 };
 
-const SwiperButtonPrev = ({ children }: SliderNavProps) => {
+const SwiperButtonPrev = () => {
     const swiper = useSwiper();
-    return <button onClick={() => swiper.slidePrev()}>{children}</button>;
+    return (
+        <button className={cn(styles.navButton, styles.reverse)} onClick={() => swiper.slidePrev()}>
+            <Image src={'/icons/SliderNavArrow.svg'} width={24} height={24} alt='Назад' />
+        </button>
+    );
 };
 
 export const Slider = () => {
-    const swiper = useSwiper();
-
     return (
         <>
             <div className={styles.wrapper}>
@@ -27,7 +33,8 @@ export const Slider = () => {
                     <HTag tag='h2'>Новинки</HTag>
                 </div>
             </div>
-            <Swiper className='mySwiper'
+            <Swiper className={cn('mySwipper', styles.swiper)}
+                loop
                 slidesPerView={1}
                 spaceBetween={10}
                 breakpoints={{
@@ -40,14 +47,14 @@ export const Slider = () => {
                         spaceBetween: 30,
                     },
                     1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 40,
+                        slidesPerView: 5,
+                        spaceBetween: 20,
                     },
                 }}
             >
                 <div className={styles.navigationWrapper}>
-                    <SwiperButtonPrev>prev</SwiperButtonPrev>
-                    <SwiperButtonNext>next</SwiperButtonNext>
+                    <SwiperButtonPrev />
+                    <SwiperButtonNext />
                 </div>
                 <SwiperSlide>
                     <Link href="#" className={styles.itemWrapper}>
@@ -61,10 +68,10 @@ export const Slider = () => {
                                 </HTag>
                             </div>
                             <div className={styles.countryWrapper}>
-                                <span>Китай</span>
+                                <span>Производитель: Китай</span>
                             </div>
                             <div className={styles.priceWrapper}>
-                                от<span> 20000&#8381; </span>
+                                от<span> 20000 &#8381;</span>
                             </div>
                         </div>
                     </Link>
@@ -81,10 +88,10 @@ export const Slider = () => {
                                 </HTag>
                             </div>
                             <div className={styles.countryWrapper}>
-                                <span>Китай</span>
+                                <span>Производитель: Китай</span>
                             </div>
                             <div className={styles.priceWrapper}>
-                                от<span> 20000&#8381; </span>
+                                от<span> 20000 &#8381;</span>
                             </div>
                         </div>
                     </Link>
@@ -101,10 +108,10 @@ export const Slider = () => {
                                 </HTag>
                             </div>
                             <div className={styles.countryWrapper}>
-                                <span>Китай</span>
+                                <span>Производитель: Китай</span>
                             </div>
                             <div className={styles.priceWrapper}>
-                                от<span> 20000&#8381; </span>
+                                от<span> 20000 &#8381;</span>
                             </div>
                         </div>
                     </Link>
@@ -121,10 +128,10 @@ export const Slider = () => {
                                 </HTag>
                             </div>
                             <div className={styles.countryWrapper}>
-                                <span>Китай</span>
+                                <span>Производитель: Китай</span>
                             </div>
                             <div className={styles.priceWrapper}>
-                                от<span> 20000&#8381; </span>
+                                от<span> 20000 &#8381;</span>
                             </div>
                         </div>
                     </Link>
@@ -141,10 +148,10 @@ export const Slider = () => {
                                 </HTag>
                             </div>
                             <div className={styles.countryWrapper}>
-                                <span>Китай</span>
+                                <span>Производитель: Китай</span>
                             </div>
                             <div className={styles.priceWrapper}>
-                                от<span> 20000&#8381; </span>
+                                от<span> 20000 &#8381;</span>
                             </div>
                         </div>
                     </Link>
@@ -161,10 +168,10 @@ export const Slider = () => {
                                 </HTag>
                             </div>
                             <div className={styles.countryWrapper}>
-                                <span>Китай</span>
+                                <span>Производитель: Китай</span>
                             </div>
                             <div className={styles.priceWrapper}>
-                                от<span> 20000&#8381; </span>
+                                от<span> 20000 &#8381;</span>
                             </div>
                         </div>
                     </Link>
@@ -181,10 +188,10 @@ export const Slider = () => {
                                 </HTag>
                             </div>
                             <div className={styles.countryWrapper}>
-                                <span>Китай</span>
+                                <span>Производитель: Китай</span>
                             </div>
                             <div className={styles.priceWrapper}>
-                                от<span> 20000&#8381; </span>
+                                от<span> 20000 &#8381;</span>
                             </div>
                         </div>
                     </Link>
