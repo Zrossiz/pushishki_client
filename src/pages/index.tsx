@@ -100,6 +100,9 @@ const Home = () => {
               </li>
             </ul>
           </div>
+          <a href="#" className={styles.iconWrapper}>
+            <Image src={'/icons/TopArrow.svg'} width={42} height={42} alt="Контакты" />
+          </a>
         </div>
       </section>
     </>
