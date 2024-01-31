@@ -5,6 +5,10 @@
     border-radius: 40px;
     overflow: hidden;
 
+    // @media screen and (min-width: 1600px) {
+    //     height: 800px;
+    // }
+
 
     .titleWrapper {
         display: flex;
@@ -39,13 +43,11 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url("/mainBg.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            height: 800px;
+            height: 630px;
             width: 100%;
             z-index: -1;
             overflow: hidden;
+
         }
     }
 

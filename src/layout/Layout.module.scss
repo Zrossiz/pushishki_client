@@ -1,18 +1,22 @@
 .globalWrapper {
-    max-width: 1780px;
+    max-width: 90%;
     margin: 0 auto;
 
-    @media screen and (max-width: 1600px) {
-        width: 1300px;
+    @media screen and (min-width: 1800px) {
+        max-width: 1300px;
     }
 
-    @media screen and (max-width: 1400px) {
-        width: 1136px;
-    }
+    // @media screen and (max-width: 1600px) {
+    //     width: 1300px;
+    // }
 
-    @media screen and (max-width: 1156px) {
-        width: 960px;
-    }
+    // @media screen and (max-width: 1400px) {
+    //     width: 1136px;
+    // }
+
+    // @media screen and (max-width: 1156px) {
+    //     width: 960px;
+    // }
 }
 
 .header {
