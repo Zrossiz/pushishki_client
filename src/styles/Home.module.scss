@@ -115,7 +115,7 @@
     padding: 44px 46px;
 }
 
-.firstAdvantages {
+.advantages {
     display: flex;
     justify-content: space-between;
     height: 800px;
@@ -195,5 +195,60 @@
                 transform: rotate(180deg);
             }
         }
+    }
+}
+
+.whyChoose {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px;
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 40px;
+    margin-top: 10px;
+
+    .titleWrapper {
+        padding-top: 52px;
+        padding-left: 30px;
+    }
+
+    .advantagesWrapper {
+        border-top: 1px solid #E6E6E6;
+        width: 100%;
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+
+            .advantage {
+                align-self: self-start;
+                width: 33%;
+                border-right: 1px solid #E6E6E6;
+                padding-top: 26px;
+                padding-left: 24px;
+                padding-bottom: 26px;
+
+                .imgWrapper {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 80px;
+                    height: 80px;
+                    background-color: #238C00;
+                    border-radius: 50%;
+                }
+    
+                h3 {
+                    margin-top: 10px;
+                }
+    
+                span {
+                    display: inline-block;
+                    margin-top: 10px;
+                }
+            }
+        }
+
     }
 }
