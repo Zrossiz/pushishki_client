@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
 import styles from './Slider.module.scss';
@@ -6,6 +7,7 @@ import Link from 'next/link';
 import { HTag } from '@/elements';
 import React from 'react';
 import cn from 'classnames';
+import { SliderProps } from './Slider.props';
 
 const SwiperButtonNext = () => {
     const swiper = useSwiper();
@@ -25,15 +27,19 @@ const SwiperButtonPrev = () => {
     );
 };
 
-export const Slider = () => {
+export const Slider = ({ title }: SliderProps) => {
     return (
         <>
             <div className={styles.wrapper}>
                 <div className={styles.titleWrapper}>
-                    <HTag tag='h2'>Новинки</HTag>
+                    <HTag tag='h2'>{title}</HTag>
                 </div>
             </div>
             <Swiper className={cn('mySwipper', styles.swiper)}
+                autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                }}
                 loop
                 slidesPerView={1}
                 spaceBetween={10}
@@ -55,6 +61,7 @@ export const Slider = () => {
                         spaceBetween: 20,
                     },
                 }}
+                modules={[Autoplay]}
             >
                 <div className={styles.navigationWrapper}>
                     <SwiperButtonPrev />

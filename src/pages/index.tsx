@@ -51,8 +51,8 @@ const Home = () => {
           </div>
         </div >
       </section >
-      <section className={styles.newProducts}>
-        <Slider />
+      <section className={styles.slider}>
+        <Slider title="Новинки" />
       </section>
       <section className={styles.firstAdvantages}>
         <div className={styles.imgWrapper}>
@@ -104,6 +104,9 @@ const Home = () => {
             <Image src={'/icons/TopArrow.svg'} width={42} height={42} alt="Контакты" />
           </a>
         </div>
+      </section>
+      <section className={styles.slider}>
+        <Slider title="Лучшие предложения" />
       </section>
     </>
   );
