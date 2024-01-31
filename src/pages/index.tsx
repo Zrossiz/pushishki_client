@@ -3,6 +3,8 @@ import styles from '../styles/Home.module.scss';
 import Link from "next/link";
 import { Slider } from "@/components";
 import Image from "next/image";
+import { HTag } from "@/elements";
+import cn from 'classnames';
 
 const Home = () => {
   return (
@@ -51,6 +53,54 @@ const Home = () => {
       </section >
       <section className={styles.newProducts}>
         <Slider />
+      </section>
+      <section className={styles.firstAdvantages}>
+        <div className={styles.imgWrapper}>
+          <Image fill src={'/mgu.png'} alt="Индивидуальный подход" />
+        </div>
+        <div className={styles.advantagesWrapper}>
+          <div className={styles.titleWrapper}>
+            <HTag tag="h2">
+              Доставка в удобное
+              <br />
+              для вас время!
+             </HTag>
+          </div>
+          <div className={styles.descWrapper}>
+            <ul>
+              <li className={styles.itemWrapper}>
+                <HTag tag="h3">
+                  Гибкое время <br /> доставки
+                </HTag>
+                <span className={styles.span}>
+                  Поможем сделать сюрприз вашему 
+                  <br />
+                  ребенку с доставкой в удобное для вас время
+                </span>
+              </li>
+              <li className={cn(styles.itemWrapper, styles.white)}>
+                <HTag tag="h3">
+                  Гибкое время <br /> доставки
+                </HTag>
+                <span className={styles.span}>
+                  Поможем сделать сюрприз вашему 
+                  <br />
+                  ребенку с доставкой в удобное для вас время
+                </span>
+              </li>
+              <li className={cn(styles.itemWrapper, styles.white)}>
+                <HTag tag="h3">
+                  Гибкое время <br /> доставки
+                </HTag>
+                <span className={styles.span}>
+                  Поможем сделать сюрприз вашему 
+                  <br />
+                  ребенку с доставкой в удобное для вас время
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
     </>
   );

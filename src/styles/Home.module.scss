@@ -5,11 +5,6 @@
     border-radius: 40px;
     overflow: hidden;
 
-    // @media screen and (min-width: 1600px) {
-    //     height: 800px;
-    // }
-
-
     .titleWrapper {
         display: flex;
         justify-content: center;
@@ -118,4 +113,65 @@
     background-color: #fff;
     border-radius: 40px;
     padding: 44px 46px;
+}
+
+.firstAdvantages {
+    display: flex;
+    justify-content: space-between;
+    height: 800px;
+    width: 100%;
+    margin-top: 10px;
+
+    .imgWrapper {
+        position: relative;
+        height: 800px;
+        width: 49%;
+        border-radius: 40px 12px 12px 40px;
+        overflow: hidden;
+    }
+
+    .advantagesWrapper {
+        position: relative;
+        width: 50%;
+        background-color: #fff;
+        border-radius: 12px 40px 40px 12px;
+        overflow: hidden;
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 590px;
+            height: 384px;
+            bottom: 80px;
+            left: 20px;
+            transform: rotate(2deg);
+            border-radius: 10px 20px 10px 20px;
+            background-color: #248F00;
+        }
+
+        .titleWrapper {
+            padding-left: 30px;
+            margin-top: 20px;
+        }
+
+        .descWrapper {
+            position: relative;
+            padding-left: 30px;
+            z-index: 2;
+
+            .itemWrapper {
+                margin-top: 20px;
+
+                .span {
+                    margin-top: 6px;
+                    font-size: 20px;
+                    letter-spacing: 4%;
+                }
+            }
+
+            .white {
+                color: #fff;
+            }
+        }
+    }
 }
