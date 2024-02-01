@@ -1,7 +1,7 @@
 import { withLayout } from "@/layout/Layout";
 import styles from '../styles/Home.module.scss';
 import Link from "next/link";
-import { Slider } from "@/components";
+import { Questions, Slider } from "@/components";
 import Image from "next/image";
 import { HTag } from "@/elements";
 import cn from 'classnames';
@@ -167,6 +167,16 @@ const Home = () => {
             <br />
             электромобилей
           </span>
+        </div>
+      </section>
+      <section className={styles.question}>
+        <div className={styles.titleWrapper}>
+          <HTag tag="h2">
+            Вопросы и ответы
+          </HTag>
+        </div>
+        <div className={styles.questionsWrapper}>
+          <Questions />
         </div>
       </section>
     </>

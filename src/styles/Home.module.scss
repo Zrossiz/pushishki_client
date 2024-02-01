@@ -370,6 +370,14 @@
     }
 }
 
+.question {
+    border-radius: 40px;
+    background-color: #fff;
+    margin-top: 10px;
+    padding-top: 24px;
+    padding-left: 36px;
+}
+
 @keyframes slide {
     /* Начало анимации */
     0% {
@@ -384,4 +392,4 @@
     100% {
       transform: translateX(-100%);
     }
-  }
+}
