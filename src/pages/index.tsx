@@ -150,7 +150,7 @@ const Home = () => {
             <span>подарок</span>
             <div className={styles.buttonWrapper}>
               <button>
-                <Image src={'/icons/SliderNavArrow.svg'} width={46} height={46} alt="Открыть" />
+                <Image src={'/icons/SliderNavArrowGreen.svg'} width={46} height={46} alt="Открыть" />
                 <Image src={'/icons/SliderNavArrow.svg'} width={46} height={46} alt="Открыть" />
               </button>
             </div>

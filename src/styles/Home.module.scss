@@ -308,6 +308,7 @@
                     border-radius: 50%;
                     cursor: pointer;
                     overflow: hidden;
+                    transition: 0.6s;
 
                     img {
                         transition: 0.6s;
@@ -319,6 +320,10 @@
 
                     img:nth-child(2n) {
                         transform: translateX(-50%);
+                    }
+
+                    &:hover {
+                        background-color: #fff;
                     }
 
                     &:hover img:nth-child(2n) {
@@ -359,7 +364,7 @@
             display: inline-block;
             margin-bottom: 30px;
             font-weight: 700;
-            font-size: 24px;
+            font-size: 20px;
             color: #fff;
         }
     }
