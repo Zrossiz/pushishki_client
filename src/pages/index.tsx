@@ -140,6 +140,35 @@ const Home = () => {
           </ul>
         </div>
       </section>
+      <section className={styles.quiz}>
+        <div className={styles.countWrapper}>
+          <span>( Всего 3 вопроса )</span>
+        </div>
+        <div className={styles.titleWrapper}>
+          <span>Подобрать</span>
+          <div className={styles.secondLineWrapper}>
+            <span>подарок</span>
+            <div className={styles.buttonWrapper}>
+              <button>
+                <Image src={'/icons/SliderNavArrow.svg'} width={46} height={46} alt="Открыть" />
+                <Image src={'/icons/SliderNavArrow.svg'} width={46} height={46} alt="Открыть" />
+              </button>
+            </div>
+            <span>ребенку</span>
+          </div>
+        </div>
+        <div className={styles.descWrapper}>
+          <span className={styles.darkFont}>Не требуем номер телефона!</span>
+          <br />
+          <span className={styles.lightFont}>
+            Вы получите только
+            <br /> 
+            список подходящих
+            <br />
+            электромобилей
+          </span>
+        </div>
+      </section>
     </>
   );
 }
