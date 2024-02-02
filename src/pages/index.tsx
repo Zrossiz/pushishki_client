@@ -45,7 +45,7 @@ const Home = () => {
               <br />
               электромобиль
               <div className={styles.iconWrapper}>
-                <Image src="/icons/Settings.svg" width={30} height={30} alt="Категории" />
+                <Image src="/icons/Settings.svg" width={50} height={50} alt="Категории" />
               </div>
             </Link>
           </div>

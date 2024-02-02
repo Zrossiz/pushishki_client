@@ -85,6 +85,7 @@
 
             .viewCategories {
                 display: flex;
+                align-items: center;
                 color: #fff;
             }
 
@@ -376,6 +377,12 @@
     margin-top: 10px;
     padding-top: 24px;
     padding-left: 36px;
+    padding-right: 36px;
+    height: 440px;
+
+    .questionsWrapper {
+        margin-top: 26px;
+    }
 }
 
 @keyframes slide {
