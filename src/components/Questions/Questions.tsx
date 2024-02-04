@@ -11,6 +11,31 @@ import { themes } from './Data';
 
 export const Questions = () => {
     const [menu, setMenu] = useState<number>(0);
+    const [openedQuestions, setOpenedQuestions] = useState<number[]>([]);
+
+    const changeTheme = (index: number) => {
+        setOpenedQuestions([]);
+        setMenu(index);
+    }
+
+    const switchStateOfQuestion = (candidateIndex: number) => {
+
+        if (openedQuestions.length === 0) {
+            setOpenedQuestions([candidateIndex]);
+            return;
+        }
+
+        if (openedQuestions.includes(candidateIndex)) {
+            setOpenedQuestions(openedQuestions.filter(index => index !== candidateIndex));
+            return;
+        }
+
+        setOpenedQuestions(prevQuestions => [...prevQuestions, candidateIndex]);
+        return;
+
+    };
+
+    console.log(openedQuestions);
     return (
         <>
             <div className={styles.paginationWrapper}>
@@ -21,7 +46,7 @@ export const Questions = () => {
                                 className={cn({
                                     [styles.green]: menu === index
                                 })}
-                                onClick={() => setMenu(index)}
+                                onClick={() => changeTheme(index)}
                                 key={index}
                             >
                                 {item.title}
@@ -38,24 +63,28 @@ export const Questions = () => {
                     <ul>
                         {
                             themes[menu].questions.map((item, index) => {
-                                const [activeQuestion, setActiveQuestion] = useState<boolean>(false);
                                 return (
-                                    <li className={styles.question} key={index}>
+                                    <li className={styles.question} key={Math.random()}>
                                     <AnimatePresence>
                                         <motion.div
                                             className={styles.titleWrapper} 
-                                            onClick={() => setActiveQuestion(!activeQuestion)}
+                                            onClick={() => switchStateOfQuestion(index)}
                                         >
                                             <HTag tag='h3'>{item.question}</HTag>
                                             <div className={styles.iconWrapper}>
-                                                <Image src={'/icons/plus.svg'} height={26} width={26} alt='Открыть'/>
+                                                <Image 
+                                                    src={'/icons/plus.svg'} 
+                                                    height={26} 
+                                                    width={26} 
+                                                    alt='Открыть'/>
                                             </div>
                                         </motion.div>
                                         {
-                                            activeQuestion && (
+                                            openedQuestions.includes(index) ? (
                                             <motion.div 
+                                                key={Math.random()}
                                                 className={cn(styles.answerWrapper, {
-                                                    [styles.active]: activeQuestion
+                                                    [styles.active]: openedQuestions.includes(index)
                                                 })}
                                                 initial={{ y: 10, opacity: 0 }}
                                                 animate={{ y: 0, opacity: 1 }}
@@ -63,10 +92,10 @@ export const Questions = () => {
                                                 transition={{ duration: 0.4 }}
                                             >
                                                 <span>
-                                                {item.answer}
+                                                    {item.answer}
                                                 </span>
                                             </motion.div>
-                                            )
+                                            ) : null
                                         }
                                     </AnimatePresence>
                                 </li>
