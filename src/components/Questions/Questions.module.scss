@@ -66,6 +66,13 @@
                         width: 60px;
                         height: 60px;
                     }
+
+                    .activeIcon {
+                        img {
+                            animation: rotate 0.4s ease-in-out;
+                            transform: rotate(45deg);
+                        }
+                    }
                 }
 
                 .answerWrapper {
@@ -163,4 +170,14 @@
             }
         }
     }
+}
+
+@keyframes rotate {
+ from {
+    transform: rotate(0deg);
+ }
+
+ to {
+    transform: rotate(45deg);
+ }
 }

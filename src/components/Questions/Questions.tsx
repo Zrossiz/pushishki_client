@@ -67,7 +67,11 @@ export const Questions = () => {
                                             onClick={() => switchStateOfQuestion(index)}
                                         >
                                             <HTag tag='h3'>{item.question}</HTag>
-                                            <div className={styles.iconWrapper}>
+                                            <div 
+                                                className={cn(styles.iconWrapper, {
+                                                    [styles.activeIcon]: openedQuestions.includes(index),
+                                                })}
+                                            >
                                                 <Image 
                                                     src={'/icons/plus.svg'} 
                                                     height={26} 
