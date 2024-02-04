@@ -113,6 +113,19 @@ export const Questions = () => {
                             </span>
                         </div>
                     </div>
+                    <div className={styles.contactsWrapper}>
+                        <div className={styles.buttonWrapper}>
+                            <button>Задать вопрос</button>
+                        </div>
+                        <a href="#" className={styles.link}>
+                            <Image 
+                                src={"/icons/WhatsApp.svg"} 
+                                width={40} 
+                                height={40} 
+                                alt='Написать в WhatsApp'
+                            />
+                        </a>
+                    </div>
                 </div>
             </div>
         </>
