@@ -1,0 +1,116 @@
+.quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    background-color: #238C00;
+    height: 700px;
+    border-radius: 40px;
+
+    .titleWrapper {
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 80px;
+        font-weight: 700;
+
+        .secondLineWrapper {
+            display: flex;
+            align-items: center;
+
+            .buttonWrapper {
+                position: relative;
+                margin-left: 10px;
+                margin-right: 10px;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    top: -30%;
+                    left: -46%;
+                    width: 200px;
+                    height: 200px;
+                    background-color: #fff;
+                    opacity: 0;
+                    border-radius: 50%;
+                    transform: scale(0);
+                    transition: 0.6s;
+                }
+
+                &:hover::before {
+                    opacity: 0.5;
+                    transform: scale(1);
+                }
+                
+
+                button {
+                    position: relative;
+                    border: none;
+                    background-color: #2E601D;
+                    width: 105px;
+                    height: 105px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    overflow: hidden;
+                    transition: 0.6s;
+
+                    img {
+                        transition: 0.6s;
+                    }
+
+                    img:first-child {
+                        transform: translateX(-200%);
+                    }
+
+                    img:nth-child(2n) {
+                        transform: translateX(-50%);
+                    }
+
+                    &:hover {
+                        background-color: #fff;
+                    }
+
+                    &:hover img:nth-child(2n) {
+                        transform: translateX(200%);
+                    }
+
+                    &:hover img:first-child {
+                        transform: translateX(50%);
+                    }
+
+                }
+            }
+        }
+    }
+
+    .countWrapper {
+        margin-top: 30px;
+
+        span {
+            color: #d5d5d5;
+            font-weight: 600;
+            font-size: 20px;
+        }        
+    }
+
+    .descWrapper {
+        text-align: center;
+
+        .darkFont {
+            display: inline-block;
+            margin-bottom: 14px;
+            font-weight: 700;
+            font-size: 24px;
+            color: #135124;
+        }
+
+        .lightFont {
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+}
