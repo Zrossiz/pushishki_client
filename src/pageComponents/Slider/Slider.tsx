@@ -114,7 +114,7 @@ export const Slider = ({ title }: SliderProps) => {
                         </div>
                         <div className={styles.descWrapper}>
                             <div className={styles.titleWrapper}>
-                                <HTag tag='h3' color='black'>
+                                <HTag tag='h3'>
                                     Mercedes Benz
                                 </HTag>
                             </div>

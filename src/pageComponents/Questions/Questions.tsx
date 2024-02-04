@@ -34,6 +34,13 @@ export const Questions = () => {
 
     return (
         <>
+        <section className={styles.question}>
+        <div className={styles.titleWrapper}>
+          <HTag tag="h2">
+            Вопросы и ответы
+          </HTag>
+        </div>
+        <div className={styles.questionsElemsWrapper}>
             <div className={styles.paginationWrapper}>
                 <ul>
                     {themes.map((item, index:number) => {
@@ -60,7 +67,7 @@ export const Questions = () => {
                         {
                             themes[menu].questions.map((item, index) => {
                                 return (
-                                    <li className={styles.question} key={Math.random()}>
+                                    <li className={styles.questionItem} key={Math.random()}>
                                     <AnimatePresence>
                                         <motion.div
                                             className={styles.titleWrapper} 
@@ -132,6 +139,8 @@ export const Questions = () => {
                     </div>
                 </div>
             </div>
+            </div>
+            </section>
         </>
     )
 }

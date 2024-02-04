@@ -81,7 +81,7 @@ const Home = () => {
                 </span>
               </li>
               <li className={cn(styles.itemWrapper, styles.white)}>
-                <HTag tag="h3">
+                <HTag tag="h3" color="white">
                   Гибкое время <br /> доставки
                 </HTag>
                 <span className={styles.span}>
@@ -91,7 +91,7 @@ const Home = () => {
                 </span>
               </li>
               <li className={cn(styles.itemWrapper, styles.white)}>
-                <HTag tag="h3">
+                <HTag tag="h3" color="white">
                   Гибкое время <br /> доставки
                 </HTag>
                 <span className={styles.span}>
@@ -143,16 +143,7 @@ const Home = () => {
         </div>
       </section>
       <Quiz />
-      <section className={styles.question}>
-        <div className={styles.titleWrapper}>
-          <HTag tag="h2">
-            Вопросы и ответы
-          </HTag>
-        </div>
-        <div className={styles.questionsWrapper}>
-          <Questions />
-        </div>
-      </section>
+      <Questions />
       <section className={styles.map}>
         <div className={styles.infoWrapper}>
           <div className={styles.titleDescWrapper}>
