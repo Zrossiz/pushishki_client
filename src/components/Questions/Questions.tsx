@@ -21,21 +21,17 @@ export const Questions = () => {
     const switchStateOfQuestion = (candidateIndex: number) => {
 
         if (openedQuestions.length === 0) {
-            setOpenedQuestions([candidateIndex]);
-            return;
+            return setOpenedQuestions([candidateIndex]);
         }
 
         if (openedQuestions.includes(candidateIndex)) {
-            setOpenedQuestions(openedQuestions.filter(index => index !== candidateIndex));
-            return;
+            return setOpenedQuestions(openedQuestions.filter(index => index !== candidateIndex));
         }
 
-        setOpenedQuestions(prevQuestions => [...prevQuestions, candidateIndex]);
-        return;
-
+        return setOpenedQuestions(prevQuestions => [...prevQuestions, candidateIndex]);
+        
     };
 
-    console.log(openedQuestions);
     return (
         <>
             <div className={styles.paginationWrapper}>
