@@ -1,12 +1,12 @@
 import { withLayout } from "@/layout/Layout";
 import styles from '../styles/Home.module.scss';
 import Link from "next/link";
-import { Questions, Slider } from "@/components";
 import Image from "next/image";
 import { HTag } from "@/elements";
 import cn from 'classnames';
 import { inView, motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Questions, Slider } from "@/pageComponents";
 
 const Home = () => {
   const ref = useRef(null)
