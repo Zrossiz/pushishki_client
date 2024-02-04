@@ -179,6 +179,33 @@ const Home = () => {
           <Questions />
         </div>
       </section>
+      <section className={styles.map}>
+        <div className={styles.infoWrapper}>
+          <div className={styles.titleDescWrapper}>
+            <div className={styles.titleWrapper}>
+              <HTag tag="h2">Протестируйте <br /> перед заказом</HTag>
+            </div>
+            <div className={styles.descWrapper}>
+              <span>
+                Приходите в наш шоу-рум, мы поможем <br />
+                подобрать электрокар и расскажем про все <br />
+                нюансы использования
+              </span>
+            </div>
+          </div>
+          <div className={styles.contactsWrapper}>
+            <div className={styles.addressWrapper}>
+              <div className={styles.titleWrapper}>
+                <HTag tag="h3">Москва</HTag>
+              </div>
+            </div>
+            <div className={styles.socialWrapper}>2</div>
+          </div>
+        </div>
+        <div className={styles.mapWrapper}>
+          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9851e814dd4a7db8fa6c766b41f911822c247c52a643e0e2db22f970cdf2ffa8&amp;source=constructor" width="100%" height="720" frameBorder="0"></iframe>
+        </div>
+      </section>
     </>
   );
 }
