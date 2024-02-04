@@ -5,8 +5,16 @@ import { Questions, Slider } from "@/components";
 import Image from "next/image";
 import { HTag } from "@/elements";
 import cn from 'classnames';
+import { inView, motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const Home = () => {
+  const ref = useRef(null)
+  const isInView = useInView(ref);
+  const ref2 = useRef(null)
+  const isInView2 = useInView(ref);
+  const ref3 = useRef(null)
+  const isInView3 = useInView(ref);
   return (
     <>
       <section className={styles.firstDisplay}>
@@ -145,16 +153,37 @@ const Home = () => {
           <span>( Всего 3 вопроса )</span>
         </div>
         <div className={styles.titleWrapper}>
-          <span>Подобрать</span>
+          <motion.span      
+            ref={ref}
+            transition={{ delay: 0.6, duration: 0.4 }}
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: isInView ? 0 : 30, opacity: isInView ? 1 : 0 }}
+          >
+            Подобрать
+          </motion.span>
           <div className={styles.secondLineWrapper}>
-            <span>подарок</span>
+            <motion.span      
+              ref={ref2}
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: isInView2 ? 0 : 30, opacity: isInView2 ? 1 : 0 }}
+              transition={{ delay: 0.8, duration: 0.4 }}
+            >
+              подарок
+            </motion.span>
             <div className={styles.buttonWrapper}>
               <button>
                 <Image src={'/icons/SliderNavArrowGreen.svg'} width={46} height={46} alt="Открыть" />
                 <Image src={'/icons/SliderNavArrow.svg'} width={46} height={46} alt="Открыть" />
               </button>
             </div>
-            <span>ребенку</span>
+            <motion.span      
+              ref={ref3}
+              transition={{ delay: 1, duration: 0.4 }}
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: isInView3 ? 0 : 30, opacity: isInView3 ? 1 : 0 }}
+            >
+              ребенку
+            </motion.span>
           </div>
         </div>
         <div className={styles.descWrapper}>
