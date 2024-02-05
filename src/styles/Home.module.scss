@@ -292,7 +292,13 @@
             .addressWrapper {
                 padding-top: 26px;
                 padding-left: 36px;
+                padding-bottom: 26px;
                 border-right: 2px solid #f1f1f1;
+                width: 100%;
+            }
+
+            .socialWrapper {
+                width: 100%;
             }
         }
     }

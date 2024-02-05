@@ -10,7 +10,7 @@ export const Header = () => {
                 <div className={styles.logoCategoryWrapper}>
                     <div className={styles.logoWrapper}>
                         <Link href='/'>
-                            <Image src="/Logo.svg" width={188} height={42} alt="Логотип" />
+                            <Image src="/Logo.png" width={148} height={80} alt="Логотип" />
                         </Link>
                     </div>
                     <div className={styles.categoryNavWrapper}>
