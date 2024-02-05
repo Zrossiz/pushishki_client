@@ -1,0 +1,113 @@
+.form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 40px;
+    padding: 100px 70px 110px 150px;
+
+    .wrapper {
+        margin-right: 30px;
+        width: 60%;
+
+        .formWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 82px;
+
+            input {
+                border: none;
+                background-color: transparent;
+                border-bottom: 2px solid #D9D9D9;
+                font-size: 24px;
+                width: 250px;
+
+                &::placeholder {
+                    color: #8C8C8C;
+                    font-size: 24px;
+                }
+
+                &:active, &:focus {
+                    outline: none;
+                }
+            }
+
+            .big {
+                width: 100%;
+                margin-top: 70px;
+            }
+        }
+
+        .buttonWrapper {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            margin-top: 50px;
+            
+            button {
+                position: relative;
+                background-color: #248F00;
+                border-radius: 20px;
+                border: none;
+                padding-top: 22px;
+                padding-bottom: 22px;
+                padding-right: 88px;
+                padding-left: 36px;
+                color: #fff;
+                font-size: 24px;
+                transition: 0.8s;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #08400F;
+                }
+
+                &:hover img {
+                    transform: translateX(10px);
+                }
+
+                .sended {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    background-color: #248F00;
+                }
+
+                .iconWrapper {
+                    position: absolute;
+                    right: 8px;
+                    top: 8px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: fit-content;
+                    background-color: #fff;
+                    border-radius: 20px;
+                    padding: 16px;
+                    overflow: hidden;
+
+                    img {
+                        transition: 0.8s;
+                    }
+                }
+
+                .activeIcon {
+
+                    img {
+                        transition: 0.6s;
+                        transform: translateX(100px);
+                    }
+                }
+            }
+        }
+    }
+}
