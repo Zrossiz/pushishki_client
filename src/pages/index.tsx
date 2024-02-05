@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { HTag } from "@/elements";
 import cn from 'classnames';
-import { Questions, Quiz, Slider } from "@/pageComponents";
+import { Form, Questions, Quiz, Slider } from "@/pageComponents";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -242,6 +242,7 @@ const Home = () => {
           <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9851e814dd4a7db8fa6c766b41f911822c247c52a643e0e2db22f970cdf2ffa8&amp;source=constructor" width="100%" height="720" frameBorder="0"></iframe>
         </div>
       </section>
+      <Form />
     </>
   );
 }
