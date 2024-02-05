@@ -5,11 +5,11 @@ import Image from "next/image";
 
 export const Quiz = () => {
     const ref = useRef(null)
-    const isInView = useInView(ref);
+    const isInView = useInView(ref, { once: true });
     const ref2 = useRef(null)
-    const isInView2 = useInView(ref);
+    const isInView2 = useInView(ref2, { once: true });
     const ref3 = useRef(null)
-    const isInView3 = useInView(ref);
+    const isInView3 = useInView(ref3, { once: true });
     return (
         <section className={styles.quiz}>
         <div className={styles.countWrapper}>

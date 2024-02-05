@@ -163,8 +163,29 @@ const Home = () => {
               <div className={styles.titleWrapper}>
                 <HTag tag="h3">Москва</HTag>
               </div>
+              <div className={styles.address}>
+                <a target="_blank" href="https://yandex.ru/maps/-/CDBmu-9y">
+                  ул. Вилиса Лациса, 30 с2 <br />
+                </a>
+              </div>
+              <div className={styles.workingHoursWrapper}>
+                <span>ПН - ВС: 10:00 - 20:00</span>
+              </div>
             </div>
-            <div className={styles.socialWrapper}>2</div>
+            <div className={styles.socialWrapper}>
+              <div className={styles.titleWrapper}>
+                <HTag tag="h3">Связаться с нами</HTag>
+              </div>
+              <div className={styles.linksWrapper}>
+                <a href="" target="_blank">Youtube</a>
+                <a href="" target="_blank">Вконтакте</a>
+                <a href="" target="_blank">Авито</a>
+                <a href="" target="_blank">E-mail</a>
+              </div>
+              <div className={styles.phoneWrapper}>
+                <a href="" target="_blank">+7 495-766-07-13</a>
+              </div>
+            </div>
           </div>
         </div>
         <div className={styles.mapWrapper}>
