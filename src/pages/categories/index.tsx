@@ -1,11 +1,11 @@
 import { withLayout } from "@/layout/Layout";
-import { Quiz, Slider } from "@/pageComponents";
+import { PageTitle, Quiz, Slider } from "@/pageComponents";
 import styles from '../../styles/Categories.module.scss';
 
 const CategoriesPage = () => {
     return (
         <>
-            <section className={styles.titleWrapper}></section>
+            <PageTitle counter="6 категорий" />
             <section className={styles.categoriesWrapper}></section>
             <Slider title="Лучшие предложения" />
             <Quiz />
