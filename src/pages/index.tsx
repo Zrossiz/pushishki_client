@@ -73,9 +73,7 @@ const Home = () => {
           </div>
         </div >
       </section >
-      <section className={styles.slider}>
-        <Slider title="Новинки" />
-      </section>
+      <Slider title="Новинки" />
       <section className={styles.advantages}>
         <div className={styles.imgWrapper}>
           <Image fill src={'/mgu.png'} alt="Индивидуальный подход" />
@@ -151,9 +149,7 @@ const Home = () => {
           </a>
         </div>
       </section>
-      <section className={styles.slider}>
-        <Slider title="Лучшие предложения" />
-      </section>
+      <Slider title="Лучшие предложения" />
       <section className={styles.whyChoose}>
         <div className={styles.titleWrapper}>
           <HTag tag="h2">
