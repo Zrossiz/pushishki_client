@@ -1,7 +1,24 @@
-.linkWrapper {
+.wrapper {
+    display: flex;
 
-    .link {
-        font-size: 24px;
-        color: #6D7280;
+    .linkWrapper {
+        position: relative;
+        display: inline-block;
+        padding-right: 26px;
+    
+        .link {
+            font-size: 24px;
+            color: #6D7280;
+        }
+
+        .dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            right: 10px;
+            top: 0 + 50%;
+            background-color: #6D7280;
+            border-radius: 50%;
+        }
     }
 }
