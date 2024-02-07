@@ -11,26 +11,26 @@ import { themes } from './Data';
 
 export const Questions = () => {
     const [menu, setMenu] = useState<number>(0);
-    const [openedQuestions, setOpenedQuestions] = useState<number[]>([]);
+    const [openedQuestion, setOpenedQuestion] = useState<number>(10);
 
     const changeTheme = (index: number) => {
-        setOpenedQuestions([]);
+        setOpenedQuestion(10);
         setMenu(index);
     }
 
-    const switchStateOfQuestion = (candidateIndex: number) => {
+    // const switchStateOfQuestion = (candidateIndex: number) => {
 
-        if (openedQuestions.length === 0) {
-            return setOpenedQuestions([candidateIndex]);
-        }
+    //     if (openedQuestions.length === 0) {
+    //         return setOpenedQuestions([candidateIndex]);
+    //     }
 
-        if (openedQuestions.includes(candidateIndex)) {
-            return setOpenedQuestions(openedQuestions.filter(index => index !== candidateIndex));
-        }
+    //     if (openedQuestions.includes(candidateIndex)) {
+    //         return setOpenedQuestions(openedQuestions.filter(index => index !== candidateIndex));
+    //     }
 
-        return setOpenedQuestions(prevQuestions => [...prevQuestions, candidateIndex]);
+    //     return setOpenedQuestions(prevQuestions => [...prevQuestions, candidateIndex]);
         
-    };
+    // };
 
     return (
         <>
@@ -71,12 +71,12 @@ export const Questions = () => {
                                     <AnimatePresence>
                                         <motion.div
                                             className={styles.titleWrapper} 
-                                            onClick={() => switchStateOfQuestion(index)}
+                                            onClick={() => setOpenedQuestion(index)}
                                         >
                                             <HTag tag='h3'>{item.question}</HTag>
                                             <div 
                                                 className={cn(styles.iconWrapper, {
-                                                    [styles.activeIcon]: openedQuestions.includes(index),
+                                                    [styles.activeIcon]: openedQuestion === index,
                                                 })}
                                             >
                                                 <Image 
@@ -86,24 +86,16 @@ export const Questions = () => {
                                                     alt='Открыть'/>
                                             </div>
                                         </motion.div>
-                                        {
-                                            openedQuestions.includes(index) ? (
-                                            <motion.div 
-                                                key={Math.random()}
-                                                className={cn(styles.answerWrapper, {
-                                                    [styles.active]: openedQuestions.includes(index)
-                                                })}
-                                                initial={{ y: 10, opacity: 0 }}
-                                                animate={{ y: 0, opacity: 1 }}
-                                                exit={{ y: -10, opacity: 0 }}
-                                                transition={{ duration: 0.4 }}
-                                            >
-                                                <span>
-                                                    {item.answer}
-                                                </span>
-                                            </motion.div>
-                                            ) : null
-                                        }
+                                        <div 
+                                            key={Math.random()}
+                                            className={cn(styles.answerWrapper, {
+                                                [styles.active]: openedQuestion === index
+                                            })}
+                                        >
+                                            <span style={{minHeight: 0}} className={styles.span}>
+                                                {item.answer}
+                                            </span>
+                                        </div>
                                     </AnimatePresence>
                                 </li>
                                 )
