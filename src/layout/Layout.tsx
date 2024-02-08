@@ -19,6 +19,7 @@ const Layout = ({ children }: ILayoutProps): JSX.Element => {
     <>
       <Head>
         <title>Пушишки</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
       <div className={cn(
         manrope.className,

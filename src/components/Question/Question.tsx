@@ -4,14 +4,13 @@ import { useState } from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 
-export const Question = ({ question, answer, key }:QuestionProps) => {
+export const Question = ({ question, answer }:QuestionProps) => {
     const [open, setOpen] = useState<boolean>(false);
     return (
         <li
             className={cn(styles.item, {
               [styles.item__active]: open,
             })}
-            key={key}
             onClick={() => setOpen(!open)}
           >
             <div className={styles.item__question}>

@@ -1,9 +1,7 @@
 import Link from "next/link";
 import styles from './CategoryNavigation.module.scss';
-import { ICategory } from "@/types/Category";
-import { useEffect } from "react";
 
-const categories: ICategory[] = [
+const categories = [
     {
         name: 'Электромобили',
         slug: 'electromobili'
