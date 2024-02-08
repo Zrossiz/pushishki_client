@@ -7,6 +7,7 @@ import { useState } from "react";
 import { HTag } from '@/elements';
 import { motion, AnimatePresence } from "framer-motion";
 import { themes } from './Data';
+import { Question } from '@/components';
 
 
 export const Questions = () => {
@@ -17,20 +18,6 @@ export const Questions = () => {
         setOpenedQuestion(10);
         setMenu(index);
     }
-
-    // const switchStateOfQuestion = (candidateIndex: number) => {
-
-    //     if (openedQuestions.length === 0) {
-    //         return setOpenedQuestions([candidateIndex]);
-    //     }
-
-    //     if (openedQuestions.includes(candidateIndex)) {
-    //         return setOpenedQuestions(openedQuestions.filter(index => index !== candidateIndex));
-    //     }
-
-    //     return setOpenedQuestions(prevQuestions => [...prevQuestions, candidateIndex]);
-        
-    // };
 
     return (
         <>
@@ -67,37 +54,7 @@ export const Questions = () => {
                         {
                             themes[menu].questions.map((item, index) => {
                                 return (
-                                    <li className={styles.questionItem} key={Math.random()}>
-                                    <AnimatePresence>
-                                        <motion.div
-                                            className={styles.titleWrapper} 
-                                            onClick={() => setOpenedQuestion(index)}
-                                        >
-                                            <HTag tag='h3'>{item.question}</HTag>
-                                            <div 
-                                                className={cn(styles.iconWrapper, {
-                                                    [styles.activeIcon]: openedQuestion === index,
-                                                })}
-                                            >
-                                                <Image 
-                                                    src={'/icons/plus.svg'} 
-                                                    height={26} 
-                                                    width={26} 
-                                                    alt='Открыть'/>
-                                            </div>
-                                        </motion.div>
-                                        <div 
-                                            key={Math.random()}
-                                            className={cn(styles.answerWrapper, {
-                                                [styles.active]: openedQuestion === index
-                                            })}
-                                        >
-                                            <span style={{minHeight: 0}} className={styles.span}>
-                                                {item.answer}
-                                            </span>
-                                        </div>
-                                    </AnimatePresence>
-                                </li>
+                                    <Question key={Math.random()} question={item.question} answer={item.answer} />
                                 )
                             })
                         }
