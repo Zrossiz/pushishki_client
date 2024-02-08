@@ -9,7 +9,16 @@ import Link from "next/link";
 const CategoriesPage = ({ categories }: ICategoryPageProps) => {
     return (
         <>
-            <PageTitle counter="6 категорий" />
+            <PageTitle 
+                counter={`${categories?.length} категорий`} 
+                title={'Категории'} 
+                breadcrumbs={[
+                    {
+                        name: 'Главная',
+                        path: '/'
+                    }
+                ]}
+            />
             <section className={styles.categoriesWrapper}>
                 <div className={styles.wrapper}>
                     {
