@@ -1,4 +1,4 @@
-import { AvailabilityFilter, BrandFilter, CountryFilter, MaxWeightFilter, PriceFilter } from '@/components';
+import { AvailabilityFilter, BrandFilter, CountryFilter, MaxWeightFilter, PriceFilter, Sort } from '@/components';
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
 import { useState } from 'react';
@@ -38,7 +38,9 @@ export const Catalog = ({ brands, countries }: ICatalogProps) => {
                     </LinkButton>
                 </div>
             </div>
-            <div className={styles.catalogWrapper}>Каталог</div>
+            <div className={styles.catalogWrapper}>
+                <Sort />
+            </div>
         </section>
     )
 }
