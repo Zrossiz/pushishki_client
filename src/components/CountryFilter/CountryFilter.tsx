@@ -9,7 +9,7 @@ export const CountryFilter = ({ countries }: ICountryFilterProps) => {
 
     return (
         <>
-            <span className={styles.span}>Страна</span>
+            <span className={styles.span}>Страны</span>
             <div className={styles.filter}>
                 <ul className={styles.list}>
                     {
@@ -26,9 +26,15 @@ export const CountryFilter = ({ countries }: ICountryFilterProps) => {
                         }) 
                     }
                 </ul>
-                <div className={styles.openAll} onClick={() => setOpen(!open)}>
-                    { open ? 'Скрыть' : 'Показать'}
-                </div>
+                {
+                    countries?.length && countries?.length >= 4 
+                    ?
+                    <div className={styles.openAll} onClick={() => setOpen(!open)}>
+                        { open ? 'Скрыть' : 'Показать'}
+                    </div>
+                    : 
+                    null
+                }
             </div>
         </> 
     )

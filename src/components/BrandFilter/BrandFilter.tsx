@@ -26,9 +26,15 @@ export const BrandFilter = ({ brands }: IBrandFilterProps) => {
                         }) 
                     }
                 </ul>
-                <div className={styles.openAll} onClick={() => setOpen(!open)}>
-                    { open ? 'Скрыть' : 'Показать'}
-                </div>
+                {
+                    brands?.length && brands?.length >= 4 
+                    ?
+                    <div className={styles.openAll} onClick={() => setOpen(!open)}>
+                        { open ? 'Скрыть' : 'Показать'}
+                    </div>
+                    : 
+                    null
+                }
             </div>
         </> 
     )
