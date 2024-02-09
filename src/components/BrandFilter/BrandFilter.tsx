@@ -16,17 +16,17 @@ export const BrandFilter = ({ brands }: IBrandFilterProps) => {
                         open ?
                         brands?.data?.map((item, index) => {
                             return (
-                                <Checkbox name={item.name} />
+                                <Checkbox key={item.id} name={item.name} />
                             )
                         }) :
                         brands?.data?.slice(0, 4).map((item, index) => {
                             return (
-                                <Checkbox name={item.name} />
+                                <Checkbox key={item.id} name={item.name} />
                             )
                         }) 
                     }
                 </ul>
-                <div onClick={() => setOpen(!open)}>
+                <div className={styles.openAll} onClick={() => setOpen(!open)}>
                     { open ? 'Скрыть' : 'Показать'}
                 </div>
             </div>
