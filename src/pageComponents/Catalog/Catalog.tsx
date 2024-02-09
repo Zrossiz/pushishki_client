@@ -1,4 +1,4 @@
-import { PriceFilter } from '@/components';
+import { BrandFilter, PriceFilter } from '@/components';
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
 import { useState } from 'react';
@@ -20,7 +20,8 @@ export const Catalog = ({ brands }: ICatalogProps) => {
                     />
                 </div>
                 <div className={styles.filterWrapper}>
-                    <span>Бренд</span>
+                    <BrandFilter brands={brands} />
+                    {/* <span>Бренд</span>
                     <div className={styles.filter}>
                         <ul>
                             {
@@ -36,7 +37,7 @@ export const Catalog = ({ brands }: ICatalogProps) => {
                                 })
                             }
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className={styles.catalogWrapper}>Каталог</div>
