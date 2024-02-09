@@ -40,6 +40,7 @@ export const Catalog = ({ brands, countries }: ICatalogProps) => {
             </div>
             <div className={styles.catalogWrapper}>
                 <Sort />
+                <div className={styles.listWrapper}></div>
             </div>
         </section>
     )
