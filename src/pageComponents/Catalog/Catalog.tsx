@@ -2,7 +2,7 @@ import { AvailabilityFilter, BrandFilter, CountryFilter, MaxWeightFilter, PriceF
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
 import { useState } from 'react';
-import { Checkbox } from '@/elements';
+import { Checkbox, LinkButton } from '@/elements';
 
 export const Catalog = ({ brands, countries }: ICatalogProps) => {
 
@@ -31,6 +31,11 @@ export const Catalog = ({ brands, countries }: ICatalogProps) => {
                 </div>
                 <div className={styles.filterWrapper}>
                     <MaxWeightFilter />
+                </div>
+                <div className={styles.filterWrapper}>
+                    <LinkButton element='button' onClick={() => console.log(true)}>
+                        Показать
+                    </LinkButton>
                 </div>
             </div>
             <div className={styles.catalogWrapper}>Каталог</div>
