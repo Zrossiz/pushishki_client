@@ -38,7 +38,8 @@
             border-radius: 16px;
 
             &:focus {
-                outline: none;
+                border: none;
+                outline: 2px solid #238C00;
             }
         }
         input::-webkit-outer-spin-button,

@@ -1,4 +1,4 @@
-import { AvailabilityFilter, BrandFilter, CountryFilter, PriceFilter } from '@/components';
+import { AvailabilityFilter, BrandFilter, CountryFilter, MaxWeightFilter, PriceFilter } from '@/components';
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
 import { useState } from 'react';
@@ -28,6 +28,9 @@ export const Catalog = ({ brands, countries }: ICatalogProps) => {
                 </div>
                 <div className={styles.filterWrapper}>
                     <AvailabilityFilter />
+                </div>
+                <div className={styles.filterWrapper}>
+                    <MaxWeightFilter />
                 </div>
             </div>
             <div className={styles.catalogWrapper}>Каталог</div>
