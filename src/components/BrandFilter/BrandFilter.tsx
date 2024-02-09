@@ -2,6 +2,7 @@ import { IBrandWithLength } from '@/types';
 import styles from './BrandFilter.module.scss';
 import { IBrandFilterProps } from './BrandFilter.props';
 import { useState } from 'react';
+import { Checkbox } from '@/elements';
 
 export const BrandFilter = ({ brands }: IBrandFilterProps) => {
     const [open, setOpen] = useState<boolean>(false);
@@ -15,26 +16,12 @@ export const BrandFilter = ({ brands }: IBrandFilterProps) => {
                         open ?
                         brands?.data?.map((item, index) => {
                             return (
-                                <li key={item.id} className={styles.brandWrapper}>
-                                    <label className={styles.label}>
-                                        <input className={styles.input} type="checkbox" name="" id="" />
-                                        <span>
-                                            {item.name}
-                                        </span>
-                                    </label>
-                                </li>
+                                <Checkbox name={item.name} />
                             )
                         }) :
                         brands?.data?.slice(0, 4).map((item, index) => {
                             return (
-                                <li key={item.id} className={styles.brandWrapper}>
-                                    <label className={styles.label}>
-                                        <input className={styles.input} type="checkbox" name="" id="" />
-                                        <span>
-                                            {item.name}
-                                        </span>
-                                    </label>
-                                </li>
+                                <Checkbox name={item.name} />
                             )
                         }) 
                     }
