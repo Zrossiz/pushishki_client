@@ -2,3 +2,44 @@
     font-weight: 700;
     font-size: 36px;
 }
+
+.filter {
+    margin-top: 20px;
+
+    .list {
+
+        .brandWrapper {
+            margin-top: 10px;
+
+            .label {
+
+                & input:checked ~ span::before {
+                    background-image: url('/icons/Checkbox.svg');
+                    background-color: #238C00;
+                }
+
+                span {
+                    display: inline-block;
+                    position: relative;
+                    font-size: 24px;
+                    padding-left: 46px;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        width: 30px;
+                        height: 30px;
+                        border: 2px solid #238C00;
+                        border-radius: 8px;
+                        background-color: #ECECEC;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-image: none;
+                        transition: 0.6s;
+                    }
+                }
+            }    
+        }
+    }
+}

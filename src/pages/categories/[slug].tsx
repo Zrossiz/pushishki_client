@@ -7,7 +7,7 @@ const CategoryPage = ({ brands }: ICatalogPageProps) => {
     return (
         <>
             <PageTitle 
-                title={'Покупка электромобиля'} 
+                title={'Каталог'} 
                 counter={`10 товаров`} 
                 breadcrumbs={[
                     {
