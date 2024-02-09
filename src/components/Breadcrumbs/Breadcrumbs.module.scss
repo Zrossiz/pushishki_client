@@ -8,7 +8,7 @@
     
         .link {
             font-size: 24px;
-            color: #6D7280;
+            color: var(--dark-grey);
         }
 
         .dot {
@@ -17,7 +17,7 @@
             height: 6px;
             right: 10px;
             top: 0 + 50%;
-            background-color: #6D7280;
+            background-color: var(--dark-grey);
             border-radius: 50%;
         }
     }
