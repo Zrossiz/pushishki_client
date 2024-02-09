@@ -1,0 +1,22 @@
+.catalog {
+    margin-top: 10px;
+    padding: 30px;
+    padding-top: 100px;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+
+    .filtersWrapper {
+
+
+        .filterWrapper {
+
+            &:not(:first-child) {
+                margin-top: 20px;
+            }
+
+        }
+    }
+}

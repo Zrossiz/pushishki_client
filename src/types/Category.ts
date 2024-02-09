@@ -11,7 +11,3 @@ export interface ICategoryWithLength {
     totalPages: number,
     data: ICategory[]
 }
-
-export interface ICategoryPageProps {
-    categories?: ICategoryWithLength
-}

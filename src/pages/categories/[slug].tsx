@@ -1,7 +1,9 @@
 import { withLayout } from "@/layout/Layout"
 import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents"
+import { IBrandWithLength, ICatalogPageProps } from "@/types"
+import axios from "axios"
 
-const CategoryPage = () => {
+const CategoryPage = ({ brands }: ICatalogPageProps) => {
     return (
         <>
             <PageTitle 
@@ -18,11 +20,22 @@ const CategoryPage = () => {
                     }
                 ]}
             />
-            <Catalog />
+            <Catalog brands={brands} />
             <Slider title={'Лучшие предложения'} />
             <Quiz />
         </>
     )
+}
+
+export const getServerSideProps = async () => {
+
+    const brands = await axios.get<IBrandWithLength>(`${process.env.API_URL}/brand`);
+
+    return {
+        props: {
+            brands: brands?.data
+        }
+    }
 }
 
 export default withLayout(CategoryPage)

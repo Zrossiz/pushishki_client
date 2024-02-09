@@ -3,7 +3,6 @@ import { PageTitle, Quiz, Slider } from "@/pageComponents";
 import styles from '../../styles/Categories.module.scss';
 import axios from 'axios';
 import { ICategoryPageProps, ICategoryWithLength } from "@/types";
-import Image from "next/image";
 import Link from "next/link";
 
 const CategoriesPage = ({ categories }: ICategoryPageProps) => {
@@ -49,7 +48,7 @@ export const getServerSideProps = async () => {
 
     return {
         props: {
-            categories: categories.data
+            categories: categories?.data
         }
     }
 }

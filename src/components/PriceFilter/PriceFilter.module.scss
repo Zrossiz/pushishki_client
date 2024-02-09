@@ -1,0 +1,54 @@
+.span {
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.filter {
+    display: flex;
+    margin-top: 20px;
+
+    .brandWrapper {
+        
+        label {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+
+    .inputWrapper {
+        position: relative;
+
+        .placeholder {
+            position: absolute;
+            top: 20%;
+            left: 4%;
+            font-size: 24px;
+            font-weight: 700;
+            color: #6D7280;
+            opacity: 0.5;
+        }
+
+        input {
+            display: inline-block;
+            width: 150px;
+            padding: 20px 10px 20px 40px;
+            font-size: 24px;
+            border: none;
+            background-color: #ECECEC;
+            border-radius: 16px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    .inputWrapper:not(:last-child) {
+        margin-right: 10px;
+    }
+}
