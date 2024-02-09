@@ -1,3 +1,14 @@
+:root {
+    --black: #000;
+    --white: #fff;
+    --light-green: #248F00;
+    --dark-green: #08400F;
+    --light-grey: #ECECEC;
+    --medium-grey: #D9D9D9;
+    --darker-grey: #8C8C8C;
+    --dark-grey: #6D7280;
+}
+
 * {
     box-sizing: border-box;
 }
