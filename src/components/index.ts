@@ -8,3 +8,4 @@ export * from './Question/Question';
 export * from './PriceFilter/PriceFilter';
 export * from './BrandFilter/BrandFilter';
 export * from './CountryFilter/CountryFilter';
+export * from './AvailabilityFilter/AvailabilityFilter';

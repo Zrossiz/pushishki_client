@@ -11,7 +11,7 @@ export const BrandFilter = ({ brands }: IBrandFilterProps) => {
         <>
             <span className={styles.span}>Бренд</span>
             <div className={styles.filter}>
-                <ul className={styles.list}>
+                <div className={styles.list}>
                     {
                         open ?
                         brands?.data?.map((item, index) => {
@@ -25,7 +25,7 @@ export const BrandFilter = ({ brands }: IBrandFilterProps) => {
                             )
                         }) 
                     }
-                </ul>
+                </div>
                 {
                     brands?.length && brands?.length >= 4 
                     ?

@@ -11,7 +11,7 @@ export const CountryFilter = ({ countries }: ICountryFilterProps) => {
         <>
             <span className={styles.span}>Страны</span>
             <div className={styles.filter}>
-                <ul className={styles.list}>
+                <div className={styles.list}>
                     {
                         open ?
                         countries?.data?.map((item, index) => {
@@ -25,7 +25,7 @@ export const CountryFilter = ({ countries }: ICountryFilterProps) => {
                             )
                         }) 
                     }
-                </ul>
+                </div>
                 {
                     countries?.length && countries?.length >= 4 
                     ?
