@@ -5,8 +5,8 @@ import { useState } from 'react';
 
 export const Catalog = ({ brands }: ICatalogProps) => {
 
-    const [priceRangeFrom, setPriceRangeFrom] = useState<number>();
-    const [priceRangeTo, setPriceRangeTo] = useState<number>();
+    const [priceRangeFrom, setPriceRangeFrom] = useState<number>(0);
+    const [priceRangeTo, setPriceRangeTo] = useState<number>(0);
 
     return (
         <section className={styles.catalog}>

@@ -1,6 +1,6 @@
 export interface IPriceFilterProps {
-    priceRangeFrom?: number,
+    priceRangeFrom: number,
     setPriceRangeFrom: (arg0: number) => void,
-    priceRangeTo?: number,
+    priceRangeTo: number,
     setPriceRangeTo: (arg0: number) => void
 }
