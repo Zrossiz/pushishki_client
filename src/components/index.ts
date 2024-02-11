@@ -11,3 +11,4 @@ export * from './CountryFilter/CountryFilter';
 export * from './AvailabilityFilter/AvailabilityFilter';
 export * from './MaxWeightFilter/MaxWeightFilter';
 export * from './Sort/Sort';
+export * from './CatalogItem/CatalogItem';

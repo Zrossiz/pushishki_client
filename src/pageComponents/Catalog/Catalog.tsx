@@ -1,4 +1,4 @@
-import { AvailabilityFilter, BrandFilter, CountryFilter, MaxWeightFilter, PriceFilter, Sort } from '@/components';
+import { AvailabilityFilter, BrandFilter, CatalogItem, CountryFilter, MaxWeightFilter, PriceFilter, Sort } from '@/components';
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
 import { useState } from 'react';
@@ -40,7 +40,20 @@ export const Catalog = ({ brands, countries }: ICatalogProps) => {
             </div>
             <div className={styles.catalogWrapper}>
                 <Sort />
-                <div className={styles.listWrapper}></div>
+                <div className={styles.listWrapper}>
+                    <CatalogItem 
+                        image={'/demo.png'}
+                        price={17999}
+                        name={'Электромобиль Audi a5'}
+                        availibility={true}
+                    />
+                    <CatalogItem 
+                        image={'/demo.png'}
+                        price={17999}
+                        name={'Электромобиль Audi a5'}
+                        availibility={false}
+                    />
+                </div>
             </div>
         </section>
     )

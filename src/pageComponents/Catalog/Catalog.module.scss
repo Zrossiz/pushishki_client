@@ -26,5 +26,9 @@
         flex-direction: column;
         align-items: start;
         flex: 1;
+
+        .listWrapper {
+            margin-top: 20px;
+        }
     }
 }

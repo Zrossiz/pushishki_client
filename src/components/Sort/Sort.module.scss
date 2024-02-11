@@ -24,7 +24,7 @@
         left: 0;
         background-color: var(--white);
         backdrop-filter: blur(6px);
-        border: 1px solid var(--black);
+        border: 1px solid var(--darker-grey);
         border-radius: 10px;
         z-index: 1;
         width: 300px;
@@ -38,7 +38,7 @@
             transition: 0.4s;
 
             &:hover {
-                opacity: 0.5;
+                color: var(--light-green);
             }
 
             &:not(:last-child) {
