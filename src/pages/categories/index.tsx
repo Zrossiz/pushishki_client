@@ -27,7 +27,7 @@ const CategoriesPage = ({ categories }: ICategoryPageProps) => {
                                     <div className={styles.titleWrapper}>{item.name}</div>
                                     <div className={styles.imgWrapper}>
                                         <img 
-                                            src={`${process.env.FILESERVER_URL}upload/${item.image}`} 
+                                            src={`${process.env.FILESERVER_URL}/upload/${item.image}`} 
                                             alt={item.name} 
                                         />
                                     </div>

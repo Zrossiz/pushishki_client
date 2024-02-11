@@ -1,0 +1,105 @@
+.wrapper {
+    margin-right: 40px;
+    transition: 0.4s;
+
+    &:hover .selectAndAvalability {
+        opacity: 1;
+    }
+
+    .imgWrapper {
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        overflow: hidden;
+    }
+
+    .priceWrapper {
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 4px;
+
+        span {
+            display: inline-block;
+            margin-left: 4px;
+            margin-right: 4px;
+            font-size: 24px;
+        }
+    }
+
+    .nameWrapper {
+        font-weight: 800;
+        font-size: 24px;
+        color: var(--light-green);
+    }
+
+    .articulWrapper {
+        margin-top: 4px;
+        font-size: 18px;
+        color: var(--dark-grey);
+    }
+
+    .selectAndAvalability {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-top: 20px;
+        opacity: 0;
+        transition: 0.6s;
+
+        .buttonWrapper {
+            display: flex;
+            justify-content: space-between;
+            
+            a {
+                margin-right: 6px;
+            }
+
+            .favoriteWrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+                padding: 0 12px;
+                background-color: var(--light-green);
+                cursor: pointer;
+                transition: 0.6s;
+
+                &:hover {
+                    background-color: var(--dark-green);
+                }
+    
+                .imgWrapper {
+                    position: relative;
+                    width: 40px;
+                    height: 30px;
+                }
+            }
+        }
+
+        .availibilityWrapper {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+
+            .availableCheck {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+            }
+
+            .available {
+                background-color: var(--light-green);
+            }
+
+            .notAvailable {
+                background-color: red;
+            }
+
+            .availableText {
+                color: var(--dark-grey);
+                font-size: 24px;
+                margin-left: 10px;
+            }
+        }
+        
+    }
+}

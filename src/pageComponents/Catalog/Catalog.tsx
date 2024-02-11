@@ -42,14 +42,18 @@ export const Catalog = ({ brands, countries }: ICatalogProps) => {
                 <Sort />
                 <div className={styles.listWrapper}>
                     <CatalogItem 
+                        id={1}
                         image={'/demo.png'}
                         price={17999}
+                        articul={'123AAA123'}
                         name={'Электромобиль Audi a5'}
                         availibility={true}
                     />
                     <CatalogItem 
+                        id={2}
                         image={'/demo.png'}
                         price={17999}
+                        articul={'123AAA123'}
                         name={'Электромобиль Audi a5'}
                         availibility={false}
                     />
