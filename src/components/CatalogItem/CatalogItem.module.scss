@@ -1,6 +1,9 @@
 .wrapper {
-    margin-right: 40px;
     transition: 0.4s;
+    padding-right: 2.6rem;
+    padding-bottom: 2.6rem;
+    border-bottom: 2px solid var(--light-grey);
+    width: 33%;
 
     &:hover .selectAndAvalability {
         opacity: 1;
@@ -10,6 +13,10 @@
         border-top-right-radius: 20px;
         border-top-left-radius: 20px;
         overflow: hidden;
+
+        img {
+            width: 100%;
+        }
     }
 
     .priceWrapper {
@@ -101,5 +108,9 @@
             }
         }
         
+    }
+
+    @media screen and (max-width: 1400px) {
+        width: 275px;
     }
 }

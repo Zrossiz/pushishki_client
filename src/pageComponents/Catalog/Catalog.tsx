@@ -3,6 +3,7 @@ import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
 import { useState } from 'react';
 import { Checkbox, LinkButton } from '@/elements';
+import { CatalogItemAttract } from '@/components/CatalogItemAttract/CatalogItemAttract';
 
 export const Catalog = ({ brands, countries }: ICatalogProps) => {
 
@@ -57,6 +58,8 @@ export const Catalog = ({ brands, countries }: ICatalogProps) => {
                         name={'Электромобиль Audi a5'}
                         availibility={false}
                     />
+                    <CatalogItemAttract type='gift' />
+                    <CatalogItemAttract type='call' />
                 </div>
             </div>
         </section>

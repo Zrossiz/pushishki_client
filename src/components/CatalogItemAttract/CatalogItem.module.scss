@@ -1,0 +1,85 @@
+.wrapper {
+    padding-right: 2.6rem;
+    padding-bottom: 2.6rem;
+    border-bottom: 2px solid var(--light-grey);
+    width: 33%;
+
+    .cardWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: var(--light-green);
+        border-radius: 20px;
+        overflow: hidden;
+        height: 460px;
+        padding: 20px 20px;
+
+        .callWrapper {
+            text-align: center;
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .byNumber {
+            position: relative;
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--white);
+            text-align: right;
+
+            &::before {
+                content: '';
+                left: -10px;
+                top: 0;
+                position: absolute;
+                width: 150px;
+                height: 190px;
+                background-image: url('/icons/HypeArrow.svg');
+                background-repeat: no-repeat;
+            }
+
+            a {
+                color: var(--dark-green);
+            }
+        }
+
+        .phoneIcon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            background-color: var(--dark-green);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+
+            &:hover img {
+                transform: scale(1.1);
+            }
+
+            img {
+                transition: 0.2s;
+            }
+        }
+
+        .takeGift {
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .takeGiftImg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            background-color: var(--dark-green);
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+
+    }
+}
