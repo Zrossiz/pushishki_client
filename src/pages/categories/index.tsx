@@ -4,6 +4,7 @@ import styles from '../../styles/Categories.module.scss';
 import axios from 'axios';
 import { ICategoryPageProps, ICategoryWithLength } from "@/types";
 import Link from "next/link";
+import { getCategories } from "@/api";
 
 const CategoriesPage = ({ categories }: ICategoryPageProps) => {
     return (
@@ -44,11 +45,11 @@ const CategoriesPage = ({ categories }: ICategoryPageProps) => {
 }
 
 export const getServerSideProps = async () => {
-    const categories = await axios.get<ICategoryWithLength>(`${process.env.API_URL}/category`);
+    const categories = await getCategories();
 
     return {
         props: {
-            categories: categories?.data
+            categories
         }
     }
 }

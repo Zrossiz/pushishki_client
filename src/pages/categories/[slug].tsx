@@ -1,3 +1,4 @@
+import { getBrands, getCategoryProducts, getCountries } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
 import { IBrandWithLength, ICatalogPageProps, ICountryWithLength } from "@/types";
@@ -36,15 +37,15 @@ export const getServerSideProps = async (context: { params: { slug: string; }; }
 
     const { slug } = context.params; 
 
-    const brands = await axios.get<IBrandWithLength>(`${process.env.API_URL}/brand`);
-    const countries = await axios.get<ICountryWithLength>(`${process.env.API_URL}/country`);
-    const products = await axios.get(`${process.env.API_URL}/category/${slug}/products`)
+    const brands = await getBrands();
+    const countries = await getCountries();
+    const products = await getCategoryProducts(slug);
 
     return {
         props: {
-            brands: brands?.data,
-            countries: countries?.data,
-            products: products?.data
+            brands,
+            countries,
+            products,
         }
     }
 }

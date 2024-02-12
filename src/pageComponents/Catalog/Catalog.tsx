@@ -43,7 +43,7 @@ export const Catalog = ({ brands, countries, products }: ICatalogProps) => {
                 <Sort />
                 <div className={styles.listWrapper}>
                     {
-                        products?.data.map((item, index) => {
+                        products?.data?.map((item, index) => {
                             return (
                                 <CatalogItem 
                                     id={item.id}
@@ -57,22 +57,6 @@ export const Catalog = ({ brands, countries, products }: ICatalogProps) => {
                             )
                         })
                     }
-                    <CatalogItem 
-                        id={1}
-                        image={'/demo.png'}
-                        price={17999}
-                        articul={'123AAA123'}
-                        name={'Электромобиль Audi a5'}
-                        availibility={true}
-                    />
-                    <CatalogItem 
-                        id={2}
-                        image={'/demo.png'}
-                        price={17999}
-                        articul={'123AAA123'}
-                        name={'Электромобиль Audi a5'}
-                        availibility={false}
-                    />
                     <CatalogItemAttract type='gift' />
                     <CatalogItemAttract type='call' />
                 </div>
