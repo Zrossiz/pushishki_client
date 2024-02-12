@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Checkbox, LinkButton } from '@/elements';
 import { CatalogItemAttract } from '@/components/CatalogItemAttract/CatalogItemAttract';
 
-export const Catalog = ({ brands, countries }: ICatalogProps) => {
+export const Catalog = ({ brands, countries, products }: ICatalogProps) => {
 
     const [priceRangeFrom, setPriceRangeFrom] = useState<number>(0);
     const [priceRangeTo, setPriceRangeTo] = useState<number>(0);
@@ -42,6 +42,21 @@ export const Catalog = ({ brands, countries }: ICatalogProps) => {
             <div className={styles.catalogWrapper}>
                 <Sort />
                 <div className={styles.listWrapper}>
+                    {
+                        products?.data.map((item, index) => {
+                            return (
+                                <CatalogItem 
+                                    id={item.id}
+                                    image={`/${item.image}`}
+                                    price={item.defaultPrice}
+                                    articul={item.articul}
+                                    name={item.name}
+                                    availibility={item.inStock}
+                                    key={item.id}
+                                />
+                            )
+                        })
+                    }
                     <CatalogItem 
                         id={1}
                         image={'/demo.png'}
