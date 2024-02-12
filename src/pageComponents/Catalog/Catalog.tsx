@@ -45,20 +45,26 @@ export const Catalog = ({ brands, countries, products }: ICatalogProps) => {
                     {
                         products?.data?.map((item, index) => {
                             return (
-                                <CatalogItem 
-                                    id={item.id}
-                                    image={`/${item.image}`}
-                                    price={item.defaultPrice}
-                                    articul={item.articul}
-                                    name={item.name}
-                                    availibility={item.inStock}
-                                    key={item.id}
-                                />
+                                <>
+                                    {index === 2 &&
+                                        <CatalogItemAttract type='gift' />
+                                    }
+                                    {index === 6 &&
+                                        <CatalogItemAttract type='call' />
+                                    }
+                                    <CatalogItem 
+                                        id={item.id}
+                                        image={`/${item.image}`}
+                                        price={item.defaultPrice}
+                                        articul={item.articul}
+                                        name={item.name}
+                                        availibility={item.inStock}
+                                        key={item.id}
+                                    />
+                                </>
                             )
                         })
                     }
-                    <CatalogItemAttract type='gift' />
-                    <CatalogItemAttract type='call' />
                 </div>
             </div>
         </section>
