@@ -2,7 +2,7 @@ import { AvailabilityFilter, BrandFilter, CatalogItem, CountryFilter, MaxWeightF
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
 import { useState } from 'react';
-import { Checkbox, LinkButton } from '@/elements';
+import { LinkButton } from '@/elements';
 import { CatalogItemAttract } from '@/components/CatalogItemAttract/CatalogItemAttract';
 
 export const Catalog = ({ brands, countries, products }: ICatalogProps) => {
