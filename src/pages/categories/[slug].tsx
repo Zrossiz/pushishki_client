@@ -1,11 +1,12 @@
 import { getBrands, getCategoryProducts, getCountries } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
-import { IBrandWithLength, ICatalogPageProps, ICountryWithLength } from "@/types";
-import axios from "axios";
-import { useRouter } from "next/router";
+import { ICatalogPageProps } from "@/types";
+import { useState } from "react";
 
 const CategoryPage = ({ brands, countries, products }: ICatalogPageProps) => {
+    const [page, setPage] = useState<number>(1)
+
     return (
         <>
             <PageTitle 

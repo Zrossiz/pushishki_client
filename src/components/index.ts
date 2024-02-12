@@ -13,3 +13,4 @@ export * from './MaxWeightFilter/MaxWeightFilter';
 export * from './Sort/Sort';
 export * from './CatalogItem/CatalogItem';
 export * from './CatalogItemAttract/CatalogItem.module.scss';
+export * from './Pagination/Pagination';
