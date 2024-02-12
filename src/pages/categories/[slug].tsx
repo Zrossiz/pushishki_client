@@ -2,10 +2,13 @@ import { getBrands, getCategoryProducts, getCountries } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
 import { ICatalogPageProps } from "@/types";
-import { useState } from "react";
+import { useRouter } from "next/router";
 
 const CategoryPage = ({ brands, countries, products }: ICatalogPageProps) => {
-    const [page, setPage] = useState<number>(1)
+
+    const router = useRouter();
+    const { query } = router;
+    const page = query.page;
 
     return (
         <>
@@ -27,6 +30,7 @@ const CategoryPage = ({ brands, countries, products }: ICatalogPageProps) => {
                 brands={brands} 
                 countries={countries} 
                 products={products}
+                page={String(page)}
             />
             <Slider title={'Лучшие предложения'} />
             <Quiz />

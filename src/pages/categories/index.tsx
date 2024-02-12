@@ -1,12 +1,13 @@
 import { withLayout } from "@/layout/Layout";
 import { PageTitle, Quiz, Slider } from "@/pageComponents";
 import styles from '../../styles/Categories.module.scss';
-import axios from 'axios';
-import { ICategoryPageProps, ICategoryWithLength } from "@/types";
+import { ICategoryPageProps } from "@/types";
 import Link from "next/link";
 import { getCategories } from "@/api";
+import { useRouter } from "next/router";
 
 const CategoriesPage = ({ categories }: ICategoryPageProps) => {
+
     return (
         <>
             <PageTitle 
@@ -24,7 +25,7 @@ const CategoriesPage = ({ categories }: ICategoryPageProps) => {
                     {
                         categories?.data.map((item, index) => {
                             return (
-                                <Link key={item.id} href={`/categories/${item.slug}`}>
+                                <Link key={item.id} href={`/categories/${item.slug}?page=1`}>
                                     <div className={styles.titleWrapper}>{item.name}</div>
                                     <div className={styles.imgWrapper}>
                                         <img 

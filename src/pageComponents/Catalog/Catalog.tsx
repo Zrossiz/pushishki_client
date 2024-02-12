@@ -1,11 +1,11 @@
-import { AvailabilityFilter, BrandFilter, CatalogItem, CountryFilter, MaxWeightFilter, PriceFilter, Sort } from '@/components';
+import { AvailabilityFilter, BrandFilter, CatalogItem, CountryFilter, MaxWeightFilter, Pagination, PriceFilter, Sort } from '@/components';
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
 import { useState } from 'react';
 import { LinkButton } from '@/elements';
 import { CatalogItemAttract } from '@/components/CatalogItemAttract/CatalogItemAttract';
 
-export const Catalog = ({ brands, countries, products }: ICatalogProps) => {
+export const Catalog = ({ brands, countries, products, page }: ICatalogProps) => {
 
     const [priceRangeFrom, setPriceRangeFrom] = useState<number>(0);
     const [priceRangeTo, setPriceRangeTo] = useState<number>(0);
@@ -59,13 +59,17 @@ export const Catalog = ({ brands, countries, products }: ICatalogProps) => {
                                         articul={item.articul}
                                         name={item.name}
                                         availibility={item.inStock}
-                                        key={item.id}
                                     />
                                 </>
                             )
                         })
                     }
                 </div>
+                {products?.length && products.length === 10 && 
+                    <div>
+                        <Pagination page={page} />
+                    </div>
+                }
             </div>
         </section>
     )

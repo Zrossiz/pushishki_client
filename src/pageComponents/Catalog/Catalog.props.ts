@@ -3,5 +3,6 @@ import { IBrandWithLength, ICountryWithLength, IProductWithLength } from "@/type
 export interface ICatalogProps {
     brands?: IBrandWithLength;
     countries?: ICountryWithLength;
-    products?: IProductWithLength
+    products?: IProductWithLength;
+    page?: string;
 }
