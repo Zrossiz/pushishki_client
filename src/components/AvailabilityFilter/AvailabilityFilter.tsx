@@ -10,6 +10,6 @@ export const AvailabilityFilter = () => {
                     <Checkbox name="В наличии" />
                 </div>
             </div>
-    </> 
+        </> 
     )
 }
