@@ -4,8 +4,11 @@ import { ICatalogProps } from './Catalog.props';
 import { useState } from 'react';
 import { LinkButton } from '@/elements';
 import { CatalogItemAttract } from '@/components/CatalogItemAttract/CatalogItemAttract';
+import { useRouter } from 'next/router';
 
-export const Catalog = ({ brands, countries, products, page }: ICatalogProps) => {
+export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps) => {
+
+    const router = useRouter();
 
     const [priceRangeFrom, setPriceRangeFrom] = useState<number>(0);
     const [priceRangeTo, setPriceRangeTo] = useState<number>(0);
@@ -67,7 +70,11 @@ export const Catalog = ({ brands, countries, products, page }: ICatalogProps) =>
                 </div>
                 {products?.length && products.length === 10 && 
                     <div>
-                        <Pagination page={page} />
+                        <Pagination 
+                            slug={`/categories/${router.query.slug}`} 
+                            curPage={curPage} 
+                            totalPages={products.totalPages} 
+                        />
                     </div>
                 }
             </div>

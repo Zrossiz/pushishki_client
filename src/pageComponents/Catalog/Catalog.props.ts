@@ -4,5 +4,5 @@ export interface ICatalogProps {
     brands?: IBrandWithLength;
     countries?: ICountryWithLength;
     products?: IProductWithLength;
-    page?: string;
+    curPage?: number;
 }

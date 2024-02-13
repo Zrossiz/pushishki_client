@@ -4,11 +4,7 @@ import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
 import { ICatalogPageProps } from "@/types";
 import { useRouter } from "next/router";
 
-const CategoryPage = ({ brands, countries, products }: ICatalogPageProps) => {
-
-    const router = useRouter();
-    const { query } = router;
-    const page = query.page;
+const CategoryPage = ({ brands, countries, products, curPage }: ICatalogPageProps) => {
 
     return (
         <>
@@ -30,7 +26,7 @@ const CategoryPage = ({ brands, countries, products }: ICatalogPageProps) => {
                 brands={brands} 
                 countries={countries} 
                 products={products}
-                page={String(page)}
+                curPage={curPage}
             />
             <Slider title={'Лучшие предложения'} />
             <Quiz />
@@ -38,19 +34,21 @@ const CategoryPage = ({ brands, countries, products }: ICatalogPageProps) => {
     )
 }
 
-export const getServerSideProps = async (context: { params: { slug: string; }; }) => {
+export const getServerSideProps = async (context: { params: { slug: string; }; query: { page: string; }; }) => {
 
     const { slug } = context.params; 
+    const curPage = parseInt(context.query.page) || 1;
 
     const brands = await getBrands();
     const countries = await getCountries();
-    const products = await getCategoryProducts(slug);
+    const products = await getCategoryProducts(slug, curPage);
 
     return {
         props: {
             brands,
             countries,
             products,
+            curPage,
         }
     }
 }

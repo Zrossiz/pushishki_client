@@ -3,7 +3,8 @@ import { IBrandWithLength, ICategoryWithLength, ICountryWithLength, IProductWith
 export interface ICatalogPageProps {
     brands?: IBrandWithLength;
     countries?: ICountryWithLength;
-    products?: IProductWithLength
+    products?: IProductWithLength;
+    curPage?: number;
 }
 
 export interface ICategoryPageProps {

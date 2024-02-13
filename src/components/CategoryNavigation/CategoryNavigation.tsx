@@ -4,7 +4,7 @@ import styles from './CategoryNavigation.module.scss';
 const categories = [
     {
         name: 'Электромобили',
-        slug: 'electromobili'
+        slug: 'elektromobili'
     },
     {
         name: 'Мототехника',
