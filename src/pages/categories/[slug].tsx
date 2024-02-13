@@ -2,7 +2,6 @@ import { getBrands, getCategoryProducts, getCountries } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
 import { ICatalogPageProps } from "@/types";
-import { useRouter } from "next/router";
 
 const CategoryPage = ({ brands, countries, products, curPage }: ICatalogPageProps) => {
 

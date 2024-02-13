@@ -69,7 +69,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                     }
                 </div>
                 {products?.length && products.length === 10 && 
-                    <div>
+                    <div className={styles.paginationWrapper}>
                         <Pagination 
                             slug={`/categories/${router.query.slug}`} 
                             curPage={curPage} 

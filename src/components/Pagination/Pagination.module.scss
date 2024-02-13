@@ -1,0 +1,47 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .prevBtn {
+        margin-right: 20px;
+        margin-left: 0 !important;
+
+        img {
+            transform: rotate(180deg);
+        }
+    }
+
+    .button {
+        margin-left: 20px;
+    }
+
+    .paginationItem {
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-green);
+            border-radius: 16px;
+            color: var(--white);
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        &:not(:last-child) {
+            margin-right: 26px;
+        }
+    }
+
+    .active {
+
+        a {
+            border: 2px solid var(--light-grey);
+            background-color: var(--dark-green);
+        }
+    }
+}
