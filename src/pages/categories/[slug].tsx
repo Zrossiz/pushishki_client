@@ -9,7 +9,7 @@ const CategoryPage = ({ brands, countries, products, curPage }: ICatalogPageProp
         <>
             <PageTitle 
                 title={'Каталог'} 
-                counter={`10 товаров`} 
+                counter={`Более ${products && products?.totalPages * 10} товаров`} 
                 breadcrumbs={[
                     {
                         name: 'Главная',
@@ -33,14 +33,18 @@ const CategoryPage = ({ brands, countries, products, curPage }: ICatalogPageProp
     )
 }
 
-export const getServerSideProps = async (context: { params: { slug: string; }; query: { page: string; }; }) => {
+export const getServerSideProps = async (context: { 
+    params: { slug: string; }; 
+    query: { page: string; sort: string; }; 
+}) => {
 
     const { slug } = context.params; 
     const curPage = parseInt(context.query.page) || 1;
+    const sort = context.query?.sort || 'desc';
 
     const brands = await getBrands();
     const countries = await getCountries();
-    const products = await getCategoryProducts(slug, curPage);
+    const products = await getCategoryProducts(slug, curPage, sort);
 
     return {
         props: {

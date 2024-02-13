@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from './Sort.module.scss';
 import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 export const Sort = () => {
 
-    const settings: string[] = ['Популярные', 'Сначала дешевые', 'Сначала дорогие'];
+    const settings: string[] = ['Сначала дешевые', 'Сначала дорогие'];
 
     const [setting, setSetting] = useState<number>(0);
     const [open, setOpen] = useState<boolean>(false);
@@ -29,7 +30,7 @@ export const Sort = () => {
                     open &&
                     <motion.div 
                         initial={{ height: 0 }}
-                        animate={{ height: 150 }}
+                        animate={{ height: 100 }}
                         exit={{ height: 0 }} 
                         transition={{ duration: 0.4 }}
                         className={styles.sortList}
