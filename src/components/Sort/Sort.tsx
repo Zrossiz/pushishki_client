@@ -17,17 +17,22 @@ export const Sort = () => {
         setSetting(index);
         setOpen(false);
 
-        if (!router.query.page) {
-            router.push({
-                pathname: router.pathname,
-                query: { ...router.query, page: '1', sort: `${index}` }
-            });
-        } else {
-            router.push({
-                pathname: router.pathname,
-                query: { ...router.query, sort: `${index}` }
-            });
-        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        setTimeout(() => {
+            if (!router.query.page) {
+                router.push({
+                    pathname: router.pathname,
+                    query: { ...router.query, page: '1', sort: `${index}` }
+                });
+            } else {
+                router.push({
+                    pathname: router.pathname,
+                    query: { ...router.query, sort: `${index}` }
+                });
+            }
+        }, 200)
+
     }
 
     return (
