@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { LinkButton } from '@/elements';
 import { CatalogItemAttract } from '@/components/CatalogItemAttract/CatalogItemAttract';
 import { useRouter } from 'next/router';
+import React from 'react';
 
 export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps) => {
 
@@ -48,7 +49,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                     {
                         products?.data?.map((item, index) => {
                             return (
-                                <>
+                                <React.Fragment key={index}>
                                     {index === 2 &&
                                         <CatalogItemAttract type='gift' />
                                     }
@@ -63,12 +64,12 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                                         name={item.name}
                                         availibility={item.inStock}
                                     />
-                                </>
+                                </React.Fragment>
                             )
                         })
                     }
                 </div>
-                {products?.length && products.length === 10 && 
+                {products?.totalPages && products.totalPages > 1 && 
                     <div className={styles.paginationWrapper}>
                         <Pagination 
                             slug={`/categories/${router.query.slug}`} 

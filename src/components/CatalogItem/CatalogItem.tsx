@@ -22,7 +22,7 @@ export const CatalogItem = ({
     return (
         <div className={styles.wrapper}>
             <div className={styles.imgWrapper}>
-                <img src={`${process.env.FILESERVER_URL}/upload/${image}`} alt={name} />
+                <img src={`${process.env.FILESERVER_URL}/upload${image}`} alt={name} />
             </div>
             <div className={styles.nameWrapper}>
                 {name}
