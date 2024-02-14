@@ -1,12 +1,13 @@
 import Head from "next/head";
 import styles from './Layout.module.scss';
 import { ILayoutProps } from "./Layout.props";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { Manrope, Roboto } from "next/font/google";
 import cn from 'classnames';
 import { Header } from "./Header/Header";
 import { Footer } from "./Footer/Footer";
 import { ToTop, WhatsApp } from "@/components";
+import { useRouter } from "next/router";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -14,7 +15,7 @@ const manrope = Manrope({
   preload: false
 });
 
-const Layout = ({ children }: ILayoutProps): JSX.Element => {
+const Layout = ({ children }: ILayoutProps): JSX.Element => {  
   return (
     <>
       <Head>

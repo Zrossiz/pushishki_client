@@ -4,7 +4,6 @@ import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
 import { ICatalogPageProps } from "@/types";
 
 const CategoryPage = ({ brands, countries, products, curPage }: ICatalogPageProps) => {
-
     return (
         <>
             <PageTitle 
