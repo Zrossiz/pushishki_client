@@ -6,14 +6,28 @@ import { useRouter } from "next/router";
 
 export const Sort = () => {
 
+    const router = useRouter();
+
     const settings: string[] = ['Сначала дешевые', 'Сначала дорогие'];
 
-    const [setting, setSetting] = useState<number>(0);
+    const [setting, setSetting] = useState<number>(1);
     const [open, setOpen] = useState<boolean>(false);
 
     const chooseSetting = (index: number) => {
         setSetting(index);
         setOpen(false);
+
+        if (!router.query.page) {
+            router.push({
+                pathname: router.pathname,
+                query: { ...router.query, page: '1', sort: `${index}` }
+            });
+        } else {
+            router.push({
+                pathname: router.pathname,
+                query: { ...router.query, sort: `${index}` }
+            });
+        }
     }
 
     return (

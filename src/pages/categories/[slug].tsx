@@ -40,7 +40,7 @@ export const getServerSideProps = async (context: {
 
     const { slug } = context.params; 
     const curPage = parseInt(context.query.page) || 1;
-    const sort = context.query?.sort || 'desc';
+    const sort = context.query?.sort;
 
     const brands = await getBrands();
     const countries = await getCountries();
