@@ -1,5 +1,6 @@
 import { IBrandWithLength } from "@/types";
 
 export interface IBrandFilterProps {
-    brands?: IBrandWithLength
+    brands?: IBrandWithLength,
+    selectedBrands: number[], 
 }

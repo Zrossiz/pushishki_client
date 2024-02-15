@@ -31,7 +31,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                     />
                 </div>
                 <div className={styles.filterWrapper}>
-                    <BrandFilter brands={brands} />
+                    <BrandFilter selectedBrands={selectedBrands} brands={brands} />
                 </div>
                 <div className={styles.filterWrapper}>
                     <CountryFilter countries={countries} />
