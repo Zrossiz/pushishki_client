@@ -4,7 +4,7 @@ import { ICountryFilterProps } from './CountryFilter.props';
 import { useState } from 'react';
 
 
-export const CountryFilter = ({ countries }: ICountryFilterProps) => {
+export const CountryFilter = ({ countries, selectedCountries }: ICountryFilterProps) => {
     const [open, setOpen] = useState<boolean>(false);
 
     return (
@@ -16,12 +16,24 @@ export const CountryFilter = ({ countries }: ICountryFilterProps) => {
                         open ?
                         countries?.data?.map((item, index) => {
                             return (
-                                <Checkbox key={item.id} name={item.name} />
+                                <Checkbox 
+                                    type="country"
+                                    selectedCountries={selectedCountries} 
+                                    key={item.id} 
+                                    name={item.name}
+                                    countryId={item.id} 
+                                />
                             )
                         }) :
                         countries?.data?.slice(0, 4).map((item, index) => {
                             return (
-                                <Checkbox key={item.id} name={item.name} />
+                                <Checkbox 
+                                    type="country"
+                                    selectedCountries={selectedCountries} 
+                                    key={item.id} 
+                                    name={item.name} 
+                                    countryId={item.id}
+                                />
                             )
                         }) 
                     }
