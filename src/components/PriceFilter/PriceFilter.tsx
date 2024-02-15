@@ -19,7 +19,7 @@ export const PriceFilter = ({
                         min={0} 
                         max={99999} 
                         type="number" 
-                        value={priceRangeFrom <= 0 ? '' : priceRangeFrom} 
+                        value={priceRangeFrom && priceRangeFrom <= 0 ? 0 : priceRangeFrom} 
                         onChange={(e) => setPriceRangeFrom(+e.target.value)} 
                     />
                 </div>
@@ -31,7 +31,7 @@ export const PriceFilter = ({
                         min={0} 
                         max={99999} 
                         type="number" 
-                        value={priceRangeTo <= 0 ? '' : priceRangeTo} 
+                        value={priceRangeTo && priceRangeTo <= 0 ? 0 : priceRangeTo} 
                         onChange={(e) => setPriceRangeTo(+e.target.value)} 
                     />
                 </div>

@@ -1,10 +1,32 @@
 import { IProductWithLength } from "@/types";
 import axios from "axios";
 
-export const getCategoryProducts = async (slug: string, page: number = 1, sort: string): Promise<IProductWithLength | { message: string }> => {
+export const getCategoryProducts = async (
+    slug: string, 
+    page: number, 
+    sort: number,
+    priceFrom: number,
+    priceTo: number,
+    brandsFilter: number[],
+    countriesFilter: number[],
+    inStock: boolean,
+    maximumLoad: number,
+): Promise<IProductWithLength | { message: string }> => {
     try {
+
+        console.log(brandsFilter)
+
         const sortSetting = sort ? `&sort=${sort}` : ''; 
-        const { data } = await axios.get(`${process.env.API_URL}/category/${slug}/products?page=${page}${sortSetting}`);
+        const priceFromSetting = priceFrom ? `&price-from=${priceFrom}` : '';
+        const priceToSetting = priceTo ? `&price-to=${priceTo}` : '';
+        const inStockSetting = inStock ? `&in-stock=${inStock}` : '';
+        const maxLoadSetting = maximumLoad ? `&maximum-load=${maximumLoad}` : '';
+        const brandsFilterSetting = brandsFilter.length >= 1 ? `&brands=${JSON.stringify(brandsFilter)}` : '';
+        const countriesFilterSetting = countriesFilter.length >= 1 ? `&countries=${JSON.stringify(countriesFilter)}` : '';
+
+        console.log(countriesFilterSetting);
+
+        const { data } = await axios.get(`${process.env.API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}`);
         
         return data;
     } catch (err) {

@@ -32,18 +32,32 @@ const CategoryPage = ({ brands, countries, products, curPage }: ICatalogPageProp
     )
 }
 
-export const getServerSideProps = async (context: { 
-    params: { slug: string; }; 
-    query: { page: string; sort: string; }; 
-}) => {
+export const getServerSideProps = async (context: any) => {
+
 
     const { slug } = context.params; 
     const curPage = parseInt(context.query.page) || 1;
     const sort = context.query?.sort;
+    const priceRangeFrom = +context.query?.priceRangeFrom;
+    const priceRangeTo = +context.query?.priceRangeTo || 999999;
+    const selectedBrands = context.query?.selectedBrands || '[]';
+    const selectedCountries = context.query?.selectedCountries || '[]';
+    const inStock = Boolean(context.query?.inStock);
+    const maxLoad = +context.query?.maxLoad;
 
     const brands = await getBrands();
     const countries = await getCountries();
-    const products = await getCategoryProducts(slug, curPage, sort);
+    const products = await getCategoryProducts(
+        slug, 
+        curPage, 
+        sort,
+        priceRangeFrom,
+        priceRangeTo,
+        JSON.parse(selectedBrands),
+        JSON.parse(selectedCountries),
+        inStock,
+        maxLoad,
+    );
 
     return {
         props: {

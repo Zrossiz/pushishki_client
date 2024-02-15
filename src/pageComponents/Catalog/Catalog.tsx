@@ -10,14 +10,40 @@ import React from 'react';
 export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps) => {
 
     const router = useRouter();
+    const { query } = router;
 
-    const [priceRangeFrom, setPriceRangeFrom] = useState<number>(0);
-    const [priceRangeTo, setPriceRangeTo] = useState<number>(0);
+    const [priceRangeFrom, setPriceRangeFrom] = useState<number>();
+    const [priceRangeTo, setPriceRangeTo] = useState<number>();
     const [inStock, setInStock] = useState<boolean>();
     const [maxLoad, setMaxLoad] = useState<number>();
 
-    const selectedCountries: number[] = [];
-    const selectedBrands: number[] = [];
+    let selectedCountries: number[] = [];
+    let selectedBrands: number[] = [];
+
+    const setCatalogFilter = () => {
+        const newQuery = { ...query, 
+            priceRangeFrom,
+            priceRangeTo,
+            inStock,
+            maxLoad,
+            selectedBrands: JSON.stringify(selectedBrands),
+            selectedCountries: JSON.stringify(selectedCountries)
+        };
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        setTimeout(() => {
+            router.push({
+                pathname: router.pathname,
+                query: newQuery
+              });
+        }, 600);
+
+        setPriceRangeFrom(0);
+        setPriceRangeTo(0);
+        selectedBrands = [];
+        selectedCountries = [];
+    }
 
     return (
         <section className={styles.catalog}>
@@ -49,7 +75,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                     />
                 </div>
                 <div className={styles.filterWrapper}>
-                    <LinkButton element='button' onClick={() => console.log(true)}>
+                    <LinkButton element='button' onClick={() => setCatalogFilter()}>
                         Показать
                     </LinkButton>
                 </div>

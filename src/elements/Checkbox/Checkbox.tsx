@@ -25,7 +25,6 @@ export const Checkbox = ({
         if (setInStock) {
             setInStock(swithcBoolean)
         }
-        console.log(selectedBrands);
     }
 
     const onChangeCountry = (swithcBoolean: boolean, countryId: number = 1) => {
@@ -41,7 +40,6 @@ export const Checkbox = ({
         if (setInStock) {
             setInStock(swithcBoolean)
         }
-        console.log(selectedCountries);
     }
 
     return (

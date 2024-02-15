@@ -16,6 +16,7 @@ export const BrandFilter = ({ brands, selectedBrands }: IBrandFilterProps) => {
                         brands?.data?.map((item, index) => {
                             return (
                                 <Checkbox 
+                                    type='brand'
                                     key={item.id} 
                                     name={item.name} 
                                     itemId={item.id}
@@ -26,6 +27,7 @@ export const BrandFilter = ({ brands, selectedBrands }: IBrandFilterProps) => {
                         brands?.data?.slice(0, 4).map((item, index) => {
                             return (
                                 <Checkbox 
+                                    type='brand'
                                     key={item.id} 
                                     name={item.name} 
                                     itemId={item.id}
