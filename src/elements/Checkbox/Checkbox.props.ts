@@ -1,3 +1,5 @@
 export interface ICheckboxProps {
-    name: string;
+    name: string,
+    inStock?: boolean,
+    setInStock: (arg0: boolean) => void
 }

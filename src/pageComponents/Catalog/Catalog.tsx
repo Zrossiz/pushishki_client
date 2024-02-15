@@ -13,6 +13,11 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
 
     const [priceRangeFrom, setPriceRangeFrom] = useState<number>(0);
     const [priceRangeTo, setPriceRangeTo] = useState<number>(0);
+    const [inStock, setInStock] = useState<boolean>();
+    const [maxLoad, setMaxLoad] = useState<number>();
+
+    const selectedCountries: number[] = [];
+    const selectedBrands: number[] = [];
 
     return (
         <section className={styles.catalog}>
@@ -32,10 +37,16 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                     <CountryFilter countries={countries} />
                 </div>
                 <div className={styles.filterWrapper}>
-                    <AvailabilityFilter />
+                    <AvailabilityFilter 
+                        inStock={inStock}
+                        setInStock={setInStock}
+                    />
                 </div>
                 <div className={styles.filterWrapper}>
-                    <MaxWeightFilter />
+                    <MaxWeightFilter
+                        maxLoad={maxLoad}
+                        setMaxLoad={setMaxLoad}
+                    />
                 </div>
                 <div className={styles.filterWrapper}>
                     <LinkButton element='button' onClick={() => console.log(true)}>

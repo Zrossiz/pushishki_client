@@ -4,7 +4,6 @@ import styles from './Pagination.module.scss';
 import Image from "next/image";
 import cn from 'classnames';
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 export const Pagination = ({ curPage = 1, totalPages, slug }: PaginationProps) => {
 

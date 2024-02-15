@@ -1,13 +1,14 @@
 import { Checkbox } from "@/elements";
 import styles from './AvailabilityFilter.module.scss';
+import { AvailabilityFilterProps } from "./AvailabilityFilter.props";
 
-export const AvailabilityFilter = () => {
+export const AvailabilityFilter = ({inStock, setInStock}: AvailabilityFilterProps) => {
     return (
         <>
-            <span className={styles.span}>Бренд</span>
+            <span className={styles.span}>Наличие</span>
             <div className={styles.filter}>
                 <div className={styles.list}>
-                    <Checkbox name="В наличии" />
+                    <Checkbox inStock={inStock} setInStock={setInStock} name="В наличии" />
                 </div>
             </div>
         </> 
