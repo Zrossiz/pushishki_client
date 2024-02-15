@@ -13,9 +13,6 @@ export const getCategoryProducts = async (
     maximumLoad: number,
 ): Promise<IProductWithLength | { message: string }> => {
     try {
-
-        console.log(brandsFilter)
-
         const sortSetting = sort ? `&sort=${sort}` : ''; 
         const priceFromSetting = priceFrom ? `&price-from=${priceFrom}` : '';
         const priceToSetting = priceTo ? `&price-to=${priceTo}` : '';
@@ -24,7 +21,7 @@ export const getCategoryProducts = async (
         const brandsFilterSetting = brandsFilter.length >= 1 ? `&brands=${JSON.stringify(brandsFilter)}` : '';
         const countriesFilterSetting = countriesFilter.length >= 1 ? `&countries=${JSON.stringify(countriesFilter)}` : '';
 
-        console.log(countriesFilterSetting);
+        console.log(`${process.env.API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}`);
 
         const { data } = await axios.get(`${process.env.API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}`);
         

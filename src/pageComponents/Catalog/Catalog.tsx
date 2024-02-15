@@ -12,10 +12,10 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
     const router = useRouter();
     const { query } = router;
 
-    const [priceRangeFrom, setPriceRangeFrom] = useState<number>();
-    const [priceRangeTo, setPriceRangeTo] = useState<number>();
-    const [inStock, setInStock] = useState<boolean>();
-    const [maxLoad, setMaxLoad] = useState<number>();
+    const [priceRangeFrom, setPriceRangeFrom] = useState<number | undefined>(query.priceRangeFrom !== undefined ? +query.priceRangeFrom : undefined);
+    const [priceRangeTo, setPriceRangeTo] = useState<number | undefined>(query.priceRangeTo !== undefined ? +query.priceRangeTo : undefined);
+    const [inStock, setInStock] = useState<boolean>(query.inStock === 'false' ? false : true);
+    const [maxLoad, setMaxLoad] = useState<number | undefined>(query.maxLoad !== undefined ? +query.maxLoad : undefined);
 
     let selectedCountries: number[] = [];
     let selectedBrands: number[] = [];
@@ -38,11 +38,6 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                 query: newQuery
               });
         }, 600);
-
-        setPriceRangeFrom(0);
-        setPriceRangeTo(0);
-        selectedBrands = [];
-        selectedCountries = [];
     }
 
     return (
