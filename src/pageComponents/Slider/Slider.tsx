@@ -78,9 +78,7 @@ export const Slider = ({ title, products }: SliderProps) => {
                                         </div>
                                         <div className={styles.descWrapper}>
                                             <div className={styles.titleWrapper}>
-                                                <HTag tag='h3' color='black'>
-                                                    {item.name}
-                                                </HTag>
+                                                {item.name}
                                             </div>
                                             <div className={styles.countryWrapper}>
                                                 <span>Производитель: {item.countryId}</span>
