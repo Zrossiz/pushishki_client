@@ -14,4 +14,5 @@ export interface ICatalogPageProps {
 
 export interface ICategoryPageProps {
     categories?: ICategoryWithLength;
+    bestSellers?: IProduct[],
 }

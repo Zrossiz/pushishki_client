@@ -3,10 +3,9 @@ import { PageTitle, Quiz, Slider } from "@/pageComponents";
 import styles from '../../styles/Categories.module.scss';
 import { ICategoryPageProps } from "@/types";
 import Link from "next/link";
-import { getCategories } from "@/api";
-import { useRouter } from "next/router";
+import { getBestsellers, getCategories } from "@/api";
 
-const CategoriesPage = ({ categories }: ICategoryPageProps) => {
+const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
 
     return (
         <>
@@ -39,17 +38,19 @@ const CategoriesPage = ({ categories }: ICategoryPageProps) => {
                     }
                 </div>
             </section>
-            <Slider title="Лучшие предложения" />
+            <Slider title="Лучшие предложения" products={bestSellers} />
             <Quiz />
         </>
     )
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     const categories = await getCategories();
+    const bestSellers = await getBestsellers();
 
     return {
         props: {
+            bestSellers,
             categories
         }
     }
