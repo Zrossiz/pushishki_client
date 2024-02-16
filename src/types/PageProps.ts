@@ -6,13 +6,18 @@ export interface MainPageProps {
 }
 
 export interface ICatalogPageProps {
-    brands?: IBrandWithLength;
-    countries?: ICountryWithLength;
-    products?: IProductWithLength;
-    curPage?: number;
+    brands?: IBrandWithLength,
+    countries?: ICountryWithLength,
+    products?: IProductWithLength,
+    curPage?: number,
+    bestSellers?: IProduct[],
 }
 
 export interface ICategoryPageProps {
     categories?: ICategoryWithLength;
+    bestSellers?: IProduct[],
+}
+
+export interface IProductCardPageProps {
     bestSellers?: IProduct[],
 }

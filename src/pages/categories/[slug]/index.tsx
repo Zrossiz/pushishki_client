@@ -1,9 +1,9 @@
-import { getBrands, getCategoryProducts, getCountries } from "@/api";
+import { getBestsellers, getBrands, getCategoryProducts, getCountries } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
 import { ICatalogPageProps } from "@/types";
 
-const CategoryPage = ({ brands, countries, products, curPage }: ICatalogPageProps) => {
+const CategoryPage = ({ brands, countries, products, curPage, bestSellers }: ICatalogPageProps) => {
     return (
         <>
             <PageTitle 
@@ -26,7 +26,7 @@ const CategoryPage = ({ brands, countries, products, curPage }: ICatalogPageProp
                 products={products}
                 curPage={curPage}
             />
-            <Slider title={'Лучшие предложения'} />
+            <Slider title={'Лучшие предложения'} products={bestSellers} />
             <Quiz />
         </>
     )
@@ -47,6 +47,7 @@ export const getServerSideProps = async (context: any) => {
 
     const brands = await getBrands();
     const countries = await getCountries();
+    const bestSellers = await getBestsellers();
     const products = await getCategoryProducts(
         slug, 
         curPage, 
@@ -65,6 +66,7 @@ export const getServerSideProps = async (context: any) => {
             countries,
             products,
             curPage,
+            bestSellers
         }
     }
 }
