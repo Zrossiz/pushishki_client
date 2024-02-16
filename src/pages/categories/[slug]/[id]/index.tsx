@@ -1,8 +1,14 @@
 import { withLayout } from "@/layout/Layout";
+import { Form, Questions, Slider } from "@/pageComponents";
 
 const ProductCardPage = () => {
     return (
-        <div>product</div>
+        <>
+            <Slider title="Аксессуары" />
+            <Slider title="Лучшие предложения" />
+            <Questions />
+            <Form />
+        </>
     )
 };
 
