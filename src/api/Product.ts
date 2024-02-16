@@ -21,8 +21,6 @@ export const getCategoryProducts = async (
         const brandsFilterSetting = brandsFilter.length >= 1 ? `&brands=${JSON.stringify(brandsFilter)}` : '';
         const countriesFilterSetting = countriesFilter.length >= 1 ? `&countries=${JSON.stringify(countriesFilter)}` : '';
 
-        console.log(`${process.env.API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}`);
-
         const { data } = await axios.get(`${process.env.API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}`);
         
         return data;

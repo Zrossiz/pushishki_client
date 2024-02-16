@@ -6,5 +6,5 @@ export interface ICheckboxProps {
     selectedBrands?: number[], 
     countryId?: number,
     selectedCountries?: number[], 
-    type: 'country' | 'brand'
+    type?: 'country' | 'brand'
 }
