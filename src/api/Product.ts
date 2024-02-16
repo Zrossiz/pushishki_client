@@ -21,13 +21,39 @@ export const getCategoryProducts = async (
         const brandsFilterSetting = brandsFilter.length >= 1 ? `&brands=${JSON.stringify(brandsFilter)}` : '';
         const countriesFilterSetting = countriesFilter.length >= 1 ? `&countries=${JSON.stringify(countriesFilter)}` : '';
 
-        const { data } = await axios.get(`${process.env.API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}`);
+        const { data } = await axios.get<IProductWithLength>(`${process.env.API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}`);
         
         return data;
     } catch (err) {
         console.log(err);
         return {
             message: 'Ошибка при получении продуктов категории'
+        }
+    }
+}
+
+export const getBestsellers = async (): Promise<IProductWithLength | { message: string }> => {
+    try {
+        const bestsellers = await axios.get<IProductWithLength>(`${process.env.API_URL}/product/bestsellers`);
+
+        return bestsellers.data;
+    } catch (err) {
+        console.log(err);
+        return {
+            message: 'Ошибка при получении бестселлеров'
+        }
+    }
+}
+
+export const getNewProducts = async (): Promise<IProductWithLength | { message: string }> => {
+    try {   
+        const newProducts = await axios.get<IProductWithLength>(`${process.env.API_URL}/product/new`);
+
+        return newProducts.data;
+    } catch (err) {
+        console.log(err);
+        return {
+            message: 'Ошибка при получении новинок'
         }
     }
 }
