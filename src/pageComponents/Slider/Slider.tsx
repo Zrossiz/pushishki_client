@@ -70,6 +70,11 @@ export const Slider = ({ title, products }: SliderProps) => {
                     </div>
                     {
                         products?.map((item, index) => {
+                            const formattedPrice: string = Intl.NumberFormat('ru-RU', {
+                                style: 'currency',
+                                currency: 'RUB',
+                                currencyDisplay: 'symbol' 
+                            }).format(item.defaultPrice);
                             return (
                                 <SwiperSlide>
                                     <Link href="#" className={styles.itemWrapper}>
@@ -80,11 +85,11 @@ export const Slider = ({ title, products }: SliderProps) => {
                                             <div className={styles.titleWrapper}>
                                                 {item.name}
                                             </div>
-                                            <div className={styles.countryWrapper}>
-                                                <span>Производитель: {item.countryId}</span>
+                                            <div className={styles.articulWrapper}>
+                                                <span>Артикул: {item.articul}</span>
                                             </div>
                                             <div className={styles.priceWrapper}>
-                                                от<span> {item.defaultPrice} &#8381;</span>
+                                                от<span> {formattedPrice}</span>
                                             </div>
                                         </div>
                                     </Link>
