@@ -27,7 +27,7 @@ const SwiperButtonPrev = () => {
     );
 };
 
-export const Slider = ({ title }: SliderProps) => {
+export const Slider = ({ title, products }: SliderProps) => {
     return (
         <>
             <section className={styles.slider}>
@@ -68,146 +68,32 @@ export const Slider = ({ title }: SliderProps) => {
                         <SwiperButtonPrev />
                         <SwiperButtonNext />
                     </div>
-                    <SwiperSlide>
-                        <Link href="#" className={styles.itemWrapper}>
-                            <div className={styles.imgWrapper}>
-                                <Image src={'/sliderImg.png'} width={200} height={150} alt="1" />
-                            </div>
-                            <div className={styles.descWrapper}>
-                                <div className={styles.titleWrapper}>
-                                    <HTag tag='h3' color='black'>
-                                        Mercedes Benz
-                                    </HTag>
-                                </div>
-                                <div className={styles.countryWrapper}>
-                                    <span>Производитель: Китай</span>
-                                </div>
-                                <div className={styles.priceWrapper}>
-                                    от<span> 20000 &#8381;</span>
-                                </div>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link href="#" className={styles.itemWrapper}>
-                            <div className={styles.imgWrapper}>
-                                <Image src={'/sliderImg.png'} width={200} height={150} alt="1" />
-                            </div>
-                            <div className={styles.descWrapper}>
-                                <div className={styles.titleWrapper}>
-                                    <HTag tag='h3' color='black'>
-                                        Mercedes Benz
-                                    </HTag>
-                                </div>
-                                <div className={styles.countryWrapper}>
-                                    <span>Производитель: Китай</span>
-                                </div>
-                                <div className={styles.priceWrapper}>
-                                    от<span> 20000 &#8381;</span>
-                                </div>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link href="#" className={styles.itemWrapper}>
-                            <div className={styles.imgWrapper}>
-                                <Image src={'/sliderImg.png'} width={200} height={150} alt="1" />
-                            </div>
-                            <div className={styles.descWrapper}>
-                                <div className={styles.titleWrapper}>
-                                    <HTag tag='h3'>
-                                        Mercedes Benz
-                                    </HTag>
-                                </div>
-                                <div className={styles.countryWrapper}>
-                                    <span>Производитель: Китай</span>
-                                </div>
-                                <div className={styles.priceWrapper}>
-                                    от<span> 20000 &#8381;</span>
-                                </div>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link href="#" className={styles.itemWrapper}>
-                            <div className={styles.imgWrapper}>
-                                <Image src={'/sliderImg.png'} width={200} height={150} alt="1" />
-                            </div>
-                            <div className={styles.descWrapper}>
-                                <div className={styles.titleWrapper}>
-                                    <HTag tag='h3' color='black'>
-                                        Mercedes Benz
-                                    </HTag>
-                                </div>
-                                <div className={styles.countryWrapper}>
-                                    <span>Производитель: Китай</span>
-                                </div>
-                                <div className={styles.priceWrapper}>
-                                    от<span> 20000 &#8381;</span>
-                                </div>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link href="#" className={styles.itemWrapper}>
-                            <div className={styles.imgWrapper}>
-                                <Image src={'/sliderImg.png'} width={200} height={150} alt="1" />
-                            </div>
-                            <div className={styles.descWrapper}>
-                                <div className={styles.titleWrapper}>
-                                    <HTag tag='h3' color='black'>
-                                        Mercedes Benz
-                                    </HTag>
-                                </div>
-                                <div className={styles.countryWrapper}>
-                                    <span>Производитель: Китай</span>
-                                </div>
-                                <div className={styles.priceWrapper}>
-                                    от<span> 20000 &#8381;</span>
-                                </div>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link href="#" className={styles.itemWrapper}>
-                            <div className={styles.imgWrapper}>
-                                <Image src={'/sliderImg.png'} width={200} height={150} alt="1" />
-                            </div>
-                            <div className={styles.descWrapper}>
-                                <div className={styles.titleWrapper}>
-                                    <HTag tag='h3' color='black'>
-                                        Mercedes Benz
-                                    </HTag>
-                                </div>
-                                <div className={styles.countryWrapper}>
-                                    <span>Производитель: Китай</span>
-                                </div>
-                                <div className={styles.priceWrapper}>
-                                    от<span> 20000 &#8381;</span>
-                                </div>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link href="#" className={styles.itemWrapper}>
-                            <div className={styles.imgWrapper}>
-                                <Image src={'/sliderImg.png'} width={200} height={150} alt="1" />
-                            </div>
-                            <div className={styles.descWrapper}>
-                                <div className={styles.titleWrapper}>
-                                    <HTag tag='h3' color='black'>
-                                        Mercedes Benz
-                                    </HTag>
-                                </div>
-                                <div className={styles.countryWrapper}>
-                                    <span>Производитель: Китай</span>
-                                </div>
-                                <div className={styles.priceWrapper}>
-                                    от<span> 20000 &#8381;</span>
-                                </div>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
+                    {
+                        products?.map((item, index) => {
+                            return (
+                                <SwiperSlide>
+                                    <Link href="#" className={styles.itemWrapper}>
+                                        <div className={styles.imgWrapper}>
+                                            <Image src={'/sliderImg.png'} width={200} height={150} alt={item.name} />
+                                        </div>
+                                        <div className={styles.descWrapper}>
+                                            <div className={styles.titleWrapper}>
+                                                <HTag tag='h3' color='black'>
+                                                    {item.name}
+                                                </HTag>
+                                            </div>
+                                            <div className={styles.countryWrapper}>
+                                                <span>Производитель: {item.countryId}</span>
+                                            </div>
+                                            <div className={styles.priceWrapper}>
+                                                от<span> {item.defaultPrice} &#8381;</span>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </SwiperSlide>
+                            )
+                        })
+                    }
                 </Swiper>
             </section>
         </>
