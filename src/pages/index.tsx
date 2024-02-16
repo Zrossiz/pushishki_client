@@ -7,8 +7,11 @@ import cn from 'classnames';
 import { Form, Questions, Quiz, Slider } from "@/pageComponents";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { getBestsellers, getNewProducts } from "@/api";
+import { MainPageProps } from "@/types";
 
-const Home = () => {
+const Home = ({ bestSellers, newProducts }: MainPageProps) => {
+
   const mainTitleRef = useRef(null)
   const mainTitleRefIsInView = useInView(mainTitleRef, { once: true });
 
@@ -244,3 +247,15 @@ const Home = () => {
 }
 
 export default withLayout(Home)
+
+export const getStaticProps = async () => {
+  const bestSellers = await getBestsellers();
+  const newProducts = await getNewProducts();
+
+  return {
+    props: {
+      bestSellers,
+      newProducts,
+    }
+  }
+}

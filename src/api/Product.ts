@@ -1,4 +1,4 @@
-import { IProductWithLength } from "@/types";
+import { IProduct, IProductWithLength } from "@/types";
 import axios from "axios";
 
 export const getCategoryProducts = async (
@@ -45,9 +45,9 @@ export const getBestsellers = async (): Promise<IProductWithLength | { message: 
     }
 }
 
-export const getNewProducts = async (): Promise<IProductWithLength | { message: string }> => {
+export const getNewProducts = async (): Promise<IProduct[] | { message: string }> => {
     try {   
-        const newProducts = await axios.get<IProductWithLength>(`${process.env.API_URL}/product/new`);
+        const newProducts = await axios.get<IProduct[]>(`${process.env.API_URL}/product/new`);
 
         return newProducts.data;
     } catch (err) {
