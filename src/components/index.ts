@@ -14,3 +14,4 @@ export * from './Sort/Sort';
 export * from './CatalogItem/CatalogItem';
 export * from './CatalogItemAttract/CatalogItem.module.scss';
 export * from './Pagination/Pagination';
+export * from './Loader/Loader';

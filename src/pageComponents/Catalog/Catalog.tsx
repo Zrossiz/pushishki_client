@@ -6,6 +6,7 @@ import { LinkButton } from '@/elements';
 import { CatalogItemAttract } from '@/components/CatalogItemAttract/CatalogItemAttract';
 import { useRouter } from 'next/router';
 import React from 'react';
+import Loader from '@/components/Loader/Loader';
 
 export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps) => {
 
@@ -76,6 +77,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                 </div>
             </div>
             <div className={styles.catalogWrapper}>
+                <Loader />
                 <Sort />
                 {
                     products && products?.length > 0 ?
