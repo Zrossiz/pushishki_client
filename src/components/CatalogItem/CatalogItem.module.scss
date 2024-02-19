@@ -10,8 +10,8 @@
     }
 
     .imgWrapper {
-        border-top-right-radius: 20px;
-        border-top-left-radius: 20px;
+        display: flex;
+        justify-content: center;
         overflow: hidden;
 
         img {
@@ -112,5 +112,13 @@
 
     @media screen and (max-width: 1400px) {
         width: 275px;
+    }
+}
+
+.active {
+    background-color: transparent !important;
+
+    svg {
+        fill: var(--red) !important;
     }
 }

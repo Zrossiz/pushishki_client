@@ -1,5 +1,6 @@
 import { IProduct } from "@/types";
 
 export interface CatalogItemProps {
-    product: IProduct
+    product: IProduct,
+    localStorageFavorites?: IProduct[],
 }

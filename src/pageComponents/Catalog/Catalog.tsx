@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { LinkButton } from '@/elements';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { IProduct } from '@/types';
 
 export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps) => {
     const router = useRouter();
@@ -64,6 +65,12 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
         }, 400);
     }
 
+    let localStorageFavorites: IProduct[];
+
+    if (typeof window !== 'undefined') {
+         localStorageFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    }
+
     return (
         <section className={styles.catalog}>
             <div className={styles.filtersWrapper}>
@@ -116,6 +123,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                                                     <CatalogItemAttract type='call' />
                                                 }
                                                 <CatalogItem 
+                                                    localStorageFavorites={localStorageFavorites}
                                                     product={item}
                                                 />
                                             </React.Fragment>
