@@ -116,12 +116,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                                                     <CatalogItemAttract type='call' />
                                                 }
                                                 <CatalogItem 
-                                                    id={item.id}
-                                                    image={`/${item.image}`}
-                                                    price={item.defaultPrice}
-                                                    articul={item.articul}
-                                                    name={item.name}
-                                                    availibility={item.inStock}
+                                                    product={item}
                                                 />
                                             </React.Fragment>
                                         )
