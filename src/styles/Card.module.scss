@@ -1,0 +1,22 @@
+.itemDescriptionWrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .galleryAndDescriptionWrapper {
+        margin-right: 10px;
+    }
+
+    .aboutItemWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--white);
+        border-radius: 12px 40px 40px 12px;
+        width: 50%;
+
+        .breadcrumbsWrapper {
+            margin-top: 30px;
+        }
+    }
+}
