@@ -57,3 +57,15 @@ export const getNewProducts = async (): Promise<IProduct[] | { message: string }
         }
     }
 }
+
+export const getAccessories = async (): Promise<IProductWithLength | { message: string }> => {
+    try {
+        const acessories = await axios.get<IProductWithLength>(`${process.env.API_URL}/category/aksessuary/products`);
+        return acessories.data;
+    } catch (err) {
+        console.log(err);
+        return {
+            message: 'Ошибка при получении новинок'
+        }
+    }
+}
