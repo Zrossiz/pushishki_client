@@ -7,6 +7,8 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps) => {
+    const router = useRouter();
+    const { query } = router;
     
     const [loading, setLoading] = useState(false);
   
@@ -29,9 +31,6 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
         router.events.off('routeChangeError', handleComplete);
       };
     }, []);
-  
-    const router = useRouter();
-    const { query } = router;
 
     const [priceRangeFrom, setPriceRangeFrom] = useState<number | undefined>(query.priceRangeFrom !== undefined ? +query.priceRangeFrom : undefined);
     const [priceRangeTo, setPriceRangeTo] = useState<number | undefined>(query.priceRangeTo !== undefined ? +query.priceRangeTo : undefined);
@@ -62,7 +61,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                 pathname: router.pathname,
                 query: newQuery
               });
-        }, 600);
+        }, 400);
     }
 
     return (

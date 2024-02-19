@@ -1,6 +1,5 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import styles from './Loader.module.scss';
 
 export const Loader = () => {
-  return <div>Loading...</div>;
+  return <div className={styles.loader}>Загрузка</div>;
 };

@@ -1,0 +1,46 @@
+.loader {
+    position: relative;
+    margin-top: 100px;
+    text-align: center;
+    width: 100%;
+    border-width: 600;
+    font-size: 40px;
+    animation: blink 1s infinite;
+}
+
+.loader::after {
+    position: absolute;
+    content: '';
+    animation: dot-animation 0.4s infinite;
+}
+
+.loader::after {
+    animation-delay: 0.1s;
+}
+
+@keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+@keyframes dot-animation {
+    0% {
+      content: '';
+    }
+    33% {
+      content: '.';
+    }
+    66% {
+      content: '..';
+    }
+    100% {
+      content: '...';
+    }
+  }
