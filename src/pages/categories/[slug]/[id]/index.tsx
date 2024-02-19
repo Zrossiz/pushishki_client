@@ -1,4 +1,4 @@
-import { getAccessories, getBestsellers } from "@/api";
+import { getAccessories, getBestsellers, getOneProduct } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { Form, Questions, Slider } from "@/pageComponents";
 import { IProductCardPageProps } from "@/types";
@@ -6,10 +6,11 @@ import styles from '../../../../styles/Card.module.scss';
 import { Breadcrumbs } from "@/components";
 import { useRouter } from "next/router";
 import { HTag } from "@/elements";
+import Image from "next/image";
 
-const ProductCardPage = ({ bestSellers, acessories }: IProductCardPageProps) => {
+const ProductCardPage = ({ bestSellers, acessories, product }: IProductCardPageProps) => {
     const router = useRouter();
-    console.log(router);
+
     return (
         <>  
             <div className={styles.itemDescriptionWrapper}>
@@ -32,7 +33,29 @@ const ProductCardPage = ({ bestSellers, acessories }: IProductCardPageProps) => 
                         ]}/>
                     </div>
                     <div className={styles.titleWrapper}>
-                        <HTag tag="h1">Электромобиль</HTag>
+                        <HTag tag="h2">{product?.name}</HTag>
+                    </div>
+                    <div className={styles.inStockAndRatingWrapper}>
+                        <div className={styles.rating}>
+                            <svg width="22" height="20" viewBox="0 0 22 20" fill="D39F38" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.0489 0.927053C10.3483 0.00574231 11.6517 0.00573993 11.9511 0.927051L13.6942 6.29179C13.828 6.70382 14.212 6.98278 14.6452 6.98278H20.2861C21.2548 6.98278 21.6576 8.22239 20.8738 8.7918L16.3103 12.1074C15.9598 12.362 15.8132 12.8134 15.947 13.2254L17.6902 18.5902C17.9895 19.5115 16.935 20.2776 16.1513 19.7082L11.5878 16.3926C11.2373 16.138 10.7627 16.138 10.4122 16.3926L5.84869 19.7082C5.06498 20.2776 4.0105 19.5115 4.30985 18.5902L6.05296 13.2254C6.18683 12.8134 6.04018 12.362 5.68969 12.1074L1.12616 8.7918C0.342451 8.22239 0.745225 6.98278 1.71395 6.98278H7.35477C7.788 6.98278 8.17196 6.70382 8.30583 6.2918L10.0489 0.927053Z" fill="#D39F38"/>
+                            </svg>
+                            5.00
+                        </div>
+                        <div className={styles.inStock}>
+                            {
+                                product?.inStock ?
+                                    <>
+                                        <Image src={'/icons/Available.svg'} width={62} height={28} alt="Есть в наличии" />
+                                        В наличии
+                                    </>
+                                    :
+                                    <>
+                                        <Image src={'/icons/NotAvailable.svg'} width={62} height={28} alt="Нет в наличии" />
+                                        Нет в наличии
+                                    </>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,14 +69,19 @@ const ProductCardPage = ({ bestSellers, acessories }: IProductCardPageProps) => 
 
 export default withLayout(ProductCardPage);
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context: { params: { id: string; }; }) => {
+
+    const { id } = context.params
+
     const bestSellers = await getBestsellers();
     const acessories = await getAccessories();
+    const product = await getOneProduct(+id);
 
     return {
         props: {
             acessories,
-            bestSellers
+            bestSellers,
+            product,
         }
     }
 }

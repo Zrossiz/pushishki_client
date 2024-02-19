@@ -70,7 +70,7 @@ export const getAccessories = async (): Promise<IProductWithLength | { message: 
     }
 }
 
-export const getOne = async (id: number): Promise<IProduct | { message: string }> => {
+export const getOneProduct = async (id: number): Promise<IProduct | { message: string }> => {
     try {
         const product = await axios.get<IProduct>(`${process.env.API_URL}/product/${id}`);
 

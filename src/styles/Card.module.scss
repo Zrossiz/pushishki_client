@@ -18,5 +18,37 @@
         .breadcrumbsWrapper {
             margin-top: 30px;
         }
+
+        .titleWrapper {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .inStockAndRatingWrapper {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            margin-top: 12px;
+            font-weight: 700;
+            font-size: 24px;
+
+            .rating {
+                position: relative;
+
+                svg {
+                    margin-right: 6px;
+                }
+            }
+
+            .inStock {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    margin-right: 10px;
+                }
+            }
+        }
     }
 }

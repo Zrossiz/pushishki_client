@@ -21,4 +21,5 @@ export interface ICategoryPageProps {
 export interface IProductCardPageProps {
     acessories?: IProductWithLength,
     bestSellers?: IProduct[],
+    product?: IProduct,
 }
