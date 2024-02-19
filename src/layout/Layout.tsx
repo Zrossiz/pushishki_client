@@ -7,7 +7,6 @@ import cn from 'classnames';
 import { Header } from "./Header/Header";
 import { Footer } from "./Footer/Footer";
 import { ToTop, WhatsApp } from "@/components";
-import { useRouter } from "next/router";
 
 const manrope = Manrope({
   subsets: ["latin"],

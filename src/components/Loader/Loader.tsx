@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-const Loader = () => {
+export const Loader = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -29,5 +29,3 @@ const Loader = () => {
 
   return loading ? <div>Loading...</div> : null;
 };
-
-export default Loader;

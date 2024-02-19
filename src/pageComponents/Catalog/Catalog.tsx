@@ -1,12 +1,10 @@
-import { AvailabilityFilter, BrandFilter, CatalogItem, CountryFilter, MaxWeightFilter, Pagination, PriceFilter, Sort } from '@/components';
+import { AvailabilityFilter, BrandFilter, CatalogItem, CountryFilter, MaxWeightFilter, Pagination, PriceFilter, Sort, Loader, CatalogItemAttract } from '@/components';
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
 import { useState } from 'react';
 import { LinkButton } from '@/elements';
-import { CatalogItemAttract } from '@/components/CatalogItemAttract/CatalogItemAttract';
 import { useRouter } from 'next/router';
 import React from 'react';
-import Loader from '@/components/Loader/Loader';
 
 export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps) => {
 
