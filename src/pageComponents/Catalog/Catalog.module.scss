@@ -40,5 +40,28 @@
             width: 100%;
             margin-top: 20px;
         }
+
+        .notFoundProductsWrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+            width: 100%;
+
+            .notFoundProducts{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-weight: 700;
+                font-size: 44px;
+                width: 80%;
+
+                a {
+                    width: 300px;
+                    margin-top: 60px;
+                }
+            }
+        }
     }
 }

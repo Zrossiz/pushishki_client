@@ -8,7 +8,7 @@ const CategoryPage = ({ brands, countries, products, curPage, bestSellers }: ICa
         <>
             <PageTitle 
                 title={'Каталог'} 
-                counter={`Более ${products && products?.totalPages * 10} товаров`} 
+                counter={`${products && products?.totalPages * 10} товаров`} 
                 breadcrumbs={[
                     {
                         name: 'Главная',

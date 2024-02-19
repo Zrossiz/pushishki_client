@@ -77,38 +77,53 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
             </div>
             <div className={styles.catalogWrapper}>
                 <Sort />
-                <div className={styles.listWrapper}>
-                    {
-                        products?.data?.map((item, index) => {
-                            return (
-                                <React.Fragment key={index}>
-                                    {index === 2 &&
-                                        <CatalogItemAttract type='gift' />
-                                    }
-                                    {index === 6 &&
-                                        <CatalogItemAttract type='call' />
-                                    }
-                                    <CatalogItem 
-                                        id={item.id}
-                                        image={`/${item.image}`}
-                                        price={item.defaultPrice}
-                                        articul={item.articul}
-                                        name={item.name}
-                                        availibility={item.inStock}
+                {
+                    products && products?.length > 0 ?
+                        <>
+                            <div className={styles.listWrapper}>
+                                {
+                                    products?.data?.map((item, index) => {
+                                        return (
+                                            <React.Fragment key={index}>
+                                                {index === 2 &&
+                                                    <CatalogItemAttract type='gift' />
+                                                }
+                                                {index === 6 &&
+                                                    <CatalogItemAttract type='call' />
+                                                }
+                                                <CatalogItem 
+                                                    id={item.id}
+                                                    image={`/${item.image}`}
+                                                    price={item.defaultPrice}
+                                                    articul={item.articul}
+                                                    name={item.name}
+                                                    availibility={item.inStock}
+                                                />
+                                            </React.Fragment>
+                                        )
+                                    })
+                                }
+                            </div>
+                            {products?.totalPages && products.totalPages > 1 && 
+                                <div className={styles.paginationWrapper}>
+                                    <Pagination 
+                                        slug={`/categories/${router.query.slug}`} 
+                                        curPage={curPage} 
+                                        totalPages={products.totalPages} 
                                     />
-                                </React.Fragment>
-                            )
-                        })
-                    }
-                </div>
-                {products?.totalPages && products.totalPages > 1 && 
-                    <div className={styles.paginationWrapper}>
-                        <Pagination 
-                            slug={`/categories/${router.query.slug}`} 
-                            curPage={curPage} 
-                            totalPages={products.totalPages} 
-                        />
+                                </div>
+                            }
+                        </> 
+                : 
+                <div className={styles.notFoundProductsWrapper}>
+                    <div className={styles.notFoundProducts}>
+                        Сейчас нет товаров по вашему запросу, 
+                        но вы можете выбрать 
+                        другой электрокар
+
+                        <LinkButton href='/categories' element='link'>Перейти в категории</LinkButton>
                     </div>
+                </div>
                 }
             </div>
         </section>
