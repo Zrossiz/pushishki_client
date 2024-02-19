@@ -1,4 +1,4 @@
-import { CatalogItemAttractProps } from "./CatalogItem.props"
+import { CatalogItemAttractProps } from "./CatalogItemAttract.props"
 import styles from './CatalogItem.module.scss';
 import Image from "next/image";
 

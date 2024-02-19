@@ -1,13 +1,35 @@
 import { AvailabilityFilter, BrandFilter, CatalogItem, CountryFilter, MaxWeightFilter, Pagination, PriceFilter, Sort, Loader, CatalogItemAttract } from '@/components';
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LinkButton } from '@/elements';
 import { useRouter } from 'next/router';
 import React from 'react';
 
 export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps) => {
-
+    
+    const [loading, setLoading] = useState(false);
+  
+    useEffect(() => {
+      const handleStart = (url: string) => {
+        setLoading(true);
+      };
+  
+      const handleComplete = (url: string) => {
+        setLoading(false);
+      };
+  
+      router.events.on('routeChangeStart', handleStart);
+      router.events.on('routeChangeComplete', handleComplete);
+      router.events.on('routeChangeError', handleComplete);
+  
+      return () => {
+        router.events.off('routeChangeStart', handleStart);
+        router.events.off('routeChangeComplete', handleComplete);
+        router.events.off('routeChangeError', handleComplete);
+      };
+    }, []);
+  
     const router = useRouter();
     const { query } = router;
 
@@ -30,6 +52,10 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
         };
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (products) {
+            products.length = 0
+        }
 
         setTimeout(() => {
             router.push({
@@ -75,9 +101,8 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
                 </div>
             </div>
             <div className={styles.catalogWrapper}>
-                <Loader />
                 <Sort />
-                {
+                {   loading ? <Loader /> :
                     products && products?.length > 0 ?
                         <>
                             <div className={styles.listWrapper}>
