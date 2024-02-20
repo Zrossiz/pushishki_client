@@ -1,9 +1,9 @@
-import { getBestsellers, getBrands, getCategoryProducts, getCountries } from "@/api";
+import { getBestsellers, getBrands, getCategory, getCategoryProducts, getCountries } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
 import { ICatalogPageProps } from "@/types";
 
-const CategoryPage = ({ brands, countries, products, curPage, bestSellers }: ICatalogPageProps) => {
+const CategoryPage = ({ brands, countries, products, curPage, bestSellers, category }: ICatalogPageProps) => {
     return (
         <>
             <PageTitle 
@@ -15,8 +15,8 @@ const CategoryPage = ({ brands, countries, products, curPage, bestSellers }: ICa
                         path: '/'
                     },
                     {
-                        name: 'Категории',
-                        path: '/categories'
+                        name: `${category?.name}`,
+                        path: `/${category?.slug}`
                     }
                 ]}
             />
@@ -45,6 +45,7 @@ export const getServerSideProps = async (context: any) => {
     const inStock = Boolean(context.query?.inStock);
     const maxLoad = +context.query?.maxLoad;
 
+    const category = await getCategory(slug);
     const brands = await getBrands();
     const countries = await getCountries();
     const bestSellers = await getBestsellers();
@@ -62,6 +63,7 @@ export const getServerSideProps = async (context: any) => {
 
     return {
         props: {
+            category,
             brands,
             countries,
             products,

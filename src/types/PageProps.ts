@@ -1,4 +1,4 @@
-import { IBrandWithLength, ICategoryWithLength, ICountryWithLength, IProduct, IProductWithLength } from ".";
+import { IBrandWithLength, ICategory, ICategoryWithLength, ICountryWithLength, IProduct, IProductWithLength } from ".";
 
 export interface MainPageProps {
     bestSellers?: IProduct[],
@@ -11,6 +11,7 @@ export interface ICatalogPageProps {
     products?: IProductWithLength,
     curPage?: number,
     bestSellers?: IProduct[],
+    category?: ICategory,
 }
 
 export interface ICategoryPageProps {
