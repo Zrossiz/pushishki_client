@@ -3,13 +3,42 @@
     justify-content: space-between;
 
     .galleryAndDescriptionWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 51%;
         margin-right: 10px;
+
+        .galleryWrapper {
+            height: 200px;
+            background-color: var(--white);
+            border-radius: 40px 12px 12px 12px;
+        }
+
+        .descriptionWrapper {
+            padding: 20px;
+            flex: 1;
+            margin-top: 10px;
+            border-radius: 12px 12px 12px 40px;
+            background-color: var(--white);
+
+            h3 {
+                text-align: center;
+            }
+
+            span {
+                display: inline-block;
+                width: 100%;
+                font-weight: 400;
+                font-size: 20px;
+                margin-top: 20px;
+                text-align: start;
+            }
+        }
     }
 
     .aboutItemWrapper {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         background-color: var(--white);
         border-radius: 12px 40px 40px 12px;

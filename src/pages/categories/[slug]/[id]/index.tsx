@@ -20,7 +20,13 @@ const ProductCardPage = ({ bestSellers, acessories, product }: IProductCardPageP
     return (
         <>  
             <div className={styles.itemDescriptionWrapper}>
-                <div className={styles.galleryAndDescriptionWrapper}>1</div>
+                <div className={styles.galleryAndDescriptionWrapper}>
+                    <div className={styles.galleryWrapper}></div>
+                    <div className={styles.descriptionWrapper}>
+                        <HTag tag="h3">Описание {product?.name}</HTag>
+                        <span>{product?.description}</span>
+                    </div>
+                </div>
                 <div className={styles.aboutItemWrapper}>
                     <div className={styles.breadcrumbsWrapper}>
                         <Breadcrumbs breadcrumbs={[
