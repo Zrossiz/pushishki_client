@@ -70,7 +70,7 @@ export const CatalogItem = ({
                     <div 
                         className={cn(styles.favoriteWrapper, {
                             [styles.active]: isAdded
-                        })} 
+                        })}
                         onClick={() => addToFavorite(product)}
                     >
                         <div className={styles.imgWrapper}>

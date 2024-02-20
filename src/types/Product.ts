@@ -25,4 +25,5 @@ export interface IProduct {
     new: boolean;
     inStock: boolean;
     defaultPrice: number;
+    rating: number;
 }

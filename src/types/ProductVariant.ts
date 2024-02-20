@@ -1,16 +1,15 @@
-export interface ProductVariant {
+export interface IProductVariant {
     id: number;
     color: string;
     description: string;
-    articul: string;
+    articul: number;
     gearbox: string;
     battery: string;
     maximumLoad: number;
     assembledModelSize: string;
     modelSizeInPackage: string;
     video: string;
-    image: string;
-    bestseller: boolean;
-    new: boolean;
     inStock: boolean;
+    price: number;
+    images: string[];
 }
