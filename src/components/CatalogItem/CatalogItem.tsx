@@ -17,7 +17,6 @@ export const CatalogItem = ({
     }).format(product.defaultPrice);
 
     const [isAdded, setIsAdded] = useState<boolean>(false);
-    console.log(isAdded)
 
     useEffect(() => {
         if (localStorageFavorites) {

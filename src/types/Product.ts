@@ -1,3 +1,5 @@
+import { IBrand, ICategory, ICountry } from ".";
+
 export interface IProductWithLength {
     length: number;
     totalPages: number;
@@ -6,9 +8,9 @@ export interface IProductWithLength {
 
 export interface IProduct {
     id: number;
-    countryId: number;
-    brandId: number;
-    categoryId: number;
+    country: ICountry;
+    brand: IBrand;
+    category: ICategory;
     name: string;
     description: string;
     articul: string;

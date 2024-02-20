@@ -57,6 +57,18 @@ const ProductCardPage = ({ bestSellers, acessories, product }: IProductCardPageP
                             }
                         </div>
                     </div>
+                    <div className={styles.propsWrapper}>
+                        <ul>
+                            <li>{product?.articul && <>Артикул: <span>{product?.articul}</span></>}</li>
+                            <li>{product?.brand.name && <>Бренд: <span>{product?.brand.name}</span></>}</li>
+                            <li>{product?.country.name && <>Производитель: <span>{product?.country.name}</span></>}</li>
+                            <li>{product?.assembledModelSize && <>Размер собранной модели: <span>{product?.assembledModelSize}</span></>}</li>
+                            <li>{product?.modelSizeInPackage && <>Размер модели в упаковке: <span>{product?.modelSizeInPackage}</span></>}</li>
+                            <li>{product?.maximumLoad && <>Максимальная нагрузка: <span>{product?.maximumLoad} кг</span></>}</li>
+                            <li>{product?.battery && <>Съемный аккумулятор: <span>{product?.battery}</span></>}</li>
+                            <li>{product?.gearbox && <>Редуктор: {product?.gearbox}</>}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <Slider title="Аксессуары" products={acessories?.data} />
