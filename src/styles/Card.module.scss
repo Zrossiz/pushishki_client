@@ -14,10 +14,8 @@
         background-color: var(--white);
         border-radius: 12px 40px 40px 12px;
         width: 48%;
-
-        .breadcrumbsWrapper {
-            margin-top: 30px;
-        }
+        padding-top: 30px;
+        padding-left: 40px;
 
         .titleWrapper {
             margin-top: 20px;
@@ -47,6 +45,26 @@
 
                 img {
                     margin-right: 10px;
+                }
+            }
+        }
+
+        .propsWrapper {
+            align-self: self-start;
+            margin-top: 30px;
+
+            ul {
+
+                li {
+                    margin-top: 10px;
+                    color: var(--dark-grey);
+                    font-weight: 700;
+                    font-size: 26px;
+
+                    span {
+                        font-size: 24px;
+                        color: var(--black);
+                    }
                 }
             }
         }
