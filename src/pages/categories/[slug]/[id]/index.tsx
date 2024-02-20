@@ -11,6 +11,12 @@ import Image from "next/image";
 const ProductCardPage = ({ bestSellers, acessories, product }: IProductCardPageProps) => {
     const router = useRouter();
 
+    const formattedPrice: string = Intl.NumberFormat('ru-RU', {
+        style: 'currency',
+        currency: 'RUB',
+        currencyDisplay: 'symbol' 
+    }).format(product?.defaultPrice || 0);
+
     return (
         <>  
             <div className={styles.itemDescriptionWrapper}>
@@ -23,8 +29,8 @@ const ProductCardPage = ({ bestSellers, acessories, product }: IProductCardPageP
                                 path: '/'
                             },
                             {
-                                name: 'Категории',
-                                path: '/categories'
+                                name: `${product?.category.name}`,
+                                path: `/${product?.category.slug}`
                             },
                             {
                                 name: 'Каталог',
@@ -68,6 +74,9 @@ const ProductCardPage = ({ bestSellers, acessories, product }: IProductCardPageP
                             <li>{product?.battery && <>Съемный аккумулятор: <span>{product?.battery}</span></>}</li>
                             <li>{product?.gearbox && <>Редуктор: {product?.gearbox}</>}</li>
                         </ul>
+                    </div>
+                    <div className={styles.priceWrapper}>
+                        Цена: <span>{formattedPrice}</span>
                     </div>
                 </div>
             </div>
