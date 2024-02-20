@@ -1,4 +1,4 @@
-import { getAccessories, getBestsellers, getOneProduct } from "@/api";
+import { getAccessories, getBestsellers, getOneProduct, getProductVariants } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { Form, Questions, Slider } from "@/pageComponents";
 import { IProductCardPageProps } from "@/types";
@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { HTag } from "@/elements";
 import Image from "next/image";
 
-const ProductCardPage = ({ bestSellers, acessories, product }: IProductCardPageProps) => {
+const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: IProductCardPageProps) => {
     const router = useRouter();
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
@@ -74,15 +74,24 @@ const ProductCardPage = ({ bestSellers, acessories, product }: IProductCardPageP
                             <li>{product?.articul && <>Артикул: <span>{product?.articul}</span></>}</li>
                             <li>{product?.brand.name && <>Бренд: <span>{product?.brand.name}</span></>}</li>
                             <li>{product?.country.name && <>Производитель: <span>{product?.country.name}</span></>}</li>
-                            <li>{product?.assembledModelSize && <>Размер собранной модели: <span>{product?.assembledModelSize}</span></>}</li>
-                            <li>{product?.modelSizeInPackage && <>Размер модели в упаковке: <span>{product?.modelSizeInPackage}</span></>}</li>
                             <li>{product?.maximumLoad && <>Максимальная нагрузка: <span>{product?.maximumLoad} кг</span></>}</li>
                             <li>{product?.battery && <>Съемный аккумулятор: <span>{product?.battery}</span></>}</li>
                             <li>{product?.gearbox && <>Редуктор: <span>{product?.gearbox}</span></>}</li>
+                            <li>{product?.assembledModelSize && <>Размер собранной модели: <span>{product?.assembledModelSize}</span></>}</li>
+                            <li>{product?.modelSizeInPackage && <>Размер модели в упаковке: <span>{product?.modelSizeInPackage}</span></>}</li>
                         </ul>
                     </div>
                     <div className={styles.priceWrapper}>
                         Цена: <span>{formattedPrice}</span>
+                    </div>
+                    <div className={styles.colorsWrapper}>
+                        Цвет: {
+                            productVariants?.map((item) => {
+                                return (
+                                    <div className={styles.colorOption} style={{backgroundColor: item?.color}}></div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
@@ -103,12 +112,14 @@ export const getServerSideProps = async (context: { params: { id: string; }; }) 
     const bestSellers = await getBestsellers();
     const acessories = await getAccessories();
     const product = await getOneProduct(+id);
+    const productVariants = await getProductVariants(+id);
 
     return {
         props: {
             acessories,
             bestSellers,
             product,
+            productVariants,
         }
     }
 }
