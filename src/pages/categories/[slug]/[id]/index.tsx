@@ -72,7 +72,7 @@ const ProductCardPage = ({ bestSellers, acessories, product }: IProductCardPageP
                             <li>{product?.modelSizeInPackage && <>Размер модели в упаковке: <span>{product?.modelSizeInPackage}</span></>}</li>
                             <li>{product?.maximumLoad && <>Максимальная нагрузка: <span>{product?.maximumLoad} кг</span></>}</li>
                             <li>{product?.battery && <>Съемный аккумулятор: <span>{product?.battery}</span></>}</li>
-                            <li>{product?.gearbox && <>Редуктор: {product?.gearbox}</>}</li>
+                            <li>{product?.gearbox && <>Редуктор: <span>{product?.gearbox}</span></>}</li>
                         </ul>
                     </div>
                     <div className={styles.priceWrapper}>

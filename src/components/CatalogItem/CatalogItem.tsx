@@ -64,7 +64,7 @@ export const CatalogItem = ({
             </div>
             <div className={styles.selectAndAvalability}>
                 <div className={styles.buttonWrapper}>
-                    <LinkButton element='link' href={`/categories/mototehnika/${product.id}`}>
+                    <LinkButton element='link' href={`/categories/${product.category.slug}/${product.id}`}>
                         Выбрать
                     </LinkButton>
                     <div 
