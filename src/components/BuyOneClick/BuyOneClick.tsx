@@ -10,8 +10,6 @@ export const BuyOneClick = ({ setOpen }: BuyOneClickProps) => {
     const [name, setName] = useState<string>('');
     const [phone, setPhone] = useState<number>();
 
-    console.log(phone);
-
     return (
         <div className={styles.wrapper}>
             <AnimatePresence>
