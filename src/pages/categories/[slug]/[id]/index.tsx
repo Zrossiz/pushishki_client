@@ -5,7 +5,7 @@ import { IProductCardPageProps } from "@/types";
 import styles from '../../../../styles/Card.module.scss';
 import { Breadcrumbs } from "@/components";
 import { useRouter } from "next/router";
-import { HTag } from "@/elements";
+import { HTag, LinkButton } from "@/elements";
 import Image from "next/image";
 import { useState } from "react";
 import cn from 'classnames';
@@ -101,6 +101,9 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
                                 )
                             })
                         }
+                    </div>
+                    <div className={styles.buttonsWrapper}>
+                        <LinkButton element="button">В корзину</LinkButton>
                     </div>
                 </div>
             </div>
