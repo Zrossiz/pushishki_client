@@ -7,9 +7,12 @@ import { Breadcrumbs } from "@/components";
 import { useRouter } from "next/router";
 import { HTag } from "@/elements";
 import Image from "next/image";
+import { useState } from "react";
+import cn from 'classnames';
 
 const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: IProductCardPageProps) => {
     const router = useRouter();
+    const [activeVariant, setActiveVariant] = useState<number>();
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
         style: 'currency',
@@ -86,9 +89,15 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
                     </div>
                     <div className={styles.colorsWrapper}>
                         Цвет: {
-                            productVariants?.map((item) => {
+                            productVariants?.map((item, index) => {
                                 return (
-                                    <div className={styles.colorOption} style={{backgroundColor: item?.color}}></div>
+                                    <div 
+                                        onClick={() => setActiveVariant(index)} 
+                                        className={cn(styles.colorOption, {
+                                            [styles.active]: index === activeVariant
+                                        })} 
+                                        style={{backgroundColor: item?.color}}
+                                    ></div>
                                 )
                             })
                         }

@@ -117,6 +117,10 @@
             font-size: 32px;
             font-weight: 700;
 
+            .active {
+                border: 2px solid var(--medium-grey);
+            }
+
             .colorOption {
                 cursor: pointer;
                 margin-left: 10px;
