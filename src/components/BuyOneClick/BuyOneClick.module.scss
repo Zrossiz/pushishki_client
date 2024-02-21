@@ -11,13 +11,15 @@
     background-color: rgba(0, 0, 0, 0.5);
 
     .formWrapper {
+        text-align: center;
+        width: 600px;
         padding: 20px;
         background-color: var(--white);
         border-radius: 20px;
 
         .close {
-            display: flex;
-            justify-content: flex-end;
+            margin-left: auto;
+            width: fit-content;
             cursor: pointer;
 
             img {
