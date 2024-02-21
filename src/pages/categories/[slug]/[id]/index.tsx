@@ -167,6 +167,13 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
                         <div className={styles.buyOneClick}>
                             <LinkButton element="button">Купить в один клик</LinkButton>
                         </div>
+                        <div className={styles.deliveryWrapper}>
+                            <span>Доставка в пределах МКАД - бесплатно</span>
+                            <span className={styles.grey}>Доставка за пределами МКАД - 40 рублей за 1 км</span>
+                        </div>
+                        <div className={styles.contactsWrapper}>
+                            Связаться с нами: <a href="">8 (495) 766-07-13</a>
+                        </div>
                     </div>
                 </div>
             </div>
