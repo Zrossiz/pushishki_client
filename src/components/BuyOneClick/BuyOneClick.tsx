@@ -1,4 +1,4 @@
-import { HTag } from '@/elements';
+import { HTag, Input } from '@/elements';
 import styles from './BuyOneClick.module.scss';
 import { BuyOneClickProps } from './BuyOneClick.props';
 import Image from 'next/image';
@@ -20,6 +20,9 @@ export const BuyOneClick = ({ setOpen }: BuyOneClickProps) => {
                     </div>
                     <div>
                         <HTag tag='h2'>Купить в один клик</HTag>
+                    </div>
+                    <div className={styles.inputsWrapper}>
+                        <Input placeholder="Имя" type="text" />
                     </div>
                 </motion.div>
             </AnimatePresence>
