@@ -8,7 +8,7 @@ export const Input = ({ placeholder, value, onChange }: InputProps) => {
             value={value} 
             type="text" 
             placeholder={placeholder} 
-            onChange={(e) => onChange(e)}
+            onChange={(e) => onChange(e.target.value)}
         />
     )
 }

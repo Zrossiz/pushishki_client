@@ -3,9 +3,12 @@ import styles from './BuyOneClick.module.scss';
 import { BuyOneClickProps } from './BuyOneClick.props';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
 
 
 export const BuyOneClick = ({ setOpen }: BuyOneClickProps) => {
+    const [name, setName] = useState<string>('');
+
     return (
         <div className={styles.wrapper}>
             <AnimatePresence>
@@ -22,7 +25,7 @@ export const BuyOneClick = ({ setOpen }: BuyOneClickProps) => {
                         <HTag tag='h2'>Купить в один клик</HTag>
                     </div>
                     <div className={styles.inputsWrapper}>
-                        <Input placeholder="Имя" type="text" />
+                        <Input value={name} onChange={setName} placeholder="Имя" type="text" />
                     </div>
                 </motion.div>
             </AnimatePresence>
