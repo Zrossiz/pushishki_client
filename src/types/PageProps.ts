@@ -3,6 +3,7 @@ import { IBrandWithLength, ICategory, ICategoryWithLength, ICountryWithLength, I
 export interface MainPageProps {
     bestSellers?: IProduct[],
     newProducts?: IProduct[],
+    categories?: ICategoryWithLength
 }
 
 export interface ICatalogPageProps {

@@ -8,7 +8,7 @@
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
+    z-index: 3;
     
     .questionWrapper {
         position: relative;
@@ -49,6 +49,37 @@
             font-weight: 700;
             font-size: 32px;
             margin-top: 20px;
+        }
+
+        .question {
+            margin-top: 20px;
+
+            .categoriesWrapper {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+
+                .category {
+                    cursor: pointer;
+                    text-align: center;
+                    width: 260px;
+                    border-radius: 20px;
+                    padding: 20px 30px;
+                    background-color: var(--light-grey);
+                    color: var(--darker-grey);
+                    font-size: 24px;
+                    font-weight: 700;
+                    transition: 1s;
+
+                    &:not(:last-child) {
+                        margin-right: 20px;
+                    }
+
+                    &:hover {
+                        color: var(--light-green);
+                    }
+                }
+            }
         }
     }
 }

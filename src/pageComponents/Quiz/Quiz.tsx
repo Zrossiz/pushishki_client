@@ -3,8 +3,9 @@ import { useRef, useState } from "react";
 import styles from './Quiz.module.scss';
 import Image from "next/image";
 import { QuizQuestions } from "@/components";
+import { QuizProps } from "./Quiz.props";
 
-export const Quiz = () => {
+export const Quiz = ({ categories }: QuizProps) => {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true });
     const ref2 = useRef(null)
@@ -15,7 +16,7 @@ export const Quiz = () => {
     const [open, setOpen] = useState<boolean>(false);
     return (
       <section className={styles.quiz}>
-        {open && <QuizQuestions setOpen={setOpen} />}
+        {open && <QuizQuestions setOpen={setOpen} categories={categories} />}
         <div className={styles.countWrapper}>
           <span>( Всего 3 вопроса )</span>
         </div>

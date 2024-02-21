@@ -7,10 +7,10 @@ import cn from 'classnames';
 import { Form, Questions, Quiz, Slider } from "@/pageComponents";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { getBestsellers, getNewProducts } from "@/api";
+import { getBestsellers, getCategories, getNewProducts } from "@/api";
 import { MainPageProps } from "@/types";
 
-const Home = ({ bestSellers, newProducts }: MainPageProps) => {
+const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
 
   const mainTitleRef = useRef(null)
   const mainTitleRefIsInView = useInView(mainTitleRef, { once: true });
@@ -185,7 +185,7 @@ const Home = ({ bestSellers, newProducts }: MainPageProps) => {
           </ul>
         </div>
       </section>
-      <Quiz />
+      <Quiz categories={categories?.data} />
       <Questions />
       <section className={styles.map}>
         <div className={styles.infoWrapper}>
@@ -251,11 +251,13 @@ export default withLayout(Home)
 export const getStaticProps = async () => {
   const bestSellers = await getBestsellers();
   const newProducts = await getNewProducts();
+  const categories = await getCategories();
 
   return {
     props: {
       bestSellers,
       newProducts,
+      categories,
     }
   }
 }
