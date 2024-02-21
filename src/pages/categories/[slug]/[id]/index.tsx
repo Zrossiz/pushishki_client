@@ -40,12 +40,12 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
     }, []);
     
     
-    const addToFavorite = (item: IProduct) => {
+    const addToFavorite = (item?: IProduct) => {
         let favorites: IProduct[] = JSON.parse(localStorage.getItem('favorites') || '[]');
 
         if (favorites?.length > 0) {
             for (let i = 0; i <= favorites.length; i++) {
-                if (favorites[i]?.id === item.id) {
+                if (favorites[i]?.id === item?.id) {
                     setIsAdded(false);
                     favorites.splice(i, 1);
                     return localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -53,7 +53,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
             }
         }
 
-        !isAdded && favorites?.push(item);
+        !isAdded && item && favorites?.push(item);
         setIsAdded(true);
         return localStorage.setItem('favorites', JSON.stringify(favorites));
     };
