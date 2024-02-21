@@ -3,7 +3,7 @@ import { withLayout } from "@/layout/Layout";
 import { Form, Questions, Slider } from "@/pageComponents";
 import { IProduct, IProductCardPageProps } from "@/types";
 import styles from '../../../../styles/Card.module.scss';
-import { Breadcrumbs } from "@/components";
+import { Breadcrumbs, BuyOneClick } from "@/components";
 import { useRouter } from "next/router";
 import { HTag, LinkButton } from "@/elements";
 import Image from "next/image";
@@ -13,6 +13,8 @@ import cn from 'classnames';
 const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: IProductCardPageProps) => {
     const router = useRouter();
     const [activeVariant, setActiveVariant] = useState<number>();
+    const [isAdded, setIsAdded] = useState<boolean>(false);
+    const [openBuyOnClick, setOpenBuyOnClick] = useState(true);
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
         style: 'currency',
@@ -26,7 +28,6 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
          localStorageFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     }
 
-    const [isAdded, setIsAdded] = useState<boolean>(false);
 
     useEffect(() => {
         if (localStorageFavorites) {
@@ -60,6 +61,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
 
     return (
         <>  
+            {openBuyOnClick && <BuyOneClick setOpen={setOpenBuyOnClick} />}
             <div className={styles.itemDescriptionWrapper}>
                 <div className={styles.galleryAndDescriptionWrapper}>
                     <div className={styles.galleryWrapper}></div>
@@ -165,7 +167,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
                             </div>
                         </div>
                         <div className={styles.buyOneClick}>
-                            <LinkButton element="button">Купить в один клик</LinkButton>
+                            <LinkButton onClick={() => setOpenBuyOnClick(true)} element="button">Купить в один клик</LinkButton>
                         </div>
                         <div className={styles.deliveryWrapper}>
                             <span>Доставка в пределах МКАД - бесплатно</span>
