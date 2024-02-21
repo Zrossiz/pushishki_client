@@ -1,4 +1,4 @@
-import { HTag, Input } from '@/elements';
+import { HTag, Input, LinkButton } from '@/elements';
 import styles from './BuyOneClick.module.scss';
 import { BuyOneClickProps } from './BuyOneClick.props';
 import Image from 'next/image';
@@ -8,6 +8,9 @@ import { useState } from 'react';
 
 export const BuyOneClick = ({ setOpen }: BuyOneClickProps) => {
     const [name, setName] = useState<string>('');
+    const [phone, setPhone] = useState<number>();
+
+    console.log(phone);
 
     return (
         <div className={styles.wrapper}>
@@ -26,6 +29,12 @@ export const BuyOneClick = ({ setOpen }: BuyOneClickProps) => {
                     </div>
                     <div className={styles.inputsWrapper}>
                         <Input value={name} onChange={setName} placeholder="Имя" type="text" />
+                        <div className={styles.phoneInputWrapper}>
+                            <Input value={phone} onChange={setPhone} type='phone' />
+                        </div>
+                    </div>
+                    <div className={styles.sendButtonWrapper}>
+                        <LinkButton onClick={() => console.log(name, phone)} element='button'>Отправить</LinkButton>
                     </div>
                 </motion.div>
             </AnimatePresence>
