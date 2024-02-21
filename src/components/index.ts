@@ -15,3 +15,4 @@ export * from './CatalogItem/CatalogItem';
 export * from './CatalogItemAttract/CatalogItemAttract';
 export * from './Pagination/Pagination';
 export * from './Loader/Loader';
+export * from './BuyOneClick/BuyOneClick';
