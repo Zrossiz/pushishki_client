@@ -76,7 +76,7 @@ export const Slider = ({ title, products }: SliderProps) => {
                                 currencyDisplay: 'symbol' 
                             }).format(item.defaultPrice);
                             return (
-                                <SwiperSlide>
+                                <SwiperSlide key={item.id}>
                                     <Link href="#" className={styles.itemWrapper}>
                                         <div className={styles.imgWrapper}>
                                             <Image src={'/sliderImg.png'} width={200} height={150} alt={item.name} />
