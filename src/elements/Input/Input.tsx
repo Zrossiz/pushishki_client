@@ -1,7 +1,7 @@
 import styles from './Input.module.scss';
 import { InputProps } from './Input.props';
 
-export const Input = ({ placeholder, value, onChange, type }: InputProps) => {
+export const Input = ({ placeholder, value, onChange, type, defaultValue }: InputProps) => {
     const getInputNumbersValue = (input: HTMLInputElement) => {
         return input.value.replace(/\D/g, "");
     }
@@ -83,6 +83,7 @@ export const Input = ({ placeholder, value, onChange, type }: InputProps) => {
                         type="text" 
                         placeholder={placeholder} 
                         onChange={(e) => onChange(e.target.value)}
+                        defaultValue={defaultValue}
                     /> :
                     <input 
                         id='phoneInput' 

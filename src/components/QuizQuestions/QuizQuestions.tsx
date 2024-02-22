@@ -5,7 +5,7 @@ import { QuizQuestionsProps } from './QuizQuestions.props';
 import { IProduct, IProductWithLength } from '@/types';
 import { getCategoryProducts } from '@/api';
 import cn from 'classnames';
-import { LinkButton } from '@/elements';
+import { Input, LinkButton } from '@/elements';
 
 export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
 
@@ -20,6 +20,8 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
     const [maximumLoad, setMaximLoad] = useState<number>(0);
     const [priceFrom, setPriceFrom] = useState<number>(0);
     const [priceTo, setPriceTo] = useState<number>(0);
+
+    console.log(maximumLoad);
 
     let result: IProduct[];
 
@@ -56,7 +58,15 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                                 )
                             })}
                         </div> 
-                        : <div>2</div>
+                        : 
+                        <div className={styles.maximumLoadWrapper}>
+                            <div className={styles.inputWrapper}>
+                                От <Input type='text' defaultValue={0} />
+                            </div>
+                            <div className={styles.inputWrapper}>
+                                До <Input type='text' value={maximumLoad} onChange={setMaximLoad} />
+                            </div>
+                        </div>
                     }
                 </div>
                 <div className={styles.nextQuestionBtnWrapper}>

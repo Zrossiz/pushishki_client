@@ -88,6 +88,24 @@
                     border-color: var(--light-green);
                 }
             }
+
+            .maximumLoadWrapper {
+                display: flex;
+                margin-top: 20px;
+
+                .inputWrapper {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 20px;
+                    font-size: 32px;
+                    font-weight: 700;
+
+                    input {
+                        margin-left: 20px;
+                    }
+                }
+            }
         }
 
         .nextQuestionBtnWrapper {
