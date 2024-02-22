@@ -1,5 +1,9 @@
 import { IProduct, IProductWithLength } from "@/types";
 import axios from "axios";
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+const { API_URL } = publicRuntimeConfig;
 
 export const getCategoryProducts = async (
     slug: string, 
@@ -21,7 +25,7 @@ export const getCategoryProducts = async (
         const brandsFilterSetting = brandsFilter.length >= 1 ? `&brands=${JSON.stringify(brandsFilter)}` : '';
         const countriesFilterSetting = countriesFilter.length >= 1 ? `&countries=${JSON.stringify(countriesFilter)}` : '';
 
-        const { data } = await axios.get<IProductWithLength>(`${process.env.API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}`);
+        const { data } = await axios.get<IProductWithLength>(`${API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}`);
         
         return data;
     } catch (err) {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './QuizQuestions.module.scss';
 import Image from 'next/image';
 import { QuizQuestionsProps } from './QuizQuestions.props';
@@ -18,10 +18,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
     const [question, setQuesiton] = useState<number>(0);
     const [category, setCategory] = useState<string>('');
     const [maximumLoad, setMaximLoad] = useState<number>(0);
-    const [priceFrom, setPriceFrom] = useState<number>(0);
     const [priceTo, setPriceTo] = useState<number>(0);
-
-    console.log(question);
 
     let result: IProduct[];
 
@@ -31,10 +28,8 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
             return setOpen(false);
         }
 
-        // if (index + 1 === questions.length) {
-        //     const products: IProductWithLength | { message: string } = await getCategoryProducts(category, 1, 1, priceFrom, priceTo, [], [], true, maximumLoad);
-        // }
-
+        const products: IProductWithLength | { message: string } = await getCategoryProducts(category, 1, 1, 0, priceTo, [], [], true, maximumLoad);
+        console.log(products)
         setQuesiton(index + 1);
     };
 
@@ -57,6 +52,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                             {categories?.map((item, index) => {
                                 return (
                                     <div 
+                                        key={item.id}
                                         onClick={() => setCategory(item.slug)} 
                                         className={cn(styles.category, {
                                             [styles.active]: item.slug === category
@@ -79,7 +75,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                     {
                         question === 2 && 
                         <div className={styles.inputWrapper}>
-                            До <Input type='text' value={maximumLoad} onChange={setMaximLoad} />
+                            До <Input type='text' value={maximumLoad} onChange={setPriceTo} />
                         </div>
                     }
                 </div>
