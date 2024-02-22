@@ -16,4 +16,8 @@
     &:hover {
         background-color: #054F1A;
     }
+
+    &:disabled {
+        opacity: 0.5;
+    }
 }

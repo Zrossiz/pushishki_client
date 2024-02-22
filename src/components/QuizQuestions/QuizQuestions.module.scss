@@ -11,6 +11,8 @@
     z-index: 3;
     
     .questionWrapper {
+        display: flex;
+        flex-direction: column;
         position: relative;
         padding: 60px;
         width: 1000px;
@@ -70,6 +72,7 @@
                     font-size: 24px;
                     font-weight: 700;
                     transition: 1s;
+                    border: 2px solid transparent;
 
                     &:not(:last-child) {
                         margin-right: 20px;
@@ -79,7 +82,21 @@
                         color: var(--light-green);
                     }
                 }
+
+                .active {
+                    color: var(--light-green);
+                    border-color: var(--light-green);
+                }
             }
+        }
+
+        .nextQuestionBtnWrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: auto;
+            margin-left: auto;
+            width: 200px;
+            height: 70px;
         }
     }
 }

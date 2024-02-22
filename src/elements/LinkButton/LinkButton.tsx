@@ -6,14 +6,16 @@ export const LinkButton = ({
     element, 
     href = '', 
     onClick = () => {}, 
-    children 
+    children,
+    disabled
 }: LinkButtonProps) => {
     switch (element) {
         case 'button':
             return (
                 <button
+                    disabled={disabled}
                     className={styles.button}
-                    onClick={() => onClick()}
+                    onClick={(arg0) => onClick(arg0)}
                 >
                     {children}
                 </button>

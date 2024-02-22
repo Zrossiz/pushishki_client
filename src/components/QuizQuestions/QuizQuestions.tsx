@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { QuizQuestionsProps } from './QuizQuestions.props';
 import { IProduct, IProductWithLength } from '@/types';
 import { getCategoryProducts } from '@/api';
+import cn from 'classnames';
+import { LinkButton } from '@/elements';
 
 export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
 
@@ -27,7 +29,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
         //     const products: IProductWithLength | { message: string } = await getCategoryProducts(category, 1, 1, priceFrom, priceTo, [], [], true, maximumLoad);
         // }
 
-        setQuesiton(index);
+        setQuesiton(index + 1);
     };
 
     return (
@@ -43,14 +45,28 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                 <div className={styles.question}>
                     {question === 0 ? 
                         <div className={styles.categoriesWrapper}>
-                            {categories?.map((item) => {
+                            {categories?.map((item, index) => {
                                 return (
-                                    <div onClick={() => setCategory(item.slug)} className={styles.category}>{item.name}</div>
+                                    <div 
+                                        onClick={() => setCategory(item.slug)} 
+                                        className={cn(styles.category, {
+                                            [styles.active]: item.slug === category
+                                        })}
+                                    >{item.name}</div>
                                 )
                             })}
                         </div> 
                         : <div>2</div>
                     }
+                </div>
+                <div className={styles.nextQuestionBtnWrapper}>
+                    <LinkButton 
+                        element='button' 
+                        disabled={category ? false : true}
+                        onClick={() => switchQuestion(question)}
+                    >
+                        Дальше
+                    </LinkButton>
                 </div>
             </div>
         </div>
