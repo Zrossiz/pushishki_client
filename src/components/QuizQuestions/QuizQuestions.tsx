@@ -21,11 +21,15 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
     const [priceFrom, setPriceFrom] = useState<number>(0);
     const [priceTo, setPriceTo] = useState<number>(0);
 
-    console.log(maximumLoad);
+    console.log(question);
 
     let result: IProduct[];
 
     const switchQuestion = async (index: number) => {
+
+        if (question === questions.length) {
+            return setOpen(false);
+        }
 
         // if (index + 1 === questions.length) {
         //     const products: IProductWithLength | { message: string } = await getCategoryProducts(category, 1, 1, priceFrom, priceTo, [], [], true, maximumLoad);
@@ -40,12 +44,15 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                 <div className={styles.close} onClick={() => setOpen(false)}>
                     <Image src="/icons/Close.svg" width={30} height={30} alt='Закрыть' />
                 </div>
-                <div className={styles.counter}>
+                {
+                    question <= questions.length - 1 ?
+                        <>
+                            <div className={styles.counter}>
                     {question + 1}/{questions.length}
                 </div>
                 <div className={styles.titleWrapper}>{questions[question]}</div>
                 <div className={styles.question}>
-                    {question === 0 ? 
+                    {question === 0 &&
                         <div className={styles.categoriesWrapper}>
                             {categories?.map((item, index) => {
                                 return (
@@ -58,7 +65,8 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                                 )
                             })}
                         </div> 
-                        : 
+                    }
+                    {question === 1 &&
                         <div className={styles.maximumLoadWrapper}>
                             <div className={styles.inputWrapper}>
                                 От <Input type='text' defaultValue={0} />
@@ -68,14 +76,22 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                             </div>
                         </div>
                     }
+                    {
+                        question === 2 && 
+                        <div className={styles.inputWrapper}>
+                            До <Input type='text' value={maximumLoad} onChange={setMaximLoad} />
+                        </div>
+                    }
                 </div>
+                        </> : 'Конец'
+                }
                 <div className={styles.nextQuestionBtnWrapper}>
                     <LinkButton 
                         element='button' 
                         disabled={category ? false : true}
                         onClick={() => switchQuestion(question)}
                     >
-                        Дальше
+                        {question <= questions.length - 1 ? "Дальше" : "Закрыть"}
                     </LinkButton>
                 </div>
             </div>
