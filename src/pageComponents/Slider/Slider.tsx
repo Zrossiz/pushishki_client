@@ -8,6 +8,7 @@ import { HTag } from '@/elements';
 import React from 'react';
 import cn from 'classnames';
 import { SliderProps } from './Slider.props';
+import { SliderItem } from '@/components';
 
 const SwiperButtonNext = () => {
     const swiper = useSwiper();
@@ -70,29 +71,9 @@ export const Slider = ({ title, products }: SliderProps) => {
                     </div>
                     {
                         products?.map((item, index) => {
-                            const formattedPrice: string = Intl.NumberFormat('ru-RU', {
-                                style: 'currency',
-                                currency: 'RUB',
-                                currencyDisplay: 'symbol' 
-                            }).format(item.defaultPrice);
                             return (
                                 <SwiperSlide key={item.id}>
-                                    <Link href="#" className={styles.itemWrapper}>
-                                        <div className={styles.imgWrapper}>
-                                            <Image src={'/sliderImg.png'} width={200} height={150} alt={item.name} />
-                                        </div>
-                                        <div className={styles.descWrapper}>
-                                            <div className={styles.titleWrapper}>
-                                                {item.name}
-                                            </div>
-                                            <div className={styles.articulWrapper}>
-                                                <span>Артикул: {item.articul}</span>
-                                            </div>
-                                            <div className={styles.priceWrapper}>
-                                                от<span> {formattedPrice}</span>
-                                            </div>
-                                        </div>
-                                    </Link>
+                                    <SliderItem product={item} />
                                 </SwiperSlide>
                             )
                         })
