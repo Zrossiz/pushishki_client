@@ -1,13 +1,14 @@
 import styles from './Input.module.scss';
 import { InputProps } from './Input.props';
 
-export const Input = ({ placeholder, value, onChange, type, defaultValue }: InputProps) => {
+export const Input = ({ placeholder, value, onChange = () => {}, type, defaultValue }: InputProps) => {
     const getInputNumbersValue = (input: HTMLInputElement) => {
         return input.value.replace(/\D/g, "");
     }
 
     const onPhoneInput = (e: any) => {
         onChange(e.target.value);
+        
         let input = e.target;
         let inputNumbersValue = getInputNumbersValue(input);
         let formattedInputValue = "";

@@ -20,7 +20,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
     const [maximumLoad, setMaximLoad] = useState<number>(0);
     const [priceTo, setPriceTo] = useState<number>(0);
 
-    let result: IProduct[];
+    let result: IProduct[] | { message: string };
 
     const switchQuestion = async (index: number) => {
 
@@ -28,8 +28,12 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
             return setOpen(false);
         }
 
-        const products: IProductWithLength | { message: string } = await getCategoryProducts(category, 1, 1, 0, priceTo, [], [], true, maximumLoad);
-        console.log(products)
+        if (question === questions.length - 1) {
+            const products: IProductWithLength | { message: string } = await getCategoryProducts(category, 1, 1, 0, priceTo, [], [], true, maximumLoad);
+            // @ts-ignore
+            result = products.data;
+        }
+
         setQuesiton(index + 1);
     };
 
@@ -75,7 +79,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                     {
                         question === 2 && 
                         <div className={styles.inputWrapper}>
-                            До <Input type='text' value={maximumLoad} onChange={setPriceTo} />
+                            До <Input type='text' value={priceTo} onChange={setPriceTo} />
                         </div>
                     }
                 </div>
