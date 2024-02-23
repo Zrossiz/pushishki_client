@@ -17,3 +17,4 @@ export * from './Pagination/Pagination';
 export * from './Loader/Loader';
 export * from './BuyOneClick/BuyOneClick';
 export * from './QuizQuestions/QuizQuestions';
+export * from './SliderItem/SliderItem';
