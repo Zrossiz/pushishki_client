@@ -5,7 +5,8 @@ import { QuizQuestionsProps } from './QuizQuestions.props';
 import { IProduct, IProductWithLength } from '@/types';
 import { getCategoryProducts } from '@/api';
 import cn from 'classnames';
-import { Input, LinkButton } from '@/elements';
+import { HTag, Input, LinkButton } from '@/elements';
+import { SliderItem } from '..';
 
 export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
 
@@ -20,7 +21,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
     const [maximumLoad, setMaximLoad] = useState<number>(0);
     const [priceTo, setPriceTo] = useState<number>(0);
 
-    let result: IProduct[] | { message: string };
+    const [result, setResult] = useState<IProduct[]>([]);
 
     const switchQuestion = async (index: number) => {
 
@@ -31,7 +32,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
         if (question === questions.length - 1) {
             const products: IProductWithLength | { message: string } = await getCategoryProducts(category, 1, 1, 0, priceTo, [], [], true, maximumLoad);
             // @ts-ignore
-            result = products.data;
+            setResult(products.data)
         }
 
         setQuesiton(index + 1);
@@ -47,43 +48,53 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                     question <= questions.length - 1 ?
                         <>
                             <div className={styles.counter}>
-                    {question + 1}/{questions.length}
-                </div>
-                <div className={styles.titleWrapper}>{questions[question]}</div>
-                <div className={styles.question}>
-                    {question === 0 &&
-                        <div className={styles.categoriesWrapper}>
-                            {categories?.map((item, index) => {
-                                return (
-                                    <div 
-                                        key={item.id}
-                                        onClick={() => setCategory(item.slug)} 
-                                        className={cn(styles.category, {
-                                            [styles.active]: item.slug === category
+                                {question + 1}/{questions.length}
+                            </div>
+                            <div className={styles.titleWrapper}>{questions[question]}</div>
+                            <div className={styles.question}>
+                                {question === 0 &&
+                                    <div className={styles.categoriesWrapper}>
+                                        {categories?.map((item, index) => {
+                                            return (
+                                                <div 
+                                                    key={item.id}
+                                                    onClick={() => setCategory(item.slug)} 
+                                                    className={cn(styles.category, {
+                                                        [styles.active]: item.slug === category
+                                                    })}
+                                                >{item.name}</div>
+                                            )
                                         })}
-                                    >{item.name}</div>
-                                )
-                            })}
-                        </div> 
-                    }
-                    {question === 1 &&
-                        <div className={styles.maximumLoadWrapper}>
-                            <div className={styles.inputWrapper}>
-                                От <Input type='text' defaultValue={0} />
+                                    </div> 
+                                }
+                                {question === 1 &&
+                                    <div className={styles.maximumLoadWrapper}>
+                                        <div className={styles.inputWrapper}>
+                                            От <Input type='text' defaultValue={0} />
+                                        </div>
+                                        <div className={styles.inputWrapper}>
+                                            До <Input type='text' value={maximumLoad} onChange={setMaximLoad} />
+                                        </div>
+                                    </div>
+                                }
+                                {
+                                    question === 2 && 
+                                    <div className={styles.inputWrapper}>
+                                        До <Input type='text' value={priceTo} onChange={setPriceTo} />
+                                    </div>
+                                }
                             </div>
-                            <div className={styles.inputWrapper}>
-                                До <Input type='text' value={maximumLoad} onChange={setMaximLoad} />
+                        </> : 
+                        <div className={styles.resultsWrapper}>
+                            <HTag tag="h2">Вам понравится</HTag>
+                            <div className={styles.productsWrapper}>
+                                {result && result.slice(0, 3).map((item, index) => {
+                                    return (
+                                        <SliderItem product={item} />
+                                    )
+                                })}
                             </div>
                         </div>
-                    }
-                    {
-                        question === 2 && 
-                        <div className={styles.inputWrapper}>
-                            До <Input type='text' value={priceTo} onChange={setPriceTo} />
-                        </div>
-                    }
-                </div>
-                        </> : 'Конец'
                 }
                 <div className={styles.nextQuestionBtnWrapper}>
                     <LinkButton 
