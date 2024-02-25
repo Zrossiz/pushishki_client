@@ -4,10 +4,16 @@ import { CardItemGalleryProps } from './CardItemGallery.props';
 import getConfig from 'next/config';
 import cn from 'classnames';
 import Image from 'next/image';
-import { useState } from 'react';
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
+
+
+Fancybox.bind('[data-fancybox="gallery"]', {
+  //
+});
 
 const SwiperButtonNext = () => {
     const swiper = useSwiper();
@@ -28,6 +34,7 @@ const SwiperButtonPrev = () => {
 };
 
 export const CardItemGallery = ({ images }: CardItemGalleryProps) => {
+
     return (
         <div className={styles.sliderWrapper}>
             {images[0] != '' ? 
@@ -40,7 +47,9 @@ export const CardItemGallery = ({ images }: CardItemGalleryProps) => {
                         return (
                             <SwiperSlide key={index}>
                                 <div className={styles.itemWrapper}>
-                                    <img src={`${FILESERVER_URL}/upload/${item}`} alt="Фото товара" height={340} />
+                                    <a href={`${FILESERVER_URL}/upload/${item}`} data-fancybox="gallery">
+                                        <img src={`${FILESERVER_URL}/upload/${item}`} alt="Фото товара" height={340} />
+                                    </a>
                                 </div>
                             </SwiperSlide>
                         )
