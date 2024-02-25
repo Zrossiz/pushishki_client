@@ -3,7 +3,7 @@ import { withLayout } from "@/layout/Layout";
 import { Form, Questions, Slider } from "@/pageComponents";
 import { IProduct, IProductCardPageProps } from "@/types";
 import styles from '../../../../styles/Card.module.scss';
-import { Breadcrumbs, BuyOneClick } from "@/components";
+import { Breadcrumbs, BuyOneClick, CardItemGallery } from "@/components";
 import { useRouter } from "next/router";
 import { HTag, LinkButton } from "@/elements";
 import Image from "next/image";
@@ -13,7 +13,7 @@ import Head from "next/head";
 
 const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: IProductCardPageProps) => {
     const router = useRouter();
-    const [activeVariant, setActiveVariant] = useState<number>();
+    const [activeVariant, setActiveVariant] = useState<number>(0);
     const [isAdded, setIsAdded] = useState<boolean>(false);
     const [openBuyOnClick, setOpenBuyOnClick] = useState(false);
 
@@ -68,7 +68,11 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
             {openBuyOnClick && <BuyOneClick setOpen={setOpenBuyOnClick} />}
             <div className={styles.itemDescriptionWrapper}>
                 <div className={styles.galleryAndDescriptionWrapper}>
-                    <div className={styles.galleryWrapper}></div>
+                    <div className={styles.galleryWrapper}>
+                        {productVariants && productVariants[activeVariant] &&
+                            <CardItemGallery images={productVariants[activeVariant].images} />                        
+                        }
+                    </div>
                     <div className={styles.descriptionWrapper}>
                         <HTag tag="h3">Описание {product?.name}</HTag>
                         <span>{product?.description}</span>
