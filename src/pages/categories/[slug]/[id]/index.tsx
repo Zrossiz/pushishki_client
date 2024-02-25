@@ -88,7 +88,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
                         ]}/>
                     </div>
                     <div className={styles.titleWrapper}>
-                        <HTag tag="h2">{product?.name}</HTag>
+                        <HTag tag="h1">{product?.name}</HTag>
                     </div>
                     <div className={styles.inStockAndRatingWrapper}>
                         <div className={styles.rating}>
