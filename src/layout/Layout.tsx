@@ -7,6 +7,7 @@ import cn from 'classnames';
 import { Header } from "./Header/Header";
 import { Footer } from "./Footer/Footer";
 import { ToTop, WhatsApp } from "@/components";
+import { AppProgressBar } from "next-nprogress-bar";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ const Layout = ({ children }: ILayoutProps): JSX.Element => {
         manrope.className,
         styles.globalWrapper
       )}>
+        <AppProgressBar color="#fff" height="4px" shallowRouting />
         <div className={styles.header}>
           <Header />
         </div>
