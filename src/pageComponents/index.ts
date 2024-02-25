@@ -4,3 +4,4 @@ export * from './Quiz/Quiz';
 export * from './Form/Form';
 export * from './PageTitle/PageTitle';
 export * from './Catalog/Catalog';
+export * from './CardReviews/CardReviews';

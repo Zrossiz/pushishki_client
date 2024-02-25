@@ -1,6 +1,6 @@
 import { getAccessories, getBestsellers, getOneProduct, getProductVariants } from "@/api";
 import { withLayout } from "@/layout/Layout";
-import { Form, Questions, Slider } from "@/pageComponents";
+import { CardReviews, Form, Questions, Slider } from "@/pageComponents";
 import { IProduct, IProductCardPageProps } from "@/types";
 import styles from '../../../../styles/Card.module.scss';
 import { Breadcrumbs, BuyOneClick, CardItemGallery } from "@/components";
@@ -200,6 +200,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
                     <LinkButton element="link">Перейти</LinkButton>
                 </div>
             </section>
+            <CardReviews />
             <Slider title="Аксессуары" products={acessories?.data} />
             <Slider title="Лучшие предложения" products={bestSellers} />
             <Questions />
