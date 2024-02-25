@@ -32,10 +32,9 @@ const SwiperButtonPrev = () => {
 };
 
 export const CardItemGallery = ({ images }: CardItemGalleryProps) => {
-
     return (
         <div className={styles.sliderWrapper}>
-            {images[0] != '' ? 
+            {images && images[0] !== '' ? 
                 <Swiper className='mySwiper'>
                     <div className={styles.navWrapper}>
                         <SwiperButtonPrev />

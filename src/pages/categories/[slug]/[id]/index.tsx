@@ -70,9 +70,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
             <div className={styles.itemDescriptionWrapper}>
                 <div className={styles.galleryAndDescriptionWrapper}>
                     <div className={styles.galleryWrapper}>
-                        {productVariants && productVariants[activeVariant] &&
-                            <CardItemGallery images={productVariants[activeVariant].images} />                        
-                        }
+                        <CardItemGallery images={productVariants && productVariants[activeVariant]?.images} />                        
                     </div>
                     <div className={styles.descriptionWrapper}>
                         <HTag tag="h3">Описание {product?.name}</HTag>
