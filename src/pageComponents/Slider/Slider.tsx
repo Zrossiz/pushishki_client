@@ -3,7 +3,6 @@ import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
 import styles from './Slider.module.scss';
-import Link from 'next/link';
 import { HTag } from '@/elements';
 import React from 'react';
 import cn from 'classnames';
