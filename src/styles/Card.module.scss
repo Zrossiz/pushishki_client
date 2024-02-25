@@ -209,6 +209,7 @@
 }
 
 .videoReviewWrapper {
+    position: relative;
     display: flex;
     width: 100%;
     margin-top: 10px;
@@ -216,11 +217,49 @@
     .videoWrapper {
         overflow: hidden;
         border-radius: 40px 12px 12px 40px;
-        width: 70%;
+        width: 100%;
 
         .iframe {
             width: 100%;
             height: 500px;
         }
+    }
+
+    .youtubeAttract {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        right: 20px;
+        top: 100px;
+        background-color: var(--white);
+        border-radius: 40px;
+        padding: 20px;
+        animation: levitate 6s ease-in-out infinite;
+
+        span {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            color: var(--light-green);
+            font-size: 22px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 80px;
+        }
+    }
+}
+
+@keyframes levitate {
+    0% {
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(10px);
     }
 }

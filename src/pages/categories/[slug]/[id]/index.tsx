@@ -12,6 +12,7 @@ import cn from 'classnames';
 import Head from "next/head";
 
 const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: IProductCardPageProps) => {
+
     const router = useRouter();
     const [activeVariant, setActiveVariant] = useState<number>(0);
     const [isAdded, setIsAdded] = useState<boolean>(false);
@@ -189,10 +190,16 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
             </div>
             <section className={styles.videoReviewWrapper}>
                 <div className={styles.videoWrapper}>
-                    {/* <iframe className={styles.iframe} src="https://www.youtube.com/embed/7PIji8OubXU?si=Mq3weIjifTEdSTXL" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> */}
+                    <iframe className={styles.iframe} src={product?.video} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                 </div>
-                <div>
-                    Описание
+                <div className={styles.youtubeAttract}>
+                    <span>
+                        Все актуальные обзоры<br />
+                        вы сможете найти<br />
+                        на нашем<br />
+                        YouTube канале!
+                    </span>
+                    <LinkButton element="link">Перейти</LinkButton>
                 </div>
             </section>
             <Slider title="Аксессуары" products={acessories?.data} />
