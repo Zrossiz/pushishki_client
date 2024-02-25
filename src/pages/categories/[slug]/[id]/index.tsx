@@ -189,7 +189,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
             </div>
             <section className={styles.videoReviewWrapper}>
                 <div className={styles.videoWrapper}>
-                    <iframe className={styles.iframe} src="https://www.youtube.com/embed/7PIji8OubXU?si=Mq3weIjifTEdSTXL" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                    {/* <iframe className={styles.iframe} src="https://www.youtube.com/embed/7PIji8OubXU?si=Mq3weIjifTEdSTXL" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> */}
                 </div>
                 <div>
                     Описание

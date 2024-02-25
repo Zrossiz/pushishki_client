@@ -15,6 +15,13 @@
         }
     }
 
+    .noPhoto {
+        height: 340px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .navWrapper {
         display: flex;
         justify-content: space-between;
@@ -37,4 +44,9 @@
         }
     }
 
+}
+
+.modelWrapper {
+    position: absolute;
+    top: 0;
 }

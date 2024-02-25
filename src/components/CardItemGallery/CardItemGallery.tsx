@@ -4,6 +4,7 @@ import { CardItemGalleryProps } from './CardItemGallery.props';
 import getConfig from 'next/config';
 import cn from 'classnames';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -29,21 +30,27 @@ const SwiperButtonPrev = () => {
 export const CardItemGallery = ({ images }: CardItemGalleryProps) => {
     return (
         <div className={styles.sliderWrapper}>
-            <Swiper className='mySwiper'>
-                <div className={styles.navWrapper}>
-                    <SwiperButtonPrev />
-                    <SwiperButtonNext />
+            {images[0] != '' ? 
+                <Swiper className='mySwiper'>
+                    <div className={styles.navWrapper}>
+                        <SwiperButtonPrev />
+                        <SwiperButtonNext />
+                    </div>
+                    {images.map((item, index) => {
+                        return (
+                            <SwiperSlide key={index}>
+                                <div className={styles.itemWrapper}>
+                                    <img src={`${FILESERVER_URL}/upload/${item}`} alt="Фото товара" height={340} />
+                                </div>
+                            </SwiperSlide>
+                        )
+                    })}
+                </Swiper> 
+                :
+                <div className={styles.noPhoto}>
+                    <Image src={'/icons/NoPhoto.svg'} alt='Фото не найдено' width={40} height={40} />
                 </div>
-                {images.map((item, index) => {
-                    return (
-                        <SwiperSlide key={index}>
-                            <div className={styles.itemWrapper}>
-                                <img src={`${FILESERVER_URL}/upload/${item}`} alt="Фото товара" height={340} />
-                            </div>
-                        </SwiperSlide>
-                    )
-                })}
-            </Swiper>
+            }                         
         </div>
     )
 }

@@ -17,6 +17,7 @@
     "next-nprogress-bar": "^2.1.2",
     "react": "^18",
     "react-dom": "^18",
+    "react-modal": "^3.16.1",
     "sass": "^1.70.0",
     "swiper-react": "^1.0.0"
   },
