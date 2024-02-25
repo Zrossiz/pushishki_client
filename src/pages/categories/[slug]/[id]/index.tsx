@@ -1,6 +1,6 @@
 import { getAccessories, getBestsellers, getOneProduct, getProductVariants } from "@/api";
 import { withLayout } from "@/layout/Layout";
-import { CardReviews, Form, Questions, Slider } from "@/pageComponents";
+import { CardReviews, CardVideo, Form, Questions, Slider } from "@/pageComponents";
 import { IProduct, IProductCardPageProps } from "@/types";
 import styles from '../../../../styles/Card.module.scss';
 import { Breadcrumbs, BuyOneClick, CardItemGallery } from "@/components";
@@ -186,20 +186,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
                     </div>
                 </div>
             </div>
-            <section className={styles.videoReviewWrapper}>
-                <div className={styles.videoWrapper}>
-                    <iframe className={styles.iframe} src={product?.video} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                </div>
-                <div className={styles.youtubeAttract}>
-                    <span>
-                        Все актуальные обзоры<br />
-                        вы сможете найти<br />
-                        на нашем<br />
-                        YouTube канале!
-                    </span>
-                    <LinkButton element="link">Перейти</LinkButton>
-                </div>
-            </section>
+            <CardVideo video={product?.video} />
             <CardReviews />
             <Slider title="Аксессуары" products={acessories?.data} />
             <Slider title="Лучшие предложения" products={bestSellers} />
