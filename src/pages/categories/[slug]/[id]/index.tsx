@@ -14,7 +14,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
     const router = useRouter();
     const [activeVariant, setActiveVariant] = useState<number>();
     const [isAdded, setIsAdded] = useState<boolean>(false);
-    const [openBuyOnClick, setOpenBuyOnClick] = useState(true);
+    const [openBuyOnClick, setOpenBuyOnClick] = useState(false);
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
         style: 'currency',
@@ -179,6 +179,14 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
                     </div>
                 </div>
             </div>
+            <section className={styles.videoReviewWrapper}>
+                <div className={styles.videoWrapper}>
+                    <iframe className={styles.iframe} src="https://www.youtube.com/embed/7PIji8OubXU?si=Mq3weIjifTEdSTXL" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                </div>
+                <div>
+                    Описание
+                </div>
+            </section>
             <Slider title="Аксессуары" products={acessories?.data} />
             <Slider title="Лучшие предложения" products={bestSellers} />
             <Questions />

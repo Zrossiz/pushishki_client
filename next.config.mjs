@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   publicRuntimeConfig: {
     API_URL: process.env.API_URL,
+    FILESERVER_URL: process.env.FILESERVER_URL,
   },
 };
 

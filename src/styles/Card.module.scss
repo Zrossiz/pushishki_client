@@ -42,9 +42,7 @@
         background-color: var(--white);
         border-radius: 12px 40px 40px 12px;
         width: 48%;
-        padding-top: 30px;
-        padding-left: 40px;
-        padding-right: 40px;
+        padding: 30px 40px;
 
         .breadcrumbsWrapper {
             align-self: center;
@@ -206,6 +204,23 @@
             a {
                 color: var(--light-green);
             }
+        }
+    }
+}
+
+.videoReviewWrapper {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    
+    .videoWrapper {
+        overflow: hidden;
+        border-radius: 40px 12px 12px 40px;
+        width: 70%;
+
+        .iframe {
+            width: 100%;
+            height: 500px;
         }
     }
 }

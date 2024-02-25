@@ -4,6 +4,10 @@ import { CatalogItemProps } from "./CatalogItem.props"
 import cn from 'classnames';
 import { IProduct } from '@/types';
 import { useEffect, useState } from 'react';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const CatalogItem = ({ 
     product,
@@ -51,7 +55,7 @@ export const CatalogItem = ({
     return (
         <div className={styles.wrapper}>
             <div className={styles.imgWrapper}>
-                <img src={`${process.env.FILESERVER_URL}/upload/${product.image}`} alt={product.name} />
+                <img src={`${FILESERVER_URL}/upload/${product.image}`} alt={product.name} />
             </div>
             <div className={styles.nameWrapper}>
                 {product.name}

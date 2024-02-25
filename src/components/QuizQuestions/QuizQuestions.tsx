@@ -90,7 +90,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                             <div className={styles.productsWrapper}>
                                 {result && result.slice(0, 3).map((item, index) => {
                                     return (
-                                        <SliderItem product={item} />
+                                        <SliderItem key={index} product={item} />
                                     )
                                 })}
                             </div>
