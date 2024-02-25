@@ -9,6 +9,7 @@ import { HTag, LinkButton } from "@/elements";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import cn from 'classnames';
+import Head from "next/head";
 
 const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: IProductCardPageProps) => {
     const router = useRouter();
@@ -61,6 +62,9 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: 
 
     return (
         <>  
+            <Head>
+                <title>{product?.name} | Пушишки</title>
+            </Head>
             {openBuyOnClick && <BuyOneClick setOpen={setOpenBuyOnClick} />}
             <div className={styles.itemDescriptionWrapper}>
                 <div className={styles.galleryAndDescriptionWrapper}>

@@ -2,10 +2,14 @@ import { getBestsellers, getBrands, getCategory, getCategoryProducts, getCountri
 import { withLayout } from "@/layout/Layout";
 import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
 import { ICatalogPageProps } from "@/types";
+import Head from "next/head";
 
 const CategoryPage = ({ brands, countries, products, curPage, bestSellers, category }: ICatalogPageProps) => {
     return (
         <>
+            <Head>
+                <title>{category?.name} | Пушишки</title>
+            </Head>
             <PageTitle 
                 title={'Каталог'} 
                 counter={`${products && products?.totalPages * 10} товаров`} 

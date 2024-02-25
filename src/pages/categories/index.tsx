@@ -4,11 +4,20 @@ import styles from '../../styles/Categories.module.scss';
 import { ICategoryPageProps } from "@/types";
 import Link from "next/link";
 import { getBestsellers, getCategories } from "@/api";
+import { Metadata } from "next";
+import Head from "next/head";
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+const { FILESERVER_URL } = publicRuntimeConfig;
 
 const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
 
     return (
         <>
+            <Head>
+                <title>Категории | Пушишки</title>
+            </Head>
             <PageTitle 
                 counter={`${categories?.length} категорий`} 
                 title={'Категории'} 
@@ -28,7 +37,7 @@ const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
                                     <div className={styles.titleWrapper}>{item.name}</div>
                                     <div className={styles.imgWrapper}>
                                         <img 
-                                            src={`${process.env.FILESERVER_URL}/upload/${item.image}`} 
+                                            src={`${FILESERVER_URL}/upload/${item.image}`} 
                                             alt={item.name} 
                                         />
                                     </div>
