@@ -5,6 +5,7 @@ import { CardreviewsProps } from './CardReviews.props';
 import 'swiper/css';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import cn from 'classnames';
+import { CardReview } from '@/components';
 
 const SwiperButtonNext = () => {
     const swiper = useSwiper();
@@ -24,17 +25,26 @@ const SwiperButtonPrev = () => {
     );
 };
 
-export const CardReviews = ({}: CardreviewsProps) => {
+export const CardReviews = ({ reviews }: CardreviewsProps) => {
     return (
         <section className={styles.cardReviewsWrapper}>
             <div className={styles.titleWrapper}>
                 <HTag tag="h2">Отзывы</HTag>
             </div>
             <div className={styles.sliderWrapper}>
-                <Swiper className="mySwiper">
-                    <SwiperSlide>
-                        Отзыв
-                    </SwiperSlide>
+                <Swiper 
+                    className="mySwiper"
+                    slidesPerView={2}
+                >
+                    {
+                        reviews?.data.map((item, index) => {
+                            return (
+                                <SwiperSlide>
+                                    <CardReview review={item} />
+                                </SwiperSlide>
+                            )
+                        })
+                    }
                     <div className={styles.navWrapper}>
                         <SwiperButtonPrev />
                         <SwiperButtonNext />

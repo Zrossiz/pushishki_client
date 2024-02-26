@@ -12,5 +12,6 @@ export interface IReview {
     description: string;
     rating: number;
     active: boolean;
+    createdAt: Date;
 }
   

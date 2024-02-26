@@ -12,7 +12,6 @@ import cn from 'classnames';
 import Head from "next/head";
 
 const ProductCardPage = ({ bestSellers, acessories, product, productVariants, reviews }: IProductCardPageProps) => {
-    console.log(reviews);
     const router = useRouter();
     const [activeVariant, setActiveVariant] = useState<number>(0);
     const [isAdded, setIsAdded] = useState<boolean>(false);
@@ -187,7 +186,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
                 </div>
             </div>
             <CardVideo video={product?.video} />
-            <CardReviews />
+            <CardReviews reviews={reviews} />
             <Slider title="Аксессуары" products={acessories?.data} />
             <Slider title="Лучшие предложения" products={bestSellers} />
             <Questions />
