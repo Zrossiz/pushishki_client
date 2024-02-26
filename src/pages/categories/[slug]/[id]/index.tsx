@@ -1,4 +1,4 @@
-import { getAccessories, getBestsellers, getOneProduct, getProductVariants } from "@/api";
+import { getAccessories, getBestsellers, getOneProduct, getProductVariants, getReviewsProduct } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { CardReviews, CardVideo, Form, Questions, Slider } from "@/pageComponents";
 import { IProduct, IProductCardPageProps } from "@/types";
@@ -11,8 +11,8 @@ import { useEffect, useState } from "react";
 import cn from 'classnames';
 import Head from "next/head";
 
-const ProductCardPage = ({ bestSellers, acessories, product, productVariants }: IProductCardPageProps) => {
-
+const ProductCardPage = ({ bestSellers, acessories, product, productVariants, reviews }: IProductCardPageProps) => {
+    console.log(reviews);
     const router = useRouter();
     const [activeVariant, setActiveVariant] = useState<number>(0);
     const [isAdded, setIsAdded] = useState<boolean>(false);
@@ -206,6 +206,7 @@ export const getServerSideProps = async (context: { params: { id: string; }; }) 
     const acessories = await getAccessories();
     const product = await getOneProduct(+id);
     const productVariants = await getProductVariants(+id);
+    const reviews = await getReviewsProduct(+id);
 
     return {
         props: {
@@ -213,6 +214,7 @@ export const getServerSideProps = async (context: { params: { id: string; }; }) 
             bestSellers,
             product,
             productVariants,
+            reviews,
         }
     }
 }

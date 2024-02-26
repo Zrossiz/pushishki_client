@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getReviewsProduct = async (id: number): Promise<IReviewWithLength | { message: string }> => {
     try {
-        const { data } = await axios.get(`${process.env.API_URL}/review/product/${id}`);
+        const { data } = await axios.get<IReviewWithLength>(`${process.env.API_URL}/review/product/${id}`);
 
         return data;
     } catch (err) {

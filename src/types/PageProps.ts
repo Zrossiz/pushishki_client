@@ -1,4 +1,4 @@
-import { IBrandWithLength, ICategory, ICategoryWithLength, ICountryWithLength, IProduct, IProductVariant, IProductWithLength } from ".";
+import { IBrandWithLength, ICategory, ICategoryWithLength, ICountryWithLength, IProduct, IProductVariant, IProductWithLength, IReviewWithLength } from ".";
 
 export interface MainPageProps {
     bestSellers?: IProduct[],
@@ -25,4 +25,5 @@ export interface IProductCardPageProps {
     bestSellers?: IProduct[],
     product?: IProduct,
     productVariants?: IProductVariant[],
+    reviews?: IReviewWithLength
 }
