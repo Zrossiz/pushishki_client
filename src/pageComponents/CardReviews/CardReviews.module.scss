@@ -39,4 +39,14 @@
             }
         }
     }
+
+    .nothingFoundWrapper {
+        display: flex;
+        justify-content: space-between;
+        font-size: 40px;
+
+        button {
+            width: 30%;
+        }
+    }
 }

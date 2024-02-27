@@ -1,4 +1,4 @@
-import { HTag } from '@/elements';
+import { HTag, LinkButton } from '@/elements';
 import Image from 'next/image';
 import styles from './CardReviews.module.scss';
 import { CardreviewsProps } from './CardReviews.props';
@@ -28,29 +28,38 @@ const SwiperButtonPrev = () => {
 export const CardReviews = ({ reviews }: CardreviewsProps) => {
     return (
         <section className={styles.cardReviewsWrapper}>
-            <div className={styles.titleWrapper}>
-                <HTag tag="h2">Отзывы</HTag>
-            </div>
-            <div className={styles.sliderWrapper}>
-                <Swiper 
-                    className="mySwiper"
-                    slidesPerView={2}
-                >
-                    {
-                        reviews?.data.map((item, index) => {
-                            return (
-                                <SwiperSlide>
-                                    <CardReview review={item} />
-                                </SwiperSlide>
-                            )
-                        })
-                    }
-                    <div className={styles.navWrapper}>
-                        <SwiperButtonPrev />
-                        <SwiperButtonNext />
+            {
+                reviews && reviews?.length > 0 ? 
+                <>
+                    <div className={styles.titleWrapper}>
+                        <HTag tag="h2">Отзывы</HTag>
                     </div>
-                </Swiper>
-            </div>
+                    <div className={styles.sliderWrapper}>
+                        <Swiper 
+                            className="mySwiper"
+                            slidesPerView={2}
+                        >
+                            {
+                                reviews?.data.map((item, index) => {
+                                    return (
+                                        <SwiperSlide>
+                                            <CardReview review={item} />
+                                        </SwiperSlide>
+                                    )
+                                })
+                            }
+                            <div className={styles.navWrapper}>
+                                <SwiperButtonPrev />
+                                <SwiperButtonNext />
+                            </div>
+                        </Swiper>
+                    </div>
+                </> :
+                <div className={styles.nothingFoundWrapper}>
+                    <div className={styles.titleWrapper}>На этот товар пока отзывов нет...</div>
+                    <LinkButton element='button'>Оставить отзыв</LinkButton>
+                </div>
+            }
         </section>
     )
 }
