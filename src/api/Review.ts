@@ -13,3 +13,23 @@ export const getReviewsProduct = async (id: number): Promise<IReviewWithLength |
         } 
     }
 }
+
+export const postReviews = async (productId: number, name: string, rating: number, title: string, desc: string) => {
+    try {
+        const data = {
+            productId,
+            username: name,
+            title,
+            description: desc,
+            rating
+        };
+        await axios.post(`${process.env.API_URL}/review`, data);
+
+        return 'Success';
+    } catch (err) {
+        console.log(err);
+        return {
+            message: 'Ошибка при публикации отзыва'
+        } 
+    }
+}

@@ -11,7 +11,7 @@ export const FormReview = ({ setOpen }: FormReviewProps) => {
     const [rating, setRating] = useState<number>(0);
     const [title, setTitle] = useState<string>('');
     const [description, setDescription] = useState<string>('');
-
+    
     return (
         <div className={styles.wrapper}>
             <div className={styles.background} onClick={() => setOpen(false)}></div>
