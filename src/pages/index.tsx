@@ -32,7 +32,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
       <section className={styles.firstDisplay}>
         <div className={styles.backgroundImgWrapper}>
           <div className={styles.backgroundImg}>
-            <Image src="/mainBg.png" fill alt="Главный фон"/>
+            <Image src="/main.png" fill alt="Главный фон"/>
           </div>
         </div>
         <div className={styles.titleWrapper}>
