@@ -10,7 +10,7 @@
     transition: 0.6s;
     border: none;
     background-color: var(--light-green);
-    border-radius: 10px;
+    border-radius: 20px;
     cursor: pointer;
 
     &:hover {
@@ -19,5 +19,6 @@
 
     &:disabled {
         opacity: 0.5;
+        cursor: not-allowed;
     }
 }

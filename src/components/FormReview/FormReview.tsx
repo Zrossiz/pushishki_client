@@ -41,7 +41,7 @@ export const FormReview = ({ setOpen }: FormReviewProps) => {
                     </div>
                     <div className={styles.sendWrapper}>
                         <span>Ваш отзыв будет виден после модерации</span>
-                        <LinkButton element='button'>Отправить</LinkButton>
+                        <LinkButton disabled={name && rating > 0 && title && description ? false : true} element='button'>Отправить</LinkButton>
                     </div>
                 </motion.div>
             </AnimatePresence>
