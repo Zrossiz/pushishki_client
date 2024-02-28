@@ -71,9 +71,11 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
         await postReview(product ? product.id : 1, name, rating, title, description);
         setOpenReviewForm(false);
         setSuccess(true);
+
         setTimeout(() => {
             setSuccess(false);
-        }, 2000)
+        }, 2000);
+        
         setName('');
         setRating(0);
         setTitle('');
