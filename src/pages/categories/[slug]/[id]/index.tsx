@@ -3,7 +3,7 @@ import { withLayout } from "@/layout/Layout";
 import { CardReviews, CardVideo, Form, Questions, Slider } from "@/pageComponents";
 import { IProduct, IProductCardPageProps } from "@/types";
 import styles from '../../../../styles/Card.module.scss';
-import { Breadcrumbs, BuyOneClick, CardItemGallery } from "@/components";
+import { Breadcrumbs, BuyOneClick, CardItemGallery, FormReview } from "@/components";
 import { useRouter } from "next/router";
 import { HTag, LinkButton } from "@/elements";
 import Image from "next/image";
@@ -15,7 +15,8 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
     const router = useRouter();
     const [activeVariant, setActiveVariant] = useState<number>(0);
     const [isAdded, setIsAdded] = useState<boolean>(false);
-    const [openBuyOnClick, setOpenBuyOnClick] = useState(false);
+    const [openBuyOnClick, setOpenBuyOnClick] = useState<boolean>(false);
+    const [openReviewForm, setOpenReviewForm] = useState<boolean>(false);
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
         style: 'currency',
@@ -66,7 +67,10 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
                 <title>{product?.name} | Пушишки</title>
             </Head>
             {openBuyOnClick && <BuyOneClick setOpen={setOpenBuyOnClick} />}
-            <div className={styles.itemDescriptionWrapper}>
+            <section className={styles.itemDescriptionWrapper}>
+                {
+                    openReviewForm && <FormReview setOpen={setOpenReviewForm} />
+                }
                 <div className={styles.galleryAndDescriptionWrapper}>
                     <div className={styles.galleryWrapper}>
                         <CardItemGallery images={productVariants && productVariants[activeVariant]?.images} />                        
@@ -184,9 +188,9 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
             <CardVideo video={product?.video} />
-            <CardReviews reviews={reviews} />
+            <CardReviews setOpen={setOpenReviewForm} reviews={reviews} />
             <Slider title="Аксессуары" products={acessories?.data} />
             <Slider title="Лучшие предложения" products={bestSellers} />
             <Questions />

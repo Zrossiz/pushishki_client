@@ -25,7 +25,7 @@ const SwiperButtonPrev = () => {
     );
 };
 
-export const CardReviews = ({ reviews }: CardreviewsProps) => {
+export const CardReviews = ({ reviews, setOpen }: CardreviewsProps) => {
     return (
         <section className={styles.cardReviewsWrapper}>
             {
@@ -57,7 +57,7 @@ export const CardReviews = ({ reviews }: CardreviewsProps) => {
                 </> :
                 <div className={styles.nothingFoundWrapper}>
                     <div className={styles.titleWrapper}>На этот товар пока отзывов нет...</div>
-                    <LinkButton element='button'>Оставить отзыв</LinkButton>
+                    <LinkButton element='button' onClick={() => setOpen(true)}>Оставить отзыв</LinkButton>
                 </div>
             }
         </section>

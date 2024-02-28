@@ -1,0 +1,43 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .formWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 40px;
+        background-color: var(--white);
+        padding: 40px;
+        width: 600px;
+
+        .close {
+            margin-left: auto;
+            cursor: pointer;
+
+            img {
+                transition: 1s;
+            }
+
+            &:hover img {
+                transform: scale(1.1);
+            }
+        }
+
+        .inputsWrapper {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+    }
+}
