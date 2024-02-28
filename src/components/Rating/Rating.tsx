@@ -7,7 +7,6 @@ export const RatingComponent = ({ rating, setRating }: RatingProps) => {
         setRating(rate)
     }
 
-    
     return (
         <div className={styles.ratingWrapper}>
             <Rating

@@ -7,7 +7,7 @@ const { API_URL } = publicRuntimeConfig;
 
 export const getCategoryProducts = async (
     slug: string, 
-    page: number, 
+    page: number,
     sort: number,
     priceFrom: number,
     priceTo: number,

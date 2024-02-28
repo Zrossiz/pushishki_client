@@ -28,8 +28,8 @@ export const FormReview = ({ setOpen }: FormReviewProps) => {
                     <div className={styles.inputsWrapper}>
                         <div className={styles.nameRatingWrapper}>
                             <Input placeholder='Ваше имя и фамилия' value={name} onChange={setName} type='text' />
+                            <RatingComponent rating={rating} setRating={setRating} />
                         </div>
-                        <RatingComponent rating={rating} setRating={setRating} />
                     </div>
                 </motion.div>
             </AnimatePresence>
