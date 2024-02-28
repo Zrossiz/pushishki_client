@@ -10,7 +10,7 @@ export const SliderItem = ({ product }: SliderItemProps) => {
         currencyDisplay: 'symbol' 
     }).format(product.defaultPrice);
     return (
-        <Link href="#" className={styles.itemWrapper}>
+        <Link href={`/categories/${product.category.slug}/${product.id}`} className={styles.itemWrapper}>
             <div className={styles.imgWrapper}>
                 <Image src={'/sliderImg.png'} width={200} height={150} alt={product.name} />
             </div>

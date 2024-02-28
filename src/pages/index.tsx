@@ -147,7 +147,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               </motion.li>
             </ul>
           </div>
-          <a href="#" className={styles.iconWrapper}>
+          <a href="#map" className={styles.iconWrapper}>
             <Image src={'/icons/TopArrow.svg'} width={42} height={42} alt="Контакты" />
           </a>
         </div>
@@ -187,7 +187,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
       </section>
       <Quiz categories={categories?.data} />
       <Questions />
-      <section className={styles.map}>
+      <section className={styles.map} id="map">
         <div className={styles.infoWrapper}>
           <div className={styles.titleDescWrapper}>
             <motion.div 
