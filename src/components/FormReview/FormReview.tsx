@@ -10,7 +10,6 @@ export const FormReview = ({ setOpen }: FormReviewProps) => {
     const [name, setName] = useState<string>('');
     const [rating, setRating] = useState<number>(0);
 
-    console.log(rating);
     return (
         <div className={styles.wrapper}>
             <AnimatePresence>
