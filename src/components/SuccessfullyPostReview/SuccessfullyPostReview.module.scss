@@ -1,0 +1,28 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .popupWrapper {
+        padding: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: var(--light-grey);
+        border-radius: 40px;
+
+        span {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--dark-grey);
+            font-size: 20px;
+        }
+    }
+}
