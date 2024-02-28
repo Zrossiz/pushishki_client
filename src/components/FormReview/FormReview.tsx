@@ -3,21 +3,20 @@ import { AnimatePresence, motion } from 'framer-motion';
 import styles from './FormReview.module.scss';
 import { FormReviewProps } from './FormReview.props';
 import Image from 'next/image';
-import { useState } from 'react';
 import { RatingComponent } from '../Rating/Rating';
-import { postReview } from '@/api';
 
-export const FormReview = ({ setOpen, productId = 1 }: FormReviewProps) => {
-    const [name, setName] = useState<string>('');
-    const [rating, setRating] = useState<number>(0);
-    const [title, setTitle] = useState<string>('');
-    const [description, setDescription] = useState<string>('');
-
-    const sendReview = async () => {
-        await postReview(productId, name, rating, title, description);
-        // setOpen(false);
-        console.log(true);
-    }
+export const FormReview = ({ 
+    setOpen, 
+    name,
+    setName,
+    rating, 
+    setRating,
+    title,
+    setTitle,
+    description,
+    setDescription,
+    sendReview,
+}: FormReviewProps) => {
 
     return (
         <div className={styles.wrapper}>

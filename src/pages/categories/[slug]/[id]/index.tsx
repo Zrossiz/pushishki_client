@@ -1,9 +1,9 @@
-import { getAccessories, getBestsellers, getOneProduct, getProductVariants, getReviewsProduct } from "@/api";
+import { getAccessories, getBestsellers, getOneProduct, getProductVariants, getReviewsProduct, postReview } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { CardReviews, CardVideo, Form, Questions, Slider } from "@/pageComponents";
 import { IProduct, IProductCardPageProps } from "@/types";
 import styles from '../../../../styles/Card.module.scss';
-import { Breadcrumbs, BuyOneClick, CardItemGallery, FormReview } from "@/components";
+import { Breadcrumbs, BuyOneClick, CardItemGallery, FormReview, SuccessfullyPostReview } from "@/components";
 import { useRouter } from "next/router";
 import { HTag, LinkButton } from "@/elements";
 import Image from "next/image";
@@ -17,6 +17,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
     const [isAdded, setIsAdded] = useState<boolean>(false);
     const [openBuyOnClick, setOpenBuyOnClick] = useState<boolean>(false);
     const [openReviewForm, setOpenReviewForm] = useState<boolean>(false);
+    const [success, setSuccess] = useState<boolean>(false);
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
         style: 'currency',
@@ -61,16 +62,42 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
         return localStorage.setItem('favorites', JSON.stringify(favorites));
     };
 
+    const [name, setName] = useState<string>('');
+    const [rating, setRating] = useState<number>(0);
+    const [title, setTitle] = useState<string>('');
+    const [description, setDescription] = useState<string>('');
+
+    const sendReview = async () => {
+        await postReview(product ? product.id : 1, name, rating, title, description);
+        setOpenReviewForm(false),
+        setSuccess(true);
+        setTimeout(() => {
+            setSuccess(false);
+        }, 2000)
+    }
+
     return (
         <>  
             <Head>
                 <title>{product?.name} | Пушишки</title>
             </Head>
-            {openBuyOnClick && <BuyOneClick setOpen={setOpenBuyOnClick} />}
             <section className={styles.itemDescriptionWrapper}>
+                {openBuyOnClick && <BuyOneClick setOpen={setOpenBuyOnClick} />}
                 {
-                    openReviewForm && <FormReview productId={product && product.id} setOpen={setOpenReviewForm} />
+                    openReviewForm && <FormReview 
+                        name={name}
+                        rating={rating}
+                        title={title}
+                        description={description}
+                        setName={setName}
+                        setRating={setRating}
+                        setTitle={setTitle}
+                        setDescription={setDescription}
+                        setOpen={setOpenReviewForm} 
+                        sendReview={sendReview}
+                    />
                 }
+                {success && <SuccessfullyPostReview />}
                 <div className={styles.galleryAndDescriptionWrapper}>
                     <div className={styles.galleryWrapper}>
                         <CardItemGallery images={productVariants && productVariants[activeVariant]?.images} />                        
