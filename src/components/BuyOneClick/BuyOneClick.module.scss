@@ -8,7 +8,16 @@
     width: 100vw;
     height: 100vh;
     z-index: 3;
-    background-color: rgba(0, 0, 0, 0.5);
+
+    .background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 4;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
 
     .formWrapper {
         text-align: center;
@@ -17,6 +26,7 @@
         padding-bottom: 40px;
         background-color: var(--white);
         border-radius: 20px;
+        z-index: 5;
 
         .close {
             margin-left: auto;

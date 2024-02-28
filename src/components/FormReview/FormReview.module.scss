@@ -10,6 +10,16 @@
     z-index: 3;
     background-color: rgba(0, 0, 0, 0.5);
 
+    .background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 4;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
     .formWrapper {
         position: relative;
         display: flex;
@@ -20,6 +30,7 @@
         background-color: var(--white);
         padding: 40px;
         width: 900px;
+        z-index: 5;
 
         .close {
             position: absolute;

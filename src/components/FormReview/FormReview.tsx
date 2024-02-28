@@ -14,6 +14,7 @@ export const FormReview = ({ setOpen }: FormReviewProps) => {
 
     return (
         <div className={styles.wrapper}>
+            <div className={styles.background} onClick={() => setOpen(false)}></div>
             <AnimatePresence>
                 <motion.div
                     className={styles.formWrapper}
