@@ -42,7 +42,7 @@ export const CardReviews = ({ reviews, setOpen }: CardreviewsProps) => {
                             {
                                 reviews?.data.map((item, index) => {
                                     return (
-                                        <SwiperSlide>
+                                        <SwiperSlide key={item.id}>
                                             <CardReview review={item} />
                                         </SwiperSlide>
                                     )

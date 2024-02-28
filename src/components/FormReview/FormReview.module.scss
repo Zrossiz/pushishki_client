@@ -11,6 +11,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 
     .formWrapper {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -21,6 +22,9 @@
         width: 900px;
 
         .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             margin-left: auto;
             cursor: pointer;
 
@@ -36,6 +40,7 @@
         .inputsWrapper {
             display: flex;
             justify-content: space-between;
+            flex-direction: column;
             width: 100%;
             margin-top: 20px;
 
@@ -48,6 +53,56 @@
                 input {
                     margin-right: 90px;
                 }
+            }
+
+            .titleWrapper {
+                margin-top: 20px;
+            }
+
+            .descWrapper {
+                margin-top: 20px;
+
+                textarea {
+                    display: inline-block;
+                    resize: none;
+                    height: 100%;
+                    width: 100%;
+                    padding: 20px 10px 20px 16px;
+                    border: none;
+                    background-color: transparent;
+                    font-size: 24px;
+                    background-color: var(--light-grey);
+                    border-radius: 20px;
+                
+                    &::placeholder {
+                        color: rgba(109, 114, 128, 0.5);
+                        font-size: 24px;
+                    }
+                
+                    &:active, &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+
+        .sendWrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+
+            span {
+                display: inline-block;
+                margin-top: auto;
+                font-size: 16px;
+                color: var(--dark-grey);
+            }
+
+            button {
+                width: 300px;
+                height: 60px;
             }
         }
         

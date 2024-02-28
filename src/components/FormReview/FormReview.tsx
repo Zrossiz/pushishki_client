@@ -9,6 +9,8 @@ import { RatingComponent } from '../Rating/Rating';
 export const FormReview = ({ setOpen }: FormReviewProps) => {
     const [name, setName] = useState<string>('');
     const [rating, setRating] = useState<number>(0);
+    const [title, setTitle] = useState<string>('');
+    const [description, setDescription] = useState<string>('');
 
     return (
         <div className={styles.wrapper}>
@@ -30,6 +32,16 @@ export const FormReview = ({ setOpen }: FormReviewProps) => {
                             <Input placeholder='Ваше имя и фамилия' value={name} onChange={setName} type='text' />
                             <RatingComponent rating={rating} setRating={setRating} />
                         </div>
+                        <div className={styles.titleWrapper}>
+                            <Input placeholder='Заголовок' value={title} onChange={setTitle} type='text' />
+                        </div>
+                        <div className={styles.descWrapper}>
+                            <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={4} placeholder='Комментарий'></textarea>
+                        </div>
+                    </div>
+                    <div className={styles.sendWrapper}>
+                        <span>Ваш отзыв будет виден после модерации</span>
+                        <LinkButton element='button'>Отправить</LinkButton>
                     </div>
                 </motion.div>
             </AnimatePresence>
