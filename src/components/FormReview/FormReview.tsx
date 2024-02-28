@@ -4,9 +4,13 @@ import styles from './FormReview.module.scss';
 import { FormReviewProps } from './FormReview.props';
 import Image from 'next/image';
 import { useState } from 'react';
+import { RatingComponent } from '../Rating/Rating';
 
 export const FormReview = ({ setOpen }: FormReviewProps) => {
-    const [name, setName] = useState<string>('')
+    const [name, setName] = useState<string>('');
+    const [rating, setRating] = useState<number>(0);
+
+    console.log(rating);
     return (
         <div className={styles.wrapper}>
             <AnimatePresence>
@@ -26,6 +30,7 @@ export const FormReview = ({ setOpen }: FormReviewProps) => {
                         <div className={styles.nameRatingWrapper}>
                             <Input placeholder='Ваше имя и фамилия' value={name} onChange={setName} type='text' />
                         </div>
+                        <RatingComponent rating={rating} setRating={setRating} />
                     </div>
                 </motion.div>
             </AnimatePresence>
