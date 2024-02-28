@@ -69,7 +69,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
             {openBuyOnClick && <BuyOneClick setOpen={setOpenBuyOnClick} />}
             <section className={styles.itemDescriptionWrapper}>
                 {
-                    openReviewForm && <FormReview setOpen={setOpenReviewForm} />
+                    openReviewForm && <FormReview productId={product && product.id} setOpen={setOpenReviewForm} />
                 }
                 <div className={styles.galleryAndDescriptionWrapper}>
                     <div className={styles.galleryWrapper}>

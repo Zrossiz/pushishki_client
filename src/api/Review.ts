@@ -1,5 +1,9 @@
 import { IReviewWithLength } from "@/types";
 import axios from "axios";
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+const { API_URL } = publicRuntimeConfig;
 
 export const getReviewsProduct = async (id: number): Promise<IReviewWithLength | { message: string }> => {
     try {
@@ -14,17 +18,16 @@ export const getReviewsProduct = async (id: number): Promise<IReviewWithLength |
     }
 }
 
-export const postReviews = async (productId: number, name: string, rating: number, title: string, desc: string) => {
+export const postReview = async (productId: number, name: string, rating: number, title: string, desc: string) => {
     try {
         const data = {
-            productId,
-            username: name,
-            title,
-            description: desc,
-            rating
+            productId: +productId,
+            username: String(name),
+            title: String(title),
+            description: String(desc),
+            rating: +rating
         };
-        await axios.post(`${process.env.API_URL}/review`, data);
-
+        await axios.post(`${API_URL}/review`, data);
         return 'Success';
     } catch (err) {
         console.log(err);

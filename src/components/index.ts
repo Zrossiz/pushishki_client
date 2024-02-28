@@ -21,3 +21,4 @@ export * from './SliderItem/SliderItem';
 export * from './CardItemGallery/CardItemGallery';
 export * from './CardReview/CardReview';
 export * from './FormReview/FormReview';
+export * from './SuccessfullyPostReview/SuccessfullyPostReview';
