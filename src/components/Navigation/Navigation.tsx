@@ -6,7 +6,7 @@ export const Navigation = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.favoriteWrapper}>
-                <Link href={'/favorite'}>
+                <Link href={'/favorites'}>
                     <Image src="/icons/Favorite.svg" width={32} height={32} alt="Избранные" />
                 </Link>
             </div>
