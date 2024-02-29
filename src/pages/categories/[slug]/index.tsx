@@ -1,10 +1,10 @@
-import { getBestsellers, getBrands, getCategory, getCategoryProducts, getCountries } from "@/api";
+import { getBestsellers, getBrands, getCategories, getCategory, getCategoryProducts, getCountries } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
 import { ICatalogPageProps } from "@/types";
 import Head from "next/head";
 
-const CategoryPage = ({ brands, countries, products, curPage, bestSellers, category }: ICatalogPageProps) => {
+const CategoryPage = ({ brands, countries, products, curPage, bestSellers, category, categories }: ICatalogPageProps) => {
     return (
         <>
             <Head>
@@ -64,6 +64,7 @@ export const getServerSideProps = async (context: any) => {
         inStock,
         maxLoad,
     );
+    const categories = await getCategories();
 
     return {
         props: {
@@ -72,7 +73,8 @@ export const getServerSideProps = async (context: any) => {
             countries,
             products,
             curPage,
-            bestSellers
+            bestSellers,
+            categories
         }
     }
 }

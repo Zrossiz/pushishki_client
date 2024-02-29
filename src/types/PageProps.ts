@@ -13,6 +13,7 @@ export interface ICatalogPageProps {
     curPage?: number,
     bestSellers?: IProduct[],
     category?: ICategory,
+    categories?: ICategoryWithLength
 }
 
 export interface ICategoryPageProps {
