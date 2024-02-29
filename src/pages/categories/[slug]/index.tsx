@@ -19,8 +19,8 @@ const CategoryPage = ({ brands, countries, products, curPage, bestSellers, categ
                         path: '/'
                     },
                     {
-                        name: `${category?.name}`,
-                        path: `/${category?.slug}`
+                        name: `Категории`,
+                        path: `/categories`
                     }
                 ]}
             />
@@ -31,7 +31,7 @@ const CategoryPage = ({ brands, countries, products, curPage, bestSellers, categ
                 curPage={curPage}
             />
             <Slider title={'Лучшие предложения'} products={bestSellers} />
-            <Quiz />
+            <Quiz categories={categories?.data} />
         </>
     )
 }
