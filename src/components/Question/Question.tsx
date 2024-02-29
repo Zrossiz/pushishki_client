@@ -16,7 +16,7 @@ export const Question = ({ question, answer }:QuestionProps) => {
             <div className={styles.item__question}>
               <span>{question}</span>
               <div className={styles.imgWrapper}>
-                <Image src={'/icons/Plus.svg'} width={26} height={26} alt='Открыть' />
+                <Image src={'/icons/PlusIcon.svg'} width={26} height={26} alt='Открыть' />
               </div>
             </div>
             <div className={styles.item__reply}>
