@@ -12,9 +12,9 @@ export const PageTitle = ({ counter, title, breadcrumbs }: PageTitleProps) => {
             <div className={styles.titleWrapper}>
                 <HTag tag='h1'>{title}</HTag>
             </div>
-            <div className={styles.counterWrapper}>
+            {counter && <div className={styles.counterWrapper}>
                 ({counter})
-            </div>
+            </div>}
         </section>
     )
 }

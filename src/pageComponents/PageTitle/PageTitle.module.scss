@@ -1,7 +1,6 @@
 .pageTitle {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
     background-color: var(--white);
@@ -9,12 +8,12 @@
     border-radius: 40px;
 
     .titleWrapper {
-        margin-top: 40px;
+        margin: 40px 0;
+
     }
 
     .counterWrapper {
         color: var(--dark-grey);
         font-size: 24px;
-        margin-top: 40px;
     }
 }
