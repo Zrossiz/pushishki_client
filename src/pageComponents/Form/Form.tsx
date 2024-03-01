@@ -8,7 +8,10 @@ import { MainPageReviews } from '@/components';
 
 export const Form = () => {
     const [send, setSend] = useState<boolean>(false);
-    
+    const [name, setName] = useState<string>('');
+    const [question, setQuestion] = useState<string>('');
+    const [phone, setPhone] = useState<string>();
+
     const getInputNumbersValue = (input: HTMLInputElement) => {
         return input.value.replace(/\D/g, "");
     }
@@ -17,7 +20,8 @@ export const Form = () => {
         let input = e.target;
         let inputNumbersValue = getInputNumbersValue(input);
         let formattedInputValue = "";
-        let selectionStart = input.selectionStart
+        let selectionStart = input.selectionStart;
+        setPhone(e.target.value)
 
         if (!inputNumbersValue) {
             return input.value = "";
@@ -86,7 +90,13 @@ export const Form = () => {
                     <HTag tag='h2'>Связаться с нами</HTag>
                 </div>
                 <form className={styles.formWrapper} method='POST'>
-                    <input type="text" required placeholder='Имя' />
+                    <input 
+                        type="text" 
+                        required 
+                        placeholder='Имя' 
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
                     <input 
                         id='phoneInput' 
                         type="tel" 
@@ -97,10 +107,16 @@ export const Form = () => {
                         onKeyDown={(e) => onPhoneKeyDown(e)}
                         onPaste={(e) => onPhonePaste(e)}
                     />
-                    <input className={styles.big} type="text" placeholder='Ваш вопрос' />
+                    <input 
+                        className={styles.big} 
+                        type="text" 
+                        placeholder='Ваш вопрос'
+                        value={question}
+                        onChange={(e) => setQuestion(e.target.value)}
+                    />
                 </form>
                 <div className={styles.buttonWrapper}>
-                    <button onClick={() => setSend(true)}>
+                    <button disabled={name && phone && question ? false : true} onClick={() => setSend(true)}>
                         Отправить
                         <div className={cn(styles.iconWrapper, {
                             [styles.activeIcon]: send
