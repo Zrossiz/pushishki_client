@@ -1,10 +1,11 @@
 .wrapper {
     display: flex;
+    gap: 16px;
 
-    .favoriteWrapper {
-        margin-right: 16px;
+    .favoriteWrapper, .searchWrapper {
         display: flex;
         align-items: center;
+        cursor: pointer;
 
         img {
             transition: 0.6s;

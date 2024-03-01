@@ -5,6 +5,9 @@ import Link from 'next/link';
 export const Navigation = () => {
     return (
         <div className={styles.wrapper}>
+            <div className={styles.searchWrapper}>
+                <Image src="/icons/Loop.svg" width={32} height={32} alt="Поиск" />
+            </div>
             <div className={styles.favoriteWrapper}>
                 <Link href={'/favorites'}>
                     <Image src="/icons/Favorite.svg" width={32} height={32} alt="Избранные" />
