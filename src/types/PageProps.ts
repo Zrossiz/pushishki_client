@@ -28,3 +28,8 @@ export interface IProductCardPageProps {
     productVariants?: IProductVariant[],
     reviews?: IReviewWithLength
 }
+
+export interface ISearchPage {
+    categories?: ICategoryWithLength,
+    bestsellers?: IProduct[]
+}
