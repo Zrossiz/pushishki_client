@@ -66,3 +66,37 @@
         overflow: hidden;
     }
 }
+
+.requisitesSection {
+    background-color: var(--white);
+    border-radius: 40px;
+    padding: 40px;
+    margin-top: 10px;
+
+    .titleWrapper {
+
+        .desc {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+    }
+
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 60px;
+        margin-top: 40px;
+
+        li {
+
+            .title {
+                font-size: 30px;
+            }
+
+            .desc {
+                margin-top: 10px;
+                font-size: 20px;
+            }
+        }
+    }
+}
