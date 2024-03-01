@@ -3,12 +3,13 @@ import { Form, PageTitle, Slider } from "@/pageComponents";
 import styles from '../styles/Favorites.module.scss';
 import { getAccessories } from "@/api";
 import { IFavoritesPageProps } from "@/types";
+import { LinkButton } from "@/elements";
 
 const FavoritesPage = ({ acessories }: IFavoritesPageProps) => {
     return (
         <>
             <PageTitle 
-                title="Поиск" 
+                title="Избранное" 
                 breadcrumbs={[
                     {
                         name: 'Главная',
@@ -17,7 +18,10 @@ const FavoritesPage = ({ acessories }: IFavoritesPageProps) => {
                 ]}
                 counter="0 товаров"
             />
-            <section className={styles.favoritesWrapper}></section>
+            <section className={styles.favoritesWrapper}>
+                <div className={styles.titleWrapper}>В избранном пока что ничего нет</div>
+                <LinkButton element="link" href="/categories">Перейти в категории</LinkButton>
+            </section>
             <Slider title="Аксессуары" products={acessories?.data} />
             <Form />
         </>
