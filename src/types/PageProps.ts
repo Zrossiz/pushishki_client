@@ -29,7 +29,11 @@ export interface IProductCardPageProps {
     reviews?: IReviewWithLength
 }
 
-export interface ISearchPage {
+export interface ISearchPageProps {
     categories?: ICategoryWithLength,
     bestsellers?: IProduct[]
+}
+
+export interface IFavoritesPageProps {
+    acessories?: IProductWithLength,
 }

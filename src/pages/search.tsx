@@ -2,9 +2,9 @@ import { withLayout } from "@/layout/Layout";
 import styles from '../styles/Search.module.scss';
 import { PageTitle, Quiz, Slider } from "@/pageComponents";
 import { getBestsellers, getCategories } from "@/api";
-import { ISearchPage } from "@/types";
+import { ISearchPageProps } from "@/types";
 
-const SearchPage = ({ categories, bestsellers }: ISearchPage) => {
+const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
     return (
         <>
             <PageTitle 
@@ -32,8 +32,8 @@ export default withLayout(SearchPage);
 
 export const getStaticProps = async () => {
 
-    const categorires = getCategories();
-    const bestSellers = getBestsellers();
+    const categorires = await getCategories();
+    const bestSellers = await getBestsellers();
 
     return {
         props: {
