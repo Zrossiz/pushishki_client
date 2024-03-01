@@ -1,5 +1,5 @@
 import { withLayout } from "@/layout/Layout";
-import { PageTitle } from "@/pageComponents";
+import { PageTitle, WhyChoose } from "@/pageComponents";
 import styles from '../styles/Contacts.module.scss';
 import { HTag } from "@/elements";
 import Image from "next/image";
@@ -85,6 +85,7 @@ const ContactsPage = () => {
                         </li>
                     </ul>
             </section>
+            <WhyChoose />
         </>
     )
 };
