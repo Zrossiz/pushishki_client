@@ -6,7 +6,9 @@ export const Navigation = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.searchWrapper}>
-                <Image src="/icons/Loop.svg" width={32} height={32} alt="Поиск" />
+                <Link href={'/search'}>
+                    <Image src="/icons/Loop.svg" width={32} height={32} alt="Поиск" />
+                </Link>
             </div>
             <div className={styles.favoriteWrapper}>
                 <Link href={'/favorites'}>
