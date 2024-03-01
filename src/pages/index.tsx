@@ -121,12 +121,11 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                animate={{ x: isInView2 ? 0 : -30, opacity: isInView2 ? 1 : 0 }}
               >
                 <HTag tag="h3" color="white">
-                  Гибкое время <br /> доставки
+                  Покупайте только лучшее 
                 </HTag>
                 <span className={styles.span}>
-                  Поможем сделать сюрприз вашему 
-                  <br />
-                  ребенку с доставкой в удобное для вас время
+                  Только у нас вы сможете увидеть уникальные <br /> марки 
+                  автомобилей на любой вкус   
                 </span>
               </motion.li>
               <motion.li
@@ -137,12 +136,12 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                animate={{ x: isInView3 ? 0 : 30, opacity: isInView3 ? 1 : 0 }}
               >
                 <HTag tag="h3" color="white">
-                  Гибкое время <br /> доставки
+                  Изучите наш большой ассортимент 
                 </HTag>
                 <span className={styles.span}>
-                  Поможем сделать сюрприз вашему 
-                  <br />
-                  ребенку с доставкой в удобное для вас время
+                  Посетите наш шоу-рум находящийся по адресу <br />
+                  ул. Вилиса Лациса 30, стр. 2 - и выберите <br />
+                  для своего ребенка лучший подарок 
                 </span>
               </motion.li>
             </ul>
