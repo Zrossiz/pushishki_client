@@ -3,7 +3,7 @@ import { withLayout } from "@/layout/Layout";
 import { CardReviews, CardVideo, Form, Questions, Slider } from "@/pageComponents";
 import { IProduct, IProductCardPageProps } from "@/types";
 import styles from '../../../../styles/Card.module.scss';
-import { Breadcrumbs, BuyOneClick, CardItemGallery, FormReview, SuccessfullyPostReview } from "@/components";
+import { Breadcrumbs, BuyOneClick, CardItemGallery, FormReview, InfoPopup } from "@/components";
 import { useRouter } from "next/router";
 import { HTag, LinkButton } from "@/elements";
 import Image from "next/image";
@@ -103,7 +103,10 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
                         sendReview={sendReview}
                     />
                 }
-                {success && <SuccessfullyPostReview />}
+                {success && <InfoPopup 
+                    title="Спасибо за отзыв!"
+                    description="Он будет виден после модерации"
+                />}
                 <div className={styles.galleryAndDescriptionWrapper}>
                     <div className={styles.galleryWrapper}>
                         <CardItemGallery images={productVariants && productVariants[activeVariant]?.images} />                        

@@ -1,9 +1,10 @@
 import { HTag } from '@/elements';
-import styles from './SuccessfullyPostReview.module.scss';
+import styles from './InfoPopup.module.scss';
 import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
+import { InfoPopupProps } from './InfoPopup.props';
 
-export const SuccessfullyPostReview = () => {
+export const InfoPopup = ({ title, description }: InfoPopupProps) => {
     return (
         <AnimatePresence>
             <motion.div 
@@ -16,8 +17,8 @@ export const SuccessfullyPostReview = () => {
                     <div 
                         className={styles.popupWrapper}
                     >
-                        <HTag tag='h2'>Спасибо за отзыв!</HTag>
-                        <span>Он будет доступен после модерации</span>
+                        <HTag tag='h2'>{title}</HTag>
+                        <span>{description}</span>
                     </div>
             </motion.div>
         </AnimatePresence>
