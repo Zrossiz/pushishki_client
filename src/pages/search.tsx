@@ -18,9 +18,12 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
                 counter="0 товаров"
             />
             <section className={styles.searchWrapper}>
-                <div className={styles.inputWrapper}></div>
+                <div className={styles.notFoundWrapper}>
+                    Введите артикул или название товара
+                </div>
+                {/* <div className={styles.inputWrapper}></div>
                 <div className={styles.productsWrapper}></div>
-                <div className={styles.paginationWrapper}></div>
+                <div className={styles.paginationWrapper}></div> */}
             </section>
             <Slider title="Лучшие предложения" products={bestsellers} />
             <Quiz categories={categories?.data} />

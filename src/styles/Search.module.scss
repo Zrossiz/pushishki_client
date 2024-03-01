@@ -1,0 +1,16 @@
+.searchWrapper {
+    width: 100%;
+    background-color: var(--white);
+    border-radius: 40px;
+    padding: 40px;
+    margin-top: 10px;
+
+    .notFoundWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 600px;
+        font-size: 42px;
+        font-weight: 700;
+    }
+}
