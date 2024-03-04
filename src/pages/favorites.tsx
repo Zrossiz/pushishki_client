@@ -5,7 +5,7 @@ import { getAccessories } from "@/api";
 import { IFavoritesPageProps } from "@/types";
 import { LinkButton } from "@/elements";
 
-const FavoritesPage = ({ acessories }: IFavoritesPageProps) => {
+const FavoritesPage = ({ accessories }: IFavoritesPageProps) => {
     return (
         <>
             <PageTitle 
@@ -22,7 +22,7 @@ const FavoritesPage = ({ acessories }: IFavoritesPageProps) => {
                 <div className={styles.titleWrapper}>В избранном пока что ничего нет</div>
                 <LinkButton element="link" href="/categories">Перейти в категории</LinkButton>
             </section>
-            <Slider title="Аксессуары" products={acessories?.data} />
+            <Slider title="Аксессуары" products={accessories?.data} />
             <Form />
         </>
     )

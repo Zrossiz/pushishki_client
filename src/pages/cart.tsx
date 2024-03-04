@@ -3,10 +3,8 @@ import { withLayout } from "@/layout/Layout";
 import { Quiz, PageTitle, Slider } from "@/pageComponents";
 import { ICartPageProps, IItemCart } from "@/types";
 
-const CartPage = ({ categories, acessories, bestSellers }: ICartPageProps) => {
-
+const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
     let localStorageBasket: IItemCart[] | undefined;
-
     if (typeof window !== 'undefined') {
         localStorageBasket = JSON.parse(localStorage.getItem('cart') || '[]');
     }
@@ -22,7 +20,7 @@ const CartPage = ({ categories, acessories, bestSellers }: ICartPageProps) => {
                     },
                 ]}
             />
-            <Slider title="Аксесуары" products={acessories?.data} />
+            <Slider title="Аксесуары" products={accessories?.data} />
             <Slider title="Лучшие предложения" products={bestSellers} />
             <Quiz categories={categories?.data} />
         </>

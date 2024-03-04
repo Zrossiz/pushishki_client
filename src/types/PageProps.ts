@@ -22,7 +22,7 @@ export interface ICategoryPageProps {
 }
 
 export interface IProductCardPageProps {
-    acessories?: IProductWithLength,
+    accessories?: IProductWithLength,
     bestSellers?: IProduct[],
     product?: IProduct,
     productVariants?: IProductVariant[],
@@ -35,11 +35,11 @@ export interface ISearchPageProps {
 }
 
 export interface IFavoritesPageProps {
-    acessories?: IProductWithLength,
+    accessories?: IProductWithLength,
 }
 
 export interface ICartPageProps {
-    acessories?: IProductWithLength,
+    accessories?: IProductWithLength,
     bestSellers?: IProduct[],
     categories?: ICategoryWithLength,
 }

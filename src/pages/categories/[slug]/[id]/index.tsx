@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import cn from 'classnames';
 import Head from "next/head";
 
-const ProductCardPage = ({ bestSellers, acessories, product, productVariants, reviews }: IProductCardPageProps) => {
+const ProductCardPage = ({ bestSellers, accessories, product, productVariants, reviews }: IProductCardPageProps) => {
     const router = useRouter();
     const [activeVariant, setActiveVariant] = useState<number>(0);
     const [openBuyOnClick, setOpenBuyOnClick] = useState<boolean>(false);
@@ -249,7 +249,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
             </section>
             <CardVideo video={product?.video} />
             <CardReviews setOpen={setOpenReviewForm} reviews={reviews} />
-            <Slider title="Аксессуары" products={acessories?.data} />
+            <Slider title="Аксессуары" products={accessories?.data} />
             <Slider title="Лучшие предложения" products={bestSellers} />
             <Questions />
             <Form />
@@ -264,14 +264,14 @@ export const getServerSideProps = async (context: { params: { id: string; }; }) 
     const { id } = context.params
 
     const bestSellers = await getBestsellers();
-    const acessories = await getAccessories();
+    const accessories = await getAccessories();
     const product = await getOneProduct(+id);
     const productVariants = await getProductVariants(+id);
     const reviews = await getReviewsProduct(+id);
 
     return {
         props: {
-            acessories,
+            accessories,
             bestSellers,
             product,
             productVariants,
