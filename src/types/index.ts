@@ -5,3 +5,4 @@ export * from './Country';
 export * from './Product';
 export * from './ProductVariant';
 export * from './Review';
+export * from './Cart';

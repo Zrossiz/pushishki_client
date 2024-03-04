@@ -1,7 +1,7 @@
 import { getAccessories, getBestsellers, getOneProduct, getProductVariants, getReviewsProduct, postReview } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { CardReviews, CardVideo, Form, Questions, Slider } from "@/pageComponents";
-import { IProduct, IProductCardPageProps } from "@/types";
+import { IItemCart, IProduct, IProductCardPageProps } from "@/types";
 import styles from '../../../../styles/Card.module.scss';
 import { Breadcrumbs, BuyOneClick, CardItemGallery, FormReview, InfoPopup } from "@/components";
 import { useRouter } from "next/router";
@@ -14,10 +14,15 @@ import Head from "next/head";
 const ProductCardPage = ({ bestSellers, acessories, product, productVariants, reviews }: IProductCardPageProps) => {
     const router = useRouter();
     const [activeVariant, setActiveVariant] = useState<number>(0);
-    const [isAdded, setIsAdded] = useState<boolean>(false);
     const [openBuyOnClick, setOpenBuyOnClick] = useState<boolean>(false);
     const [openReviewForm, setOpenReviewForm] = useState<boolean>(false);
     const [success, setSuccess] = useState<boolean>(false);
+    const [name, setName] = useState<string>('');
+    const [rating, setRating] = useState<number>(0);
+    const [title, setTitle] = useState<string>('');
+    const [description, setDescription] = useState<string>('');
+
+    const [isAdded, setIsAdded] = useState<boolean>(false);
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
         style: 'currency',
@@ -28,7 +33,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
     let localStorageFavorites: IProduct[];
 
     if (typeof window !== 'undefined') {
-         localStorageFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+        localStorageFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     }
 
 
@@ -62,10 +67,29 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
         return localStorage.setItem('favorites', JSON.stringify(favorites));
     };
 
-    const [name, setName] = useState<string>('');
-    const [rating, setRating] = useState<number>(0);
-    const [title, setTitle] = useState<string>('');
-    const [description, setDescription] = useState<string>('');
+    const addToCart = (item: IProduct) => {
+        let cart: IItemCart[] = JSON.parse(localStorage.getItem('cart') || '[]');
+
+        if (cart?.length > 0) {
+            for (let i = 0; i <= cart.length; i++) {
+                if (
+                    cart[i].product.id === item?.id 
+                    &&
+                    cart[i]?.color === productVariants?.[activeVariant].color
+                ) {
+                    cart[i].count = cart[i].count + 1;
+                    return localStorage.setItem('cart', JSON.stringify(cart));
+                }
+            }
+        }
+
+        cart?.push({
+            product: item,
+            color: productVariants ? productVariants[activeVariant].color : undefined,
+            count: 1
+        });
+        return localStorage.setItem('cart', JSON.stringify(cart));
+    };
 
     const sendReview = async () => {
         await postReview(product ? product.id : 1, name, rating, title, description);
@@ -190,7 +214,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
                         }
                     </div>
                     <div className={styles.buttonsWrapper}>
-                        <div className={styles.addToCart}>
+                        <div className={styles.addToCart} onClick={() => addToCart(product)}>
                             <LinkButton element="button">В корзину</LinkButton>
                         </div>
                         <div 
