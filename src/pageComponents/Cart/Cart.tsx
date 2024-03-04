@@ -1,6 +1,7 @@
 import { CartItem } from '@/components';
 import styles from './Cart.module.scss';
 import { ICartProps } from './Cart.props';
+import { IItemCart } from '@/types';
 
 export const Cart = ({ products }: ICartProps) => {
     return (
@@ -8,9 +9,9 @@ export const Cart = ({ products }: ICartProps) => {
             <div className={styles.cartList}>
                 <ul>
                     {
-                        products?.map(() => {
+                        products?.map((item: IItemCart, index) => {
                             return (
-                                <CartItem />
+                                <CartItem key={index} product={item} />
                             )
                         })
                     }
