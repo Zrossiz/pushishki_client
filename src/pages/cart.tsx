@@ -1,6 +1,6 @@
 import { getAccessories, getBestsellers, getCategories } from "@/api";
 import { withLayout } from "@/layout/Layout";
-import { Quiz, PageTitle, Slider } from "@/pageComponents";
+import { Quiz, PageTitle, Slider, Cart } from "@/pageComponents";
 import { ICartPageProps, IItemCart } from "@/types";
 
 const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
@@ -20,6 +20,7 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
                     },
                 ]}
             />
+            <Cart />
             <Slider title="Аксесуары" products={accessories?.data} />
             <Slider title="Лучшие предложения" products={bestSellers} />
             <Quiz categories={categories?.data} />
