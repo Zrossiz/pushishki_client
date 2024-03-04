@@ -16,7 +16,7 @@ export const Navigation = () => {
                 </Link>
             </div>
             <div>
-                <Link className={styles.basketWrapper} href="/basket">
+                <Link className={styles.basketWrapper} href="/cart">
                     <Image className={styles.icon} src="/icons/Basket.svg" width={24} height={24} alt="Корзина" />
                     <span className={styles.text}>Корзина</span>
                 </Link>
