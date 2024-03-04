@@ -73,8 +73,6 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
         if (cart?.length > 0) {
             for (let i = 0; i <= cart.length; i++) {
                 if (
-                    cart[i].product.id === item?.id 
-                    &&
                     cart[i]?.color === productVariants?.[activeVariant].color
                 ) {
                     cart[i].count = cart[i].count + 1;
@@ -214,7 +212,7 @@ const ProductCardPage = ({ bestSellers, acessories, product, productVariants, re
                         }
                     </div>
                     <div className={styles.buttonsWrapper}>
-                        <div className={styles.addToCart} onClick={() => addToCart(product)}>
+                        <div className={styles.addToCart} onClick={() => addToCart(product!)}>
                             <LinkButton element="button">В корзину</LinkButton>
                         </div>
                         <div 
