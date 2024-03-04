@@ -23,3 +23,4 @@ export * from './CardReview/CardReview';
 export * from './FormReview/FormReview';
 export * from './InfoPopup/InfoPopup';
 export * from './SearchProductForm/SearchProductForm';
+export * from './CartItem/CartItem';

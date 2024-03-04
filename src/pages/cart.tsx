@@ -20,7 +20,7 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
                     },
                 ]}
             />
-            <Cart />
+            <Cart products={localStorageBasket} />
             <Slider title="Аксесуары" products={accessories?.data} />
             <Slider title="Лучшие предложения" products={bestSellers} />
             <Quiz categories={categories?.data} />
