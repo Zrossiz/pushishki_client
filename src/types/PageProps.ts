@@ -37,3 +37,9 @@ export interface ISearchPageProps {
 export interface IFavoritesPageProps {
     acessories?: IProductWithLength,
 }
+
+export interface ICartPageProps {
+    acessories?: IProductWithLength,
+    bestSellers?: IProduct[],
+    categories?: ICategoryWithLength,
+}
