@@ -6,21 +6,19 @@ import { InfoPopupProps } from './InfoPopup.props';
 
 export const InfoPopup = ({ title, description }: InfoPopupProps) => {
     return (
-        <AnimatePresence>
-            <motion.div 
-                className={styles.wrapper}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
-            >
-                    <div 
-                        className={styles.popupWrapper}
-                    >
-                        <HTag tag='h2'>{title}</HTag>
-                        <span>{description}</span>
-                    </div>
-            </motion.div>
-        </AnimatePresence>
+        <motion.div 
+            className={styles.wrapper}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+        >
+                <div 
+                    className={styles.popupWrapper}
+                >
+                    <HTag tag='h2'>{title}</HTag>
+                    <span>{description}</span>
+                </div>
+        </motion.div>
     )
 }

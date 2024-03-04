@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import cn from 'classnames';
 import Head from "next/head";
+import { AnimatePresence } from "framer-motion";
 
 const ProductCardPage = ({ bestSellers, accessories, product, productVariants, reviews }: IProductCardPageProps) => {
     const router = useRouter();
@@ -125,10 +126,12 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
                         sendReview={sendReview}
                     />
                 }
-                {success && <InfoPopup 
-                    title="Спасибо за отзыв!"
-                    description="Он будет виден после модерации"
-                />}
+                <AnimatePresence>
+                    {success && <InfoPopup 
+                        title="Спасибо за отзыв!"
+                        description="Он будет виден после модерации"
+                    />}
+                </AnimatePresence>
                 <div className={styles.galleryAndDescriptionWrapper}>
                     <div className={styles.galleryWrapper}>
                         <CardItemGallery images={productVariants && productVariants[activeVariant]?.images} />                        
