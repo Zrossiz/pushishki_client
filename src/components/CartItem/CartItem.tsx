@@ -3,6 +3,7 @@ import styles from './CartItem.module.scss';
 import { CartItemProps } from './CartItem.props';
 import getConfig from 'next/config';
 import Image from 'next/image';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -18,7 +19,11 @@ export const CartItem = ({ product }: CartItemProps) => {
     }).format(product.product.defaultPrice);
 
     return (
-        <li className={styles.wrapper}>
+        <li 
+            className={styles.wrapper}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+        >
             <div className={styles.imgWrapper}>
                 <img src={`${FILESERVER_URL}/upload/${product.product.image}`} alt={product.product.name} />
             </div>
@@ -42,14 +47,25 @@ export const CartItem = ({ product }: CartItemProps) => {
                     <div className={styles.plus}>+</div>
                 </div>
             </div>
-            <div className={styles.favoriteDeleteWrapper}>
-                <div className={styles.favoriteWrapper}>
-                    <Image src={'/icons/HeartOutlined.svg'} height={26} width={26} alt="Добавить в избранное" />
-                </div>
-                <div className={styles.deleteWrapper}>
-                    <Image src={'/icons/Trash.svg'} height={26} width={24} alt="Удалить" />
-                </div>
-            </div>
+            <AnimatePresence>
+                {
+                    hover && 
+                        <motion.div 
+                            initial={{ x: +10, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: +10, opacity: 0 }}
+                            transition={{ duration: 0.6, }}
+                            className={styles.favoriteDeleteWrapper}
+                        >
+                            <div className={styles.favoriteWrapper}>
+                                <Image src={'/icons/HeartOutlined.svg'} height={26} width={26} alt="Добавить в избранное" />
+                            </div>
+                            <div className={styles.deleteWrapper}>
+                                <Image src={'/icons/Trash.svg'} height={26} width={24} alt="Удалить" />
+                            </div>
+                        </motion.div>
+                }
+            </AnimatePresence>
         </li>
     )
 }
