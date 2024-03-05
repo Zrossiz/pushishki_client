@@ -74,7 +74,7 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
         if (cart?.length > 0) {
             for (let i = 0; i <= cart.length; i++) {
                 if (
-                    cart[i]?.color === productVariants?.[activeVariant].color
+                    cart[i]?.color === productVariants?.[activeVariant]?.color
                 ) {
                     cart[i].count = cart[i].count + 1;
                     return localStorage.setItem('cart', JSON.stringify(cart));
@@ -84,7 +84,7 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
 
         cart?.push({
             product: item,
-            color: productVariants ? productVariants[activeVariant].color : undefined,
+            color: productVariants && productVariants?.length > 0 ? productVariants[activeVariant].color : undefined,
             count: 1
         });
         return localStorage.setItem('cart', JSON.stringify(cart));
