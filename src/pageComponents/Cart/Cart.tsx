@@ -2,11 +2,22 @@ import { CartItem } from '@/components';
 import styles from './Cart.module.scss';
 import { ICartProps } from './Cart.props';
 import { IItemCart } from '@/types';
+import { LinkButton } from '@/elements';
 
-export const Cart = ({ products }: ICartProps) => {
+export const Cart = ({ products, totalProductsCounter, totalProductsPrice }: ICartProps) => {
+
+    const formattedPrice: string = Intl.NumberFormat('ru-RU', {
+        style: 'currency',
+        currency: 'RUB',
+        currencyDisplay: 'symbol' 
+    }).format(totalProductsPrice);
+
     return (
         <section className={styles.wrapper}>
             <div className={styles.cartList}>
+                <div className={styles.titleWrapper}>
+                    Покупка <span>({totalProductsCounter} шт.)</span>
+                </div>
                 <ul>
                     {
                         products?.map((item: IItemCart, index) => {
@@ -18,7 +29,21 @@ export const Cart = ({ products }: ICartProps) => {
                 </ul>
             </div>
             <div className={styles.cartPriceWrapper}>
-                price
+                <div className={styles.titlePriceWrapper}>
+                    <div className={styles.titleWrapper}>
+                        Итого
+                    </div>
+                    <div className={styles.priceWrapper}>
+                        {formattedPrice}
+                    </div>
+                </div>
+                <div className={styles.counterWrapper}>
+                    <div>Товары, {totalProductsCounter} шт.</div>
+                    <div>{formattedPrice}</div>
+                </div>
+                <div className={styles.linkWrapper}>
+                    <LinkButton element='link' href='/order'>Перейти к оформлению</LinkButton>
+                </div>
             </div>
         </section>
     )

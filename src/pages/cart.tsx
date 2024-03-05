@@ -9,10 +9,20 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
         localStorageBasket = JSON.parse(localStorage.getItem('cart') || '[]');
     }
 
+    let totalProductsCounter: number = 0;
+    let totalProductsPrice: number = 0;
+
+    if (localStorageBasket) {
+        for (let i = 0; i < localStorageBasket?.length; i++) {
+            totalProductsCounter = totalProductsCounter + localStorageBasket[i]?.count;
+            totalProductsPrice = totalProductsPrice + localStorageBasket[i]?.count * localStorageBasket[i]?.product.defaultPrice;
+        }
+    }
+
     return (
         <>
             <PageTitle 
-                title={`Корзина(${localStorageBasket ? localStorageBasket?.length : 0})`} 
+                title={`Корзина(${localStorageBasket ? totalProductsCounter : 0})`} 
                 breadcrumbs={[
                     {
                         name: 'Главная',
@@ -20,7 +30,7 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
                     },
                 ]}
             />
-            <Cart products={localStorageBasket} />
+            <Cart totalProductsCounter={totalProductsCounter} products={localStorageBasket} totalProductsPrice={totalProductsPrice} />
             <Slider title="Аксесуары" products={accessories?.data} />
             <Slider title="Лучшие предложения" products={bestSellers} />
             <Quiz categories={categories?.data} />
