@@ -2,6 +2,8 @@ import { getAccessories, getBestsellers, getCategories } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { Quiz, PageTitle, Slider, Cart } from "@/pageComponents";
 import { ICartPageProps, IItemCart } from "@/types";
+import styles from '../styles/Cart.module.scss';
+import { HTag, LinkButton } from "@/elements";
 
 const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
     let localStorageBasket: IItemCart[] | undefined;
@@ -30,7 +32,14 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
                     },
                 ]}
             />
-            <Cart totalProductsCounter={totalProductsCounter} products={localStorageBasket} totalProductsPrice={totalProductsPrice} />
+            {
+                totalProductsCounter > 0 ?
+                <Cart totalProductsCounter={totalProductsCounter} products={localStorageBasket} totalProductsPrice={totalProductsPrice} /> :
+                <div className={styles.emptyCartWrapper}>
+                    <HTag tag="h1">Корзина пуста</HTag>
+                    <LinkButton element="link" href="/categories">Перейти в категории</LinkButton>
+                </div>
+            }
             <Slider title="Аксесуары" products={accessories?.data} />
             <Slider title="Лучшие предложения" products={bestSellers} />
             <Quiz categories={categories?.data} />
