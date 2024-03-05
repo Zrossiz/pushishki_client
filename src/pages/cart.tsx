@@ -36,7 +36,7 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
                 totalProductsCounter > 0 ?
                 <Cart totalProductsCounter={totalProductsCounter} products={localStorageBasket} totalProductsPrice={totalProductsPrice} /> :
                 <div className={styles.emptyCartWrapper}>
-                    <HTag tag="h1">Корзина пуста</HTag>
+                    <div className={styles.titleWrapper}>Корзина пуста</div>
                     <LinkButton element="link" href="/categories">Перейти в категории</LinkButton>
                 </div>
             }

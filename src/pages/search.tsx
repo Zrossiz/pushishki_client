@@ -36,12 +36,12 @@ export default withLayout(SearchPage);
 export const getStaticProps = async () => {
 
     const categorires = await getCategories();
-    const bestSellers = await getBestsellers();
+    const bestsellers = await getBestsellers();
 
     return {
         props: {
             categorires,
-            bestSellers,
+            bestsellers,
         }
     }
 }
