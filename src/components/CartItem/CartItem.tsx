@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
-export const CartItem = ({ product }: CartItemProps) => {
+export const CartItem = ({ product, addToCart, removeFromCart }: CartItemProps) => {
 
     const [hover, setHover] = useState<boolean>(false);
 
@@ -40,11 +40,11 @@ export const CartItem = ({ product }: CartItemProps) => {
                     {formattedPrice}
                 </div>
                 <div className={styles.counterWrapper}>
-                    <div className={styles.minus}>-</div>
+                    <div className={styles.minus} onClick={() => removeFromCart(product.product.id, product.color)}>-</div>
                     <div className={styles.counter}>
                         {product.count}
                     </div>
-                    <div className={styles.plus}>+</div>
+                    <div className={styles.plus} onClick={() => addToCart(product.product.id, product.color)}>+</div>
                 </div>
             </div>
             <AnimatePresence>

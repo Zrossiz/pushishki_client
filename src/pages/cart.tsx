@@ -4,22 +4,69 @@ import { Quiz, PageTitle, Slider, Cart } from "@/pageComponents";
 import { ICartPageProps, IItemCart } from "@/types";
 import styles from '../styles/Cart.module.scss';
 import { HTag, LinkButton } from "@/elements";
+import { useEffect, useState } from "react";
 
 const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
-    let localStorageBasket: IItemCart[] | undefined;
-    if (typeof window !== 'undefined') {
-        localStorageBasket = JSON.parse(localStorage.getItem('cart') || '[]');
-    }
+    const [localStorageBasket, setLocalStorageBasket] = useState<IItemCart[]>([]);
+    const [totalProductsCounter, setTotalCounter] = useState<number>(0);
+    const [totalProductsPrice, setTotalProductsPrice] = useState<number>(0);
 
-    let totalProductsCounter: number = 0;
-    let totalProductsPrice: number = 0;
-
-    if (localStorageBasket) {
-        for (let i = 0; i < localStorageBasket?.length; i++) {
-            totalProductsCounter = totalProductsCounter + localStorageBasket[i]?.count;
-            totalProductsPrice = totalProductsPrice + localStorageBasket[i]?.count * localStorageBasket[i]?.product.defaultPrice;
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            setLocalStorageBasket(cart);
         }
-    }
+    }, []);
+    
+    useEffect(() => {
+        let counter = 0;
+        let totalPrice = 0;
+    
+        for (let i = 0; i < localStorageBasket.length; i++) {
+            counter += localStorageBasket[i]?.count || 0;
+            totalPrice += (localStorageBasket[i]?.count || 0) * (localStorageBasket[i]?.product.defaultPrice || 0);
+        }
+    
+        setTotalCounter(counter);
+        setTotalProductsPrice(totalPrice);
+    }, [localStorageBasket]);
+
+    const addToCart = (id: number, color: string | undefined) => {
+        let cart: IItemCart[] = JSON.parse(localStorage.getItem('cart') || '[]');
+
+        for (let i = 0; i < cart.length; i++) {
+            if (id === cart[i].product.id && color === cart[i].color && cart[i].color) {
+                cart[i].count = cart[i].count + 1;
+            }
+            if (id === cart[i].product.id && color === undefined) {
+                cart[i].count = cart[i].count + 1;
+            }
+        }
+
+        setLocalStorageBasket(cart);
+
+        return localStorage.setItem('cart', JSON.stringify(cart));
+    };
+
+    const removeFromCart = (id: number, color: string | undefined) => {
+        let cart: IItemCart[] = JSON.parse(localStorage.getItem('cart') || '[]');
+
+        for (let i = 0; i < cart.length; i++) {
+            if (id === cart[i].product.id && color === cart[i].color && cart[i].color) {
+                cart[i].count = cart[i].count - 1
+            }
+            if (id === cart[i].product.id && color === undefined) {
+                cart[i].count = cart[i].count - 1;
+            }
+            if (cart[i].count === 0) {
+                cart.splice(i, 1);
+            }
+        }
+
+        setLocalStorageBasket(cart);
+
+        return localStorage.setItem('cart', JSON.stringify(cart));
+    };
 
     return (
         <>
@@ -34,7 +81,13 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
             />
             {
                 totalProductsCounter > 0 ?
-                <Cart totalProductsCounter={totalProductsCounter} products={localStorageBasket} totalProductsPrice={totalProductsPrice} /> :
+                <Cart 
+                    totalProductsCounter={totalProductsCounter} 
+                    products={localStorageBasket} 
+                    totalProductsPrice={totalProductsPrice} 
+                    removeFromCart={removeFromCart}
+                    addToCart={addToCart}
+                /> :
                 <div className={styles.emptyCartWrapper}>
                     <div className={styles.titleWrapper}>Корзина пуста</div>
                     <LinkButton element="link" href="/categories">Перейти в категории</LinkButton>

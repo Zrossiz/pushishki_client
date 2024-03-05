@@ -72,7 +72,7 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
         let cart: IItemCart[] = JSON.parse(localStorage.getItem('cart') || '[]');
 
         if (cart?.length > 0) {
-            for (let i = 0; i <= cart.length; i++) {
+            for (let i = 0; i < cart.length; i++) {
                 if (
                     cart[i]?.color === productVariants?.[activeVariant]?.color
                 ) {

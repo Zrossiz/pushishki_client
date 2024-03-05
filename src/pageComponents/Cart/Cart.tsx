@@ -4,7 +4,13 @@ import { ICartProps } from './Cart.props';
 import { IItemCart } from '@/types';
 import { LinkButton } from '@/elements';
 
-export const Cart = ({ products, totalProductsCounter, totalProductsPrice }: ICartProps) => {
+export const Cart = ({ 
+    products, 
+    totalProductsCounter, 
+    totalProductsPrice,
+    removeFromCart,
+    addToCart
+}: ICartProps) => {
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
         style: 'currency',
@@ -22,7 +28,12 @@ export const Cart = ({ products, totalProductsCounter, totalProductsPrice }: ICa
                     {
                         products?.map((item: IItemCart, index) => {
                             return (
-                                <CartItem key={index} product={item} />
+                                <CartItem 
+                                    key={index} 
+                                    product={item} 
+                                    addToCart={addToCart}
+                                    removeFromCart={removeFromCart}
+                                />
                             )
                         })
                     }
