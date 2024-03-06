@@ -5,7 +5,7 @@ import { IItemCart, IProduct, IProductCardPageProps } from "@/types";
 import styles from '../../../../styles/Card.module.scss';
 import { Breadcrumbs, BuyOneClick, CardItemGallery, FormReview, InfoPopup } from "@/components";
 import { useRouter } from "next/router";
-import { HTag, LinkButton } from "@/elements";
+import { AddToCartButton, HTag, LinkButton } from "@/elements";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import cn from 'classnames';
@@ -215,9 +215,7 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
                         }
                     </div>
                     <div className={styles.buttonsWrapper}>
-                        <div className={styles.addToCart} onClick={() => addToCart(product!)}>
-                            <LinkButton element="button">В корзину</LinkButton>
-                        </div>
+                        <AddToCartButton />
                         <div 
                             className={cn(styles.favoriteWrapper, {
                                 [styles.active]: isAdded
