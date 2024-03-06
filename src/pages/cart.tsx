@@ -48,18 +48,26 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
         return localStorage.setItem('cart', JSON.stringify(cart));
     };
 
-    const removeFromCart = (id: number, color: string | undefined) => {
+    const removeFromCart = (id: number, color: string | undefined, deleteItem?: boolean) => {
         let cart: IItemCart[] = JSON.parse(localStorage.getItem('cart') || '[]');
 
-        for (let i = 0; i < cart.length; i++) {
-            if (id === cart[i].product.id && color === cart[i].color && cart[i].color) {
-                cart[i].count = cart[i].count - 1
+        if (deleteItem) {
+            for (let i = 0; i < cart.length; i++) {
+                if (id === cart[i].product.id && color === cart[i].color && cart[i].color) {
+                    cart.splice(i, 1);
+                }
             }
-            if (id === cart[i].product.id && color === undefined) {
-                cart[i].count = cart[i].count - 1;
-            }
-            if (cart[i].count === 0) {
-                cart.splice(i, 1);
+        } else {
+            for (let i = 0; i < cart.length; i++) {
+                if (id === cart[i].product.id && color === cart[i].color && cart[i].color) {
+                    cart[i].count = cart[i].count - 1
+                }
+                if (id === cart[i].product.id && color === undefined) {
+                    cart[i].count = cart[i].count - 1;
+                }
+                if (cart[i].count === 0) {
+                    cart.splice(i, 1);
+                }
             }
         }
 

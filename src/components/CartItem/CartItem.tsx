@@ -60,7 +60,7 @@ export const CartItem = ({ product, addToCart, removeFromCart }: CartItemProps) 
                             <div className={styles.favoriteWrapper}>
                                 <Image src={'/icons/HeartOutlined.svg'} height={26} width={26} alt="Добавить в избранное" />
                             </div>
-                            <div className={styles.deleteWrapper}>
+                            <div className={styles.deleteWrapper} onClick={() => removeFromCart(product.product.id, product.color, true)}>
                                 <Image src={'/icons/Trash.svg'} height={26} width={24} alt="Удалить" />
                             </div>
                         </motion.div>
