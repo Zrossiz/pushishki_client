@@ -23,7 +23,7 @@ export const CartItem = ({ product, addToCart, removeFromCart, switchFavorite, l
         style: 'currency',
         currency: 'RUB',
         currencyDisplay: 'symbol' 
-    }).format(product.product.defaultPrice);
+    }).format(product.product.defaultPrice).split(',')[0] + '₽';
 
     return (
         <li 

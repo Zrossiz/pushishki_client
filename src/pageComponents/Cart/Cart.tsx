@@ -18,7 +18,7 @@ export const Cart = ({
         style: 'currency',
         currency: 'RUB',
         currencyDisplay: 'symbol' 
-    }).format(totalProductsPrice);
+    }).format(totalProductsPrice).split(',')[0] + '₽';
 
     return (
         <section className={styles.wrapper}>

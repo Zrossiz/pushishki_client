@@ -29,7 +29,7 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
         style: 'currency',
         currency: 'RUB',
         currencyDisplay: 'symbol' 
-    }).format(product?.defaultPrice || 0);
+    }).format(product?.defaultPrice || 0).split(',')[0] + '₽';
 
     let localStorageFavorites: IProduct[];
 

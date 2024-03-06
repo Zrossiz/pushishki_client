@@ -18,7 +18,7 @@ export const CatalogItem = ({
         style: 'currency',
         currency: 'RUB',
         currencyDisplay: 'symbol' 
-    }).format(product.defaultPrice);
+    }).format(product.defaultPrice).split(',')[0] + '₽';
 
     const [isAdded, setIsAdded] = useState<boolean>(false);
 

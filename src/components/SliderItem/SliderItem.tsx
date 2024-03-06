@@ -8,7 +8,8 @@ export const SliderItem = ({ product }: SliderItemProps) => {
         style: 'currency',
         currency: 'RUB',
         currencyDisplay: 'symbol' 
-    }).format(product.defaultPrice);
+    }).format(product.defaultPrice).split(',')[0] + '₽';
+    
     return (
         <Link href={`/categories/${product.category.slug}/${product.id}`} className={styles.itemWrapper}>
             <div className={styles.imgWrapper}>
