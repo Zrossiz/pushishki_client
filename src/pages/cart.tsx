@@ -1,13 +1,14 @@
 import { getAccessories, getBestsellers, getCategories } from "@/api";
 import { withLayout } from "@/layout/Layout";
 import { Quiz, PageTitle, Slider, Cart } from "@/pageComponents";
-import { ICartPageProps, IItemCart } from "@/types";
+import { ICartPageProps, IItemCart, IProduct } from "@/types";
 import styles from '../styles/Cart.module.scss';
 import { HTag, LinkButton } from "@/elements";
 import { useEffect, useState } from "react";
 
 const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
     const [localStorageBasket, setLocalStorageBasket] = useState<IItemCart[]>([]);
+    const [localStorageFavorites, setLocalStorageFavorites] = useState<IProduct[]>([]);
     const [totalProductsCounter, setTotalCounter] = useState<number>(0);
     const [totalProductsPrice, setTotalProductsPrice] = useState<number>(0);
 
@@ -76,6 +77,29 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
         return localStorage.setItem('cart', JSON.stringify(cart));
     };
 
+    const switchFavorite = (product: IProduct) => {
+        let favorites: IProduct[] = JSON.parse(localStorage.getItem('favorites') || '[]');
+        let isAdded: number | boolean = false;
+        
+        for (let i = 0; i < favorites.length; i++) {
+            if (favorites[i]?.id === product.id) {
+                isAdded = i;
+                break;
+            } 
+        }
+    
+        if (isAdded !== false) {
+            favorites.splice(isAdded, 1);
+        } else {
+            console.log(product);
+            favorites.push(product);
+        }
+    
+        setLocalStorageFavorites(favorites);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+    
+
     return (
         <>
             <PageTitle 
@@ -95,6 +119,8 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
                     totalProductsPrice={totalProductsPrice} 
                     removeFromCart={removeFromCart}
                     addToCart={addToCart}
+                    switchFavorite={switchFavorite}
+                    localStorageFavorites={localStorageFavorites}
                 /> :
                 <div className={styles.emptyCartWrapper}>
                     <div className={styles.titleWrapper}>Корзина пуста</div>

@@ -9,7 +9,9 @@ export const Cart = ({
     totalProductsCounter, 
     totalProductsPrice,
     removeFromCart,
-    addToCart
+    addToCart,
+    switchFavorite,
+    localStorageFavorites
 }: ICartProps) => {
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
@@ -33,6 +35,8 @@ export const Cart = ({
                                     product={item} 
                                     addToCart={addToCart}
                                     removeFromCart={removeFromCart}
+                                    switchFavorite={switchFavorite}
+                                    localStorageFavorites={localStorageFavorites}
                                 />
                             )
                         })
