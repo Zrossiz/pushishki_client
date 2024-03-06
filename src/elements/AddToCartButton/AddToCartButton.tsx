@@ -99,20 +99,18 @@ export const AddToCartButton = () => {
         });  
     }, [])
     return (
-        <div className={styles.wrapper}>
-            <button className={styles.truckButton} id="btn">
-                <span className={styles.default}>Добавить в корзину</span>
-                <span className={styles.success}>
-                    Успешно!
+        <button className={styles.truckButton} id="btn">
+            <span className={styles.default}>Добавить в корзину</span>
+            <span className={styles.success}>
+                Успешно!
 
-                </span>
-                <div className={styles.truck} id="truck">
-                    <div className={styles.wheel}></div>
-                    <div className={styles.back}></div>
-                    <div className={styles.front}></div>
-                    <div className={styles.box} id="box"></div>
-                </div>
-            </button>
-        </div>
+            </span>
+            <div className={styles.truck} id="truck">
+                <div className={styles.wheel}></div>
+                <div className={styles.back}></div>
+                <div className={styles.front}></div>
+                <div className={styles.box} id="box"></div>
+            </div>
+        </button>
     )
 }

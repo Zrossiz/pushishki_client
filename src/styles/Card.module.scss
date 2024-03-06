@@ -135,6 +135,12 @@
             justify-content: space-between;
             margin-top: 20px;
 
+            .cartWrapper {
+                flex: 1;
+                margin-right: 10px;
+                overflow-x: clip;
+            }
+
             .addToCart {
                 flex: 1;
                 margin-right: 10px;

@@ -215,7 +215,9 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
                         }
                     </div>
                     <div className={styles.buttonsWrapper}>
-                        <AddToCartButton />
+                        <div className={styles.cartWrapper} onClick={() => addToCart(product!)}>
+                            <AddToCartButton />
+                        </div>
                         <div 
                             className={cn(styles.favoriteWrapper, {
                                 [styles.active]: isAdded
