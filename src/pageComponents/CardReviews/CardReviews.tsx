@@ -54,6 +54,9 @@ export const CardReviews = ({ reviews, setOpen }: CardreviewsProps) => {
                             </div>
                         </Swiper>
                     </div>
+                    <div className={styles.reviewButton}>
+                        <LinkButton element='button' onClick={() => setOpen(true)}>Оставить отзыв</LinkButton>
+                    </div>
                 </> :
                 <div className={styles.nothingFoundWrapper}>
                     <div className={styles.titleWrapper}>На этот товар пока отзывов нет...</div>
