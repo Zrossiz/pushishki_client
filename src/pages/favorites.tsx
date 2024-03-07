@@ -1,4 +1,4 @@
-import { Form, PageTitle, Slider } from "@/pageComponents";
+import { Favorites, Form, PageTitle, Slider } from "@/pageComponents";
 import styles from '../styles/Favorites.module.scss';
 import { getAccessories } from "@/api";
 import { IFavoritesPageProps } from "@/types";
@@ -23,6 +23,7 @@ const FavoritesPage = ({ accessories }: IFavoritesPageProps) => {
                     <div className={styles.titleWrapper}>В избранном пока что ничего нет</div>
                     <LinkButton element="link" href="/categories">Перейти в категории</LinkButton>
                 </section>
+                <Favorites />
                 <Slider title="Аксессуары" products={accessories?.data} />
                 <Form />
             </>
