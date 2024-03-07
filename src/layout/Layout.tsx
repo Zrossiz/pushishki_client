@@ -15,12 +15,24 @@ const manrope = Manrope({
   preload: false
 });
 
-export const Layout = ({ children }: ILayoutProps): JSX.Element => {  
+export const Layout = ({ children, title, description }: ILayoutProps): JSX.Element => {  
   return (
     <>
       <Head>
-        <title>Пушишки</title>
+        <title>{title}</title>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content={description ? description : 'Официальный сайт - Пушишки'} />
+        <meta property="og:image:src" content="/Logo.png" />
+        <meta property="og:image:width" content="968" />
+        <meta property="og:image:height" content="504" />
+        <meta property="og:title" content="Пушишки - детские товары" />
+        <meta property="og:site_name" content="Пушишки - детские товары" />
+        <meta
+            property="og:description"
+            content={`${description}`}
+        />
       </Head>
       <div className={cn(
         manrope.className,
