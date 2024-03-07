@@ -1,9 +1,11 @@
-import { withLayout } from "@/layout/Layout";
+import { Layout } from "@/layout/Layout"
 
 const OrderPage = () => {
     return (
-        <div>order</div>
+        <Layout title="Оформление | Пушишки">
+            <div>order</div>
+        </Layout>
     )
 };
 
-export default withLayout(OrderPage);
+export default OrderPage;

@@ -15,7 +15,7 @@ const manrope = Manrope({
   preload: false
 });
 
-const Layout = ({ children }: ILayoutProps): JSX.Element => {  
+export const Layout = ({ children }: ILayoutProps): JSX.Element => {  
   return (
     <>
       <Head>
@@ -44,15 +44,3 @@ const Layout = ({ children }: ILayoutProps): JSX.Element => {
     </>
   )
 }
-
-export const withLayout = <T extends Record<string, unknown>>(
-  Component: FunctionComponent<T>
-) => {
-  return function withLayoutComponent(props: T): JSX.Element {
-    return (
-      <Layout>
-        <Component {...props} />
-      </Layout>
-    );
-  };
-};

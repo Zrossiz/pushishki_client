@@ -1,12 +1,10 @@
-import { withLayout } from "@/layout/Layout";
 import { PageTitle, Quiz, Slider } from "@/pageComponents";
 import styles from '../../styles/Categories.module.scss';
 import { ICategoryPageProps } from "@/types";
 import Link from "next/link";
 import { getBestsellers, getCategories } from "@/api";
-import { Metadata } from "next";
-import Head from "next/head";
 import getConfig from 'next/config';
+import { Layout } from "@/layout/Layout";
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -14,42 +12,41 @@ const { FILESERVER_URL } = publicRuntimeConfig;
 const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
 
     return (
-        <>
-            <Head>
-                <title>Категории | Пушишки</title>
-            </Head>
-            <PageTitle 
-                counter={`${categories?.length} категорий`} 
-                title={'Категории'} 
-                breadcrumbs={[
-                    {
-                        name: 'Главная',
-                        path: '/'
-                    }
-                ]}
-            />
-            <section className={styles.categoriesWrapper}>
-                <div className={styles.wrapper}>
-                    {
-                        categories?.data.map((item, index) => {
-                            return (
-                                <Link key={item.id} href={`/categories/${item.slug}?page=1`}>
-                                    <div className={styles.titleWrapper}>{item.name}</div>
-                                    <div className={styles.imgWrapper}>
-                                        <img 
-                                            src={`${FILESERVER_URL}/upload/${item.image}`} 
-                                            alt={item.name} 
-                                        />
-                                    </div>
-                                </Link>
-                            )
-                        })
-                    }
-                </div>
-            </section>
-            <Slider title="Лучшие предложения" products={bestSellers} />
-            <Quiz />
-        </>
+        <Layout title="Категории | Пушишки">
+            <>
+                <PageTitle 
+                    counter={`${categories?.length} категорий`} 
+                    title={'Категории'} 
+                    breadcrumbs={[
+                        {
+                            name: 'Главная',
+                            path: '/'
+                        }
+                    ]}
+                />
+                <section className={styles.categoriesWrapper}>
+                    <div className={styles.wrapper}>
+                        {
+                            categories?.data.map((item, index) => {
+                                return (
+                                    <Link key={item.id} href={`/categories/${item.slug}?page=1`}>
+                                        <div className={styles.titleWrapper}>{item.name}</div>
+                                        <div className={styles.imgWrapper}>
+                                            <img 
+                                                src={`${FILESERVER_URL}/upload/${item.image}`} 
+                                                alt={item.name} 
+                                            />
+                                        </div>
+                                    </Link>
+                                )
+                            })
+                        }
+                    </div>
+                </section>
+                <Slider title="Лучшие предложения" products={bestSellers} />
+                <Quiz />
+            </>
+        </Layout>
     )
 }
 
@@ -65,4 +62,4 @@ export const getStaticProps = async () => {
     }
 }
 
-export default withLayout(CategoriesPage);
+export default CategoriesPage;

@@ -1,38 +1,37 @@
 import { getBestsellers, getBrands, getCategories, getCategory, getCategoryProducts, getCountries } from "@/api";
-import { withLayout } from "@/layout/Layout";
+import { Layout } from "@/layout/Layout";
 import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
 import { ICatalogPageProps } from "@/types";
 import Head from "next/head";
 
 const CategoryPage = ({ brands, countries, products, curPage, bestSellers, category, categories }: ICatalogPageProps) => {
     return (
-        <>
-            <Head>
-                <title>{category?.name} | Пушишки</title>
-            </Head>
-            <PageTitle 
-                title={'Каталог'} 
-                counter={`${products && products?.totalPages * 10} товаров`} 
-                breadcrumbs={[
-                    {
-                        name: 'Главная',
-                        path: '/'
-                    },
-                    {
-                        name: `Категории`,
-                        path: `/categories`
-                    }
-                ]}
-            />
-            <Catalog 
-                brands={brands} 
-                countries={countries} 
-                products={products}
-                curPage={curPage}
-            />
-            <Slider title={'Лучшие предложения'} products={bestSellers} />
-            <Quiz categories={categories?.data} />
-        </>
+        <Layout title={`${category?.name} | Пушишки`}>
+            <>
+                <PageTitle 
+                    title={'Каталог'} 
+                    counter={`${products && products?.totalPages * 10} товаров`} 
+                    breadcrumbs={[
+                        {
+                            name: 'Главная',
+                            path: '/'
+                        },
+                        {
+                            name: `Категории`,
+                            path: `/categories`
+                        }
+                    ]}
+                />
+                <Catalog 
+                    brands={brands} 
+                    countries={countries} 
+                    products={products}
+                    curPage={curPage}
+                />
+                <Slider title={'Лучшие предложения'} products={bestSellers} />
+                <Quiz categories={categories?.data} />
+            </>
+        </Layout>
     )
 }
 
@@ -79,4 +78,4 @@ export const getServerSideProps = async (context: any) => {
     }
 }
 
-export default withLayout(CategoryPage)
+export default CategoryPage;

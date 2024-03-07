@@ -1,10 +1,10 @@
 import { getAccessories, getBestsellers, getCategories } from "@/api";
-import { withLayout } from "@/layout/Layout";
 import { Quiz, PageTitle, Slider, Cart } from "@/pageComponents";
 import { ICartPageProps, IItemCart, IProduct } from "@/types";
 import styles from '../styles/Cart.module.scss';
 import { HTag, LinkButton } from "@/elements";
 import { useEffect, useState } from "react";
+import { Layout } from "@/layout/Layout";
 
 const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
     const [localStorageBasket, setLocalStorageBasket] = useState<IItemCart[]>([]);
@@ -101,40 +101,42 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
     
 
     return (
-        <>
-            <PageTitle 
-                title={`Корзина(${localStorageBasket ? totalProductsCounter : 0})`} 
-                breadcrumbs={[
-                    {
-                        name: 'Главная',
-                        path: '/'
-                    },
-                ]}
-            />
-            {
-                totalProductsCounter > 0 ?
-                <Cart 
-                    totalProductsCounter={totalProductsCounter} 
-                    products={localStorageBasket} 
-                    totalProductsPrice={totalProductsPrice} 
-                    removeFromCart={removeFromCart}
-                    addToCart={addToCart}
-                    switchFavorite={switchFavorite}
-                    localStorageFavorites={localStorageFavorites}
-                /> :
-                <div className={styles.emptyCartWrapper}>
-                    <div className={styles.titleWrapper}>Корзина пуста</div>
-                    <LinkButton element="link" href="/categories">Перейти в категории</LinkButton>
-                </div>
-            }
-            <Slider title="Аксесуары" products={accessories?.data} />
-            <Slider title="Лучшие предложения" products={bestSellers} />
-            <Quiz categories={categories?.data} />
-        </>
+        <Layout title="Корзина | Пушишки">
+            <>
+                <PageTitle 
+                    title={`Корзина(${localStorageBasket ? totalProductsCounter : 0})`} 
+                    breadcrumbs={[
+                        {
+                            name: 'Главная',
+                            path: '/'
+                        },
+                    ]}
+                />
+                {
+                    totalProductsCounter > 0 ?
+                    <Cart 
+                        totalProductsCounter={totalProductsCounter} 
+                        products={localStorageBasket} 
+                        totalProductsPrice={totalProductsPrice} 
+                        removeFromCart={removeFromCart}
+                        addToCart={addToCart}
+                        switchFavorite={switchFavorite}
+                        localStorageFavorites={localStorageFavorites}
+                    /> :
+                    <div className={styles.emptyCartWrapper}>
+                        <div className={styles.titleWrapper}>Корзина пуста</div>
+                        <LinkButton element="link" href="/categories">Перейти в категории</LinkButton>
+                    </div>
+                }
+                <Slider title="Аксесуары" products={accessories?.data} />
+                <Slider title="Лучшие предложения" products={bestSellers} />
+                <Quiz categories={categories?.data} />
+            </>
+        </Layout>
     )
 };
 
-export default withLayout(CartPage);
+export default CartPage;
 
 export const getServerSideProps = async () => {
 
