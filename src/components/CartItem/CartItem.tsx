@@ -88,8 +88,6 @@ export const CartItem = ({ product, addToCart, removeFromCart, switchFavorite, l
                                             </clipPath>
                                             </defs>
                                         </svg>
-                                    
-
                                 }
                             </div>
                             <div className={styles.deleteWrapper} onClick={() => removeFromCart(product.product.id, product.color, true)}>
