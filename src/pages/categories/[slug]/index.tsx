@@ -6,7 +6,7 @@ import Head from "next/head";
 
 const CategoryPage = ({ brands, countries, products, curPage, bestSellers, category, categories }: ICatalogPageProps) => {
     return (
-        <Layout title={`${category?.name} | Пушишки`}>
+        <Layout title={category?.metaTitle} description={category?.metaDescription} keyWords={category?.metaKeyWords}>
             <>
                 <PageTitle 
                     title={'Каталог'} 

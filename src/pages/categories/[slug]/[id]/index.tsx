@@ -105,7 +105,7 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
     }
 
     return (
-        <Layout title={`${product?.name} | Пушишки`}>
+        <Layout title={product?.metaTitle} description={product?.metaDescription} keyWords={product?.metaKeyWords}>
             <>  
                 <section className={styles.itemDescriptionWrapper}>
                     {openBuyOnClick && <BuyOneClick setOpen={setOpenBuyOnClick} />}

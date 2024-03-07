@@ -3,7 +3,10 @@ export interface ICategory {
     name: string,
     slug: string,
     description: string,
-    image: string
+    image: string,
+    metaTitle: string;
+    metaDescription: string;
+    metaKeyWords: string;
 }
 
 export interface ICategoryWithLength {

@@ -26,4 +26,7 @@ export interface IProduct {
     inStock: boolean;
     defaultPrice: number;
     rating: number;
+    metaTitle: string;
+    metaDescription: string;
+    metaKeyWords: string;
 }
