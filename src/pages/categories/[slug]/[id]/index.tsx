@@ -146,8 +146,8 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
                                     path: '/'
                                 },
                                 {
-                                    name: `${product?.category.name}`,
-                                    path: `/${product?.category.slug}`
+                                    name: `Категории`,
+                                    path: `/categories`
                                 },
                                 {
                                     name: 'Каталог',

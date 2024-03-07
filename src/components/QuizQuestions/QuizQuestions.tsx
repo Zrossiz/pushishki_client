@@ -19,6 +19,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
     const [question, setQuesiton] = useState<number>(0);
     const [category, setCategory] = useState<string>('');
     const [maximumLoad, setMaximLoad] = useState<number>(0);
+    const [priceFrom, setPriceFrom] = useState<number>(0);
     const [priceTo, setPriceTo] = useState<number>(0);
 
     const [result, setResult] = useState<IProduct[]>([]);
@@ -79,8 +80,13 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                                 }
                                 {
                                     question === 2 && 
-                                    <div className={styles.inputWrapper}>
-                                        До <Input type='text' value={priceTo} onChange={setPriceTo} />
+                                    <div className={styles.maximumLoadWrapper}>
+                                        <div className={styles.inputWrapper}>
+                                            От <Input type='text' value={priceFrom} onChange={setPriceFrom} />
+                                        </div>
+                                        <div className={styles.inputWrapper}>
+                                            До <Input type='text' value={priceTo} onChange={setPriceTo} />
+                                        </div>
                                     </div>
                                 }
                             </div>
