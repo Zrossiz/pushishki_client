@@ -31,7 +31,7 @@ export const Layout = ({ children, title, description }: ILayoutProps): JSX.Elem
         <meta property="og:site_name" content="Пушишки - детские товары" />
         <meta
             property="og:description"
-            content={`${description}`}
+            content={description ? description : 'Официальный сайт - Пушишки'}
         />
       </Head>
       <div className={cn(
