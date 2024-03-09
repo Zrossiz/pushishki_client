@@ -1,0 +1,16 @@
+.wrapper {
+    width: 100%;
+    margin-top: 10px;
+    background-color: var(--white);
+    border-radius: 40px;
+    padding: 40px;
+
+    .listWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 20px;
+        margin-top: 20px;
+        width: 100%;
+    }
+}

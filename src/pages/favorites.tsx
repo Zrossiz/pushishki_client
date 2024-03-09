@@ -1,29 +1,38 @@
 import { Favorites, Form, PageTitle, Slider } from "@/pageComponents";
 import styles from '../styles/Favorites.module.scss';
 import { getAccessories } from "@/api";
-import { IFavoritesPageProps } from "@/types";
+import { IFavoritesPageProps, IProduct } from "@/types";
 import { LinkButton } from "@/elements";
 import { Layout } from "@/layout/Layout";
+import { useEffect, useState } from "react";
 
 const FavoritesPage = ({ accessories }: IFavoritesPageProps) => {
+    const [favorites, setFavorites] = useState<IProduct[]>([]);
+
+    useEffect(() => {
+        setFavorites(JSON.parse(localStorage.getItem('favorites') || '[]'));
+    }, [])
+
     return (
         <Layout title={'Избранное | Пушишки'}>
             <>
                 <PageTitle 
-                    title="Избранное" 
+                    title={`Избранное(${favorites.length >= 1 ? favorites.length : 0})`} 
                     breadcrumbs={[
                         {
                             name: 'Главная',
                             path: '/'
                         },
                     ]}
-                    counter="0 товаров"
                 />
-                <section className={styles.favoritesWrapper}>
-                    <div className={styles.titleWrapper}>В избранном пока что ничего нет</div>
-                    <LinkButton element="link" href="/categories">Перейти в категории</LinkButton>
-                </section>
-                <Favorites />
+                {
+                    favorites.length >= 1 ?
+                        <Favorites products={favorites} /> :
+                        <section className={styles.favoritesWrapper}>
+                            <div className={styles.titleWrapper}>В избранном пока что ничего нет</div>
+                            <LinkButton element="link" href="/categories">Перейти в категории</LinkButton>
+                        </section>
+                }
                 <Slider title="Аксессуары" products={accessories?.data} />
                 <Form />
             </>
