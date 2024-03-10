@@ -5,6 +5,9 @@ const nextConfig = {
     API_URL: process.env.API_URL,
     FILESERVER_URL: process.env.FILESERVER_URL,
   },
+  images: {
+    domains: ['localhost'],
+  },
 };
 
 export default nextConfig;

@@ -4,7 +4,7 @@
     gap: 10px;
 
     .infoWrapper {
-        width: 64%;
+        width: 70%;
 
         .listWrapper {
             padding: 40px;
@@ -15,6 +15,71 @@
                 font-size: 52px;
                 font-weight: 500;
             }
+
+            .swiperWrapper {
+                margin-top: 20px;
+
+                .itemWrapper {
+                    width: fit-content;
+                    padding-left: 32px;
+
+                    .imgWrapper {
+                        position: relative;
+                        border-radius: 20px;
+                        overflow: hidden;
+                        width: 200px;
+                        height: 130px;
+
+                        img {
+                            border-radius: 20px;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .title {
+                        font-size: 20px;
+                        margin-top: 10px;
+                    }
+
+                    .priceColorWrapper {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: 10px;
+
+                        .price {
+                            font-size: 24px;
+                        }
+
+                        .colorWrapper {
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+
+                .navWrapper {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    position: absolute;
+                    top: 30%;
+                    z-index: 4;
+            
+                    .navButton {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: none;
+                        background-color: transparent;
+                        cursor: pointer;
+                    }
+                
+                    .reverse {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
         }
     }
 
@@ -22,6 +87,5 @@
         background-color: var(--white);
         border-radius: 12px 40px 40px 12px;
         padding: 40px;
-        width: 36%;
     }
 }

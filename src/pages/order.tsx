@@ -7,6 +7,10 @@ import 'swiper/css';
 import { useEffect, useState } from "react";
 import cn from 'classnames';
 import Image from "next/image";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
+const { FILESERVER_URL } = publicRuntimeConfig;
 
 const SwiperButtonNext = () => {
     const swiper = useSwiper();
@@ -60,9 +64,27 @@ const OrderPage = () => {
                                         </div>
                                         {
                                             cart.map((item: IItemCart, index: number) => {
+                                                const formattedPrice: string = Intl.NumberFormat('ru-RU', {
+                                                    style: 'currency',
+                                                    currency: 'RUB',
+                                                    currencyDisplay: 'symbol' 
+                                                }).format(item.product?.defaultPrice || 0).split(',')[0] + '₽';
                                                 return (
-                                                    <SwiperSlide>
-                                                        {item.product.name}
+                                                    <SwiperSlide key={item.product.id} style={{ width: 'fit-content' }}>
+                                                        <div className={styles.itemWrapper}>
+                                                            <div className={styles.imgWrapper}>
+                                                                <Image src={`${FILESERVER_URL}/upload/${item.product.image}`} fill alt={item.product.name} />
+                                                            </div>
+                                                            <div className={styles.title}>
+                                                                {item.product.name}
+                                                            </div>
+                                                            <div className={styles.priceColorWrapper}>
+                                                                <div className={styles.price}> 
+                                                                    {formattedPrice}
+                                                                </div>
+                                                                <div className={styles.colorWrapper} style={{ backgroundColor: item.color }}></div>
+                                                            </div>
+                                                        </div>
                                                     </SwiperSlide>
                                                 )
                                             })
