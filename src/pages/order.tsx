@@ -116,6 +116,21 @@ const OrderPage = () => {
                                     </Swiper>
                                 </div>
                             </div>
+                            <div className={styles.deliveryWrapper}>
+                                <div className={styles.titleWrapper}>
+                                    Способ получения
+                                </div>
+                                <form className={styles.optionWrapper}>
+                                    <div className={styles.option}>
+                                        <input id="delivery1" name="delivery" type="radio" />
+                                        <label htmlFor="delivery1">Доставка</label>
+                                    </div>
+                                    <div className={styles.option}>
+                                        <input id="delivery2" name="delivery" type="radio" />
+                                        <label htmlFor="delivery2">Самовывоз</label>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         <div className={styles.priceSectionWrapper}>
                             <div className={styles.titlePriceWrapper}>

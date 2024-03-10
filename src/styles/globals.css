@@ -34,8 +34,38 @@ a {
     text-decoration: none;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"], input[type="radio"] {
     display: none;
+}
+
+/* Стилизация кастомного radio */
+input[type="radio"] ~ label {
+    position: relative;
+    padding-left: 30px; /* Отступ слева для кастомного radio */
+    cursor: pointer;
+}
+
+input[type="radio"] ~ label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 30%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333; /* Цвет рамки по умолчанию */
+    border-radius: 50%; /* Делаем круглым */
+}
+
+/* Стилизация кастомного radio при выборе */
+input[type="radio"]:checked ~ label:after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: calc(50% - 3px);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Делаем круглым */
+    background-color: var(--light-green);
 }
 
 button:disabled {
