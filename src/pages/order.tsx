@@ -32,10 +32,25 @@ const SwiperButtonPrev = () => {
 
 const OrderPage = () => {
     const [cart, setCart] = useState<IItemCart[]>([]);
+    const [totalProductsCounter, setTotalCounter] = useState<number>(0);
+    const [totalProductsPrice, setTotalProductsPrice] = useState<number>(0);
 
     useEffect(() => {
         setCart(JSON.parse(localStorage.getItem('cart') || '[]'));
-    })
+    }, []);
+
+    useEffect(() => {
+        let counter = 0;
+        let totalPrice = 0;
+    
+        for (let i = 0; i < cart.length; i++) {
+            counter += cart[i]?.count || 0;
+            totalPrice += (cart[i]?.count || 0) * (cart[i]?.product.defaultPrice || 0);
+        }
+    
+        setTotalCounter(counter);
+        setTotalProductsPrice(totalPrice);
+    }, [cart]);
 
     return (
         <Layout title="Оформление | Пушишки">
@@ -51,7 +66,7 @@ const OrderPage = () => {
                         <div className={styles.infoWrapper}>
                             <div className={styles.listWrapper}>
                                 <div className={styles.titleWrapper}>
-                                    Купить {cart.length} шт.
+                                    Купить {totalProductsCounter} шт.
                                 </div>
                                 <div className={styles.swiperWrapper}>
                                     <Swiper 
