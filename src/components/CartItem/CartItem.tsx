@@ -38,9 +38,12 @@ export const CartItem = ({ product, addToCart, removeFromCart, switchFavorite, l
                 <div className={styles.titleWrapper}>
                     {product.product.name}
                 </div>
-                <div className={styles.colorWrapper}>
-                    Цвет: <span style={{ backgroundColor: product.color }} className={styles.color}></span>
-                </div>
+                {
+                    product.color &&
+                        <div className={styles.colorWrapper}>
+                            Цвет: <span style={{ backgroundColor: product.color }} className={styles.color}></span>
+                        </div>
+                }
             </div>
             <div className={styles.priceCounterWrapper}>
                 <div className={styles.priceWrapper}>
