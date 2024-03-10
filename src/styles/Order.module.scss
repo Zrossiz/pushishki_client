@@ -1,0 +1,27 @@
+.orderWrapper {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+
+    .infoWrapper {
+        width: 64%;
+
+        .listWrapper {
+            padding: 40px;
+            background-color: var(--white);
+            border-radius: 40px 12px 12px 40px;
+
+            .titleWrapper {
+                font-size: 52px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .priceWrapper {
+        background-color: var(--white);
+        border-radius: 12px 40px 40px 12px;
+        padding: 40px;
+        width: 36%;
+    }
+}
