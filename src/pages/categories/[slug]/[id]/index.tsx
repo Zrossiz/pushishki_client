@@ -74,6 +74,8 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
             for (let i = 0; i < cart.length; i++) {
                 if (
                     cart[i]?.color === productVariants?.[activeVariant]?.color
+                    &&
+                    cart[i]?.product.id === item.id
                 ) {
                     cart[i].count = cart[i].count + 1;
                     return localStorage.setItem('cart', JSON.stringify(cart));
