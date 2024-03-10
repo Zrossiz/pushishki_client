@@ -148,6 +148,17 @@ const OrderPage = () => {
                                     <Input type="phone" onChange={setPhone}/>
                                 </div>
                             </div>
+                            <div className={styles.paymentWrapper}>
+                                <div className={styles.titleWrapper}>
+                                    Оплата
+                                </div>
+                                <div className={styles.optionWrapper}>
+                                    <div className={styles.option}>
+                                            <input type="radio" checked />
+                                            <label>При получении</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className={styles.priceSectionWrapper}>
                             <div className={styles.titlePriceWrapper}>

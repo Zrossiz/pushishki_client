@@ -11,6 +11,23 @@
             font-weight: 500;
         }
 
+        .optionWrapper {
+            display: flex;
+            margin-top: 20px;
+
+            .option {
+                display: flex;
+    
+                label {
+                    font-size: 36px;
+                }
+    
+                &:not(:last-child) {
+                    margin-right: 40px;
+                }
+            }
+        }
+
         .listWrapper {
             padding: 40px;
             background-color: var(--white);
@@ -93,22 +110,6 @@
             margin-top: 10px;
             padding: 40px;
 
-            .optionWrapper {
-                display: flex;
-                margin-top: 20px;
-
-                .option {
-                    display: flex;
-
-                    label {
-                        font-size: 36px;
-                    }
-
-                    &:not(:last-child) {
-                        margin-right: 40px;
-                    }
-                }
-            }
         }
 
         .contactsWrapper {
@@ -124,6 +125,13 @@
                     margin-top: 10px;
                 }
             }
+        }
+
+        .paymentWrapper {
+            background-color: var(--white);
+            border-radius: 40px 12px 12px 40px;
+            margin-top: 10px;
+            padding: 40px;
         }
     }
 
