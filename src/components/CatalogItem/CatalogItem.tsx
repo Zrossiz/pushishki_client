@@ -56,7 +56,7 @@ export const CatalogItem = ({
     return (
         <div className={styles.wrapper}>
             <div className={styles.imgWrapper}>
-                <Image src={`${FILESERVER_URL}/upload/${product.image}`} alt={product.name} />
+                <Image src={`${FILESERVER_URL}/upload/${product.image}`} alt={product.name} height={156} width={234} />
             </div>
             <div className={styles.nameWrapper}>
                 {product.name}

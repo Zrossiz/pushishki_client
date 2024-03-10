@@ -32,7 +32,7 @@ export const CartItem = ({ product, addToCart, removeFromCart, switchFavorite, l
             onMouseLeave={() => setHover(false)}
         >
             <div className={styles.imgWrapper}>
-                <Image src={`${FILESERVER_URL}/upload/${product.product.image}`} alt={product.product.name} />
+                <Image src={`${FILESERVER_URL}/upload/${product.product.image}`} alt={product.product.name} width={150} height={100} />
             </div>
             <div className={styles.titleColorWrapper}>
                 <div className={styles.titleWrapper}>

@@ -35,7 +35,8 @@ const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
                                         <div className={styles.imgWrapper}>
                                             <Image 
                                                 src={`${FILESERVER_URL}/upload/${item.image}`} 
-                                                alt={item.name} 
+                                                alt={item.name}
+                                                fill
                                             />
                                         </div>
                                     </Link>
