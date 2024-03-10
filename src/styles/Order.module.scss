@@ -110,6 +110,21 @@
                 }
             }
         }
+
+        .contactsWrapper {
+            background-color: var(--white);
+            border-radius: 40px 12px 12px 40px;
+            margin-top: 10px;
+            padding: 40px;
+
+            .inputsWrapper {
+                margin-top: 20px;
+
+                input:not(:first-child) {
+                    margin-top: 10px;
+                }
+            }
+        }
     }
 
     .priceSectionWrapper {

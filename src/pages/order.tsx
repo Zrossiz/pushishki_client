@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import cn from 'classnames';
 import Image from "next/image";
 import getConfig from "next/config";
-import { LinkButton } from "@/elements";
+import { Input, LinkButton } from "@/elements";
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -35,6 +35,12 @@ const OrderPage = () => {
     const [cart, setCart] = useState<IItemCart[]>([]);
     const [totalProductsCounter, setTotalCounter] = useState<number>(0);
     const [totalProductsPrice, setTotalProductsPrice] = useState<number>(0);
+    
+    const [delivery, setDelivery] = useState<string>('');
+    const [name, setName] = useState<string>('');
+    const [lastName, setLastName] = useState<string>('');
+    const [address, setAddress] = useState<string>('');
+    const [phone, setPhone] = useState<string>('');
 
     useEffect(() => {
         setCart(JSON.parse(localStorage.getItem('cart') || '[]'));
@@ -130,6 +136,17 @@ const OrderPage = () => {
                                         <label htmlFor="delivery2">Самовывоз</label>
                                     </div>
                                 </form>
+                            </div>
+                            <div className={styles.contactsWrapper}>
+                                <div className={styles.titleWrapper}>
+                                    Получатель
+                                </div>
+                                <div className={styles.inputsWrapper}>
+                                    <Input type="text" value={name} onChange={setName} placeholder="Имя" />
+                                    <Input type="text" value={lastName} onChange={setLastName} placeholder="Фамилия" />
+                                    <Input type="text" value={address} onChange={setAddress} placeholder="Адресс" />
+                                    <Input type="phone" onChange={setPhone}/>
+                                </div>
                             </div>
                         </div>
                         <div className={styles.priceSectionWrapper}>
