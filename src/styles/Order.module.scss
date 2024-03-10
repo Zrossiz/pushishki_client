@@ -133,6 +133,31 @@
             margin-top: 10px;
             padding: 40px;
         }
+
+        .resultWrapper {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--white);
+            border-radius: 40px 12px 12px 40px;
+            margin-top: 10px;
+            padding: 40px;   
+
+            .result {
+                display: flex;
+                align-items: center;
+
+                .price {
+                    margin-left: 10px;
+                    font-size: 48px;
+                    color: var(--light-green);
+                }
+            }
+
+            .infoWrapper {
+                margin-top: 20px;
+                font-size: 22px;
+            }
+        }
     }
 
     .priceSectionWrapper {

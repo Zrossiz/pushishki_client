@@ -159,6 +159,18 @@ const OrderPage = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div className={styles.resultWrapper}>
+                                <div className={styles.result}>
+                                    <div className={styles.titleWrapper}>
+                                        Итого:
+                                    </div>
+                                    <div className={styles.price}>{formattedPrice}</div>
+                                </div>
+                                <div className={styles.infoWrapper}>
+                                    Окончательная стоимость заказа будет<br />
+                                    подтверждена после обработки заказа  
+                                </div>
+                            </div>
                         </div>
                         <div className={styles.priceSectionWrapper}>
                             <div className={styles.titlePriceWrapper}>
