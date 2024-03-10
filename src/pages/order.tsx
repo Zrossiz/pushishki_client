@@ -42,6 +42,10 @@ const OrderPage = () => {
     const [address, setAddress] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
 
+    const checkout = () => {
+
+    }
+
     useEffect(() => {
         setCart(JSON.parse(localStorage.getItem('cart') || '[]'));
     }, []);
@@ -100,7 +104,7 @@ const OrderPage = () => {
                                                     currencyDisplay: 'symbol' 
                                                 }).format(item.product?.defaultPrice || 0).split(',')[0] + '₽';
                                                 return (
-                                                    <SwiperSlide key={item.product.id} style={{ width: 'fit-content' }}>
+                                                    <SwiperSlide key={index} style={{ width: 'fit-content' }}>
                                                         <div className={styles.itemWrapper}>
                                                             <div className={styles.imgWrapper}>
                                                                 <Image src={`${FILESERVER_URL}/upload/${item.product.image}`} fill alt={item.product.name} />
@@ -128,11 +132,11 @@ const OrderPage = () => {
                                 </div>
                                 <form className={styles.optionWrapper}>
                                     <div className={styles.option}>
-                                        <input id="delivery1" name="delivery" type="radio" />
+                                        <input id="delivery1" name="delivery" type="radio" onChange={() => setDelivery('Доставка')} />
                                         <label htmlFor="delivery1">Доставка</label>
                                     </div>
                                     <div className={styles.option}>
-                                        <input id="delivery2" name="delivery" type="radio" />
+                                        <input id="delivery2" name="delivery" type="radio" onChange={() => setDelivery('Самовывоз')} />
                                         <label htmlFor="delivery2">Самовывоз</label>
                                     </div>
                                 </form>
@@ -144,7 +148,7 @@ const OrderPage = () => {
                                 <div className={styles.inputsWrapper}>
                                     <Input type="text" value={name} onChange={setName} placeholder="Имя" />
                                     <Input type="text" value={lastName} onChange={setLastName} placeholder="Фамилия" />
-                                    <Input type="text" value={address} onChange={setAddress} placeholder="Адресс" />
+                                    <Input type="text" value={address} onChange={setAddress} placeholder="Адрес" />
                                     <Input type="phone" onChange={setPhone}/>
                                 </div>
                             </div>
@@ -154,7 +158,7 @@ const OrderPage = () => {
                                 </div>
                                 <div className={styles.optionWrapper}>
                                     <div className={styles.option}>
-                                            <input type="radio" checked />
+                                            <input type="radio" defaultChecked />
                                             <label>При получении</label>
                                     </div>
                                 </div>
@@ -191,7 +195,15 @@ const OrderPage = () => {
                                 Мы свяжемся с вами для уточнения <br />
                                 деталей и стоимости доставки
                             </div>
-                            <LinkButton element="button">Оформить заказ</LinkButton>
+                            <LinkButton 
+                                element="button"
+                                disabled={
+                                    name.length >= 1 &&
+                                    lastName.length >= 1 &&
+                                    phone.length >= 1 ?
+                                    false : true
+                                }
+                            >Оформить заказ</LinkButton>
                         </div>
                     </div> 
                 :
