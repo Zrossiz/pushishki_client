@@ -222,7 +222,10 @@ const OrderPage = () => {
                         </div>
                     </div> 
                 :
-                    <div>Ничего не найдено</div>
+                    <div className={styles.emptyCartWrapper}>
+                        <div className={styles.titleWrapper}>Ничего нет</div>
+                        <LinkButton element="link" href="/categories">Перейти в категории</LinkButton>
+                    </div>
                 }
             </>
         </Layout>

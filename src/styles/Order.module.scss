@@ -200,3 +200,25 @@
         }
     }
 }
+
+.emptyCartWrapper {
+    width: 100%;
+    background-color: var(--white);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding: 40px;
+
+    .titleWrapper {
+        font-size: 42px;
+    }
+
+    a {
+        height: 60px;
+        width: 300px;
+        margin-top: 20px;
+    }
+}
