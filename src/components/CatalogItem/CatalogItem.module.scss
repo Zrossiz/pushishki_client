@@ -3,7 +3,7 @@
     padding-right: 2.6rem;
     padding-bottom: 2.6rem;
     border-bottom: 2px solid var(--light-grey);
-    width: 33%;
+    width: 275px;
 
     &:hover .selectAndAvalability {
         opacity: 1;
@@ -110,10 +110,6 @@
             }
         }
         
-    }
-
-    @media screen and (max-width: 1700px) {
-        width: 275px;
     }
 }
 
