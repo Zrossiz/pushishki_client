@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getBestsellers, getCategories } from "@/api";
 import getConfig from 'next/config';
 import { Layout } from "@/layout/Layout";
+import Image from "next/image";
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -32,7 +33,7 @@ const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
                                     <Link key={item.id} href={`/categories/${item.slug}?page=1`}>
                                         <div className={styles.titleWrapper}>{item.name}</div>
                                         <div className={styles.imgWrapper}>
-                                            <img 
+                                            <Image 
                                                 src={`${FILESERVER_URL}/upload/${item.image}`} 
                                                 alt={item.name} 
                                             />

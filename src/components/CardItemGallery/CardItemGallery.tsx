@@ -45,7 +45,7 @@ export const CardItemGallery = ({ images }: CardItemGalleryProps) => {
                             <SwiperSlide key={index}>
                                 <div className={styles.itemWrapper}>
                                     <a href={`${FILESERVER_URL}/upload/${item}`} data-fancybox="gallery">
-                                        <img src={`${FILESERVER_URL}/upload/${item}`} alt="Фото товара" height={340} />
+                                        <Image src={`${FILESERVER_URL}/upload/${item}`} alt="Фото товара" height={340} />
                                     </a>
                                 </div>
                             </SwiperSlide>

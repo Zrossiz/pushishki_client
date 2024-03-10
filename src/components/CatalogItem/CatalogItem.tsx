@@ -5,6 +5,7 @@ import cn from 'classnames';
 import { IProduct } from '@/types';
 import { useEffect, useState } from 'react';
 import getConfig from 'next/config';
+import Image from 'next/image';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -55,7 +56,7 @@ export const CatalogItem = ({
     return (
         <div className={styles.wrapper}>
             <div className={styles.imgWrapper}>
-                <img src={`${FILESERVER_URL}/upload/${product.image}`} alt={product.name} />
+                <Image src={`${FILESERVER_URL}/upload/${product.image}`} alt={product.name} />
             </div>
             <div className={styles.nameWrapper}>
                 {product.name}
