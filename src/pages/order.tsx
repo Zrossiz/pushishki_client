@@ -9,9 +9,10 @@ import cn from 'classnames';
 import Image from "next/image";
 import getConfig from "next/config";
 import { Input, LinkButton } from "@/elements";
+import axios from "axios";
 
 const { publicRuntimeConfig } = getConfig();
-const { FILESERVER_URL } = publicRuntimeConfig;
+const { FILESERVER_URL, BOT_URL } = publicRuntimeConfig;
 
 const SwiperButtonNext = () => {
     const swiper = useSwiper();
@@ -42,8 +43,21 @@ const OrderPage = () => {
     const [address, setAddress] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
 
-    const checkout = () => {
-
+    const checkout = async () => {
+        await axios.post(`${BOT_URL}/telegram`, {
+            name,
+            lastName,
+            address,
+            phone,
+            delivery,
+            price: totalProductsPrice,
+        });
+        setDelivery('');
+        setName('');
+        setLastName('');
+        setAddress('');
+        setPhone('');
+        localStorage.setItem('cart', '[]');
     }
 
     useEffect(() => {
@@ -203,6 +217,7 @@ const OrderPage = () => {
                                     phone.length >= 1 ?
                                     false : true
                                 }
+                                onClick={checkout}
                             >Оформить заказ</LinkButton>
                         </div>
                     </div> 
