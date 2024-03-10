@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import cn from 'classnames';
 import Image from "next/image";
 import getConfig from "next/config";
+import { LinkButton } from "@/elements";
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -52,6 +53,12 @@ const OrderPage = () => {
         setTotalProductsPrice(totalPrice);
     }, [cart]);
 
+    const formattedPrice: string = Intl.NumberFormat('ru-RU', {
+        style: 'currency',
+        currency: 'RUB',
+        currencyDisplay: 'symbol' 
+    }).format(totalProductsPrice).split(',')[0] + '₽';
+
     return (
         <Layout title="Оформление | Пушишки">
             <>
@@ -73,10 +80,12 @@ const OrderPage = () => {
                                         className="mySwipper"
                                         slidesPerView={3}
                                     >
-                                        <div className={styles.navWrapper}>
-                                            <SwiperButtonPrev />
-                                            <SwiperButtonNext />
-                                        </div>
+                                        {cart.length > 3 &&
+                                            <div className={styles.navWrapper}>
+                                                <SwiperButtonPrev />
+                                                <SwiperButtonNext />
+                                            </div>
+                                        }
                                         {
                                             cart.map((item: IItemCart, index: number) => {
                                                 const formattedPrice: string = Intl.NumberFormat('ru-RU', {
@@ -108,7 +117,27 @@ const OrderPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.priceWrapper}></div>
+                        <div className={styles.priceSectionWrapper}>
+                            <div className={styles.titlePriceWrapper}>
+                                <div className={styles.titleWrapper}>
+                                    Итого
+                                </div>
+                                <div className={styles.priceWrapper}>
+                                    {formattedPrice}
+                                </div>
+                            </div>
+                            <div className={styles.counterWrapper}>
+                                <div>Товары ({totalProductsCounter} шт.)</div>
+                                <div>
+                                    {formattedPrice}
+                                </div>
+                            </div>
+                            <div className={styles.infoWrapper}>
+                                Мы свяжемся с вами для уточнения <br />
+                                деталей и стоимости доставки
+                            </div>
+                            <LinkButton element="button">Оформить заказ</LinkButton>
+                        </div>
                     </div> 
                 :
                     <div>Ничего не найдено</div>
