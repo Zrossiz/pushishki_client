@@ -13,9 +13,10 @@ import axios from "axios";
 import { InfoPopup } from "@/components";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
+import { postOrder } from "@/api/Order";
 
 const { publicRuntimeConfig } = getConfig();
-const { FILESERVER_URL, BOT_URL } = publicRuntimeConfig;
+const { FILESERVER_URL } = publicRuntimeConfig;
 
 const SwiperButtonNext = () => {
     const swiper = useSwiper();
@@ -49,14 +50,14 @@ const OrderPage = () => {
     const router = useRouter();
 
     const checkout = async () => {
-        await axios.post(`${BOT_URL}/telegram/order`, {
+        const responseOrder = await postOrder(
             name,
             lastName,
             address,
             phone,
             delivery,
-            price: totalProductsPrice,
-        });
+            totalProductsPrice
+        );
         setSuccess(true);
         setDelivery('');
         setName('');
