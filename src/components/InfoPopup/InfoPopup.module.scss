@@ -25,4 +25,12 @@
             font-size: 20px;
         }
     }
+
+    .order {
+        background-color: var(--light-green);
+
+        .white {
+            color: var(--white);
+        }
+    }
 }

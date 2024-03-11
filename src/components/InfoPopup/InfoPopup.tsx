@@ -1,10 +1,10 @@
 import { HTag } from '@/elements';
 import styles from './InfoPopup.module.scss';
-import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { InfoPopupProps } from './InfoPopup.props';
+import cn from 'classnames';
 
-export const InfoPopup = ({ title, description }: InfoPopupProps) => {
+export const InfoPopup = ({ title, description, order }: InfoPopupProps) => {
     return (
         <motion.div 
             className={styles.wrapper}
@@ -14,10 +14,14 @@ export const InfoPopup = ({ title, description }: InfoPopupProps) => {
             transition={{ duration: 0.4 }}
         >
                 <div 
-                    className={styles.popupWrapper}
+                    className={cn(styles.popupWrapper, {
+                        [styles.order]: order
+                    })}
                 >
-                    <HTag tag='h2'>{title}</HTag>
-                    <span>{description}</span>
+                    <HTag tag='h2' color={order ? 'white' : 'black'}>{title}</HTag>
+                    <span className={cn({
+                        [styles.white]: order
+                    })}>{description}</span>
                 </div>
         </motion.div>
     )

@@ -47,22 +47,22 @@ const OrderPage = () => {
     const [phone, setPhone] = useState<string>('');
 
     const checkout = async () => {
-        // await axios.post(`${BOT_URL}/telegram/order`, {
-        //     name,
-        //     lastName,
-        //     address,
-        //     phone,
-        //     delivery,
-        //     price: totalProductsPrice,
-        // });
+        await axios.post(`${BOT_URL}/telegram/order`, {
+            name,
+            lastName,
+            address,
+            phone,
+            delivery,
+            price: totalProductsPrice,
+        });
         setSuccess(true);
         setTimeout(() => setSuccess(false), 2000)
-        // setDelivery('');
-        // setName('');
-        // setLastName('');
-        // setAddress('');
-        // setPhone('');
-        // localStorage.setItem('cart', '[]');
+        setDelivery('');
+        setName('');
+        setLastName('');
+        setAddress('');
+        setPhone('');
+        localStorage.setItem('cart', '[]');
     }
 
     useEffect(() => {
@@ -101,7 +101,7 @@ const OrderPage = () => {
                     <div className={styles.orderWrapper}>
                         <AnimatePresence>
                             {success && 
-                                <InfoPopup title="Заказ успешно оформлен" description="Мы скоро свяжемся с вами!" />
+                                <InfoPopup title="Заказ успешно оформлен" description="Мы скоро свяжемся с вами!" order={true} />
                             }
                         </AnimatePresence>
                         <div className={styles.infoWrapper}>
