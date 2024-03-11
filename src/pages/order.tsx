@@ -10,6 +10,8 @@ import Image from "next/image";
 import getConfig from "next/config";
 import { Input, LinkButton } from "@/elements";
 import axios from "axios";
+import { InfoPopup } from "@/components";
+import { AnimatePresence } from "framer-motion";
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL, BOT_URL } = publicRuntimeConfig;
@@ -36,6 +38,7 @@ const OrderPage = () => {
     const [cart, setCart] = useState<IItemCart[]>([]);
     const [totalProductsCounter, setTotalCounter] = useState<number>(0);
     const [totalProductsPrice, setTotalProductsPrice] = useState<number>(0);
+    const [success, setSuccess] = useState<boolean>(false);
     
     const [delivery, setDelivery] = useState<string>('');
     const [name, setName] = useState<string>('');
@@ -44,20 +47,22 @@ const OrderPage = () => {
     const [phone, setPhone] = useState<string>('');
 
     const checkout = async () => {
-        await axios.post(`${BOT_URL}/telegram/order`, {
-            name,
-            lastName,
-            address,
-            phone,
-            delivery,
-            price: totalProductsPrice,
-        });
-        setDelivery('');
-        setName('');
-        setLastName('');
-        setAddress('');
-        setPhone('');
-        localStorage.setItem('cart', '[]');
+        // await axios.post(`${BOT_URL}/telegram/order`, {
+        //     name,
+        //     lastName,
+        //     address,
+        //     phone,
+        //     delivery,
+        //     price: totalProductsPrice,
+        // });
+        setSuccess(true);
+        setTimeout(() => setSuccess(false), 2000)
+        // setDelivery('');
+        // setName('');
+        // setLastName('');
+        // setAddress('');
+        // setPhone('');
+        // localStorage.setItem('cart', '[]');
     }
 
     useEffect(() => {
@@ -94,6 +99,11 @@ const OrderPage = () => {
                 ]} />
                 {cart && cart.length >= 1 ?
                     <div className={styles.orderWrapper}>
+                        <AnimatePresence>
+                            {success && 
+                                <InfoPopup title="Заказ успешно оформлен" description="Мы скоро свяжемся с вами!" />
+                            }
+                        </AnimatePresence>
                         <div className={styles.infoWrapper}>
                             <div className={styles.listWrapper}>
                                 <div className={styles.titleWrapper}>
