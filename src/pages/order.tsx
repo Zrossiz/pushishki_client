@@ -12,6 +12,7 @@ import { Input, LinkButton } from "@/elements";
 import axios from "axios";
 import { InfoPopup } from "@/components";
 import { AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL, BOT_URL } = publicRuntimeConfig;
@@ -45,6 +46,7 @@ const OrderPage = () => {
     const [lastName, setLastName] = useState<string>('');
     const [address, setAddress] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
+    const router = useRouter();
 
     const checkout = async () => {
         await axios.post(`${BOT_URL}/telegram/order`, {
@@ -56,13 +58,16 @@ const OrderPage = () => {
             price: totalProductsPrice,
         });
         setSuccess(true);
-        setTimeout(() => setSuccess(false), 2000)
         setDelivery('');
         setName('');
         setLastName('');
         setAddress('');
         setPhone('');
         localStorage.setItem('cart', '[]');
+        setTimeout(() => setSuccess(false), 2000)
+        setTimeout(() => {
+            router.push('/')
+        }, 2400);
     }
 
     useEffect(() => {
