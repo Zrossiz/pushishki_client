@@ -44,7 +44,7 @@ const OrderPage = () => {
     const [phone, setPhone] = useState<string>('');
 
     const checkout = async () => {
-        await axios.post(`${BOT_URL}/telegram`, {
+        await axios.post(`${BOT_URL}/telegram/order`, {
             name,
             lastName,
             address,

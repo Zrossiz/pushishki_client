@@ -5,12 +5,26 @@ import { useState } from 'react';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { MainPageReviews } from '@/components';
+import axios from 'axios';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+const { BOT_URL } = publicRuntimeConfig;
 
 export const Form = () => {
     const [send, setSend] = useState<boolean>(false);
     const [name, setName] = useState<string>('');
     const [question, setQuestion] = useState<string>('');
     const [phone, setPhone] = useState<string>();
+
+    const sendFormToTelegram = async () => {
+        setSend(true);
+        await axios.post(`${BOT_URL}/question`, {
+            name,
+            phone,
+            question,
+        });
+    }
 
     const getInputNumbersValue = (input: HTMLInputElement) => {
         return input.value.replace(/\D/g, "");
@@ -116,7 +130,7 @@ export const Form = () => {
                     />
                 </form>
                 <div className={styles.buttonWrapper}>
-                    <button disabled={name && phone && question ? false : true} onClick={() => setSend(true)}>
+                    <button disabled={name && phone && question ? false : true} onClick={() => sendFormToTelegram()}>
                         Отправить
                         <div className={cn(styles.iconWrapper, {
                             [styles.activeIcon]: send
