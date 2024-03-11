@@ -13,7 +13,7 @@ import axios from "axios";
 import { InfoPopup } from "@/components";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
-import { postOrder } from "@/api/Order";
+import { postOrder } from "@/api";
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;

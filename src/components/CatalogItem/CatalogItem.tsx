@@ -14,6 +14,7 @@ export const CatalogItem = ({
     product,
     localStorageFavorites
 }: CatalogItemProps) => {
+    console.log(product);
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
         style: 'currency',
@@ -69,7 +70,7 @@ export const CatalogItem = ({
             </div>
             <div className={styles.selectAndAvalability}>
                 <div className={styles.buttonWrapper}>
-                    <LinkButton element='link' href={`/categories/${product.category.slug}/${product.id}`}>
+                    <LinkButton element='link' href={`/categories/${product.category.slug}/${product.slug}`}>
                         Выбрать
                     </LinkButton>
                     <div 

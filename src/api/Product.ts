@@ -74,9 +74,9 @@ export const getAccessories = async (): Promise<IProductWithLength | { message: 
     }
 }
 
-export const getOneProduct = async (id: number): Promise<IProduct | { message: string }> => {
+export const getOneProduct = async (slug: string): Promise<IProduct | { message: string }> => {
     try {
-        const product = await axios.get<IProduct>(`${process.env.API_URL}/product/${id}`);
+        const product = await axios.get<IProduct>(`${process.env.API_URL}/product/${slug}`);
 
         return product.data;
     } catch (err) {

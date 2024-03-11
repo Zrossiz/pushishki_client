@@ -185,8 +185,8 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
                         <div className={styles.propsWrapper}>
                             <ul>
                                 <li>{product?.articul && <>Артикул: <span>{product?.articul}</span></>}</li>
-                                <li>{product?.brand.name && <>Бренд: <span>{product?.brand.name}</span></>}</li>
-                                <li>{product?.country.name && <>Производитель: <span>{product?.country.name}</span></>}</li>
+                                <li>{product?.brand?.name && <>Бренд: <span>{product?.brand.name}</span></>}</li>
+                                <li>{product?.country?.name && <>Производитель: <span>{product?.country.name}</span></>}</li>
                                 <li>{product?.maximumLoad && <>Максимальная нагрузка: <span>{product?.maximumLoad} кг</span></>}</li>
                                 <li>{product?.battery && <>Съемный аккумулятор: <span>{product?.battery}</span></>}</li>
                                 <li>{product?.gearbox && <>Редуктор: <span>{product?.gearbox}</span></>}</li>
@@ -262,15 +262,15 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
 
 export default ProductCardPage;
 
-export const getServerSideProps = async (context: { params: { id: string; }; }) => {
+export const getServerSideProps = async (context: { params: { slugProduct: string; }; }) => {
 
-    const { id } = context.params
+    const { slugProduct } = context.params
 
     const bestSellers = await getBestsellers();
     const accessories = await getAccessories();
-    const product = await getOneProduct(+id);
-    const productVariants = await getProductVariants(+id);
-    const reviews = await getReviewsProduct(+id);
+    const product = await getOneProduct(slugProduct);
+    const productVariants = await getProductVariants('id' in product ? product.id : 1);
+    const reviews = await getReviewsProduct('id' in product ? product.id : 1);
 
     return {
         props: {
