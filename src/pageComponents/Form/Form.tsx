@@ -24,6 +24,11 @@ export const Form = () => {
             phone,
             question,
         });
+        setInterval(() => {
+            setName('');
+            setQuestion('');
+            setSend(false);
+        }, 2000);
     }
 
     const getInputNumbersValue = (input: HTMLInputElement) => {
