@@ -145,7 +145,7 @@ export const Form = () => {
                                   transition={{ duration: 0.4, delay: 0.6 }}
                                   className={styles.sended}
                                 >
-                                    <Image src={'/icons/check.svg'} height={40} width={40} alt='Отправлено' />
+                                    <Image src={'/icons/CheckIcon.svg'} height={40} width={40} alt='Отправлено' />
                                 </motion.div>
                             )
                         }
