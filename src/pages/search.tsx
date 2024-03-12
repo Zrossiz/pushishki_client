@@ -8,6 +8,11 @@ import { useState } from 'react';
 
 const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
     const [search, setSearch] = useState<string>('');
+
+    const intermidateSearch = (letter: string) => {
+        setSearch(letter)
+    }
+
     return (
         <Layout title='Поиск | Пушишки'>
             <>
@@ -23,7 +28,7 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
                 />
                 <section className={styles.searchWrapper}>
                     <div className={styles.search}>
-                        <Search search={search} />
+                        <Search search={search} setSearch={intermidateSearch} />
                     </div>
                     <div className={styles.notFoundWrapper}>
                         Введите артикул или название товара
