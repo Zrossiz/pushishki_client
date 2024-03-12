@@ -1,16 +1,20 @@
 import styles from '../styles/Search.module.scss';
 import { PageTitle, Quiz, Slider } from "@/pageComponents";
-import { getBestsellers, getCategories } from "@/api";
-import { ISearchPageProps } from "@/types";
+import { findProducts, getBestsellers, getCategories } from "@/api";
+import { IProduct, IProductWithLength, ISearchPageProps } from "@/types";
 import { Layout } from '@/layout/Layout';
 import { Search } from '@/components';
 import { useState } from 'react';
 
 const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
     const [search, setSearch] = useState<string>('');
+    const [products, setProducts] = useState<IProduct[]>([]);
 
-    const intermidateSearch = (letter: string) => {
-        setSearch(letter)
+    const intermidateSearch = async (letter: string) => {
+        setSearch(letter);
+        const products: IProductWithLength | { message: string } = await findProducts(letter);
+        //@ts-ignore
+        setProducts(products.data);
     }
 
     return (
@@ -28,7 +32,7 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
                 />
                 <section className={styles.searchWrapper}>
                     <div className={styles.search}>
-                        <Search search={search} setSearch={intermidateSearch} />
+                        <Search products={products} search={search} setSearch={intermidateSearch} />
                     </div>
                     <div className={styles.notFoundWrapper}>
                         Введите артикул или название товара
