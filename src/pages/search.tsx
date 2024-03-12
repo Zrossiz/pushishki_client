@@ -3,6 +3,7 @@ import { PageTitle, Quiz, Slider } from "@/pageComponents";
 import { getBestsellers, getCategories } from "@/api";
 import { ISearchPageProps } from "@/types";
 import { Layout } from '@/layout/Layout';
+import { Search } from '@/components';
 
 const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
     return (
@@ -19,6 +20,9 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
                     counter="0 товаров"
                 />
                 <section className={styles.searchWrapper}>
+                    <div className={styles.search}>
+                        <Search />
+                    </div>
                     <div className={styles.notFoundWrapper}>
                         Введите артикул или название товара
                     </div>
