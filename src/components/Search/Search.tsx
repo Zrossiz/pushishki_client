@@ -21,19 +21,22 @@ export const Search = ({ search, setSearch, products, stateSearch }: SearchProps
             {
                 stateSearch && 
                 <div className={styles.popupWrapper}>
-                    {products?.map((item, index) => {
-                        return (
-                            <div key={item.id} className={styles.itemWrapper}>
-                                <div className={styles.photo}>
-                                    <Image width={60} height={40} alt={item.name} src={`${FILESERVER_URL}/upload/${item.image}`} />
+                    {
+                        products?.length >= 1 ?
+                        products?.map((item, index) => {
+                            return (
+                                <div key={item.id} className={styles.itemWrapper}>
+                                    <div className={styles.photo}>
+                                        <Image width={60} height={40} alt={item.name} src={`${FILESERVER_URL}/upload/${item.image}`} />
+                                    </div>
+                                    <div className={styles.name}>
+                                        {item.name}
+                                    </div>
                                 </div>
-                                <div className={styles.name}>
-                                    {item.name}
-                                </div>
-                            </div>
-                        )
-                    })}
-                    1
+                            )
+                        }) :
+                        <div>Загрузка...</div>
+                    }
                 </div>
             }
         </div>

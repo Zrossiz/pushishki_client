@@ -21,6 +21,13 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
         const products: IProductWithLength | { message: string } = await findProducts(letter);
         //@ts-ignore
         setProducts(products.data);
+    };
+
+    const getProducts = async () => {
+        setStartSearch(false);
+        const products: IProductWithLength | { message: string } = await findProducts(search);
+        //@ts-ignore
+        setProducts(products.data);
     }
 
     return (
@@ -45,9 +52,13 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
                             stateSearch={startSearch}
                         />
                     </div>
-                    <div className={styles.notFoundWrapper}>
-                        Введите артикул или название товара
-                    </div>
+                    {
+                        products.length >= 1 && !startSearch ?
+                        <div>Товары</div> :
+                        <div className={styles.notFoundWrapper}>
+                            Введите артикул или название товара
+                        </div>
+                    }
                     {/* <div className={styles.inputWrapper}></div>
                     <div className={styles.productsWrapper}></div>
                     <div className={styles.paginationWrapper}></div> */}
