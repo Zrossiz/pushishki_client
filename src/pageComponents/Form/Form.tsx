@@ -7,9 +7,10 @@ import { motion } from 'framer-motion';
 import { MainPageReviews } from '@/components';
 import axios from 'axios';
 import getConfig from 'next/config';
+import { useRouter } from 'next/router';
 
 const { publicRuntimeConfig } = getConfig();
-const { BOT_URL } = publicRuntimeConfig;
+const { BOT_URL, CLIENT_URL } = publicRuntimeConfig;
 
 export const Form = () => {
     const [send, setSend] = useState<boolean>(false);
@@ -17,12 +18,17 @@ export const Form = () => {
     const [question, setQuestion] = useState<string>('');
     const [phone, setPhone] = useState<string>();
 
+    const router = useRouter();
+
+    const link = router.asPath;
+
     const sendFormToTelegram = async () => {
         setSend(true);
         await axios.post(`${BOT_URL}/telegram/question`, {
             name,
             phone,
             question,
+            link: `${CLIENT_URL}${link}`
         });
         setInterval(() => {
             setName('');
