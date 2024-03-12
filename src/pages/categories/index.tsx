@@ -52,7 +52,7 @@ const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
     )
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
     const categories = await getCategories();
     const bestSellers = await getBestsellers();
 

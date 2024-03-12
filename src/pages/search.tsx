@@ -35,7 +35,7 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
 
 export default SearchPage;
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
 
     const categorires = await getCategories();
     const bestsellers = await getBestsellers();
