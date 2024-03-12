@@ -4,8 +4,10 @@ import { getBestsellers, getCategories } from "@/api";
 import { ISearchPageProps } from "@/types";
 import { Layout } from '@/layout/Layout';
 import { Search } from '@/components';
+import { useState } from 'react';
 
 const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
+    const [search, setSearch] = useState<string>('');
     return (
         <Layout title='Поиск | Пушишки'>
             <>
@@ -21,7 +23,7 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
                 />
                 <section className={styles.searchWrapper}>
                     <div className={styles.search}>
-                        <Search />
+                        <Search search={search} />
                     </div>
                     <div className={styles.notFoundWrapper}>
                         Введите артикул или название товара
