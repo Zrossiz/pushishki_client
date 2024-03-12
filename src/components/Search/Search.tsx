@@ -1,8 +1,13 @@
+import getConfig from 'next/config';
 import styles from './Search.module.scss';
 import { SearchProps } from './Search.props';
 import Image from 'next/image';
+import { useState } from 'react';
 
-export const Search = ({ search, setSearch, products }: SearchProps) => {
+const { publicRuntimeConfig } = getConfig();
+const { FILESERVER_URL } = publicRuntimeConfig;
+
+export const Search = ({ search, setSearch, products, stateSearch }: SearchProps) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.inputWrapper}>
@@ -13,20 +18,24 @@ export const Search = ({ search, setSearch, products }: SearchProps) => {
                     </button>
                 </div>
             </div>
-            <div className={styles.popupWrapper}>
-                {products.map((item, index) => {
-                    return (
-                        <div key={item.id} className={styles.itemWrapper}>
-                            <div className={styles.photo}>
-                                <Image width={60} height={40} alt={item.name} />
+            {
+                stateSearch && 
+                <div className={styles.popupWrapper}>
+                    {products?.map((item, index) => {
+                        return (
+                            <div key={item.id} className={styles.itemWrapper}>
+                                <div className={styles.photo}>
+                                    <Image width={60} height={40} alt={item.name} src={`${FILESERVER_URL}/upload/${item.image}`} />
+                                </div>
+                                <div className={styles.name}>
+                                    {item.name}
+                                </div>
                             </div>
-                            <div className={styles.name}>
-                                {item.name}
-                            </div>
-                        </div>
-                    )
-                })}
-            </div>
+                        )
+                    })}
+                    1
+                </div>
+            }
         </div>
     )
 }
