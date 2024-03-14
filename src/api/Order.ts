@@ -13,7 +13,7 @@ export const postOrder = async (
     price: number,
 ) => {
     try {
-        const order = await axios.post(`${BOT_URL}/telegram/order`, {
+        const order = await axios.post(`${BOT_URL}/bot/order`, {
             name,
             lastName,
             address,
