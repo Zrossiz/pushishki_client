@@ -7,7 +7,6 @@ export const AddToCartButton = () => {
     useEffect(() => {
         document.querySelectorAll('#btn').forEach(button => {
             button.addEventListener('click', e => {
-                console.log(true);
                 e.preventDefault();
                 
                 let box = button.querySelector('#box'),

@@ -14,7 +14,6 @@ export const CatalogItem = ({
     product,
     localStorageFavorites
 }: CatalogItemProps) => {
-    console.log(product);
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
         style: 'currency',

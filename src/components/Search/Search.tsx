@@ -3,6 +3,7 @@ import styles from './Search.module.scss';
 import { SearchProps } from './Search.props';
 import Image from 'next/image';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -14,7 +15,7 @@ export const Search = ({ search, setSearch, products, stateSearch }: SearchProps
                 <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Название товара' />
                 <div className={styles.btnWrapper}>
                     <button>
-                        <Image width={20} height={20} src={'/icons/Loop.svg'} alt='Отправить' />
+                        <Image width={20} height={20} src={'/icons/Loop.svg'} alt='Поиск' />
                     </button>
                 </div>
             </div>
@@ -23,19 +24,23 @@ export const Search = ({ search, setSearch, products, stateSearch }: SearchProps
                 <div className={styles.popupWrapper}>
                     {
                         products?.length >= 1 ?
-                        products?.map((item, index) => {
+                        products?.slice(0, 3).map((item, index) => {
+                            console.log(item);
                             return (
-                                <div key={item.id} className={styles.itemWrapper}>
+                                <Link href={`/categories/${item.category.slug}/${item.slug}`} key={item.id} className={styles.itemWrapper}>
                                     <div className={styles.photo}>
-                                        <Image width={60} height={40} alt={item.name} src={`${FILESERVER_URL}/upload/${item.image}`} />
+                                        <Image fill alt={item.name} src={`${FILESERVER_URL}/upload/${item.image}`} />
                                     </div>
                                     <div className={styles.name}>
                                         {item.name}
                                     </div>
-                                </div>
+                                    <div className={styles.price}>
+                                        {item.defaultPrice}₽
+                                    </div>
+                                </Link>
                             )
                         }) :
-                        <div>Загрузка...</div>
+                        <div className={styles.itemWrapper}>Ничего не найдено</div>
                     }
                 </div>
             }

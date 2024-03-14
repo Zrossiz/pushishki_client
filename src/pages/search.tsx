@@ -53,7 +53,7 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
                         />
                     </div>
                     {
-                        products.length >= 1 && !startSearch ?
+                        products?.length >= 1 && !startSearch ?
                         <div>Товары</div> :
                         <div className={styles.notFoundWrapper}>
                             Введите артикул или название товара

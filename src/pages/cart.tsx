@@ -91,7 +91,6 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
         if (isAdded !== false) {
             favorites.splice(isAdded, 1);
         } else {
-            console.log(product);
             favorites.push(product);
         }
     

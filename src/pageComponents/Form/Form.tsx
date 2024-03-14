@@ -24,7 +24,6 @@ export const Form = () => {
 
     const sendFormToTelegram = async () => {
         setSend(true);
-        console.log(`${BOT_URL}/bot/question`)
         await axios.post(`${BOT_URL}/bot/question`, {
             name,
             phone,
