@@ -31,7 +31,9 @@ export interface IProductCardPageProps {
 
 export interface ISearchPageProps {
     categories?: ICategoryWithLength,
-    bestsellers?: IProduct[]
+    bestsellers?: IProduct[],
+    products?: IProductWithLength,
+    curPage: number,
 }
 
 export interface IFavoritesPageProps {

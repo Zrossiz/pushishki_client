@@ -8,13 +8,13 @@ import Link from 'next/link';
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
-export const Search = ({ search, setSearch, products, stateSearch }: SearchProps) => {
+export const Search = ({ search, setSearch, products, stateSearch, getProducts }: SearchProps) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.inputWrapper}>
                 <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Название товара' />
                 <div className={styles.btnWrapper}>
-                    <button>
+                    <button onClick={() => getProducts()}>
                         <Image width={20} height={20} src={'/icons/Loop.svg'} alt='Поиск' />
                     </button>
                 </div>
@@ -23,8 +23,9 @@ export const Search = ({ search, setSearch, products, stateSearch }: SearchProps
                 stateSearch && 
                 <div className={styles.popupWrapper}>
                     {
+                        products &&
                         products?.length >= 1 ?
-                        products?.slice(0, 3).map((item, index) => {
+                        products?.slice(0, 4).map((item, index) => {
                             console.log(item);
                             return (
                                 <Link href={`/categories/${item.category.slug}/${item.slug}`} key={item.id} className={styles.itemWrapper}>

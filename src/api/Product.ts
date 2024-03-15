@@ -87,9 +87,9 @@ export const getOneProduct = async (slug: string): Promise<IProduct | { message:
     }
 }
 
-export const findProducts = async (letter: string, page?: number): Promise<IProductWithLength | { message: string }> => {
+export const findProducts = async (letter: string, sort: string, page?: number): Promise<IProductWithLength | { message: string }> => {
     try {
-        const products = await axios.get<IProductWithLength>(`${API_URL}/product/search?search=${letter}`);
+        const products = await axios.get<IProductWithLength>(`${API_URL}/product/search?search=${letter}&sort=${sort}&page=${page}`);
         return products.data;
     } catch (err) {
         console.log(err);

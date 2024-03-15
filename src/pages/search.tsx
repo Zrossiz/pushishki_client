@@ -3,13 +3,16 @@ import { PageTitle, Quiz, Slider } from "@/pageComponents";
 import { findProducts, getBestsellers, getCategories } from "@/api";
 import { IProduct, IProductWithLength, ISearchPageProps } from "@/types";
 import { Layout } from '@/layout/Layout';
-import { Search } from '@/components';
+import { CatalogItem, Pagination, Search, Sort } from '@/components';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
-const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
+const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageProps) => {
     const [search, setSearch] = useState<string>('');
-    const [products, setProducts] = useState<IProduct[]>([]);
+    const [interProducts, setInterProducts] = useState<IProduct[]>([]);
     const [startSearch, setStartSearch] = useState<boolean>(false);
+
+    const router = useRouter();
 
     const intermidateSearch = async (letter: string) => {
 
@@ -18,16 +21,21 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
         }
 
         setSearch(letter);
-        const products: IProductWithLength | { message: string } = await findProducts(letter);
+        const products: IProductWithLength | { message: string } = await findProducts(letter, '1');
         //@ts-ignore
-        setProducts(products.data);
+        setInterProducts(products.data);
     };
 
     const getProducts = async () => {
         setStartSearch(false);
-        const products: IProductWithLength | { message: string } = await findProducts(search);
-        //@ts-ignore
-        setProducts(products.data);
+        router.push({
+            pathname: router.pathname,
+            query: {
+                search,
+                page: 1,
+                sort: 1
+            }
+        });
     }
 
     return (
@@ -46,22 +54,36 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
                 <section className={styles.searchWrapper}>
                     <div className={styles.search}>
                         <Search 
-                            products={products} 
+                            products={interProducts?.length >= 1 ? interProducts : products?.data} 
                             search={search} 
                             setSearch={intermidateSearch} 
                             stateSearch={startSearch}
+                            getProducts={getProducts}
                         />
                     </div>
                     {
-                        products?.length >= 1 && !startSearch ?
-                        <div>Товары</div> :
+                        products && products?.length >= 1 ?
+                            <div className={styles.resultWrapper}>
+                                <Sort />
+                                <div className={styles.itemsWrapper}>
+                                    {products.data.map((item: IProduct, index) => {
+                                        return (
+                                            <CatalogItem product={item} />
+                                        )
+                                    })}
+                                </div>
+                                <div className={styles.paginationWrapper}>
+                                    <Pagination
+                                        curPage={curPage}
+                                        totalPages={products.totalPages} 
+                                        slug={'/search'} 
+                                    />
+                                </div>
+                            </div> :
                         <div className={styles.notFoundWrapper}>
                             Введите артикул или название товара
                         </div>
                     }
-                    {/* <div className={styles.inputWrapper}></div>
-                    <div className={styles.productsWrapper}></div>
-                    <div className={styles.paginationWrapper}></div> */}
                 </section>
                 <Slider title="Лучшие предложения" products={bestsellers} />
                 <Quiz categories={categories?.data} />
@@ -72,15 +94,22 @@ const SearchPage = ({ categories, bestsellers }: ISearchPageProps) => {
 
 export default SearchPage;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context: any) => {
+
+    const curPage = parseInt(context.query.page) || 1;
+    const search = context.query.search;
+    const sort = context.query.sort;
 
     const categorires = await getCategories();
     const bestsellers = await getBestsellers();
+    const products = await findProducts(search, sort, curPage);
 
     return {
         props: {
             categorires,
             bestsellers,
+            products,
+            curPage
         }
     }
 }

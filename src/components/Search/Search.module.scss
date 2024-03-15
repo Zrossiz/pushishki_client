@@ -45,6 +45,7 @@
         padding: 10px;
         border-radius: 0 0 20px 20px;
         background-color: var(--light-grey);
+        z-index: 10;
 
         .itemWrapper {
             display: flex;
