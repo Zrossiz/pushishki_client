@@ -6,3 +6,4 @@ export * from './ProductVariant';
 export * from './Review';
 export * from './Order';
 export * from './Basket';
+export * from './User';

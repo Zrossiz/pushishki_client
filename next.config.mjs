@@ -6,6 +6,7 @@ const nextConfig = {
     FILESERVER_URL: process.env.FILESERVER_URL,
     BOT_URL: process.env.BOT_URL,
     CLIENT_URL: process.env.CLIENT_URL,
+    API_KEY: process.env.API_KEY,
   },
   images: {
     domains: ['localhost'],

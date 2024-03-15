@@ -2,14 +2,16 @@ import { HTag, Input, LinkButton } from '@/elements';
 import styles from '../../styles/Login.module.scss';
 import { useState } from 'react';
 import Head from 'next/head';
+import { checkUser } from '@/api';
 
 const LoginPage = () => {
-    const [name, setName] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const [name, setName] = useState<string>('test');
+    const [password, setPassword] = useState<string>('test123');
 
     const login = async () => {
         try {
-            
+            const user = await checkUser(name, password);
+            console.log(user);
         } catch (err) {
             console.log(err);
         }
