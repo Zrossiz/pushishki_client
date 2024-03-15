@@ -1,0 +1,19 @@
+.loginPageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--white);
+    font-family: sans-serif;
+
+    .formWrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        padding: 20px;
+        border-radius: 20px;
+        background: rgb(36, 143, 0, 0.5);
+        backdrop-filter: blur(6.5px);
+    }
+}
