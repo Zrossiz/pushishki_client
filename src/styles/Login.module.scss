@@ -4,8 +4,8 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: var(--white);
     font-family: sans-serif;
+    background-color: rgb(37, 37, 37);
 
     .formWrapper {
         display: flex;
@@ -13,7 +13,7 @@
         row-gap: 20px;
         padding: 20px;
         border-radius: 20px;
-        background: rgb(36, 143, 0, 0.5);
+        background: rgb(36, 143, 0, 0.4);
         backdrop-filter: blur(6.5px);
     }
 }
