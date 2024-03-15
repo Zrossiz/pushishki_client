@@ -1,4 +1,4 @@
-import { axiosInst } from "@/utils";
+import { axiosInst, setCookie } from "@/utils";
 import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
@@ -10,6 +10,10 @@ export const checkUser = async (username: string, password: string) => {
             username,
             password
         });
+
+        if (user.data.token) {
+            setCookie('token', user.data.token);
+        }
 
         return user.data;
     } catch (err) {
