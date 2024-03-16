@@ -3,17 +3,21 @@ import styles from '../../styles/Login.module.scss';
 import { useState } from 'react';
 import Head from 'next/head';
 import { checkUser } from '@/api';
+import { useRouter } from 'next/router';
 
 const LoginPage = () => {
     const [name, setName] = useState<string>('test');
     const [password, setPassword] = useState<string>('test123');
     const [error, setError] = useState<string>('');
+    const router = useRouter();
 
     const login = async () => {
         try {
             const user = await checkUser(name, password);
             if ('message' in user) {
                 setError(user.message);
+            } else {
+                router.push('/admin')
             };
         } catch (err) {
             setError('Неверный логин или пароль. Пожалуйста, попробуйте снова');
