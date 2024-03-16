@@ -15,5 +15,11 @@
         border-radius: 20px;
         background: rgb(36, 143, 0, 0.4);
         backdrop-filter: blur(6.5px);
+
+        .errorWrapper {
+            color: var(--red);
+            opacity: 0.8;
+            text-align: center;
+        }
     }
 }

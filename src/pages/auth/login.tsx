@@ -7,12 +7,16 @@ import { checkUser } from '@/api';
 const LoginPage = () => {
     const [name, setName] = useState<string>('test');
     const [password, setPassword] = useState<string>('test123');
+    const [error, setError] = useState<string>('');
 
     const login = async () => {
         try {
             const user = await checkUser(name, password);
-            console.log(user);
+            if (user.message) {
+                setError(user.message);
+            };
         } catch (err) {
+            setError('Неверный логин или пароль. Пожалуйста, попробуйте снова');
             console.log(err);
         }
     }
@@ -27,6 +31,7 @@ const LoginPage = () => {
                     <HTag tag='h2' color='white'>Введите логин и пароль</HTag>
                     <Input type={'text'} value={name} onChange={setName} placeholder='Имя' />
                     <Input type={'text'} value={password} onChange={setPassword} placeholder='Пароль' />
+                    {error && <div className={styles.errorWrapper}>{error}</div>}
                     <LinkButton element={'button'} onClick={login}>
                         Войти
                     </LinkButton>
