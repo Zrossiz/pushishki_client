@@ -1,10 +1,13 @@
+import { ILoginUser } from "@/types";
 import { axiosInst, setCookie } from "@/utils";
 import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
 const { API_URL } = publicRuntimeConfig;
 
-export const checkUser = async (username: string, password: string) => {
+export const checkUser = async (username: string, password: string): Promise<
+    ILoginUser | { message: string }
+> => {
     try {
         const user = await axiosInst.post(`${API_URL}/auth/login`, {
             username,

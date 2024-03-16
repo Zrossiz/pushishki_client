@@ -12,7 +12,7 @@ const LoginPage = () => {
     const login = async () => {
         try {
             const user = await checkUser(name, password);
-            if (user.message) {
+            if ('message' in user) {
                 setError(user.message);
             };
         } catch (err) {
