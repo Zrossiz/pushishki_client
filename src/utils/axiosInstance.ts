@@ -13,12 +13,10 @@ export const axiosInst = axios.create(
 );
 
 axiosInst.interceptors.request.use(config => {
-    if (typeof document !== 'undefined') {
-        const cookies = cookie.parse(document.cookie);
-        const token = cookies.token;
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
-        }
+    const cookies = cookie.parse(document.cookie);
+    const token = cookies.token;
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
 }, (error) => {

@@ -15,7 +15,7 @@ export const loginUser = async (username: string, password: string): Promise<
         });
 
         if (user.data.token) {
-            setCookie('token', user.data.token, 90, '/admin');
+            setCookie('token', user.data.token, 90);
         };
 
         return user.data;
