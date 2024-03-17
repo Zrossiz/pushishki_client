@@ -1,11 +1,26 @@
 import { checkUser } from '@/api';
 import styles from '../../styles/Admin.module.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import cn from 'classnames';
 
 const AdminPage = () => {
     const router = useRouter();
+    const [active, setActive] = useState<string>('Товар');
+    const [items, setItems] = useState<any>([]);
+
+    const entities: string[] = [
+        'Страна',
+        'Бренд',
+        'Категория',
+        'Товар',
+        'Вариант товара',
+        'Цвет',
+        'Отзыв',
+        'Корзина',
+        'Заказ',
+    ];
 
     useEffect(() => {
         (async () => {
@@ -19,9 +34,31 @@ const AdminPage = () => {
     return (
         <>
             <Head>
-                <title>Админ панель</title>
+                <title>Администрирование</title>
             </Head>
-            <div className={styles.adminWrapper}>admin</div>
+            <div className={styles.adminWrapper}>
+                <div className={styles.sidebarWrapper}>
+                    <div className={styles.active}>
+                        {active}
+                    </div>
+                    <ul className={styles.list}>
+                        {entities.map((item, index) => {
+                            return (
+                                <li 
+                                    className={cn(styles.item, {
+                                        [styles.active]: item === active
+                                    })} 
+                                    key={index} 
+                                    onClick={() => setActive(item)}
+                                >{item}</li>
+                            )
+                        })}
+                    </ul>
+                </div>
+                <div className={styles.infoWrapper}>
+                    инфо
+                </div>
+            </div>
         </>
     );
 };

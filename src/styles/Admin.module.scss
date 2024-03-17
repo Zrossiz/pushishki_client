@@ -1,6 +1,44 @@
 .adminWrapper {
+    display: flex;
     font-family: sans-serif;
-    background-color: rgb(37, 37, 37);
+    background-color: #fff;
     width: 100vw;
     height: 100vh;
+
+    .sidebarWrapper {
+        padding: 40px;
+        border-right: 2px solid var(--black);
+        width: 400px;
+
+        .active {
+            font-size: 40px;
+        }
+
+        .list {
+            margin-top: 20px;
+
+            .item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 200px;
+                padding: 10px;
+                font-size: 20px;
+                margin-top: 10px;
+                border: 2px solid var(--dark-grey);
+                border-radius: 12px;
+                cursor: pointer;
+            }
+
+            .active {
+                color: var(--white);
+                background-color: var(--light-green);
+            }
+        }
+    }
+
+    .infoWrapper {
+        padding: 20px;
+        margin-top: 20px;
+    }
 }
