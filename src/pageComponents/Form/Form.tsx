@@ -35,7 +35,7 @@ export const Form = () => {
             setQuestion('');
             setSend(false);
         }, 2000);
-    }
+    };
 
     const getInputNumbersValue = (input: HTMLInputElement) => {
         return input.value.replace(/\D/g, "");
