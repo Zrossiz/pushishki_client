@@ -35,12 +35,12 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
 
         if (question === questions.length - 1) {
             const products: IProductWithLength | { message: string } = await getCategoryProducts(category, 1, 1, 0, priceTo, [], [], true, maximumLoad);
-            // @ts-ignore
-            if (products.length === 0) {
+            if ('data' in products && products.length === 0) {
                 router.push(`/categories/${category}`)
-            }
-            // @ts-ignore
-            setResult(products.data);
+            };
+            if ('data' in products) {
+                setResult(products.data);
+            };
         }
 
         setQuesiton(index + 1);
