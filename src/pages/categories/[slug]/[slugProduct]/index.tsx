@@ -22,13 +22,20 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
     const [title, setTitle] = useState<string>('');
     const [description, setDescription] = useState<string>('');
 
+    const [activePrice, setActivePrice] = useState<number>(product?.defaultPrice || 0);
+
     const [isAdded, setIsAdded] = useState<boolean>(false);
 
     const formattedPrice: string = Intl.NumberFormat('ru-RU', {
         style: 'currency',
         currency: 'RUB',
         currencyDisplay: 'symbol' 
-    }).format(product?.defaultPrice || 0).split(',')[0] + '₽';
+    }).format(activePrice).split(',')[0] + '₽';
+
+    const switchActiveVariant = (index: number) => {
+        setActiveVariant(index);
+        setActivePrice(productVariants?.[index].price || 0);
+    };
 
     let localStorageFavorites: IProduct[];
 
@@ -203,7 +210,7 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
                                     return (
                                         <div 
                                             key={item.id}
-                                            onClick={() => setActiveVariant(index)} 
+                                            onClick={() => switchActiveVariant(index)} 
                                             className={cn(styles.colorOption, {
                                                 [styles.active]: index === activeVariant
                                             })} 
