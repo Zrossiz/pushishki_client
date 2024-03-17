@@ -2,7 +2,7 @@ import { HTag, Input, LinkButton } from '@/elements';
 import styles from '../../styles/Login.module.scss';
 import { useState } from 'react';
 import Head from 'next/head';
-import { checkUser } from '@/api';
+import { loginUser } from '@/api';
 import { useRouter } from 'next/router';
 
 const LoginPage = () => {
@@ -13,7 +13,7 @@ const LoginPage = () => {
 
     const login = async () => {
         try {
-            const user = await checkUser(name, password);
+            const user = await loginUser(name, password)
             if ('message' in user) {
                 setError(user.message);
             } else {

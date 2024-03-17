@@ -5,7 +5,7 @@ import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 const { API_URL } = publicRuntimeConfig;
 
-export const checkUser = async (username: string, password: string): Promise<
+export const loginUser = async (username: string, password: string): Promise<
     ILoginUser | { message: string }
 > => {
     try {
@@ -15,8 +15,8 @@ export const checkUser = async (username: string, password: string): Promise<
         });
 
         if (user.data.token) {
-            setCookie('token', user.data.token);
-        }
+            setCookie('token', user.data.token, 90, '/admin');
+        };
 
         return user.data;
     } catch (err) {
@@ -24,5 +24,17 @@ export const checkUser = async (username: string, password: string): Promise<
         return {
             message: 'Ошибка при авторизации'
         } ;
+    }
+};
+
+export const checkUser = async (): Promise<{ message: string }> => {
+    try {
+        const { data } = await axiosInst.post(`${API_URL}/auth/check`);
+        return data;
+    } catch (err) {
+        console.log(err);
+        return {
+            message: 'Ошибка при авторизации'
+        } ; 
     }
 }

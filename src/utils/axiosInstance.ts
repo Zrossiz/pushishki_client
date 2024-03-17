@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import cookie from 'cookie';
 import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
@@ -13,12 +13,13 @@ export const axiosInst = axios.create(
 );
 
 axiosInst.interceptors.request.use(config => {
-    const token = document.cookie.replace(/(?:(?:^|.*;\s*)auth\s*=\s*([^;]*).*$)|^.*$/, "\$1");
-    
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+    if (typeof document !== 'undefined') {
+        const cookies = cookie.parse(document.cookie);
+        const token = cookies.token;
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
     }
-
     return config;
 }, (error) => {
     return Promise.reject(error);

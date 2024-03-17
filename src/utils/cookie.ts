@@ -1,9 +1,11 @@
-export const setCookie = (name: string, value: string, days: number = 90) => {
-    let expires = '';
-    if (days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = `${name}=${value}${expires}; HttpOnly`;
-}
+export const setCookie = (name: string, value: string, days: number = 90, path: string = '/') => {
+    if (typeof document !== 'undefined') {
+        let expires = '';
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = `${name}=${value}${expires}; path=${path}`;
+    };
+};

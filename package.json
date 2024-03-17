@@ -13,6 +13,7 @@
     "@types/swiper": "^6.0.0",
     "axios": "^1.6.7",
     "classnames": "^2.5.1",
+    "cookie": "^0.6.0",
     "framer-motion": "^11.0.3",
     "gsap": "^3.12.5",
     "next": "14.1.0",
@@ -24,6 +25,7 @@
     "swiper-react": "^1.0.0"
   },
   "devDependencies": {
+    "@types/cookie": "^0.6.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
