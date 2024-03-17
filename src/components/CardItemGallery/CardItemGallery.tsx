@@ -45,7 +45,12 @@ export const CardItemGallery = ({ images }: CardItemGalleryProps) => {
                             <SwiperSlide key={index}>
                                 <div className={styles.itemWrapper}>
                                     <a href={`${FILESERVER_URL}/upload/${item}`} data-fancybox="gallery">
-                                        <Image src={`${FILESERVER_URL}/upload/${item}`} alt="Фото товара" height={340} width={476} />
+                                        <Image 
+                                            src={`${FILESERVER_URL}/upload/${item}`} 
+                                            alt="Фото товара" 
+                                            fill 
+                                            style={{objectFit: 'contain'}}
+                                        />
                                     </a>
                                 </div>
                             </SwiperSlide>
