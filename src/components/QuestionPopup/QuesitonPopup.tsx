@@ -16,7 +16,7 @@ const { BOT_URL, CLIENT_URL } = publicRuntimeConfig;
 export const QuestionPopup = ({ setForm }: QuestionPopupProps) => {
     const [name, setName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
-    const [description, setDescription] = useState<string>('');
+    const [question, setQuestion] = useState<string>('');
 
     const router = useRouter();
 
@@ -26,13 +26,10 @@ export const QuestionPopup = ({ setForm }: QuestionPopupProps) => {
         await axios.post(`${BOT_URL}/bot/question`, {
             name,
             phone,
-            description,
+            question,
             link: `${CLIENT_URL}${link}`
         });
-        setInterval(() => {
-            setName('');
-            setDescription('');
-        }, 2000);
+        setForm(false);
     };
 
     return (
@@ -49,7 +46,7 @@ export const QuestionPopup = ({ setForm }: QuestionPopupProps) => {
                         <Image src="/icons/Close.svg" width={30} height={30} alt="Закрыть" />
                     </div>
                     <div>
-                        <HTag tag='h2'>Задайте вопросы</HTag>
+                        <HTag tag='h2'>Задайте вопрос</HTag>
                     </div>
                     <div className={styles.inputsWrapper}>
                         <div className={styles.nameRatingWrapper}>
@@ -59,12 +56,12 @@ export const QuestionPopup = ({ setForm }: QuestionPopupProps) => {
                         <Input type="phone" onChange={setPhone} placeholder="Телефон"/>
                         </div>
                         <div className={styles.descWrapper}>
-                            <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={4} placeholder='Комментарий'></textarea>
+                            <textarea value={question} onChange={(e) => setQuestion(e.target.value)} rows={4} placeholder='Комментарий'></textarea>
                         </div>
                     </div>
                     <div className={styles.sendWrapper}>
                         <LinkButton 
-                            disabled={name && title && description ? false : true} 
+                            disabled={name && title && question ? false : true} 
                             element='button'
                             onClick={() => sendFormToTelegram()}
                         >Отправить</LinkButton>

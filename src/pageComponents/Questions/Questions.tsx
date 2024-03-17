@@ -23,7 +23,9 @@ export const Questions = () => {
     return (
         <>
             <section className={styles.question}>
-                {formQuestion && <QuestionPopup setForm={setFormQuestion} />}
+                <AnimatePresence>
+                    {formQuestion && <QuestionPopup setForm={setFormQuestion} />}
+                </AnimatePresence>
                 <div className={styles.titleWrapper}>
                 <HTag tag="h2">
                     Вопросы и ответы
