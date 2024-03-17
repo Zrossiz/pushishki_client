@@ -4,7 +4,7 @@
     }
 
     .link {
-        font-size: 1.1rem;
+        font-size: 1.02rem;
         margin-right: 14px;
         color: var(--medium-grey);
         font-weight: 400;
@@ -28,5 +28,16 @@
         &:hover::after {
             opacity: 1;
         }
+    }
+}
+
+@media (max-width: 1270px) {
+    .wrapper li {
+        display: none;
+    }
+    
+    .wrapper li:nth-child(-n+3) {
+        display: inline-block;
+        margin-right: 4px;
     }
 }
