@@ -11,7 +11,7 @@ export const SliderItem = ({ product }: SliderItemProps) => {
     }).format(product.defaultPrice).split(',')[0] + '₽';
     
     return (
-        <Link href={`/categories/${product.category.slug}/${product.id}`} className={styles.itemWrapper}>
+        <Link href={`/categories/${product.category.slug}/${product.slug}`} className={styles.itemWrapper}>
             <div className={styles.imgWrapper}>
                 <Image src={'/sliderImg.png'} width={200} height={150} alt={product.name} />
             </div>

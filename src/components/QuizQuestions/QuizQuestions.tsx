@@ -7,6 +7,7 @@ import { getCategoryProducts } from '@/api';
 import cn from 'classnames';
 import { HTag, Input, LinkButton } from '@/elements';
 import { SliderItem } from '..';
+import { useRouter } from 'next/router';
 
 export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
 
@@ -15,6 +16,8 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
         'Нагрузка',
         'Стоимость'
     ];
+
+    const router = useRouter();
 
     const [question, setQuesiton] = useState<number>(0);
     const [category, setCategory] = useState<string>('');
@@ -33,7 +36,11 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
         if (question === questions.length - 1) {
             const products: IProductWithLength | { message: string } = await getCategoryProducts(category, 1, 1, 0, priceTo, [], [], true, maximumLoad);
             // @ts-ignore
-            setResult(products.data)
+            if (products.length === 0) {
+                router.push(`/categories/${category}`)
+            }
+            // @ts-ignore
+            setResult(products.data);
         }
 
         setQuesiton(index + 1);
