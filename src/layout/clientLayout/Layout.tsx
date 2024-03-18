@@ -1,13 +1,12 @@
 import Head from "next/head";
 import styles from './Layout.module.scss';
-import { ILayoutProps } from "./Layout.props";
-import { FunctionComponent, useEffect } from "react";
-import { Manrope, Roboto } from "next/font/google";
+import { Manrope } from "next/font/google";
 import cn from 'classnames';
-import { Header } from "./Header/Header";
-import { Footer } from "./Footer/Footer";
 import { ToTop, WhatsApp } from "@/components";
 import { AppProgressBar } from "next-nprogress-bar";
+import { Footer } from "./Footer/Footer";
+import { Header } from "./Header/Header";
+import { ILayoutProps } from "./Layout.props";
 
 const manrope = Manrope({
   subsets: ["latin"],

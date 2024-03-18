@@ -1,4 +1,4 @@
-import { Layout } from "@/layout/Layout"
+import { Layout } from "@/layout/clientLayout/Layout"
 import { PageTitle } from "@/pageComponents";
 import styles from '../styles/Order.module.scss';
 import { IItemCart } from "@/types";

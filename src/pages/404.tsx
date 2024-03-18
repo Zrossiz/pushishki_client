@@ -1,7 +1,7 @@
 
 import styles from '../styles/404.module.scss'; 
 import { LinkButton } from "@/elements";
-import { Layout } from '@/layout/Layout';
+import { Layout } from '@/layout/clientLayout/Layout';
 import Link from "next/link";
 
 const Error404 = () => {

@@ -1,5 +1,5 @@
 import { getAccessories, getBestsellers, getOneProduct, getProductVariants, getReviewsProduct, postReview } from "@/api";
-import { Layout } from "@/layout/Layout";
+import { Layout } from "@/layout/clientLayout/Layout";
 import { CardReviews, CardVideo, Form, Questions, Slider } from "@/pageComponents";
 import { IItemCart, IProduct, IProductCardPageProps } from "@/types";
 import styles from '../../../../styles/Card.module.scss';

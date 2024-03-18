@@ -3,7 +3,7 @@ import styles from '../styles/Favorites.module.scss';
 import { getAccessories } from "@/api";
 import { IFavoritesPageProps, IProduct } from "@/types";
 import { LinkButton } from "@/elements";
-import { Layout } from "@/layout/Layout";
+import { Layout } from "@/layout/clientLayout/Layout";
 import { useEffect, useState } from "react";
 
 const FavoritesPage = ({ accessories }: IFavoritesPageProps) => {

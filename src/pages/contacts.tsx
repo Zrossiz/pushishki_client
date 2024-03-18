@@ -2,7 +2,7 @@ import { PageTitle, WhyChoose } from "@/pageComponents";
 import styles from '../styles/Contacts.module.scss';
 import { HTag } from "@/elements";
 import Image from "next/image";
-import { Layout } from "@/layout/Layout";
+import { Layout } from "@/layout/clientLayout/Layout";
 
 const ContactsPage = () => {
     return (

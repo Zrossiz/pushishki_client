@@ -1,5 +1,5 @@
 import { getBestsellers, getBrands, getCategories, getCategory, getCategoryProducts, getCountries } from "@/api";
-import { Layout } from "@/layout/Layout";
+import { Layout } from "@/layout/clientLayout/Layout";
 import { Catalog, PageTitle, Quiz, Slider } from "@/pageComponents";
 import { ICatalogPageProps } from "@/types";
 import Head from "next/head";

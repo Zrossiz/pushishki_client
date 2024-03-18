@@ -8,7 +8,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { getBestsellers, getCategories, getNewProducts } from "@/api";
 import { MainPageProps } from "@/types";
-import { Layout } from '@/layout/Layout';
+import { Layout } from '@/layout/clientLayout/Layout';
 
 const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
 
