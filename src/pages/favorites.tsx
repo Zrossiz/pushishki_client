@@ -1,5 +1,5 @@
 import { Favorites, Form, PageTitle, Slider } from '@/pageComponents';
-import styles from '../styles/Favorites.module.scss';
+import styles from '../styles/client/Favorites.module.scss';
 import { getAccessories } from '@/api';
 import { IFavoritesPageProps, IProduct } from '@/types';
 import { LinkButton } from '@/elements';

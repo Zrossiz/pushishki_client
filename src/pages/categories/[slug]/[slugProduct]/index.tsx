@@ -9,7 +9,7 @@ import {
 import { Layout } from '@/layout/clientLayout/Layout';
 import { CardReviews, CardVideo, Form, Questions, Slider } from '@/pageComponents';
 import { IItemCart, IProduct, IProductCardPageProps } from '@/types';
-import styles from '../../../../styles/Card.module.scss';
+import styles from '../../../../styles/client/Card.module.scss';
 import { Breadcrumbs, BuyOneClick, CardItemGallery, FormReview, InfoPopup } from '@/components/clientComponents';
 import { useRouter } from 'next/router';
 import { AddToCartButton, HTag, LinkButton } from '@/elements';

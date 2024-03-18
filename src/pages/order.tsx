@@ -1,6 +1,6 @@
 import { Layout } from '@/layout/clientLayout/Layout';
 import { PageTitle } from '@/pageComponents';
-import styles from '../styles/Order.module.scss';
+import styles from '../styles/client/Order.module.scss';
 import { IItemCart } from '@/types';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import 'swiper/css';
@@ -9,7 +9,6 @@ import cn from 'classnames';
 import Image from 'next/image';
 import getConfig from 'next/config';
 import { Input, LinkButton } from '@/elements';
-import axios from 'axios';
 import { InfoPopup } from '@/components/clientComponents';
 import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';

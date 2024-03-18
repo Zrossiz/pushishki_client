@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.scss';
+import styles from '../styles/client/Home.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import { HTag } from '@/elements';

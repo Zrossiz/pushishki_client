@@ -1,5 +1,5 @@
 import { PageTitle, WhyChoose } from '@/pageComponents';
-import styles from '../styles/Contacts.module.scss';
+import styles from '../styles/client/Contacts.module.scss';
 import { HTag } from '@/elements';
 import Image from 'next/image';
 import { Layout } from '@/layout/clientLayout/Layout';

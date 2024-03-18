@@ -1,4 +1,4 @@
-import styles from '../styles/Search.module.scss';
+import styles from '../styles/client/Search.module.scss';
 import { PageTitle, Quiz, Slider } from '@/pageComponents';
 import { findProducts, getBestsellers, getCategories } from '@/api';
 import { IProduct, IProductWithLength, ISearchPageProps } from '@/types';
