@@ -1,4 +1,4 @@
-import { Layout } from '@/layout/clientLayout/Layout';
+import { Layout } from '@/layout/client/Layout';
 import { PageTitle } from '@/pageComponents';
 import styles from '../styles/client/Order.module.scss';
 import { IItemCart } from '@/types';
@@ -9,7 +9,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import getConfig from 'next/config';
 import { Input, LinkButton } from '@/elements';
-import { InfoPopup } from '@/components/clientComponents';
+import { InfoPopup } from '@/components/client';
 import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { postOrder } from '@/api';

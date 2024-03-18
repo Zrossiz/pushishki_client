@@ -5,7 +5,7 @@ import { CardreviewsProps } from './CardReviews.props';
 import 'swiper/css';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import cn from 'classnames';
-import { CardReview } from '@/components/clientComponents';
+import { CardReview } from '@/components/client';
 
 const SwiperButtonNext = () => {
   const swiper = useSwiper();

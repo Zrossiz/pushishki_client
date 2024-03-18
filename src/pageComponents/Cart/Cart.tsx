@@ -1,4 +1,4 @@
-import { CartItem } from '@/components/clientComponents';
+import { CartItem } from '@/components/client';
 import styles from './Cart.module.scss';
 import { ICartProps } from './Cart.props';
 import { IItemCart } from '@/types';

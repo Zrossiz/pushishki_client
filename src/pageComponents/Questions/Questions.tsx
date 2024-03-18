@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { HTag } from '@/elements';
 import { motion, AnimatePresence } from 'framer-motion';
 import { themes } from './Data';
-import { Question, QuestionPopup } from '@/components/clientComponents';
+import { Question, QuestionPopup } from '@/components/client';
 
 export const Questions = () => {
   const [menu, setMenu] = useState<number>(0);

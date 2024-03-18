@@ -6,7 +6,7 @@ import Head from 'next/head';
 import cn from 'classnames';
 import { axiosInst } from '@/utils';
 import getConfig from 'next/config';
-import { AdminLayout } from '@/layout/adminLayout/AdminLayout';
+import { AdminLayout } from '@/layout/admin/AdminLayout';
 
 const { publicRuntimeConfig } = getConfig();
 const { API_URL } = publicRuntimeConfig;

@@ -4,7 +4,7 @@ import { ICartPageProps, IItemCart, IProduct } from '@/types';
 import styles from '../styles/client/Cart.module.scss';
 import { HTag, LinkButton } from '@/elements';
 import { useEffect, useState } from 'react';
-import { Layout } from '@/layout/clientLayout/Layout';
+import { Layout } from '@/layout/client/Layout';
 
 const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
   const [localStorageBasket, setLocalStorageBasket] = useState<IItemCart[]>([]);

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Favorites.module.scss';
 import { IFavoritesProps } from './Favorites.props';
-import { CatalogItem } from '@/components/clientComponents';
+import { CatalogItem } from '@/components/client';
 
 export const Favorites = ({ products }: IFavoritesProps) => {
   return (

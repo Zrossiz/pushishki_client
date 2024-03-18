@@ -4,7 +4,7 @@ import { ICategoryPageProps } from '@/types';
 import Link from 'next/link';
 import { getBestsellers, getCategories } from '@/api';
 import getConfig from 'next/config';
-import { Layout } from '@/layout/clientLayout/Layout';
+import { Layout } from '@/layout/client/Layout';
 import Image from 'next/image';
 
 const { publicRuntimeConfig } = getConfig();

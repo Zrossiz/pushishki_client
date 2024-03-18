@@ -1,4 +1,4 @@
-import { AdminLayout } from '@/layout/adminLayout/AdminLayout';
+import { AdminLayout } from '@/layout/admin/AdminLayout';
 
 const CategoryPage = () => {
   return (
