@@ -1,15 +1,18 @@
 import { checkUser } from '@/api';
-import styles from '../../styles/Admin.module.scss';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import cn from 'classnames';
 import { AdminLayoutProps } from './AdminLayout.prop';
+import Link from 'next/link';
+import styles from './AdminLayout.module.scss';
 
 export const AdminLayout = ({ children }: AdminLayoutProps) => {
     const router = useRouter();
     const [active, setActive] = useState<string>('Товар');
 
+    const pagePath = router.asPath.split('/admin/')[1];
+    
     const entities: {name: string, slug: string}[] = [
         {
             name: 'Страна',
@@ -69,11 +72,15 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
                             return (
                                 <li 
                                     className={cn(styles.item, {
-                                        [styles.active]: item.name === active
+                                        [styles.active]: item.slug === pagePath
                                     })} 
                                     key={index} 
                                     onClick={() => switchEntity(item)}
-                                >{item.name}</li>
+                                >
+                                    <Link className={styles.link} href={`/admin/${item.slug}`}>
+                                        {item.name}
+                                    </Link>
+                                </li>
                             )
                         })}
                     </ul>

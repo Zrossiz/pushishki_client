@@ -34,12 +34,18 @@
                 border-radius: 12px;
                 cursor: pointer;
                 text-align: center;
+                
+                .link {
+                    color: var(--black);
+                }
             }
 
             .active {
-                color: var(--white);
                 background-color: var(--light-green);
-                backdrop-filter: blur(6px);
+
+                .link {
+                    color: var(--white);
+                }
             }
         }
     }
