@@ -1,6 +1,6 @@
-import { ICategory } from "@/types";
+import { ICategory } from '@/types';
 
 export interface QuizQuestionsProps {
-    setOpen: (arg0: boolean) => void,
-    categories?: ICategory[],
+  setOpen: (arg0: boolean) => void;
+  categories?: ICategory[];
 }

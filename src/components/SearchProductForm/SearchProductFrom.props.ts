@@ -1,3 +1,3 @@
 export interface SearchProductFormProps {
-    setOpen: (arg0: boolean) => void,
+  setOpen: (arg0: boolean) => void;
 }

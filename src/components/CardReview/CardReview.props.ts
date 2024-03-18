@@ -1,5 +1,5 @@
-import { IReview } from "@/types";
+import { IReview } from '@/types';
 
 export interface CardReviewProps {
-    review: IReview,
+  review: IReview;
 }

@@ -1,3 +1,3 @@
 export interface CardVideoProps {
-    video?: string,
+  video?: string;
 }

@@ -1,6 +1,6 @@
-import { ICountryWithLength } from "@/types";
+import { ICountryWithLength } from '@/types';
 
 export interface ICountryFilterProps {
-    countries?: ICountryWithLength;
-    selectedCountries?: number[];
+  countries?: ICountryWithLength;
+  selectedCountries?: number[];
 }

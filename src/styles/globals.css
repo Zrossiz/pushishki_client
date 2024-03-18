@@ -1,74 +1,75 @@
 :root {
-    --black: #000;
-    --white: #fff;
-    --light-green: #248F00;
-    --dark-green: #08400F;
-    --light-grey: #ECECEC;
-    --medium-grey: #D9D9D9;
-    --darker-grey: #8C8C8C;
-    --dark-grey: #6D7280;
-    --red: #FF0000;
+  --black: #000;
+  --white: #fff;
+  --light-green: #248f00;
+  --dark-green: #08400f;
+  --light-grey: #ececec;
+  --medium-grey: #d9d9d9;
+  --darker-grey: #8c8c8c;
+  --dark-grey: #6d7280;
+  --red: #ff0000;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #054F1A;
+  margin: 0;
+  padding: 0;
+  background-color: #054f1a;
 }
 
 ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-input[type="checkbox"], input[type="radio"] {
-    display: none;
+input[type='checkbox'],
+input[type='radio'] {
+  display: none;
 }
 
 /* Стилизация кастомного radio */
-input[type="radio"] ~ label {
-    position: relative;
-    padding-left: 30px; /* Отступ слева для кастомного radio */
-    cursor: pointer;
+input[type='radio'] ~ label {
+  position: relative;
+  padding-left: 30px; /* Отступ слева для кастомного radio */
+  cursor: pointer;
 }
 
-input[type="radio"] ~ label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 30%;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #333; /* Цвет рамки по умолчанию */
-    border-radius: 50%; /* Делаем круглым */
+input[type='radio'] ~ label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333; /* Цвет рамки по умолчанию */
+  border-radius: 50%; /* Делаем круглым */
 }
 
 /* Стилизация кастомного radio при выборе */
-input[type="radio"]:checked ~ label:after {
-    content: '';
-    position: absolute;
-    left: 7px;
-    top: calc(50% - 3px);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%; /* Делаем круглым */
-    background-color: var(--light-green);
+input[type='radio']:checked ~ label:after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: calc(50% - 3px);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* Делаем круглым */
+  background-color: var(--light-green);
 }
 
 button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }

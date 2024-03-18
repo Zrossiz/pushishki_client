@@ -1,1 +1,1 @@
-export * from './useScrollY'
+export * from './useScrollY';

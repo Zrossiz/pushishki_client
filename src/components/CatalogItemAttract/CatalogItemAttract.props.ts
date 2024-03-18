@@ -1,3 +1,3 @@
 export interface CatalogItemAttractProps {
-    type: 'gift' | 'call';
+  type: 'gift' | 'call';
 }

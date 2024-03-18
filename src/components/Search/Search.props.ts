@@ -1,9 +1,9 @@
-import { IProduct } from "@/types";
+import { IProduct } from '@/types';
 
 export interface SearchProps {
-    search: string;
-    setSearch: (arg0: string) => void;
-    products?: IProduct[];
-    stateSearch: boolean;
-    getProducts: () => void;
+  search: string;
+  setSearch: (arg0: string) => void;
+  products?: IProduct[];
+  stateSearch: boolean;
+  getProducts: () => void;
 }

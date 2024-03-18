@@ -1,6 +1,6 @@
-import { IProduct } from "@/types";
+import { IProduct } from '@/types';
 
 export interface SliderProps {
-    title: string;
-    products?: IProduct[]
+  title: string;
+  products?: IProduct[];
 }

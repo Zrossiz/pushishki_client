@@ -1,6 +1,6 @@
 export interface ILayoutProps {
-    children: JSX.Element;
-    title?: string;
-    description?: string;
-    keyWords?: string;
+  children: JSX.Element;
+  title?: string;
+  description?: string;
+  keyWords?: string;
 }

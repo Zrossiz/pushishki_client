@@ -10,115 +10,119 @@ import { SliderItem } from '..';
 import { useRouter } from 'next/router';
 
 export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
+  const questions: string[] = ['Какая модель вас интересует?', 'Нагрузка', 'Стоимость'];
 
-    const questions: string[] = [
-        'Какая модель вас интересует?',
-        'Нагрузка',
-        'Стоимость'
-    ];
+  const router = useRouter();
 
-    const router = useRouter();
+  const [question, setQuesiton] = useState<number>(0);
+  const [category, setCategory] = useState<string>('');
+  const [maximumLoad, setMaximLoad] = useState<number>(0);
+  const [priceFrom, setPriceFrom] = useState<number>(0);
+  const [priceTo, setPriceTo] = useState<number>(0);
 
-    const [question, setQuesiton] = useState<number>(0);
-    const [category, setCategory] = useState<string>('');
-    const [maximumLoad, setMaximLoad] = useState<number>(0);
-    const [priceFrom, setPriceFrom] = useState<number>(0);
-    const [priceTo, setPriceTo] = useState<number>(0);
+  const [result, setResult] = useState<IProduct[]>([]);
 
-    const [result, setResult] = useState<IProduct[]>([]);
+  const switchQuestion = async (index: number) => {
+    if (question === questions.length) {
+      return setOpen(false);
+    }
 
-    const switchQuestion = async (index: number) => {
+    if (question === questions.length - 1) {
+      const products: IProductWithLength | { message: string } = await getCategoryProducts(
+        category,
+        1,
+        1,
+        0,
+        priceTo,
+        [],
+        [],
+        true,
+        maximumLoad
+      );
+      if ('data' in products && products.length === 0) {
+        router.push(`/categories/${category}`);
+      }
+      if ('data' in products) {
+        setResult(products.data);
+      }
+    }
 
-        if (question === questions.length) {
-            return setOpen(false);
-        }
+    setQuesiton(index + 1);
+  };
 
-        if (question === questions.length - 1) {
-            const products: IProductWithLength | { message: string } = await getCategoryProducts(category, 1, 1, 0, priceTo, [], [], true, maximumLoad);
-            if ('data' in products && products.length === 0) {
-                router.push(`/categories/${category}`)
-            };
-            if ('data' in products) {
-                setResult(products.data);
-            };
-        }
-
-        setQuesiton(index + 1);
-    };
-
-    return (
-        <div className={styles.wrapper}>
-            <div className={styles.questionWrapper}>
-                <div className={styles.close} onClick={() => setOpen(false)}>
-                    <Image src="/icons/Close.svg" width={30} height={30} alt='Закрыть' />
-                </div>
-                {
-                    question <= questions.length - 1 ?
-                        <>
-                            <div className={styles.counter}>
-                                {question + 1}/{questions.length}
-                            </div>
-                            <div className={styles.titleWrapper}>{questions[question]}</div>
-                            <div className={styles.question}>
-                                {question === 0 &&
-                                    <div className={styles.categoriesWrapper}>
-                                        {categories?.map((item, index) => {
-                                            return (
-                                                <div 
-                                                    key={item.id}
-                                                    onClick={() => setCategory(item.slug)} 
-                                                    className={cn(styles.category, {
-                                                        [styles.active]: item.slug === category
-                                                    })}
-                                                >{item.name}</div>
-                                            )
-                                        })}
-                                    </div> 
-                                }
-                                {question === 1 &&
-                                    <div className={styles.maximumLoadWrapper}>
-                                        <div className={styles.inputWrapper}>
-                                            От <Input type='text' defaultValue={0} />
-                                        </div>
-                                        <div className={styles.inputWrapper}>
-                                            До <Input type='text' value={maximumLoad} onChange={setMaximLoad} />
-                                        </div>
-                                    </div>
-                                }
-                                {
-                                    question === 2 && 
-                                    <div className={styles.maximumLoadWrapper}>
-                                        <div className={styles.inputWrapper}>
-                                            От <Input type='text' value={priceFrom} onChange={setPriceFrom} />
-                                        </div>
-                                        <div className={styles.inputWrapper}>
-                                            До <Input type='text' value={priceTo} onChange={setPriceTo} />
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                        </> : 
-                        <div className={styles.resultsWrapper}>
-                            <HTag tag="h2">Вам понравится</HTag>
-                            <div className={styles.productsWrapper}>
-                                {result && result.slice(0, 3).map((item, index) => {
-                                    return (
-                                        <SliderItem key={index} product={item} />
-                                    )
-                                })}
-                            </div>
-                        </div>
-                }
-                <div className={styles.nextQuestionBtnWrapper}>
-                    <LinkButton 
-                        element='button' 
-                        disabled={category ? false : true}
-                        onClick={() => switchQuestion(question)}
-                    >
-                        {question <= questions.length - 1 ? "Дальше" : "Закрыть"}
-                    </LinkButton>
-                </div>
-            </div>
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.questionWrapper}>
+        <div className={styles.close} onClick={() => setOpen(false)}>
+          <Image src="/icons/Close.svg" width={30} height={30} alt="Закрыть" />
         </div>
-    )
-}
+        {question <= questions.length - 1 ? (
+          <>
+            <div className={styles.counter}>
+              {question + 1}/{questions.length}
+            </div>
+            <div className={styles.titleWrapper}>{questions[question]}</div>
+            <div className={styles.question}>
+              {question === 0 && (
+                <div className={styles.categoriesWrapper}>
+                  {categories?.map((item, index) => {
+                    return (
+                      <div
+                        key={item.id}
+                        onClick={() => setCategory(item.slug)}
+                        className={cn(styles.category, {
+                          [styles.active]: item.slug === category
+                        })}
+                      >
+                        {item.name}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+              {question === 1 && (
+                <div className={styles.maximumLoadWrapper}>
+                  <div className={styles.inputWrapper}>
+                    От <Input type="text" defaultValue={0} />
+                  </div>
+                  <div className={styles.inputWrapper}>
+                    До <Input type="text" value={maximumLoad} onChange={setMaximLoad} />
+                  </div>
+                </div>
+              )}
+              {question === 2 && (
+                <div className={styles.maximumLoadWrapper}>
+                  <div className={styles.inputWrapper}>
+                    От <Input type="text" value={priceFrom} onChange={setPriceFrom} />
+                  </div>
+                  <div className={styles.inputWrapper}>
+                    До <Input type="text" value={priceTo} onChange={setPriceTo} />
+                  </div>
+                </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <div className={styles.resultsWrapper}>
+            <HTag tag="h2">Вам понравится</HTag>
+            <div className={styles.productsWrapper}>
+              {result &&
+                result.slice(0, 3).map((item, index) => {
+                  return <SliderItem key={index} product={item} />;
+                })}
+            </div>
+          </div>
+        )}
+        <div className={styles.nextQuestionBtnWrapper}>
+          <LinkButton
+            element="button"
+            disabled={category ? false : true}
+            onClick={() => switchQuestion(question)}
+          >
+            {question <= questions.length - 1 ? 'Дальше' : 'Закрыть'}
+          </LinkButton>
+        </div>
+      </div>
+    </div>
+  );
+};

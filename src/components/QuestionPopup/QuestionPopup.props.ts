@@ -1,3 +1,3 @@
 export interface QuestionPopupProps {
-    setForm: (arg0: boolean) => void;
+  setForm: (arg0: boolean) => void;
 }

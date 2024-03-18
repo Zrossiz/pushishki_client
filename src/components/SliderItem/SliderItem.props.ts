@@ -1,5 +1,5 @@
-import { IProduct } from "@/types";
+import { IProduct } from '@/types';
 
 export interface SliderItemProps {
-    product: IProduct
+  product: IProduct;
 }

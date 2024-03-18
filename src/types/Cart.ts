@@ -1,7 +1,7 @@
-import { IProduct } from ".";
+import { IProduct } from '.';
 
 export interface IItemCart {
-    product: IProduct,
-    count: number,
-    color: string | undefined,
-};
+  product: IProduct;
+  count: number;
+  color: string | undefined;
+}

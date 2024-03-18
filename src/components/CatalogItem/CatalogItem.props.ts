@@ -1,6 +1,6 @@
-import { IProduct } from "@/types";
+import { IProduct } from '@/types';
 
 export interface CatalogItemProps {
-    product: IProduct,
-    localStorageFavorites?: IProduct[],
+  product: IProduct;
+  localStorageFavorites?: IProduct[];
 }

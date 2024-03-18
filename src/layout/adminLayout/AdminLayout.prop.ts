@@ -1,3 +1,3 @@
 export interface AdminLayoutProps {
-    children: JSX.Element;
+  children: JSX.Element;
 }

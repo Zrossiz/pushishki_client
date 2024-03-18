@@ -1,5 +1,5 @@
-import { ICategory } from "@/types";
+import { ICategory } from '@/types';
 
 export interface QuizProps {
-    categories?: ICategory[]
+  categories?: ICategory[];
 }

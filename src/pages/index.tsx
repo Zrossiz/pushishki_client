@@ -1,39 +1,38 @@
 import styles from '../styles/Home.module.scss';
-import Link from "next/link";
-import Image from "next/image";
-import { HTag } from "@/elements";
+import Link from 'next/link';
+import Image from 'next/image';
+import { HTag } from '@/elements';
 import cn from 'classnames';
-import { Form, Questions, Quiz, Slider, WhyChoose } from "@/pageComponents";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { getBestsellers, getCategories, getNewProducts } from "@/api";
-import { MainPageProps } from "@/types";
+import { Form, Questions, Quiz, Slider, WhyChoose } from '@/pageComponents';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { getBestsellers, getCategories, getNewProducts } from '@/api';
+import { MainPageProps } from '@/types';
 import { Layout } from '@/layout/clientLayout/Layout';
 
 const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
-
-  const mainTitleRef = useRef(null)
+  const mainTitleRef = useRef(null);
   const mainTitleRefIsInView = useInView(mainTitleRef, { once: true });
 
-  const ref1 = useRef(null)
+  const ref1 = useRef(null);
   const isInView1 = useInView(ref1, { once: true });
-  const ref2 = useRef(null)
+  const ref2 = useRef(null);
   const isInView2 = useInView(ref2, { once: true });
-  const ref3 = useRef(null)
+  const ref3 = useRef(null);
   const isInView3 = useInView(ref3, { once: true });
-  const ref4 = useRef(null)
+  const ref4 = useRef(null);
   const isInView4 = useInView(ref4, { once: true });
 
-  const infoTitleRef = useRef(null)
+  const infoTitleRef = useRef(null);
   const infoTitleRefIsInView = useInView(infoTitleRef, { once: true });
-  
+
   return (
-    <Layout title='Главная | Пушишки'>
+    <Layout title="Главная | Пушишки">
       <>
         <section className={styles.firstDisplay}>
           <div className={styles.backgroundImgWrapper}>
             <div className={styles.backgroundImg}>
-              <Image src="/main.png" fill style={{objectFit: 'cover'}} alt="Главный фон"/>
+              <Image src="/main.png" fill style={{ objectFit: 'cover' }} alt="Главный фон" />
             </div>
           </div>
           <div className={styles.titleWrapper}>
@@ -64,7 +63,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               <Link href="/categories" className={styles.category}>
                 И многое другое
               </Link>
-            </div >
+            </div>
             <div className={styles.chooseCategoryWrapper}>
               <Link href="/categories" className={styles.viewCategories}>
                 Подобрать
@@ -75,8 +74,8 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 </div>
               </Link>
             </div>
-          </div >
-        </section >
+          </div>
+        </section>
         <Slider title="Новинки" products={newProducts} />
         <section className={styles.advantages}>
           <div className={styles.imgWrapper}>
@@ -88,7 +87,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               transition={{ delay: 0.4, duration: 1 }}
               initial={{ x: -30, opacity: 0 }}
               animate={{ x: isInView4 ? 0 : -30, opacity: isInView4 ? 1 : 0 }}
-            className={styles.titleWrapper}
+              className={styles.titleWrapper}
             >
               <HTag tag="h2">
                 Доставка в удобное
@@ -109,40 +108,40 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                     Гибкое время <br /> доставки
                   </HTag>
                   <span className={styles.span}>
-                    Поможем сделать сюрприз вашему 
+                    Поможем сделать сюрприз вашему
                     <br />
                     ребенку с доставкой в удобное для вас время
                   </span>
                 </motion.li>
                 <motion.li
-                className={cn(styles.itemWrapper, styles.white)}
-                ref={ref2}
-                transition={{ delay: 0.8, duration: 1 }}
-                initial={{ x: -30, opacity: 0 }}
-                animate={{ x: isInView2 ? 0 : -30, opacity: isInView2 ? 1 : 0 }}
+                  className={cn(styles.itemWrapper, styles.white)}
+                  ref={ref2}
+                  transition={{ delay: 0.8, duration: 1 }}
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: isInView2 ? 0 : -30, opacity: isInView2 ? 1 : 0 }}
                 >
                   <HTag tag="h3" color="white">
-                    Покупайте только лучшее 
+                    Покупайте только лучшее
                   </HTag>
                   <span className={styles.span}>
-                    Только у нас вы сможете увидеть уникальные <br /> марки 
-                    автомобилей на любой вкус   
+                    Только у нас вы сможете увидеть уникальные <br /> марки автомобилей на любой
+                    вкус
                   </span>
                 </motion.li>
                 <motion.li
-                className={cn(styles.itemWrapper, styles.white)}
-                ref={ref3}
-                transition={{ delay: 1, duration: 1 }}
-                initial={{ x: 30, opacity: 0 }}
-                animate={{ x: isInView3 ? 0 : 30, opacity: isInView3 ? 1 : 0 }}
+                  className={cn(styles.itemWrapper, styles.white)}
+                  ref={ref3}
+                  transition={{ delay: 1, duration: 1 }}
+                  initial={{ x: 30, opacity: 0 }}
+                  animate={{ x: isInView3 ? 0 : 30, opacity: isInView3 ? 1 : 0 }}
                 >
                   <HTag tag="h3" color="white">
-                    Изучите наш большой ассортимент 
+                    Изучите наш большой ассортимент
                   </HTag>
                   <span className={styles.span}>
                     Посетите наш шоу-рум находящийся по адресу <br />
                     ул. Вилиса Лациса 30, стр. 2 - и выберите <br />
-                    для своего ребенка лучший подарок 
+                    для своего ребенка лучший подарок
                   </span>
                 </motion.li>
               </ul>
@@ -159,14 +158,19 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
         <section className={styles.map} id="map">
           <div className={styles.infoWrapper}>
             <div className={styles.titleDescWrapper}>
-              <motion.div 
+              <motion.div
                 ref={infoTitleRef}
                 transition={{ delay: 0.6, duration: 1 }}
                 initial={{ x: 30, opacity: 0 }}
-                animate={{ x: infoTitleRefIsInView ? 0 : 30, opacity: infoTitleRefIsInView ? 1 : 0 }}
-              className={styles.titleWrapper}
+                animate={{
+                  x: infoTitleRefIsInView ? 0 : 30,
+                  opacity: infoTitleRefIsInView ? 1 : 0
+                }}
+                className={styles.titleWrapper}
               >
-                <HTag tag="h2">Протестируйте <br /> перед заказом</HTag>
+                <HTag tag="h2">
+                  Протестируйте <br /> перед заказом
+                </HTag>
               </motion.div>
               <div className={styles.descWrapper}>
                 <span>
@@ -195,26 +199,41 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   <HTag tag="h3">Связаться с нами</HTag>
                 </div>
                 <div className={styles.linksWrapper}>
-                  <a href="" target="_blank">Youtube</a>
-                  <a href="" target="_blank">Вконтакте</a>
-                  <a href="" target="_blank">Авито</a>
-                  <a href="" target="_blank">E-mail</a>
+                  <a href="" target="_blank">
+                    Youtube
+                  </a>
+                  <a href="" target="_blank">
+                    Вконтакте
+                  </a>
+                  <a href="" target="_blank">
+                    Авито
+                  </a>
+                  <a href="" target="_blank">
+                    E-mail
+                  </a>
                 </div>
                 <div className={styles.phoneWrapper}>
-                  <a href="" target="_blank">+7 495-766-07-13</a>
+                  <a href="" target="_blank">
+                    +7 495-766-07-13
+                  </a>
                 </div>
               </div>
             </div>
           </div>
           <div className={styles.mapWrapper}>
-            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9851e814dd4a7db8fa6c766b41f911822c247c52a643e0e2db22f970cdf2ffa8&amp;source=constructor" width="100%" height="720" frameBorder="0"></iframe>
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3A9851e814dd4a7db8fa6c766b41f911822c247c52a643e0e2db22f970cdf2ffa8&amp;source=constructor"
+              width="100%"
+              height="720"
+              frameBorder="0"
+            ></iframe>
           </div>
         </section>
         <Form />
       </>
     </Layout>
   );
-}
+};
 
 export default Home;
 
@@ -227,7 +246,7 @@ export const getStaticProps = async () => {
     props: {
       bestSellers,
       newProducts,
-      categories,
+      categories
     }
-  }
-}
+  };
+};

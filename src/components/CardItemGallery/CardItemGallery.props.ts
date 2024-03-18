@@ -1,3 +1,3 @@
 export interface CardItemGalleryProps {
-    images: string[] | undefined;
+  images: string[] | undefined;
 }

@@ -1,11 +1,11 @@
-import { AdminLayout } from "@/layout/adminLayout/AdminLayout"
+import { AdminLayout } from '@/layout/adminLayout/AdminLayout';
 
 const BrandPage = () => {
-    return (
-        <AdminLayout>
-            <div>Бренд</div>
-        </AdminLayout>
-    );
+  return (
+    <AdminLayout>
+      <div>Бренд</div>
+    </AdminLayout>
+  );
 };
 
 export default BrandPage;

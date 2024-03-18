@@ -1,5 +1,5 @@
 export interface PaginationProps {
-    curPage?: number;
-    totalPages: number;
-    slug: string;
+  curPage?: number;
+  totalPages: number;
+  slug: string;
 }

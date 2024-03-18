@@ -10,75 +10,74 @@ import { SliderProps } from './Slider.props';
 import { SliderItem } from '@/components';
 
 const SwiperButtonNext = () => {
-    const swiper = useSwiper();
-    return (
-        <button className={cn(styles.navButton)} onClick={() => swiper.slideNext()}>
-            <Image src={'/icons/SliderNavArrow.svg'} width={24} height={24} alt='Дальше' />
-        </button>
-    );
+  const swiper = useSwiper();
+  return (
+    <button className={cn(styles.navButton)} onClick={() => swiper.slideNext()}>
+      <Image src={'/icons/SliderNavArrow.svg'} width={24} height={24} alt="Дальше" />
+    </button>
+  );
 };
 
 const SwiperButtonPrev = () => {
-    const swiper = useSwiper();
-    return (
-        <button className={cn(styles.navButton, styles.reverse)} onClick={() => swiper.slidePrev()}>
-            <Image src={'/icons/SliderNavArrow.svg'} width={24} height={24} alt='Назад' />
-        </button>
-    );
+  const swiper = useSwiper();
+  return (
+    <button className={cn(styles.navButton, styles.reverse)} onClick={() => swiper.slidePrev()}>
+      <Image src={'/icons/SliderNavArrow.svg'} width={24} height={24} alt="Назад" />
+    </button>
+  );
 };
 
 export const Slider = ({ title, products }: SliderProps) => {
-    return (
-        <>
-            <section className={styles.slider}>
-                <div className={styles.wrapper}>
-                    <div className={styles.titleWrapper}>
-                        <HTag tag='h2'>{title}</HTag>
-                    </div>
-                </div>
-                <Swiper className={cn('mySwipper', styles.swiper)}
-                    // autoplay={{
-                    //     delay: 4000,
-                    //     disableOnInteraction: false,
-                    // }}
-                    loop
-                    slidesPerView={1}
-                    spaceBetween={10}
-                    breakpoints={{
-                        640: {
-                            slidesPerView: 3,
-                            spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 3,
-                            spaceBetween: 10,
-                        },
-                        968: {
-                            slidesPerView: 4,
-                            spaceBetween: 10,
-                        },
-                        1200: {
-                            slidesPerView: 5,
-                            spaceBetween: 20,
-                        },
-                    }}
-                    modules={[Autoplay]}
-                >
-                    <div className={styles.navigationWrapper}>
-                        <SwiperButtonPrev />
-                        <SwiperButtonNext />
-                    </div>
-                    {
-                        products?.map((item, index) => {
-                            return (
-                                <SwiperSlide key={item.id}>
-                                    <SliderItem product={item} />
-                                </SwiperSlide>
-                            )
-                        })
-                    }
-                </Swiper>
-            </section>
-        </>
-    )
-}
+  return (
+    <>
+      <section className={styles.slider}>
+        <div className={styles.wrapper}>
+          <div className={styles.titleWrapper}>
+            <HTag tag="h2">{title}</HTag>
+          </div>
+        </div>
+        <Swiper
+          className={cn('mySwipper', styles.swiper)}
+          // autoplay={{
+          //     delay: 4000,
+          //     disableOnInteraction: false,
+          // }}
+          loop
+          slidesPerView={1}
+          spaceBetween={10}
+          breakpoints={{
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 20
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 10
+            },
+            968: {
+              slidesPerView: 4,
+              spaceBetween: 10
+            },
+            1200: {
+              slidesPerView: 5,
+              spaceBetween: 20
+            }
+          }}
+          modules={[Autoplay]}
+        >
+          <div className={styles.navigationWrapper}>
+            <SwiperButtonPrev />
+            <SwiperButtonNext />
+          </div>
+          {products?.map((item, index) => {
+            return (
+              <SwiperSlide key={item.id}>
+                <SliderItem product={item} />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </section>
+    </>
+  );
+};

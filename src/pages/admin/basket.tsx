@@ -1,11 +1,11 @@
-import { AdminLayout } from "@/layout/adminLayout/AdminLayout"
+import { AdminLayout } from '@/layout/adminLayout/AdminLayout';
 
 const BasketPage = () => {
-    return (
-        <AdminLayout>
-            <div>Страница корзины</div>
-        </AdminLayout>
-    );
+  return (
+    <AdminLayout>
+      <div>Страница корзины</div>
+    </AdminLayout>
+  );
 };
 
 export default BasketPage;
