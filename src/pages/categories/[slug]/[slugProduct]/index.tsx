@@ -21,6 +21,7 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
     const [rating, setRating] = useState<number>(0);
     const [title, setTitle] = useState<string>('');
     const [description, setDescription] = useState<string>('');
+    const [option, setOption] = useState<string>('Описание');
 
     const [activePrice, setActivePrice] = useState<number>(product?.defaultPrice || 0);
 
@@ -143,8 +144,27 @@ const ProductCardPage = ({ bestSellers, accessories, product, productVariants, r
                             <CardItemGallery images={productVariants && productVariants[activeVariant]?.images} />                        
                         </div>
                         <div className={styles.descriptionWrapper}>
-                            <HTag tag="h3">Описание {product?.name}</HTag>
-                            <span>{product?.description}</span>
+                            <div className={styles.titleOptionWrapper}>
+                                <div className={styles.optionWrapper}>
+                                    <ul>
+                                        <li 
+                                            onClick={() => setOption('Описание')}
+                                            className={cn({
+                                                [styles.active]: option === 'Описание'
+                                            })}
+                                        >Описание</li>
+                                        <li 
+                                            onClick={() => setOption('Характеристики')}
+                                            className={cn({
+                                                [styles.active]: option === 'Характеристики'
+                                            })}
+                                        >Характеристики</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <span>
+                                {option === 'Описание' ? product?.description : product?.characteristics}
+                            </span>
                         </div>
                     </div>
                     <div className={styles.aboutItemWrapper}>

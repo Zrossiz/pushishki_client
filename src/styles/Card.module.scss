@@ -21,8 +21,38 @@
             border-radius: 12px 12px 12px 40px;
             background-color: var(--white);
 
-            h3 {
-                text-align: center;
+            .titleOptionWrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .optionWrapper {
+
+                    ul {
+                        display: flex;
+                        gap: 20px;
+
+                        li {
+                            font-size: 30px;
+                            font-weight: 500;
+                            cursor: pointer;
+                        }
+
+                        .active {
+                            position: relative;
+
+                            &::before {
+                                position: absolute;
+                                content: '';
+                                height: 4px;
+                                width: 100%;
+                                background-color: var(--light-green);
+                                border-radius: 6px;
+                                bottom: -10px;
+                            }
+                        }
+                    }
+                }
             }
 
             span {
