@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
-import { MainPageReviews } from '@/components';
+import { MainPageReviews } from '@/components/clientComponents';
 import axios from 'axios';
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';

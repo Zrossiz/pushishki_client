@@ -3,7 +3,7 @@ import { PageTitle, Quiz, Slider } from '@/pageComponents';
 import { findProducts, getBestsellers, getCategories } from '@/api';
 import { IProduct, IProductWithLength, ISearchPageProps } from '@/types';
 import { Layout } from '@/layout/clientLayout/Layout';
-import { CatalogItem, Pagination, Search, Sort } from '@/components';
+import { CatalogItem, Pagination, Search, Sort } from '@/components/clientComponents';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 

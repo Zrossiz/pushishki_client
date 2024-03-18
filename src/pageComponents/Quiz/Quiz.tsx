@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import styles from './Quiz.module.scss';
 import Image from 'next/image';
-import { QuizQuestions } from '@/components';
+import { QuizQuestions } from '@/components/clientComponents';
 import { QuizProps } from './Quiz.props';
 
 export const Quiz = ({ categories }: QuizProps) => {

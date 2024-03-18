@@ -1,4 +1,4 @@
-import { Breadcrumbs } from '@/components';
+import { Breadcrumbs } from '@/components/clientComponents';
 import styles from './PageTitle.module.scss';
 import { HTag } from '@/elements';
 import { PageTitleProps } from './PageTitle.props';

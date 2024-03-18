@@ -1,4 +1,4 @@
-import { CategoryNavigation, Navigation } from '@/components';
+import { CategoryNavigation, Navigation } from '@/components/clientComponents';
 import styles from './Header.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';

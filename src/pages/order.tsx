@@ -10,7 +10,7 @@ import Image from 'next/image';
 import getConfig from 'next/config';
 import { Input, LinkButton } from '@/elements';
 import axios from 'axios';
-import { InfoPopup } from '@/components';
+import { InfoPopup } from '@/components/clientComponents';
 import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { postOrder } from '@/api';

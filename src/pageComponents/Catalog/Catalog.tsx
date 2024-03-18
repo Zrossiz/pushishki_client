@@ -9,7 +9,7 @@ import {
   Sort,
   Loader,
   CatalogItemAttract
-} from '@/components';
+} from '@/components/clientComponents';
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
 import { useEffect, useState } from 'react';

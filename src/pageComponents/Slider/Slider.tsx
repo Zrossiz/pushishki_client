@@ -7,7 +7,7 @@ import { HTag } from '@/elements';
 import React from 'react';
 import cn from 'classnames';
 import { SliderProps } from './Slider.props';
-import { SliderItem } from '@/components';
+import { SliderItem } from '@/components/clientComponents';
 
 const SwiperButtonNext = () => {
   const swiper = useSwiper();

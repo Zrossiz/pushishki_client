@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from './Layout.module.scss';
 import { Manrope } from 'next/font/google';
 import cn from 'classnames';
-import { ToTop, WhatsApp } from '@/components';
+import { ToTop, WhatsApp } from '@/components/clientComponents';
 import { AppProgressBar } from 'next-nprogress-bar';
 import { Footer } from './Footer/Footer';
 import { Header } from './Header/Header';
