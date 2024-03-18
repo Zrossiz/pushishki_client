@@ -49,7 +49,7 @@ const OrderPage = () => {
   const router = useRouter();
 
   const checkout = async () => {
-    const responseOrder = await postOrder(
+    await postOrder(
       name,
       lastName,
       address,

@@ -2,7 +2,7 @@ import { getAccessories, getBestsellers, getCategories } from '@/api';
 import { Quiz, PageTitle, Slider, Cart } from '@/pageComponents';
 import { ICartPageProps, IItemCart, IProduct } from '@/types';
 import styles from '../styles/client/Cart.module.scss';
-import { HTag, LinkButton } from '@/elements';
+import { LinkButton } from '@/elements';
 import { useEffect, useState } from 'react';
 import { Layout } from '@/layout/client/Layout';
 

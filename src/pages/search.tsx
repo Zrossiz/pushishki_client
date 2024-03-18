@@ -65,8 +65,8 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
             <div className={styles.resultWrapper}>
               <Sort />
               <div className={styles.itemsWrapper}>
-                {products.data.map((item: IProduct, index) => {
-                  return <CatalogItem product={item} />;
+                {products.data.map((item: IProduct) => {
+                  return <CatalogItem key={item.id} product={item} />;
                 })}
               </div>
               <div className={styles.paginationWrapper}>

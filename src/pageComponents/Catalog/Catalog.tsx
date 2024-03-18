@@ -25,11 +25,11 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const handleStart = (url: string) => {
+    const handleStart = () => {
       setLoading(true);
     };
 
-    const handleComplete = (url: string) => {
+    const handleComplete = () => {
       setLoading(false);
     };
 

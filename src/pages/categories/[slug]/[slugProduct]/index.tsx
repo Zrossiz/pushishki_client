@@ -10,7 +10,13 @@ import { Layout } from '@/layout/client/Layout';
 import { CardReviews, CardVideo, Form, Questions, Slider } from '@/pageComponents';
 import { IItemCart, IProduct, IProductCardPageProps } from '@/types';
 import styles from '../../../../styles/client/Card.module.scss';
-import { Breadcrumbs, BuyOneClick, CardItemGallery, FormReview, InfoPopup } from '@/components/client';
+import {
+  Breadcrumbs,
+  BuyOneClick,
+  CardItemGallery,
+  FormReview,
+  InfoPopup
+} from '@/components/client';
 import { useRouter } from 'next/router';
 import { AddToCartButton, HTag, LinkButton } from '@/elements';
 import Image from 'next/image';

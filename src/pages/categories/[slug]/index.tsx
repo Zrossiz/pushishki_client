@@ -9,7 +9,6 @@ import {
 import { Layout } from '@/layout/client/Layout';
 import { Catalog, PageTitle, Quiz, Slider } from '@/pageComponents';
 import { ICatalogPageProps } from '@/types';
-import Head from 'next/head';
 
 const CategoryPage = ({
   brands,

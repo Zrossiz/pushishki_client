@@ -2,9 +2,6 @@ import { checkUser } from '@/api';
 import styles from '../../styles/Admin.module.scss';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
-import cn from 'classnames';
-import { axiosInst } from '@/utils';
 import getConfig from 'next/config';
 import { AdminLayout } from '@/layout/admin/AdminLayout';
 

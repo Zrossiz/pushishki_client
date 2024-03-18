@@ -1,5 +1,5 @@
 import { PageTitle, Quiz, Slider } from '@/pageComponents';
-import styles from '../../styles/Categories.module.scss';
+import styles from '../../styles/client/Categories.module.scss';
 import { ICategoryPageProps } from '@/types';
 import Link from 'next/link';
 import { getBestsellers, getCategories } from '@/api';

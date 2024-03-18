@@ -1,5 +1,5 @@
 import { HTag, Input, LinkButton } from '@/elements';
-import styles from '../../styles/Login.module.scss';
+import styles from '../../styles/client/Login.module.scss';
 import { useState } from 'react';
 import Head from 'next/head';
 import { loginUser } from '@/api';

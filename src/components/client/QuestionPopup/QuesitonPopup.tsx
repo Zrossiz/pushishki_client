@@ -3,7 +3,6 @@ import styles from './QuestionPopup.module.scss';
 import { HTag, Input, LinkButton } from '@/elements';
 import { AnimatePresence, motion } from 'framer-motion';
 import { title } from 'process';
-import { RatingComponent } from '../Rating/Rating';
 import Image from 'next/image';
 import { useState } from 'react';
 import getConfig from 'next/config';

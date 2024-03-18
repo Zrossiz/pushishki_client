@@ -1,4 +1,4 @@
-import styles from '../styles/404.module.scss';
+import styles from '../styles/client/404.module.scss';
 import { LinkButton } from '@/elements';
 import { Layout } from '@/layout/client/Layout';
 import Link from 'next/link';
