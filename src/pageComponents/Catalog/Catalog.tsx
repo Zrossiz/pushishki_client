@@ -8,7 +8,7 @@ import {
   PriceFilter,
   Sort,
   Loader,
-  CatalogItemAttract
+  CatalogItemAttract,
 } from '@/components/client';
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
@@ -45,14 +45,14 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
   }, []);
 
   const [priceRangeFrom, setPriceRangeFrom] = useState<number | undefined>(
-    query.priceRangeFrom !== undefined ? +query.priceRangeFrom : undefined
+    query.priceRangeFrom !== undefined ? +query.priceRangeFrom : undefined,
   );
   const [priceRangeTo, setPriceRangeTo] = useState<number | undefined>(
-    query.priceRangeTo !== undefined ? +query.priceRangeTo : undefined
+    query.priceRangeTo !== undefined ? +query.priceRangeTo : undefined,
   );
   const [inStock, setInStock] = useState<boolean>(query.inStock === 'false' ? false : true);
   const [maxLoad, setMaxLoad] = useState<number | undefined>(
-    query.maxLoad !== undefined ? +query.maxLoad : undefined
+    query.maxLoad !== undefined ? +query.maxLoad : undefined,
   );
 
   let selectedCountries: number[] = [];
@@ -66,7 +66,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
       inStock,
       maxLoad,
       selectedBrands: JSON.stringify(selectedBrands),
-      selectedCountries: JSON.stringify(selectedCountries)
+      selectedCountries: JSON.stringify(selectedCountries),
     };
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -78,7 +78,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
     setTimeout(() => {
       router.push({
         pathname: router.pathname,
-        query: newQuery
+        query: newQuery,
       });
     }, 400);
   };

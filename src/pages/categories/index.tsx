@@ -20,13 +20,13 @@ const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
           breadcrumbs={[
             {
               name: 'Главная',
-              path: '/'
-            }
+              path: '/',
+            },
           ]}
         />
         <section className={styles.categoriesWrapper}>
           <div className={styles.wrapper}>
-            {categories?.data.map((item, index) => {
+            {categories?.data.map((item) => {
               return (
                 <Link key={item.id} href={`/categories/${item.slug}?page=1`}>
                   <div className={styles.titleWrapper}>{item.name}</div>
@@ -52,8 +52,8 @@ export const getServerSideProps = async () => {
   return {
     props: {
       bestSellers,
-      categories
-    }
+      categories,
+    },
   };
 };
 

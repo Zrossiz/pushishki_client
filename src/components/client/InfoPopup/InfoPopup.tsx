@@ -15,7 +15,7 @@ export const InfoPopup = ({ title, description, order }: InfoPopupProps) => {
     >
       <div
         className={cn(styles.popupWrapper, {
-          [styles.order]: order
+          [styles.order]: order,
         })}
       >
         <HTag tag="h2" color={order ? 'white' : 'black'}>
@@ -23,7 +23,7 @@ export const InfoPopup = ({ title, description, order }: InfoPopupProps) => {
         </HTag>
         <span
           className={cn({
-            [styles.white]: order
+            [styles.white]: order,
           })}
         >
           {description}

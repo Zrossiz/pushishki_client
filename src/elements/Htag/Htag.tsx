@@ -8,7 +8,7 @@ export const HTag = ({ children, tag, color, className }: HtagProps) => {
       return (
         <h1
           className={cn(styles.h1, className, {
-            [styles.white]: color === 'white'
+            [styles.white]: color === 'white',
           })}
         >
           {children}
@@ -18,7 +18,7 @@ export const HTag = ({ children, tag, color, className }: HtagProps) => {
       return (
         <h2
           className={cn(styles.h2, className, {
-            [styles.white]: color === 'white'
+            [styles.white]: color === 'white',
           })}
         >
           {children}
@@ -28,7 +28,7 @@ export const HTag = ({ children, tag, color, className }: HtagProps) => {
       return (
         <h3
           className={cn(styles.h3, className, {
-            [styles.white]: color === 'white'
+            [styles.white]: color === 'white',
           })}
         >
           {children}

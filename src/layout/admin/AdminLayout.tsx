@@ -16,32 +16,32 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
   const entities: { name: string; slug: string }[] = [
     {
       name: 'Страна',
-      slug: 'country'
+      slug: 'country',
     },
     {
       name: 'Бренд',
-      slug: 'brand'
+      slug: 'brand',
     },
     {
       name: 'Категория',
-      slug: 'category'
+      slug: 'category',
     },
     {
       name: 'Товар',
-      slug: 'product'
+      slug: 'product',
     },
     {
       name: 'Заказ',
-      slug: 'order'
+      slug: 'order',
     },
     {
       name: 'История покупок',
-      slug: 'basket'
+      slug: 'basket',
     },
     {
       name: 'Цвет',
-      slug: 'color'
-    }
+      slug: 'color',
+    },
   ];
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
               return (
                 <li
                   className={cn(styles.item, {
-                    [styles.active]: item.slug === pagePath
+                    [styles.active]: item.slug === pagePath,
                   })}
                   key={index}
                   onClick={() => switchEntity(item)}

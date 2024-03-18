@@ -28,7 +28,7 @@ export const Form = () => {
       name,
       phone,
       question,
-      link: `${CLIENT_URL}${link}`
+      link: `${CLIENT_URL}${link}`,
     });
     setInterval(() => {
       setName('');
@@ -148,7 +148,7 @@ export const Form = () => {
             Отправить
             <div
               className={cn(styles.iconWrapper, {
-                [styles.activeIcon]: send
+                [styles.activeIcon]: send,
               })}
             >
               <Image src={'/icons/Plane.svg'} height={26} width={26} alt="Отправить" />

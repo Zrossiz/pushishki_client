@@ -15,7 +15,7 @@ export const FormReview = ({
   setTitle,
   description,
   setDescription,
-  sendReview
+  sendReview,
 }: FormReviewProps) => {
   return (
     <div className={styles.wrapper}>

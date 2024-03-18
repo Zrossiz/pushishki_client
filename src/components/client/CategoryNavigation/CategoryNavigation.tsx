@@ -4,24 +4,24 @@ import styles from './CategoryNavigation.module.scss';
 const categories = [
   {
     name: 'Электромобили',
-    slug: 'elektromobili'
+    slug: 'elektromobili',
   },
   {
     name: 'Мототехника',
-    slug: 'mototehnika'
+    slug: 'mototehnika',
   },
   {
     name: 'Велотехника',
-    slug: 'velotehnika'
+    slug: 'velotehnika',
   },
   {
     name: 'Спецтехника',
-    slug: 'spectehnika'
+    slug: 'spectehnika',
   },
   {
     name: 'Аксессуары',
-    slug: 'aksessuary'
-  }
+    slug: 'aksessuary',
+  },
 ];
 
 export const CategoryNavigation = () => {

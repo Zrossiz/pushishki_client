@@ -7,12 +7,12 @@ const { API_URL } = publicRuntimeConfig;
 
 export const loginUser = async (
   username: string,
-  password: string
+  password: string,
 ): Promise<ILoginUser | { message: string }> => {
   try {
     const user = await axiosInst.post(`${API_URL}/auth/login`, {
       username,
-      password
+      password,
     });
 
     if (user.data.token) {
@@ -23,7 +23,7 @@ export const loginUser = async (
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при авторизации'
+      message: 'Ошибка при авторизации',
     };
   }
 };
@@ -35,7 +35,7 @@ export const checkUser = async (): Promise<{ message: string }> => {
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при авторизации'
+      message: 'Ошибка при авторизации',
     };
   }
 };

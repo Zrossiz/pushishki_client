@@ -13,14 +13,14 @@ export const CartItem = ({
   addToCart,
   removeFromCart,
   switchFavorite,
-  localStorageFavorites
+  localStorageFavorites,
 }: CartItemProps) => {
   const [hover, setHover] = useState<boolean>(false);
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
   useEffect(() => {
     const isProductFavorite = localStorageFavorites.some(
-      (favorite) => favorite.id === product.product.id
+      (favorite) => favorite.id === product.product.id,
     );
     setIsFavorite(isProductFavorite);
   }, [localStorageFavorites, product.product.id]);
@@ -29,7 +29,7 @@ export const CartItem = ({
     Intl.NumberFormat('ru-RU', {
       style: 'currency',
       currency: 'RUB',
-      currencyDisplay: 'symbol'
+      currencyDisplay: 'symbol',
     })
       .format(product.product.defaultPrice)
       .split(',')[0] + '₽';

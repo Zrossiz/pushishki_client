@@ -9,7 +9,7 @@ export const Question = ({ question, answer }: QuestionProps) => {
   return (
     <li
       className={cn(styles.item, {
-        [styles.item__active]: open
+        [styles.item__active]: open,
       })}
       onClick={() => setOpen(!open)}
     >

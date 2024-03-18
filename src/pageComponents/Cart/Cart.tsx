@@ -11,13 +11,13 @@ export const Cart = ({
   removeFromCart,
   addToCart,
   switchFavorite,
-  localStorageFavorites
+  localStorageFavorites,
 }: ICartProps) => {
   const formattedPrice: string =
     Intl.NumberFormat('ru-RU', {
       style: 'currency',
       currency: 'RUB',
-      currencyDisplay: 'symbol'
+      currencyDisplay: 'symbol',
     })
       .format(totalProductsPrice)
       .split(',')[0] + '₽';

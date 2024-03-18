@@ -19,31 +19,31 @@ export const AddToCartButton = () => {
               '--box-s': 1,
               '--box-o': 1,
               duration: 0.3,
-              delay: 0.5
+              delay: 0.5,
             });
 
             gsap.to(box, {
               x: 0,
               duration: 0.4,
-              delay: 0.7
+              delay: 0.7,
             });
 
             gsap.to(button, {
               '--hx': -5,
               '--bx': 50,
               duration: 0.18,
-              delay: 0.92
+              delay: 0.92,
             });
 
             gsap.to(box, {
               y: 0,
               duration: 0.1,
-              delay: 1
+              delay: 1,
             });
 
             gsap.set(button, {
               '--truck-y': 0,
-              '--truck-y-n': -26
+              '--truck-y-n': -26,
             });
 
             gsap.to(button, {
@@ -56,24 +56,24 @@ export const AddToCartButton = () => {
                   .timeline({
                     onComplete() {
                       button.classList.add(styles.done);
-                    }
+                    },
                   })
                   .to(truck, {
                     x: 400,
-                    duration: 2
+                    duration: 2,
                   });
                 gsap.to(button, {
                   '--progress': 1,
                   duration: 1,
-                  ease: 'power2.in'
+                  ease: 'power2.in',
                 });
-              }
+              },
             });
           }
         } else {
           button.classList.remove(styles.animation, styles.done);
           gsap.set(truck, {
-            x: 4
+            x: 4,
           });
           gsap.set(button, {
             '--progress': 0,
@@ -82,11 +82,11 @@ export const AddToCartButton = () => {
             '--box-s': 0.5,
             '--box-o': 0,
             '--truck-y': 0,
-            '--truck-y-n': -26
+            '--truck-y-n': -26,
           });
           gsap.set(box, {
             x: -24,
-            y: -6
+            y: -6,
           });
         }
       });

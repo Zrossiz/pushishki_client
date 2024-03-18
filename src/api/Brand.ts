@@ -9,7 +9,7 @@ export const getBrands = async (): Promise<IBrandWithLength | { message: string 
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при получении брендов'
+      message: 'Ошибка при получении брендов',
     };
   }
 };

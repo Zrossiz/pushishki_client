@@ -22,12 +22,12 @@ export const Sort = () => {
       if (!router.query.page) {
         router.push({
           pathname: router.pathname,
-          query: { ...router.query, page: '1', sort: `${index}` }
+          query: { ...router.query, page: '1', sort: `${index}` },
         });
       } else {
         router.push({
           pathname: router.pathname,
-          query: { ...router.query, sort: `${index}` }
+          query: { ...router.query, sort: `${index}` },
         });
       }
     }, 200);

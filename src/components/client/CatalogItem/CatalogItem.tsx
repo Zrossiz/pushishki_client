@@ -15,7 +15,7 @@ export const CatalogItem = ({ product, localStorageFavorites }: CatalogItemProps
     Intl.NumberFormat('ru-RU', {
       style: 'currency',
       currency: 'RUB',
-      currencyDisplay: 'symbol'
+      currencyDisplay: 'symbol',
     })
       .format(product.defaultPrice)
       .split(',')[0] + '₽';
@@ -73,7 +73,7 @@ export const CatalogItem = ({ product, localStorageFavorites }: CatalogItemProps
           </LinkButton>
           <div
             className={cn(styles.favoriteWrapper, {
-              [styles.active]: isAdded
+              [styles.active]: isAdded,
             })}
             onClick={() => addToFavorite(product)}
           >

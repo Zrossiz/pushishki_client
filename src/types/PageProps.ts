@@ -6,7 +6,7 @@ import {
   IProduct,
   IProductVariant,
   IProductWithLength,
-  IReviewWithLength
+  IReviewWithLength,
 } from '.';
 
 export interface MainPageProps {

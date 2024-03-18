@@ -6,18 +6,18 @@ const { publicRuntimeConfig } = getConfig();
 const { API_URL, BOT_URL } = publicRuntimeConfig;
 
 export const getReviewsProduct = async (
-  id: number
+  id: number,
 ): Promise<IReviewWithLength | { message: string }> => {
   try {
     const { data } = await axios.get<IReviewWithLength>(
-      `${process.env.API_URL}/review/product/${id}`
+      `${process.env.API_URL}/review/product/${id}`,
     );
 
     return data;
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при получении отзывов товара'
+      message: 'Ошибка при получении отзывов товара',
     };
   }
 };
@@ -27,7 +27,7 @@ export const postReview = async (
   name: string,
   rating: number,
   title: string,
-  desc: string
+  desc: string,
 ) => {
   try {
     const data = {
@@ -35,7 +35,7 @@ export const postReview = async (
       username: String(name),
       title: String(title),
       description: String(desc),
-      rating: +rating
+      rating: +rating,
     };
     const review = await axios.post(`${API_URL}/review`, data);
     await axios.post(`${BOT_URL}/bot/review`, {
@@ -43,13 +43,13 @@ export const postReview = async (
       username: String(name),
       title: String(title),
       description: String(desc),
-      rating: +rating
+      rating: +rating,
     });
     return 'Success';
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при публикации отзыва'
+      message: 'Ошибка при публикации отзыва',
     };
   }
 };

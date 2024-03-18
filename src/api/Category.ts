@@ -9,7 +9,7 @@ export const getCategories = async (): Promise<ICategoryWithLength | { message: 
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при получении категорий'
+      message: 'Ошибка при получении категорий',
     };
   }
 };
@@ -22,7 +22,7 @@ export const getCategory = async (slug: string): Promise<ICategory | { message: 
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при получении категории'
+      message: 'Ошибка при получении категории',
     };
   }
 };

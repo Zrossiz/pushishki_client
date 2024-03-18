@@ -33,8 +33,8 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
       query: {
         search,
         page: 1,
-        sort: 1
-      }
+        sort: 1,
+      },
     });
   };
 
@@ -46,8 +46,8 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
           breadcrumbs={[
             {
               name: 'Главная',
-              path: '/'
-            }
+              path: '/',
+            },
           ]}
           counter="0 товаров"
         />
@@ -100,7 +100,7 @@ export const getServerSideProps = async (context: any) => {
       categorires,
       bestsellers,
       products,
-      curPage
-    }
+      curPage,
+    },
   };
 };

@@ -13,8 +13,8 @@ const ContactsPage = () => {
           breadcrumbs={[
             {
               name: 'Главная',
-              path: '/'
-            }
+              path: '/',
+            },
           ]}
         />
         <section className={styles.contactsSection}>

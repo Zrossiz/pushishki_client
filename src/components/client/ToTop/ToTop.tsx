@@ -9,13 +9,13 @@ export const ToTop = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
   return (
     <div
       className={cn(styles.wrapper, {
-        [styles.hidden]: y < 200
+        [styles.hidden]: y < 200,
       })}
       onClick={() => scrollToTop()}
     >

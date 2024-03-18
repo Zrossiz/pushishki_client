@@ -9,7 +9,7 @@ export const getCountries = async (): Promise<ICountryWithLength | { message: st
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при получении стран'
+      message: 'Ошибка при получении стран',
     };
   }
 };

@@ -17,7 +17,7 @@ export const MainPageReviews = () => {
           loop
           autoplay={{
             delay: 3000,
-            disableOnInteraction: false
+            disableOnInteraction: false,
           }}
           slidesPerView={1}
           className="mySwiper"

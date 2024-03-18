@@ -18,7 +18,7 @@ export const Pagination = ({ curPage = 1, totalPages, slug }: PaginationProps) =
     setTimeout(() => {
       router.push({
         pathname: router.pathname,
-        query: newQuery
+        query: newQuery,
       });
     }, 600);
   };
@@ -30,7 +30,7 @@ export const Pagination = ({ curPage = 1, totalPages, slug }: PaginationProps) =
     setTimeout(() => {
       router.push({
         pathname: router.pathname,
-        query: newQuery
+        query: newQuery,
       });
     }, 600);
   };
@@ -42,7 +42,7 @@ export const Pagination = ({ curPage = 1, totalPages, slug }: PaginationProps) =
     setTimeout(() => {
       router.push({
         pathname: router.pathname,
-        query: newQuery
+        query: newQuery,
       });
     }, 600);
   };
@@ -80,7 +80,7 @@ export const Pagination = ({ curPage = 1, totalPages, slug }: PaginationProps) =
         return (
           <li
             className={cn(styles.paginationItem, {
-              [styles.active]: page === curPage
+              [styles.active]: page === curPage,
             })}
             key={Math.floor(Math.random() * 1000)}
           >

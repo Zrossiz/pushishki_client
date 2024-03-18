@@ -4,7 +4,7 @@ import {
   getOneProduct,
   getProductVariants,
   getReviewsProduct,
-  postReview
+  postReview,
 } from '@/api';
 import { Layout } from '@/layout/client/Layout';
 import { CardReviews, CardVideo, Form, Questions, Slider } from '@/pageComponents';
@@ -15,7 +15,7 @@ import {
   BuyOneClick,
   CardItemGallery,
   FormReview,
-  InfoPopup
+  InfoPopup,
 } from '@/components/client';
 import { useRouter } from 'next/router';
 import { AddToCartButton, HTag, LinkButton } from '@/elements';
@@ -29,7 +29,7 @@ const ProductCardPage = ({
   accessories,
   product,
   productVariants,
-  reviews
+  reviews,
 }: IProductCardPageProps) => {
   const router = useRouter();
   const [activeVariant, setActiveVariant] = useState<number>(0);
@@ -50,7 +50,7 @@ const ProductCardPage = ({
     Intl.NumberFormat('ru-RU', {
       style: 'currency',
       currency: 'RUB',
-      currencyDisplay: 'symbol'
+      currencyDisplay: 'symbol',
     })
       .format(activePrice)
       .split(',')[0] + '₽';
@@ -116,7 +116,7 @@ const ProductCardPage = ({
         productVariants && productVariants?.length > 0
           ? productVariants[activeVariant].color
           : undefined,
-      count: 1
+      count: 1,
     });
     return localStorage.setItem('cart', JSON.stringify(cart));
   };
@@ -175,7 +175,7 @@ const ProductCardPage = ({
                     <li
                       onClick={() => setOption('Описание')}
                       className={cn({
-                        [styles.active]: option === 'Описание'
+                        [styles.active]: option === 'Описание',
                       })}
                     >
                       Описание
@@ -183,7 +183,7 @@ const ProductCardPage = ({
                     <li
                       onClick={() => setOption('Характеристики')}
                       className={cn({
-                        [styles.active]: option === 'Характеристики'
+                        [styles.active]: option === 'Характеристики',
                       })}
                     >
                       Характеристики
@@ -200,16 +200,16 @@ const ProductCardPage = ({
                 breadcrumbs={[
                   {
                     name: 'Главная',
-                    path: '/'
+                    path: '/',
                   },
                   {
                     name: `Категории`,
-                    path: `/categories`
+                    path: `/categories`,
                   },
                   {
                     name: 'Каталог',
-                    path: `/categories/${router.query.slug}`
-                  }
+                    path: `/categories/${router.query.slug}`,
+                  },
                 ]}
               />
             </div>
@@ -327,7 +327,7 @@ const ProductCardPage = ({
                     key={item.id}
                     onClick={() => switchActiveVariant(index)}
                     className={cn(styles.colorOption, {
-                      [styles.active]: index === activeVariant
+                      [styles.active]: index === activeVariant,
                     })}
                     style={{ backgroundColor: item?.color }}
                   ></div>
@@ -340,7 +340,7 @@ const ProductCardPage = ({
               </div>
               <div
                 className={cn(styles.favoriteWrapper, {
-                  [styles.active]: isAdded
+                  [styles.active]: isAdded,
                 })}
                 onClick={() => addToFavorite(product)}
               >
@@ -406,7 +406,7 @@ export const getServerSideProps = async (context: { params: { slugProduct: strin
       bestSellers,
       product,
       productVariants,
-      reviews
-    }
+      reviews,
+    },
   };
 };

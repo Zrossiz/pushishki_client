@@ -21,8 +21,8 @@ const FavoritesPage = ({ accessories }: IFavoritesPageProps) => {
           breadcrumbs={[
             {
               name: 'Главная',
-              path: '/'
-            }
+              path: '/',
+            },
           ]}
         />
         {favorites.length >= 1 ? (
@@ -49,7 +49,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      accessories
-    }
+      accessories,
+    },
   };
 };

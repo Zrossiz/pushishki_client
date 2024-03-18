@@ -49,14 +49,7 @@ const OrderPage = () => {
   const router = useRouter();
 
   const checkout = async () => {
-    await postOrder(
-      name,
-      lastName,
-      address,
-      phone,
-      delivery,
-      totalProductsPrice
-    );
+    await postOrder(name, lastName, address, phone, delivery, totalProductsPrice);
     setSuccess(true);
     setDelivery('');
     setName('');
@@ -91,7 +84,7 @@ const OrderPage = () => {
     Intl.NumberFormat('ru-RU', {
       style: 'currency',
       currency: 'RUB',
-      currencyDisplay: 'symbol'
+      currencyDisplay: 'symbol',
     })
       .format(totalProductsPrice)
       .split(',')[0] + '₽';
@@ -104,8 +97,8 @@ const OrderPage = () => {
           breadcrumbs={[
             {
               name: 'Вернуться в корзину',
-              path: '/cart'
-            }
+              path: '/cart',
+            },
           ]}
         />
         {cart && cart.length >= 1 ? (
@@ -135,7 +128,7 @@ const OrderPage = () => {
                         Intl.NumberFormat('ru-RU', {
                           style: 'currency',
                           currency: 'RUB',
-                          currencyDisplay: 'symbol'
+                          currencyDisplay: 'symbol',
                         })
                           .format(item.product?.defaultPrice || 0)
                           .split(',')[0] + '₽';

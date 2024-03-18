@@ -11,7 +11,7 @@ import { ILayoutProps } from './Layout.props';
 const manrope = Manrope({
   subsets: ['latin'],
   weight: ['500', '400'],
-  preload: false
+  preload: false,
 });
 
 export const Layout = ({ children, title, description, keyWords }: ILayoutProps): JSX.Element => {

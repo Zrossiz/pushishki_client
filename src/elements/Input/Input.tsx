@@ -6,7 +6,7 @@ export const Input = ({
   value,
   onChange = () => {},
   type,
-  defaultValue
+  defaultValue,
 }: InputProps) => {
   const getInputNumbersValue = (input: HTMLInputElement) => {
     return input.value.replace(/\D/g, '');

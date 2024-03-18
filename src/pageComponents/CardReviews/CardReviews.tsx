@@ -35,7 +35,7 @@ export const CardReviews = ({ reviews, setOpen }: CardreviewsProps) => {
           </div>
           <div className={styles.sliderWrapper}>
             <Swiper className="mySwiper" slidesPerView={2}>
-              {reviews?.data.map((item, index) => {
+              {reviews?.data.map((item) => {
                 return (
                   <SwiperSlide key={item.id}>
                     <CardReview review={item} />

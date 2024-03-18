@@ -4,7 +4,7 @@ import {
   getCategories,
   getCategory,
   getCategoryProducts,
-  getCountries
+  getCountries,
 } from '@/api';
 import { Layout } from '@/layout/client/Layout';
 import { Catalog, PageTitle, Quiz, Slider } from '@/pageComponents';
@@ -17,7 +17,7 @@ const CategoryPage = ({
   curPage,
   bestSellers,
   category,
-  categories
+  categories,
 }: ICatalogPageProps) => {
   return (
     <Layout
@@ -32,12 +32,12 @@ const CategoryPage = ({
           breadcrumbs={[
             {
               name: 'Главная',
-              path: '/'
+              path: '/',
             },
             {
               name: `Категории`,
-              path: `/categories`
-            }
+              path: `/categories`,
+            },
           ]}
         />
         <Catalog brands={brands} countries={countries} products={products} curPage={curPage} />
@@ -72,7 +72,7 @@ export const getServerSideProps = async (context: any) => {
     JSON.parse(selectedBrands),
     JSON.parse(selectedCountries),
     inStock,
-    maxLoad
+    maxLoad,
   );
   const categories = await getCategories();
 
@@ -84,8 +84,8 @@ export const getServerSideProps = async (context: any) => {
       products,
       curPage,
       bestSellers,
-      categories
-    }
+      categories,
+    },
   };
 };
 

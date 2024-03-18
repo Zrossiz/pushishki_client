@@ -7,7 +7,7 @@ export const LinkButton = ({
   href = '',
   onClick = () => {},
   children,
-  disabled
+  disabled,
 }: LinkButtonProps) => {
   switch (element) {
     case 'button':

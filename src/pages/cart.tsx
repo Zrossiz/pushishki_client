@@ -107,8 +107,8 @@ const CartPage = ({ categories, accessories, bestSellers }: ICartPageProps) => {
           breadcrumbs={[
             {
               name: 'Главная',
-              path: '/'
-            }
+              path: '/',
+            },
           ]}
         />
         {totalProductsCounter > 0 ? (
@@ -148,7 +148,7 @@ export const getServerSideProps = async () => {
     props: {
       categories,
       accessories,
-      bestSellers
-    }
+      bestSellers,
+    },
   };
 };

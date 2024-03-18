@@ -10,7 +10,7 @@ export const postOrder = async (
   address: string,
   phone: string,
   delivery: string,
-  price: number
+  price: number,
 ) => {
   try {
     const order = await axios.post(`${BOT_URL}/bot/order`, {
@@ -19,14 +19,14 @@ export const postOrder = async (
       address,
       phone,
       delivery,
-      price
+      price,
     });
 
     return order.data;
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при создании заказа'
+      message: 'Ошибка при создании заказа',
     };
   }
 };

@@ -48,20 +48,20 @@ export const Slider = ({ title, products }: SliderProps) => {
           breakpoints={{
             640: {
               slidesPerView: 3,
-              spaceBetween: 20
+              spaceBetween: 20,
             },
             768: {
               slidesPerView: 3,
-              spaceBetween: 10
+              spaceBetween: 10,
             },
             968: {
               slidesPerView: 4,
-              spaceBetween: 10
+              spaceBetween: 10,
             },
             1200: {
               slidesPerView: 5,
-              spaceBetween: 20
-            }
+              spaceBetween: 20,
+            },
           }}
           modules={[Autoplay]}
         >
@@ -69,7 +69,7 @@ export const Slider = ({ title, products }: SliderProps) => {
             <SwiperButtonPrev />
             <SwiperButtonNext />
           </div>
-          {products?.map((item, index) => {
+          {products?.map((item) => {
             return (
               <SwiperSlide key={item.id}>
                 <SliderItem product={item} />

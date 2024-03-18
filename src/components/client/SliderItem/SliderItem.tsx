@@ -8,7 +8,7 @@ export const SliderItem = ({ product }: SliderItemProps) => {
     Intl.NumberFormat('ru-RU', {
       style: 'currency',
       currency: 'RUB',
-      currencyDisplay: 'symbol'
+      currencyDisplay: 'symbol',
     })
       .format(product.defaultPrice)
       .split(',')[0] + '₽';

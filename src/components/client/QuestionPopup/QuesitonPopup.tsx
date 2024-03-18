@@ -26,7 +26,7 @@ export const QuestionPopup = ({ setForm }: QuestionPopupProps) => {
       name,
       phone,
       question,
-      link: `${CLIENT_URL}${link}`
+      link: `${CLIENT_URL}${link}`,
     });
     setForm(false);
   };

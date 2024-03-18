@@ -6,8 +6,8 @@ const { publicRuntimeConfig } = getConfig();
 const { API_KEY } = publicRuntimeConfig;
 export const axiosInst = axios.create({
   headers: {
-    'api-key': API_KEY
-  }
+    'api-key': API_KEY,
+  },
 });
 
 axiosInst.interceptors.request.use(
@@ -21,5 +21,5 @@ axiosInst.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );

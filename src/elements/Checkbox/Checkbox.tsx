@@ -9,7 +9,7 @@ export const Checkbox = ({
   countryId,
   selectedBrands,
   selectedCountries,
-  type
+  type,
 }: ICheckboxProps) => {
   const onChangeBrand = (swithcBoolean: boolean, brandId: number = 1) => {
     if (selectedBrands?.includes(brandId)) {

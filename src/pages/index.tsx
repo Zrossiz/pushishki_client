@@ -164,7 +164,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 initial={{ x: 30, opacity: 0 }}
                 animate={{
                   x: infoTitleRefIsInView ? 0 : 30,
-                  opacity: infoTitleRefIsInView ? 1 : 0
+                  opacity: infoTitleRefIsInView ? 1 : 0,
                 }}
                 className={styles.titleWrapper}
               >
@@ -246,7 +246,7 @@ export const getStaticProps = async () => {
     props: {
       bestSellers,
       newProducts,
-      categories
-    }
+      categories,
+    },
   };
 };

@@ -37,7 +37,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
         [],
         [],
         true,
-        maximumLoad
+        maximumLoad,
       );
       if ('data' in products && products.length === 0) {
         router.push(`/categories/${category}`);
@@ -71,7 +71,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                         key={item.id}
                         onClick={() => setCategory(item.slug)}
                         className={cn(styles.category, {
-                          [styles.active]: item.slug === category
+                          [styles.active]: item.slug === category,
                         })}
                       >
                         {item.name}

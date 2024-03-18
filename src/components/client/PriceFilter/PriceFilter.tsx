@@ -5,7 +5,7 @@ export const PriceFilter = ({
   priceRangeFrom,
   setPriceRangeFrom,
   priceRangeTo,
-  setPriceRangeTo
+  setPriceRangeTo,
 }: IPriceFilterProps) => {
   return (
     <>

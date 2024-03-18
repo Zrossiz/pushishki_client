@@ -35,7 +35,7 @@ export const Questions = () => {
                 return (
                   <li
                     className={cn({
-                      [styles.green]: menu === index
+                      [styles.green]: menu === index,
                     })}
                     onClick={() => changeTheme(index)}
                     key={index}
@@ -52,7 +52,7 @@ export const Questions = () => {
           <div className={styles.questionsWrapper}>
             <div className={styles.questions}>
               <ul>
-                {themes[menu].questions.map((item, index) => {
+                {themes[menu].questions.map((item) => {
                   return (
                     <Question key={Math.random()} question={item.question} answer={item.answer} />
                   );
