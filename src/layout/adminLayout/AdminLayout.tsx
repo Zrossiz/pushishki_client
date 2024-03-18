@@ -51,6 +51,11 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
                 return router.push('/auth/login');
             }
         })();
+        for (let i = 0; i <= entities.length; i++) {
+            if (entities[i]?.slug === pagePath) {
+                setActive(entities[i]?.name)
+            }
+        };
     }, []);
 
     const switchEntity = async (entity: {name: string, slug: string}) => {
