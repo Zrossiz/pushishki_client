@@ -112,3 +112,15 @@ export const findProducts = async (
     };
   }
 };
+
+export const getAllProducts = async (page?: number): Promise<IProductWithLength | { message: string }> => {
+  try {
+    const products = await axios.get(`${API_URL}/product?page=${page}`);
+    return products.data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при получении товаров',
+    };
+  }
+}

@@ -9,7 +9,7 @@ import styles from './AdminLayout.module.scss';
 
 export const AdminLayout = ({ children }: AdminLayoutProps) => {
   const router = useRouter();
-  const [active, setActive] = useState<string>('Товар');
+  const [active, setActive] = useState<string>('Пушишки');
 
   const pagePath = router.asPath.split('/admin/')[1];
 
@@ -52,7 +52,7 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
       }
     })();
     for (let i = 0; i <= entities.length; i++) {
-      if (entities[i]?.slug === pagePath) {
+      if (entities[i]?.slug === pagePath && pagePath !== undefined) {
         setActive(entities[i]?.name);
       }
     }
