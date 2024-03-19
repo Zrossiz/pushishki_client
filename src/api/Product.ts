@@ -113,7 +113,9 @@ export const findProducts = async (
   }
 };
 
-export const getAllProducts = async (page?: number): Promise<IProductWithLength | { message: string }> => {
+export const getAllProducts = async (
+  page?: number,
+): Promise<IProductWithLength | { message: string }> => {
   try {
     const products = await axios.get(`${API_URL}/product?page=${page}`);
     return products.data;
@@ -123,4 +125,4 @@ export const getAllProducts = async (page?: number): Promise<IProductWithLength 
       message: 'Ошибка при получении товаров',
     };
   }
-}
+};

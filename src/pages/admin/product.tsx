@@ -7,7 +7,9 @@ import { ProductListItem } from '@/components/admin';
 
 const ProductPage = () => {
   const [products, setProducts] = useState<IProductWithLength | { message: string }>();
-  const [foundedProducts, setFoundedProducts] = useState<IProductWithLength | { message: string }>();
+  const [foundedProducts, setFoundedProducts] = useState<
+    IProductWithLength | { message: string }
+  >();
   const [page, setPage] = useState<number>(1);
   const [search, setSearch] = useState<string>('');
 
@@ -26,36 +28,38 @@ const ProductPage = () => {
 
   useEffect(() => {
     (async () => {
-      const products: IProductWithLength | { message: string } = await findProducts(search, String(page));
-      // setProducts({ message: 'Ничего нет' })
+      const products: IProductWithLength | { message: string } = await findProducts(
+        search,
+        String(page),
+      );
       setFoundedProducts(products);
-    })()
+    })();
   }, [search]);
 
   return (
     <AdminLayout>
       <>
         <div className={styles.addButtonWrapper}>
-          <button>
-            Добавить товар
-          </button>
-          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Найти товар' />
+          <button>Добавить товар</button>
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Найти товар"
+          />
         </div>
         <div className={styles.listWrapper}>
-          {search.length >= 1 ? 
-            foundedProducts && 'data' in foundedProducts && 
-            foundedProducts.data.map((item: IProduct) => {
-              return (
-                <ProductListItem product={item} key={item.id} />
-              )
-            }) :
-            products && 'data' in products && 
-            products.data.map((item: IProduct) => {
-              return (
-                <ProductListItem product={item} key={item.id} />
-              )
-            })
-          }
+          {search.length >= 1
+            ? foundedProducts &&
+              'data' in foundedProducts &&
+              foundedProducts.data.map((item: IProduct) => {
+                return <ProductListItem product={item} key={item.id} />;
+              })
+            : products &&
+              'data' in products &&
+              products.data.map((item: IProduct) => {
+                return <ProductListItem product={item} key={item.id} />;
+              })}
         </div>
       </>
     </AdminLayout>

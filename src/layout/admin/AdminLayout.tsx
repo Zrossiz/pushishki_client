@@ -58,10 +58,10 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
     for (let i = 0; i <= entities.length; i++) {
       if (entities[i]?.slug === pagePath) {
         setActive(entities[i]?.name);
-      };
+      }
       if (pagePath === undefined) {
-        setActive('Дашборд')
-      };
+        setActive('Дашборд');
+      }
     }
   }, []);
 
