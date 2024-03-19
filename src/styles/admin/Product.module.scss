@@ -1,0 +1,15 @@
+.addButtonWrapper {
+
+    button {
+        border-radius: 12px;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 26px;
+        transition: 0.2s;
+
+        &:hover {
+            box-shadow: 8px 8px 10px;
+        }
+    }
+}

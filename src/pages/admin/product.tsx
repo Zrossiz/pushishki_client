@@ -2,6 +2,7 @@ import { getAllProducts } from '@/api';
 import { AdminLayout } from '@/layout/admin/AdminLayout';
 import { IProductWithLength } from '@/types';
 import { useEffect, useState } from 'react';
+import styles from '../../styles/admin/Product.module.scss';
 
 const ProductPage = () => {
   let products: IProductWithLength | { message: string };
@@ -10,14 +11,17 @@ const ProductPage = () => {
   useEffect(() => {
     (async () => {
       products = await getAllProducts(page);
-      console.log(products);
     })();
   }, []);
   
 
   return (
     <AdminLayout>
-      <div>товар</div>
+      <div className={styles.addButtonWrapper}>
+        <button>
+          Добавить товар
+        </button>
+      </div>
     </AdminLayout>
   );
 };
