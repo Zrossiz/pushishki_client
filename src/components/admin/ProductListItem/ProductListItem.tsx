@@ -2,11 +2,16 @@ import { ProductListItemProps } from './ProductListItem.props';
 import styles from './ProductListItem.module.scss';
 import Image from 'next/image';
 import getConfig from 'next/config';
+import { useState } from 'react';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const ProductListItem = ({ product }: ProductListItemProps) => {
+  const [remove, setRemove] = useState<boolean>(false);
+  
+
+
   return (
     <div className={styles.itemWrapper}>
       <div className={styles.image}>
@@ -76,7 +81,7 @@ export const ProductListItem = ({ product }: ProductListItemProps) => {
             </defs>
           </svg>
         </div>
-        <div className={styles.delete}>
+        <div className={styles.delete} onClick={() => setRemove(true)}>
           <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />
         </div>
       </div>
