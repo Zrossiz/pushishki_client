@@ -9,11 +9,15 @@ import styles from './AdminLayout.module.scss';
 
 export const AdminLayout = ({ children }: AdminLayoutProps) => {
   const router = useRouter();
-  const [active, setActive] = useState<string>('Пушишки');
+  const [active, setActive] = useState<string>('Дашборд');
 
   const pagePath = router.asPath.split('/admin/')[1];
 
   const entities: { name: string; slug: string }[] = [
+    {
+      name: 'Дашборд',
+      slug: '/',
+    },
     {
       name: 'Страна',
       slug: 'country',
@@ -52,9 +56,12 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
       }
     })();
     for (let i = 0; i <= entities.length; i++) {
-      if (entities[i]?.slug === pagePath && pagePath !== undefined) {
+      if (entities[i]?.slug === pagePath) {
         setActive(entities[i]?.name);
-      }
+      };
+      if (pagePath === undefined) {
+        setActive('Дашборд')
+      };
     }
   }, []);
 
@@ -75,7 +82,7 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
               return (
                 <li
                   className={cn(styles.item, {
-                    [styles.active]: item.slug === pagePath,
+                    [styles.active]: item.name === active,
                   })}
                   key={index}
                   onClick={() => switchEntity(item)}
