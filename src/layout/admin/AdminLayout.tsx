@@ -16,7 +16,7 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
   const entities: { name: string; slug: string }[] = [
     {
       name: 'Дашборд',
-      slug: '/',
+      slug: '',
     },
     {
       name: 'Страна',
@@ -52,7 +52,7 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
     (async () => {
       const isLogin = await checkUser();
       if (isLogin.message.startsWith('Ошибка')) {
-        return router.push('/auth/login');
+        return router.push('/');
       }
     })();
     for (let i = 0; i <= entities.length; i++) {
