@@ -3,7 +3,7 @@ import { AdminLayout } from '@/layout/admin/AdminLayout';
 import { IProduct, IProductWithLength } from '@/types';
 import { useEffect, useState } from 'react';
 import styles from '../../styles/admin/Product.module.scss';
-import { ProductListItem } from '@/components/admin';
+import { ProductForm, ProductListItem } from '@/components/admin';
 
 const ProductPage = () => {
   const [products, setProducts] = useState<IProductWithLength | { message: string }>();
@@ -12,6 +12,7 @@ const ProductPage = () => {
   >();
   const [page, setPage] = useState<number>(1);
   const [search, setSearch] = useState<string>('');
+  const [create, setCreate] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -39,8 +40,9 @@ const ProductPage = () => {
   return (
     <AdminLayout>
       <>
+        {create && <ProductForm />}
         <div className={styles.addButtonWrapper}>
-          <button>Добавить товар</button>
+          <button onClick={() => setCreate(true)}>Добавить товар</button>
           <input
             type="text"
             value={search}
