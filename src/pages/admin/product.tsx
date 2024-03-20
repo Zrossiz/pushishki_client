@@ -40,7 +40,7 @@ const ProductPage = () => {
   return (
     <AdminLayout>
       <>
-        {create && <ProductForm />}
+        {create && <ProductForm setOpen={setCreate} />}
         <div className={styles.addButtonWrapper}>
           <button onClick={() => setCreate(true)}>Добавить товар</button>
           <input
