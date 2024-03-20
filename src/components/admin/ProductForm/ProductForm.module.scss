@@ -24,5 +24,20 @@
         z-index: 2;
         height: 400px;
         width: 400px;
+
+        .selectWrapper {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+
+            label {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            div {
+                border-radius: 6px;
+            }
+        }
     }
 }
