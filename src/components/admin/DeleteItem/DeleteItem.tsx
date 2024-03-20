@@ -1,5 +1,3 @@
 export const DeleteItem = () => {
-    return (
-        <div>Удалить</div>
-    )
-}
+  return <div>Удалить</div>;
+};

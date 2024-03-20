@@ -9,8 +9,6 @@ const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const ProductListItem = ({ product }: ProductListItemProps) => {
   const [remove, setRemove] = useState<boolean>(false);
-  
-
 
   return (
     <div className={styles.itemWrapper}>
