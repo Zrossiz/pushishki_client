@@ -54,3 +54,9 @@ export interface ICartPageProps {
   bestSellers?: IProduct[];
   categories?: ICategoryWithLength;
 }
+
+export interface IAdminProduct {
+  categories: ICategoryWithLength,
+  countries: ICategoryWithLength,
+  brands: IBrandWithLength,
+}

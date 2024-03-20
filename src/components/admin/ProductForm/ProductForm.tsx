@@ -1,41 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './ProductForm.module.scss';
 import { ProductFormProps } from './ProductForm.props';
-import { IBrandWithLength, ICategoryWithLength, ICountryWithLength } from '@/types';
-import { getBrands, getCategories, getCountries } from '@/api';
 
-export const ProductForm = ({ setOpen }: ProductFormProps) => {
-  const [countries, setCountries] = useState<ICountryWithLength>();
-  const [brands, setBrands] = useState<IBrandWithLength>();
-  const [categories, setCategories] = useState<ICategoryWithLength>();
-
-  const [selectedCountry, setSelectedCountry] = useState<number>(countries?.data[0].id ?? 1);
-
-  useEffect(() => {
-    (async () => {
-      const countries = await getCountries();
-      const brands = await getBrands();
-      const categories = await getCategories();
-
-      if ('data' in countries) {
-        setCountries(countries);
-      }
-
-      if ('data' in brands) {
-        setBrands(brands);
-      }
-
-      if ('data' in categories) {
-        setCategories(categories);
-      }
-    })();
-  }, []);
+export const ProductForm = ({ setOpen, countries, categories, brands, }: ProductFormProps) => {
+  const [selectedCountry, setSelectedCountry] = useState<number>();
+  const [selectedBrand, setSelectedBrand] = useState<number>();
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.bg} onClick={() => setOpen(false)}></div>
       <div className={styles.formWrapper}>
-        <label htmlFor="countries">Выберите страну</label>
+        <label htmlFor="countries">Страна</label>
         <select
           name="countries"
           id="countries"
@@ -44,6 +19,12 @@ export const ProductForm = ({ setOpen }: ProductFormProps) => {
         >
           {countries?.data.map((item) => {
             return <option value={item.id}>{item.name}</option>;
+          })}
+        </select>
+        <label htmlFor="brands">Бренд</label>
+        <select name="brands" id="brands" value={selectedBrand} onChange={e => setSelectedBrand(+e.target.value)}>
+          {brands.data.map((item) => {
+            return <option value={item.id}>{item.name}</option>
           })}
         </select>
       </div>

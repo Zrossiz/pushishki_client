@@ -1,11 +1,11 @@
-import { findProducts, getAllProducts } from '@/api';
+import { findProducts, getAllProducts, getBrands, getCategories, getCountries } from '@/api';
 import { AdminLayout } from '@/layout/admin/AdminLayout';
-import { IProduct, IProductWithLength } from '@/types';
+import { IAdminProduct, IProduct, IProductWithLength } from '@/types';
 import { useEffect, useState } from 'react';
 import styles from '../../styles/admin/Product.module.scss';
 import { ProductForm, ProductListItem } from '@/components/admin';
 
-const ProductPage = () => {
+const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
   const [products, setProducts] = useState<IProductWithLength | { message: string }>();
   const [foundedProducts, setFoundedProducts] = useState<
     IProductWithLength | { message: string }
@@ -40,7 +40,7 @@ const ProductPage = () => {
   return (
     <AdminLayout>
       <>
-        {create && <ProductForm setOpen={setCreate} />}
+        {create && <ProductForm setOpen={setCreate} countries={countries} brands={brands} categories={categories} />}
         <div className={styles.addButtonWrapper}>
           <button onClick={() => setCreate(true)}>Добавить товар</button>
           <input
@@ -69,3 +69,17 @@ const ProductPage = () => {
 };
 
 export default ProductPage;
+
+export const getServerSideProps = async () => {
+  const countries = await getCountries();
+  const brands = await getBrands();
+  const categories = await getCategories();
+
+  return {
+    props: {
+      categories,
+      countries,
+      brands,
+    },
+  };
+}
