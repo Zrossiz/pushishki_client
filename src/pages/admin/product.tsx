@@ -40,7 +40,14 @@ const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
   return (
     <AdminLayout>
       <>
-        {create && <ProductForm setOpen={setCreate} countries={countries} brands={brands} categories={categories} />}
+        {create && (
+          <ProductForm
+            setOpen={setCreate}
+            countries={countries}
+            brands={brands}
+            categories={categories}
+          />
+        )}
         <div className={styles.addButtonWrapper}>
           <button onClick={() => setCreate(true)}>Добавить товар</button>
           <input
@@ -82,4 +89,4 @@ export const getServerSideProps = async () => {
       brands,
     },
   };
-}
+};

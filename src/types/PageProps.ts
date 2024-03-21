@@ -56,7 +56,7 @@ export interface ICartPageProps {
 }
 
 export interface IAdminProduct {
-  categories: ICategoryWithLength,
-  countries: ICategoryWithLength,
-  brands: IBrandWithLength,
+  categories: ICategoryWithLength;
+  countries: ICategoryWithLength;
+  brands: IBrandWithLength;
 }

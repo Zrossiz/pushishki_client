@@ -3,25 +3,25 @@ import styles from './ProductForm.module.scss';
 import { ProductFormProps } from './ProductForm.props';
 import Select from 'react-select';
 
-export const ProductForm = ({ setOpen, countries, categories, brands, }: ProductFormProps) => {
+export const ProductForm = ({ setOpen, countries, categories, brands }: ProductFormProps) => {
   const [selectedCountry, setSelectedCountry] = useState<number>();
   const [selectedBrand, setSelectedBrand] = useState<number>();
   const [selectedCategory, setSelectedCategory] = useState<number>();
 
   const countryOptions = countries?.data.map((item) => ({
     value: item.id,
-    label: item.name
+    label: item.name,
   }));
 
   const brandOptions = brands?.data.map((item) => ({
     value: item.id,
-    label: item.name
+    label: item.name,
   }));
 
   const categoryOptions = categories?.data.map((item) => ({
     value: item.id,
-    label: item.name
-  }))
+    label: item.name,
+  }));
 
   return (
     <div className={styles.wrapper}>
@@ -29,10 +29,10 @@ export const ProductForm = ({ setOpen, countries, categories, brands, }: Product
       <div className={styles.formWrapper}>
         <div className={styles.selectWrapper}>
           <label htmlFor="countries">Страна</label>
-          <Select 
-            id='countries'
+          <Select
+            id="countries"
             options={countryOptions}
-            value={countryOptions.find(option => option.value === selectedCountry)}
+            value={countryOptions.find((option) => option.value === selectedCountry)}
             onChange={(selectedOption) => setSelectedCountry(selectedOption?.value)}
             theme={(theme) => ({
               ...theme,
@@ -46,10 +46,10 @@ export const ProductForm = ({ setOpen, countries, categories, brands, }: Product
         </div>
         <div className={styles.selectWrapper}>
           <label htmlFor="brands">Бренд</label>
-          <Select 
-            id='brands'
+          <Select
+            id="brands"
             options={brandOptions}
-            value={brandOptions.find(option => option.value === selectedBrand)}
+            value={brandOptions.find((option) => option.value === selectedBrand)}
             onChange={(selectedOption) => setSelectedBrand(selectedOption?.value)}
             theme={(theme) => ({
               ...theme,
@@ -63,10 +63,10 @@ export const ProductForm = ({ setOpen, countries, categories, brands, }: Product
         </div>
         <div className={styles.selectWrapper}>
           <label htmlFor="categories">Категория</label>
-          <Select 
-            id='categories'
+          <Select
+            id="categories"
             options={categoryOptions}
-            value={categoryOptions.find(option => option.value === selectedCategory)}
+            value={categoryOptions.find((option) => option.value === selectedCategory)}
             onChange={(selectedOption) => setSelectedCategory(selectedOption?.value)}
             theme={(theme) => ({
               ...theme,
