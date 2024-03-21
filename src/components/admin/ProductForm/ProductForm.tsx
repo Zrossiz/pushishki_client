@@ -56,7 +56,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
   return (
     <div className={styles.wrapper}>
       <div className={styles.bg} onClick={() => setOpen(false)}></div>
-      <div className={styles.formWrapper}>
+      <form className={styles.formWrapper}>
         <HTag tag='h3'>Обязательные параметры</HTag>
         <div className={styles.requiredWrapper}>
           <div className={styles.select}>
@@ -75,6 +75,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
                   },
                 })}
                 placeholder={'Выберите страну'}
+                required
               />
             </div>
             <div className={styles.selectWrapper}>
@@ -109,6 +110,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
                   },
                 })}
                 placeholder={'Выберите категорию'}
+                required
               />
             </div>
           </div>
@@ -120,6 +122,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
                 placeholder="Введите название товара"
                 value={selectedName}
                 onChange={(e) => setSelectedName(e.target.value)}
+                required
               />
             </div>
             <div className={styles.inputWrapper}>
@@ -129,6 +132,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
                 placeholder="Введите стоимость товара"
                 value={defaultPrice}
                 onChange={(e) => setDefaultPrice(+e.target.value)}
+                required
               />
             </div>
             <div className={styles.inputWrapper}>
@@ -138,6 +142,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
                 placeholder="Введите артикул товара товара"
                 value={articul}
                 onChange={(e) => setArticul(e.target.value)}
+                required
               />
             </div>
             <div className={styles.inputWrapper}>
@@ -146,12 +151,13 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
                 placeholder="Введите описание товара товара"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                required
               />
             </div>
           </div>
         </div>
-        <div onClick={() => postProduct()}>send</div>
-      </div>
+        <button onClick={() => postProduct()}></button>
+      </form>
     </div>
   );
 };
