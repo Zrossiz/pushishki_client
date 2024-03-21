@@ -3,14 +3,15 @@ import styles from './ProductForm.module.scss';
 import { ProductFormProps } from './ProductForm.props';
 import Select from 'react-select';
 import { HTag } from '@/elements';
+import { create } from '@/api';
 
 export const ProductForm = ({ setOpen, countries, categories, brands }: ProductFormProps) => {
-  const [selectedCountry, setSelectedCountry] = useState<number>();
-  const [selectedBrand, setSelectedBrand] = useState<number>();
-  const [selectedCategory, setSelectedCategory] = useState<number>();
-  const [selectedName, setSelectedName] = useState<string>();
-  const [description, setDescription] = useState<string>();
-  const [articul, setArticul] = useState<string>();
+  const [selectedCountry, setSelectedCountry] = useState<number>(1);
+  const [selectedBrand, setSelectedBrand] = useState<number>(1);
+  const [selectedCategory, setSelectedCategory] = useState<number>(1);
+  const [selectedName, setSelectedName] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [articul, setArticul] = useState<string>('');
   const [gearbox, setGearbox] = useState<string>();
   const [battery, setBattery] = useState<string>();
   const [maximumLoad, setMaximumLoad] = useState<number>();
@@ -20,7 +21,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
   const [image, setImage] = useState<string>();
   const [bestSeller, setBestSeller] = useState<boolean>();
   const [newModel, setNewModel] = useState<boolean>();
-  const [defaultPrice, setDefaultPrice] = useState<number>();
+  const [defaultPrice, setDefaultPrice] = useState<number>(0);
   const [characteristics, setCharacteristics] = useState<string>();
 
   const countryOptions = countries?.data.map((item) => ({
@@ -38,6 +39,20 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
     label: item.name,
   }));
 
+  const postProduct = () => {
+    (async () => {
+      await create(
+        selectedCountry,
+        selectedBrand,
+        selectedCategory,
+        selectedName,
+        description,
+        defaultPrice,
+        articul
+      );
+    })();
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.bg} onClick={() => setOpen(false)}></div>
@@ -51,7 +66,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
                 id="countries"
                 options={countryOptions}
                 value={countryOptions.find((option) => option.value === selectedCountry)}
-                onChange={(selectedOption) => setSelectedCountry(selectedOption?.value)}
+                onChange={(selectedOption) => setSelectedCountry(selectedOption?.value ?? 1)}
                 theme={(theme) => ({
                   ...theme,
                   colors: {
@@ -68,7 +83,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
                 id="brands"
                 options={brandOptions}
                 value={brandOptions.find((option) => option.value === selectedBrand)}
-                onChange={(selectedOption) => setSelectedBrand(selectedOption?.value)}
+                onChange={(selectedOption) => setSelectedBrand(selectedOption?.value ?? 1)}
                 theme={(theme) => ({
                   ...theme,
                   colors: {
@@ -85,7 +100,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
                 id="categories"
                 options={categoryOptions}
                 value={categoryOptions.find((option) => option.value === selectedCategory)}
-                onChange={(selectedOption) => setSelectedCategory(selectedOption?.value)}
+                onChange={(selectedOption) => setSelectedCategory(selectedOption?.value ?? 1)}
                 theme={(theme) => ({
                   ...theme,
                   colors: {
@@ -135,6 +150,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
             </div>
           </div>
         </div>
+        <div onClick={() => postProduct()}>send</div>
       </div>
     </div>
   );

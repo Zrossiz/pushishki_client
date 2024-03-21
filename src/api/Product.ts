@@ -1,4 +1,5 @@
 import { IProduct, IProductWithLength } from '@/types';
+import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
 
@@ -126,3 +127,34 @@ export const getAllProducts = async (
     };
   }
 };
+
+export const create = async (
+  countryId: number,
+  brandId: number,
+  categoryId: number,
+  name: string,
+  description: string,
+  defaultPrice: number,
+  articul: string,
+) => {
+  try {
+    const product = await axiosInst.post(`${API_URL}/product`, {
+      countryId,
+      brandId,
+      categoryId,
+      name,
+      description,
+      defaultPrice,
+      articul,
+    }).then(() => {
+      console.log(true);
+    }).catch((err) => {
+      console.log(err);
+    });
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при создании товара товаров',
+    };
+  }
+}
