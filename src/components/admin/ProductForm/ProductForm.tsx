@@ -7,6 +7,19 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
   const [selectedCountry, setSelectedCountry] = useState<number>();
   const [selectedBrand, setSelectedBrand] = useState<number>();
   const [selectedCategory, setSelectedCategory] = useState<number>();
+  const [selectedName, setSelectedName] = useState<string>();
+  const [description, setDescription] = useState<string>();
+  const [articul, setArticul] = useState<string>();
+  const [gearbox, setGearbox] = useState<string>();
+  const [battery, setBattery] = useState<string>();
+  const [maximumLoad, setMaximumLoad] = useState<number>();
+  const [assembledModelSize, setAssembledModelSize] = useState<string>();
+  const [modelSizeInPackage, setModelSizeInPackage] = useState<string>();
+  const [video, setVideo] = useState<string>();
+  const [image, setImage] = useState<string>();
+  const [bestSeller, setBestSeller] = useState<boolean>();
+  const [newModel, setNewModel] = useState<boolean>();
+  const [defaultPrice, setDefaultPrice] = useState<number>();
 
   const countryOptions = countries?.data.map((item) => ({
     value: item.id,
