@@ -13,9 +13,15 @@ export const ProductForm = ({ setOpen, countries, categories, brands, }: Product
     label: item.name
   }));
 
-  const handleChangetCountry = (selectedOption: any) => {
-    setSelectedCountry(selectedOption.value);
-  };
+  const brandOptions = brands?.data.map((item) => ({
+    value: item.id,
+    label: item.name
+  }));
+
+  const categoryOptions = categories?.data.map((item) => ({
+    value: item.id,
+    label: item.name
+  }))
 
   return (
     <div className={styles.wrapper}>
@@ -27,7 +33,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands, }: Product
             id='countries'
             options={countryOptions}
             value={countryOptions.find(option => option.value === selectedCountry)}
-            onChange={handleChangetCountry}
+            onChange={(selectedOption) => setSelectedCountry(selectedOption?.value)}
             theme={(theme) => ({
               ...theme,
               colors: {
@@ -40,19 +46,37 @@ export const ProductForm = ({ setOpen, countries, categories, brands, }: Product
         </div>
         <div className={styles.selectWrapper}>
           <label htmlFor="brands">Бренд</label>
-          <select name="brands" id="brands" value={selectedBrand} onChange={e => setSelectedBrand(+e.target.value)}>
-            {brands.data.map((item) => {
-              return <option value={item.id}>{item.name}</option>
+          <Select 
+            id='brands'
+            options={brandOptions}
+            value={brandOptions.find(option => option.value === selectedBrand)}
+            onChange={(selectedOption) => setSelectedBrand(selectedOption?.value)}
+            theme={(theme) => ({
+              ...theme,
+              colors: {
+                ...theme.colors,
+                primary: 'green',
+              },
             })}
-          </select>
+            placeholder={'Выберите бренд'}
+          />
         </div>
         <div className={styles.selectWrapper}>
           <label htmlFor="categories">Категория</label>
-          <select name="categories" id="categories" value={selectedCategory} onChange={(e) => setSelectedCategory(+e.target.value)}>
-            {categories.data.map((item) => {
-              return <option value={item.id}>{item.name}</option>
+          <Select 
+            id='categories'
+            options={categoryOptions}
+            value={categoryOptions.find(option => option.value === selectedCategory)}
+            onChange={(selectedOption) => setSelectedCategory(selectedOption?.value)}
+            theme={(theme) => ({
+              ...theme,
+              colors: {
+                ...theme.colors,
+                primary: 'green',
+              },
             })}
-          </select>
+            placeholder={'Выберите категорию'}
+          />
         </div>
       </div>
     </div>
