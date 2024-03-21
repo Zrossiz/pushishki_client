@@ -82,11 +82,11 @@ export const Input = ({
 
   return (
     <>
-      {type === 'text' ? (
+      {type === 'text' || type === 'password' ? (
         <input
           className={styles.input}
           value={value}
-          type="text"
+          type={type}
           placeholder={placeholder}
           onChange={(e) => onChange(e.target.value)}
           defaultValue={defaultValue}

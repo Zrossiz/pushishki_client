@@ -36,7 +36,7 @@ const LoginPage = () => {
             Введите логин и пароль
           </HTag>
           <Input type={'text'} value={name} onChange={setName} placeholder="Имя" />
-          <Input type={'text'} value={password} onChange={setPassword} placeholder="Пароль" />
+          <Input type={'password'} value={password} onChange={setPassword} placeholder="Пароль" />
           {error && <div className={styles.errorWrapper}>{error}</div>}
           <LinkButton element={'button'} onClick={login}>
             Войти
