@@ -48,16 +48,16 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
         selectedName,
         description,
         defaultPrice,
-        articul
+        articul,
       );
     })();
-  }
+  };
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.bg} onClick={() => setOpen(false)}></div>
       <form className={styles.formWrapper}>
-        <HTag tag='h3'>Обязательные параметры</HTag>
+        <HTag tag="h3">Обязательные параметры</HTag>
         <div className={styles.requiredWrapper}>
           <div className={styles.select}>
             <div className={styles.selectWrapper}>

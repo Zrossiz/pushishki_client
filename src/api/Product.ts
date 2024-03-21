@@ -138,23 +138,26 @@ export const create = async (
   articul: string,
 ) => {
   try {
-    const product = await axiosInst.post(`${API_URL}/product`, {
-      countryId,
-      brandId,
-      categoryId,
-      name,
-      description,
-      defaultPrice,
-      articul,
-    }).then(() => {
-      console.log(true);
-    }).catch((err) => {
-      console.log(err);
-    });
+    const product = await axiosInst
+      .post(`${API_URL}/product`, {
+        countryId,
+        brandId,
+        categoryId,
+        name,
+        description,
+        defaultPrice,
+        articul,
+      })
+      .then(() => {
+        console.log(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   } catch (err) {
     console.log(err);
     return {
       message: 'Ошибка при создании товара товаров',
     };
   }
-}
+};
