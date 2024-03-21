@@ -18,29 +18,22 @@
     }
 
     .formWrapper {
+        display: flex;
         padding: 40px;
         background-color: var(--white);
         border-radius: 40px;
         z-index: 2;
+        overflow: auto;
+        gap: 80px;
+        max-height: 80%;
 
         .requiredWrapper {
             display: flex;
+            flex-direction: column;
             gap: 20px;
             padding-bottom: 20px;
             border-bottom: 2px solid var(--medium-grey);
-
-            .select {
-                display: flex;
-                flex-direction: column;
-                width: 40%;
-            }
-
-            .inputs {
-                display: flex;
-                flex-direction: column;
-                margin-left: 100px;
-                width: 50%;
-            }
+            margin-right: 40px;
         }
 
         .selectWrapper {
