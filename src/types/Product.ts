@@ -48,8 +48,8 @@ export interface ICreateProduct {
   modelSizeInPackage?: string;
   video?: string;
   image?: string;
-  bestSeller?: boolean;
-  newModel?: boolean;
+  bestseller?: boolean;
+  new?: boolean;
   characteristics?: string;
   metaTitle?: string;
   metaDescription?: string;

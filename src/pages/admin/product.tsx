@@ -76,20 +76,23 @@ const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
                 return <ProductListItem product={item} key={item.id} />;
               })}
         </div>
-        <div className={styles.paginationWrapper}>
-          {pagesArr.map((item) => {
-            return (
-              <div
-                className={cn(styles.button, {
-                  [styles.active]: item === page,
-                })}
-                onClick={() => setPage(item)}
-              >
-                {item}
-              </div>
-            );
-          })}
-        </div>
+        {
+          search.length === 0 &&
+          <div className={styles.paginationWrapper}>
+            {pagesArr.map((item) => {
+              return (
+                <div
+                  className={cn(styles.button, {
+                    [styles.active]: item === page,
+                  })}
+                  onClick={() => setPage(item)}
+                >
+                  {item}
+                </div>
+              );
+            })}
+          </div>
+        }
       </>
     </AdminLayout>
   );
