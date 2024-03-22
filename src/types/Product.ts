@@ -32,3 +32,26 @@ export interface IProduct {
   slug: string;
   characteristics?: string;
 }
+
+export interface ICreateProduct {
+  country: number;
+  brand: number;
+  category: number;
+  name: string;
+  description: string;
+  defaultPrice: number;
+  articul: string;
+  gearBox?: string;
+  battery?: string;
+  maximumLoad?: number;
+  assembledModelSize?: string;
+  modelSizeInPackage?: string;
+  video?: string;
+  image?: string;
+  bestSeller?: boolean;
+  newModel?: boolean;
+  characteristics?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  metaKeyWords?: string;
+}
