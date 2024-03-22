@@ -218,6 +218,15 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
                   required
                 />
               </div>
+              <div className={styles.inputWrapper}>
+                <label>Характеристики</label>
+                <textarea
+                  placeholder="Характеристики товара"
+                  value={characteristics}
+                  onChange={(e) => setCharacteristics(e.target.value)}
+                  required
+                />
+              </div>
             </div>
           </div>
         </div>
