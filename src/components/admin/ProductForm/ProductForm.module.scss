@@ -52,33 +52,34 @@
                     border-radius: 6px;
                 }
             }
-    
-            .inputWrapper {
-                display: flex;
-                flex-direction: column;
-                margin-top: 20px;
-    
-                label {
-                    font-size: 24px;
-                    margin-bottom: 10px;
-                }
-    
-                input, textarea {
-                    background-color: var(--white);
-                    border-radius: 6px;
-                    border: 1px solid var(--medium-grey);
-                    padding: 6px;
-                    font-size: 20px;
-    
-                    &:focus {
-                        outline: 1px solid green;
-                    }
-                }
-            }
         }
 
         .seoWrapper {
             margin-top: 20px;
+            width: 40%;
+        }
+    }
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    label {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    input, textarea {
+        background-color: var(--white);
+        border-radius: 6px;
+        border: 1px solid var(--medium-grey);
+        padding: 6px;
+        font-size: 20px;
+
+        &:focus {
+            outline: 1px solid green;
         }
     }
 }

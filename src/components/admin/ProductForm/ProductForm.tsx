@@ -23,6 +23,9 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
   const [newModel, setNewModel] = useState<boolean>();
   const [defaultPrice, setDefaultPrice] = useState<number>(0);
   const [characteristics, setCharacteristics] = useState<string>();
+  const [metaTitle, setMetaTitle] = useState<string>();
+  const [metaDescription, setMetaDescription] = useState<string>();
+  const [metaKeyWords, setMetaKeyWords] = useState<string>();
 
   const countryOptions = countries?.data.map((item) => ({
     value: item.id,
@@ -232,6 +235,35 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
         </div>
         <div className={styles.seoWrapper}>
           <HTag tag='h3'>СЕО</HTag>
+          <div className={styles.inputWrapper}>
+            <label>Заголовок страницы</label>
+            <input
+              type="text"
+              placeholder="Введите заголовок товара"
+              value={metaTitle}
+              onChange={(e) => setMetaTitle(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.inputWrapper}>
+            <label>Ключевые слова</label>
+            <input
+              type="text"
+              placeholder="Введите ключевые слова для товара"
+              value={metaKeyWords}
+              onChange={(e) => setMetaKeyWords(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.inputWrapper}>
+            <label>Описание товара</label>
+            <textarea
+              placeholder="Введите описание страницы"
+              value={metaDescription}
+              onChange={(e) => setMetaDescription(e.target.value)}
+              required
+            />
+          </div>
         </div>
         {/* <button onClick={() => postProduct()}>Отправить</button> */}
       </form>
