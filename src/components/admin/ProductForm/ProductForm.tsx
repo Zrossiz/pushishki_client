@@ -5,6 +5,7 @@ import Select from 'react-select';
 import { HTag } from '@/elements';
 import { create, uploadFiles } from '@/api';
 import { ICreateProduct } from '@/types';
+import { v4 as uuidv4 } from 'uuid';
 
 export const ProductForm = ({ setOpen, countries, categories, brands }: ProductFormProps) => {
   const [selectedCountry, setSelectedCountry] = useState<number>(1);
@@ -80,7 +81,10 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
   const handleImageChange = (e: any) => {
     const file = e.target.files && e.target.files[0];
     if (file) {
-      setImage(file);
+        const fileExtension = file.name.split('.').pop();
+        const newName = `${uuidv4()}.${fileExtension}`;
+        const renamedFile = new File([file], newName, { type: file.type });
+        setImage(renamedFile);
     }
   };
 
