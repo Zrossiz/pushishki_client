@@ -3,7 +3,7 @@ import styles from './ProductForm.module.scss';
 import { ProductFormProps } from './ProductForm.props';
 import Select from 'react-select';
 import { HTag } from '@/elements';
-import { create } from '@/api';
+import { create, uploadFiles } from '@/api';
 import { ICreateProduct } from '@/types';
 
 export const ProductForm = ({ setOpen, countries, categories, brands }: ProductFormProps) => {
@@ -70,6 +70,11 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
     (async () => {
       await create(createProductData);
     })();
+    if (image) {
+      (async () => {
+        await uploadFiles(image);
+      })();
+    }
   };
 
   const handleImageChange = (e: any) => {

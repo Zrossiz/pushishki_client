@@ -7,3 +7,4 @@ export * from './Review';
 export * from './Order';
 export * from './Basket';
 export * from './User';
+export * from './Files';
