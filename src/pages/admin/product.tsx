@@ -15,7 +15,10 @@ const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
   const [search, setSearch] = useState<string>('');
   const [create, setCreate] = useState<boolean>(false);
 
-  const pagesArr = products && 'totalPages' in products ? Array.from({ length: products.totalPages }, (_, index) => index + 1) : [];
+  const pagesArr =
+    products && 'totalPages' in products
+      ? Array.from({ length: products.totalPages }, (_, index) => index + 1)
+      : [];
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -76,9 +79,14 @@ const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
         <div className={styles.paginationWrapper}>
           {pagesArr.map((item) => {
             return (
-              <div className={cn(styles.button, {
-                [styles.active]: item === page
-              })} onClick={() => setPage(item)}>{item}</div>
+              <div
+                className={cn(styles.button, {
+                  [styles.active]: item === page,
+                })}
+                onClick={() => setPage(item)}
+              >
+                {item}
+              </div>
             );
           })}
         </div>

@@ -9,6 +9,12 @@
     width: 100vw;
     z-index: 1;
 
+    input[type='checkbox'],
+    input[type='radio'] {
+        display: block;
+        width: fit-content;
+    }
+
     .bg {
         position: absolute;
         background-color: var(--black);
@@ -25,6 +31,18 @@
         overflow: auto;
         max-height: 80%;
 
+        .sendButton {
+            display: flex;
+            margin-left: auto;
+            background-color: var(--light-green);
+            border: none;
+            border-radius: 12px;
+            padding: 20px 40px;
+            color: var(--white);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
         .requiredAndOptionWrapper {
             display: flex;
             gap: 80px;
@@ -34,7 +52,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
-                padding-bottom: 20px;
+                padding-bottom: 40px;
                 margin-right: 40px;
             }
     

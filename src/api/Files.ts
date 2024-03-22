@@ -1,30 +1,30 @@
-import axios from "axios";
-import getConfig from "next/config";
+import axios from 'axios';
+import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const uploadFiles = async (files: File[] | File): Promise<{ message: string }> => {
-    try {
-        const formData = new FormData();
-        
-        if (Array.isArray(files)) {
-            files.forEach(file => {
-                formData.append('files', file);
-            });
-        } else {
-            formData.append('files', files);
-        }
+  try {
+    const formData = new FormData();
 
-        await axios.post(`${FILESERVER_URL}/upload`, formData);
-        
-        return {
-            message: 'Успешно',
-        };
-    } catch (err) {
-        console.log(err);
-        return {
-            message: 'Ошибка при загрузке файла',
-        };
+    if (Array.isArray(files)) {
+      files.forEach((file) => {
+        formData.append('files', file);
+      });
+    } else {
+      formData.append('files', files);
     }
-}
+
+    await axios.post(`${FILESERVER_URL}/upload`, formData);
+
+    return {
+      message: 'Успешно',
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при загрузке файла',
+    };
+  }
+};
