@@ -4,6 +4,7 @@ import { ProductFormProps } from './ProductForm.props';
 import Select from 'react-select';
 import { HTag } from '@/elements';
 import { create } from '@/api';
+import { ICreateProduct } from '@/types';
 
 export const ProductForm = ({ setOpen, countries, categories, brands }: ProductFormProps) => {
   const [selectedCountry, setSelectedCountry] = useState<number>(1);
@@ -27,6 +28,29 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
   const [metaDescription, setMetaDescription] = useState<string>();
   const [metaKeyWords, setMetaKeyWords] = useState<string>();
 
+  const createProductData: ICreateProduct = {
+    countryId: +selectedCountry,
+    brandId: +selectedBrand,
+    categoryId: +selectedCategory,
+    name: selectedName,
+    description,
+    defaultPrice,
+    articul,
+    gearbox,
+    battery,
+    maximumLoad,
+    assembledModelSize,
+    modelSizeInPackage,
+    video,
+    image: image ? image.name: undefined,
+    bestSeller,
+    newModel,
+    characteristics,
+    metaTitle,
+    metaDescription,
+    metaKeyWords,
+  };
+
   const countryOptions = countries?.data.map((item) => ({
     value: item.id,
     label: item.name,
@@ -44,15 +68,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
 
   const postProduct = () => {
     (async () => {
-      await create(
-        selectedCountry,
-        selectedBrand,
-        selectedCategory,
-        selectedName,
-        description,
-        defaultPrice,
-        articul,
-      );
+      await create(createProductData);
     })();
   };
 
@@ -62,8 +78,6 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
       setImage(file);
     }
   };
-
-  console.log(image);
 
   return (
     <div className={styles.wrapper}>
@@ -139,7 +153,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
                 <div className={styles.inputWrapper}>
                   <label>Стоимость по умолчанию</label>
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Введите стоимость товара"
                     value={defaultPrice}
                     onChange={(e) => setDefaultPrice(+e.target.value)}
@@ -286,7 +300,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
             />
           </div>
         </div>
-        {/* <button onClick={() => postProduct()}>Отправить</button> */}
+        <div onClick={() => postProduct()}>Отправить</div>
       </form>
     </div>
   );

@@ -34,14 +34,14 @@ export interface IProduct {
 }
 
 export interface ICreateProduct {
-  country: number;
-  brand: number;
-  category: number;
+  countryId: number;
+  brandId: number;
+  categoryId: number;
   name: string;
   description: string;
   defaultPrice: number;
   articul: string;
-  gearBox?: string;
+  gearbox?: string;
   battery?: string;
   maximumLoad?: number;
   assembledModelSize?: string;

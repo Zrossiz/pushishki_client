@@ -1,4 +1,4 @@
-import { IProduct, IProductWithLength } from '@/types';
+import { ICreateProduct, IProduct, IProductWithLength } from '@/types';
 import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
@@ -128,32 +128,17 @@ export const getAllProducts = async (
   }
 };
 
-export const create = async (
-  countryId: number,
-  brandId: number,
-  categoryId: number,
-  name: string,
-  description: string,
-  defaultPrice: number,
-  articul: string,
-) => {
+export const create = async (data: ICreateProduct) => {
   try {
     const product = await axiosInst
-      .post(`${API_URL}/product`, {
-        countryId,
-        brandId,
-        categoryId,
-        name,
-        description,
-        defaultPrice,
-        articul,
-      })
+      .post(`${API_URL}/product`, data)
       .then(() => {
         console.log(true);
       })
       .catch((err) => {
         console.log(err);
       });
+    console.log(product);
   } catch (err) {
     console.log(err);
     return {
