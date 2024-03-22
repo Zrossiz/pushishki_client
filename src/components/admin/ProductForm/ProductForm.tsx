@@ -18,7 +18,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
   const [assembledModelSize, setAssembledModelSize] = useState<string>();
   const [modelSizeInPackage, setModelSizeInPackage] = useState<string>();
   const [video, setVideo] = useState<string>();
-  const [image, setImage] = useState<string>();
+  const [image, setImage] = useState<File | null>(null);
   const [bestSeller, setBestSeller] = useState<boolean>();
   const [newModel, setNewModel] = useState<boolean>();
   const [defaultPrice, setDefaultPrice] = useState<number>(0);
@@ -55,6 +55,15 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
       );
     })();
   };
+
+  const handleImageChange = (e: any) => {
+    const file = e.target.files && e.target.files[0];
+    if (file) {
+      setImage(file);
+    }
+  };
+
+  console.log(image);
 
   return (
     <div className={styles.wrapper}>
@@ -233,7 +242,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
             </div>
           </div>
         </div>
-        <div className={styles.seoWrapper}>
+        <div className={styles.lineWrapper}>
           <HTag tag='h3'>СЕО</HTag>
           <div className={styles.inputWrapper}>
             <label>Заголовок страницы</label>
@@ -261,6 +270,18 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
               placeholder="Введите описание страницы"
               value={metaDescription}
               onChange={(e) => setMetaDescription(e.target.value)}
+              required
+            />
+          </div>
+        </div>
+        <div className={styles.lineWrapper}>
+          <HTag tag='h3'>Другое</HTag>
+          <div className={styles.inputWrapper}>
+            <label>Изображение</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
               required
             />
           </div>
