@@ -57,167 +57,172 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
     <div className={styles.wrapper}>
       <div className={styles.bg} onClick={() => setOpen(false)}></div>
       <form className={styles.formWrapper}>
-        <div>
-          <HTag tag="h3">Обязательные параметры</HTag>
-          <div className={styles.requiredWrapper}>
-              <div className={styles.selectWrapper}>
-                <label htmlFor="countries">Страна</label>
-                <Select
-                  id="countries"
-                  options={countryOptions}
-                  value={countryOptions.find((option) => option.value === selectedCountry)}
-                  onChange={(selectedOption) => setSelectedCountry(selectedOption?.value ?? 1)}
-                  theme={(theme) => ({
-                    ...theme,
-                    colors: {
-                      ...theme.colors,
-                      primary: 'green',
-                    },
-                  })}
-                  placeholder={'Выберите страну'}
-                  required
-                />
-              </div>
-              <div className={styles.selectWrapper}>
-                <label htmlFor="brands">Бренд</label>
-                <Select
-                  id="brands"
-                  options={brandOptions}
-                  value={brandOptions.find((option) => option.value === selectedBrand)}
-                  onChange={(selectedOption) => setSelectedBrand(selectedOption?.value ?? 1)}
-                  theme={(theme) => ({
-                    ...theme,
-                    colors: {
-                      ...theme.colors,
-                      primary: 'green',
-                    },
-                  })}
-                  placeholder={'Выберите бренд'}
-                />
-              </div>
-              <div className={styles.selectWrapper}>
-                <label htmlFor="categories">Категория</label>
-                <Select
-                  id="categories"
-                  options={categoryOptions}
-                  value={categoryOptions.find((option) => option.value === selectedCategory)}
-                  onChange={(selectedOption) => setSelectedCategory(selectedOption?.value ?? 1)}
-                  theme={(theme) => ({
-                    ...theme,
-                    colors: {
-                      ...theme.colors,
-                      primary: 'green',
-                    },
-                  })}
-                  placeholder={'Выберите категорию'}
-                  required
-                />
-              </div>
+        <div className={styles.requiredAndOptionWrapper}>
+          <div>
+            <HTag tag="h3">Обязательные параметры</HTag>
+            <div className={styles.requiredWrapper}>
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="countries">Страна</label>
+                  <Select
+                    id="countries"
+                    options={countryOptions}
+                    value={countryOptions.find((option) => option.value === selectedCountry)}
+                    onChange={(selectedOption) => setSelectedCountry(selectedOption?.value ?? 1)}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder={'Выберите страну'}
+                    required
+                  />
+                </div>
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="brands">Бренд</label>
+                  <Select
+                    id="brands"
+                    options={brandOptions}
+                    value={brandOptions.find((option) => option.value === selectedBrand)}
+                    onChange={(selectedOption) => setSelectedBrand(selectedOption?.value ?? 1)}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder={'Выберите бренд'}
+                  />
+                </div>
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="categories">Категория</label>
+                  <Select
+                    id="categories"
+                    options={categoryOptions}
+                    value={categoryOptions.find((option) => option.value === selectedCategory)}
+                    onChange={(selectedOption) => setSelectedCategory(selectedOption?.value ?? 1)}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder={'Выберите категорию'}
+                    required
+                  />
+                </div>
+                <div className={styles.inputWrapper}>
+                  <label>Название товара</label>
+                  <input
+                    type="text"
+                    placeholder="Введите название товара"
+                    value={selectedName}
+                    onChange={(e) => setSelectedName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className={styles.inputWrapper}>
+                  <label>Стоимость по умолчанию</label>
+                  <input
+                    type="text"
+                    placeholder="Введите стоимость товара"
+                    value={defaultPrice}
+                    onChange={(e) => setDefaultPrice(+e.target.value)}
+                    required
+                  />
+                </div>
+                <div className={styles.inputWrapper}>
+                  <label>Артикул товара</label>
+                  <input
+                    type="text"
+                    placeholder="Введите артикул товара товара"
+                    value={articul}
+                    onChange={(e) => setArticul(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className={styles.inputWrapper}>
+                  <label>Описание товара</label>
+                  <textarea
+                    placeholder="Введите описание товара товара"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    required
+                  />
+                </div>
+            </div>
+          </div>
+          <div>
+            <HTag tag='h3'>Необязательные параметры</HTag>
+            <div className={styles.optionWrapper}>
               <div className={styles.inputWrapper}>
-                <label>Название товара</label>
-                <input
-                  type="text"
-                  placeholder="Введите название товара"
-                  value={selectedName}
-                  onChange={(e) => setSelectedName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className={styles.inputWrapper}>
-                <label>Стоимость по умолчанию</label>
+                <label>Редуктор</label>
                 <input
                   type="text"
                   placeholder="Введите стоимость товара"
-                  value={defaultPrice}
-                  onChange={(e) => setDefaultPrice(+e.target.value)}
+                  value={gearbox}
+                  onChange={(e) => setGearbox(e.target.value)}
                   required
                 />
               </div>
               <div className={styles.inputWrapper}>
-                <label>Артикул товара</label>
+                <label>Батарея</label>
                 <input
                   type="text"
-                  placeholder="Введите артикул товара товара"
-                  value={articul}
-                  onChange={(e) => setArticul(e.target.value)}
+                  placeholder="Введите параметры батареи"
+                  value={battery}
+                  onChange={(e) => setBattery(e.target.value)}
                   required
                 />
               </div>
               <div className={styles.inputWrapper}>
-                <label>Описание товара</label>
-                <textarea
-                  placeholder="Введите описание товара товара"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                <label>Максимальная нагрузка (кг)</label>
+                <input
+                  type="number"
+                  placeholder="Максимальная нагрузка"
+                  value={maximumLoad}
+                  onChange={(e) => setMaximumLoad(+e.target.value)}
                   required
                 />
               </div>
+              <div className={styles.inputWrapper}>
+                <label>Размер собранной модели</label>
+                <input
+                  type="text"
+                  placeholder="Размер собранной модели"
+                  value={assembledModelSize}
+                  onChange={(e) => setAssembledModelSize(e.target.value)}
+                  required
+                />
+              </div>
+              <div className={styles.inputWrapper}>
+                <label>Размер модели в упаковке</label>
+                <input
+                  type="text"
+                  placeholder="Размер модели в упаковке"
+                  value={modelSizeInPackage}
+                  onChange={(e) => setModelSizeInPackage(e.target.value)}
+                  required
+                />
+              </div>
+              <div className={styles.inputWrapper}>
+                <label>Ссылка на видео</label>
+                <input
+                  type="text"
+                  placeholder="Ссылка на видео"
+                  value={video}
+                  onChange={(e) => setVideo(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <HTag tag='h3'>Необязательные параметры</HTag>
-          <div className={styles.optionWrapper}>
-            <div className={styles.inputWrapper}>
-              <label>Редуктор</label>
-              <input
-                type="text"
-                placeholder="Введите стоимость товара"
-                value={gearbox}
-                onChange={(e) => setGearbox(e.target.value)}
-                required
-              />
-            </div>
-            <div className={styles.inputWrapper}>
-              <label>Батарея</label>
-              <input
-                type="text"
-                placeholder="Введите параметры батареи"
-                value={battery}
-                onChange={(e) => setBattery(e.target.value)}
-                required
-              />
-            </div>
-            <div className={styles.inputWrapper}>
-              <label>Максимальная нагрузка (кг)</label>
-              <input
-                type="number"
-                placeholder="Максимальная нагрузка"
-                value={maximumLoad}
-                onChange={(e) => setMaximumLoad(+e.target.value)}
-                required
-              />
-            </div>
-            <div className={styles.inputWrapper}>
-              <label>Размер собранной модели</label>
-              <input
-                type="text"
-                placeholder="Размер собранной модели"
-                value={assembledModelSize}
-                onChange={(e) => setAssembledModelSize(e.target.value)}
-                required
-              />
-            </div>
-            <div className={styles.inputWrapper}>
-              <label>Размер модели в упаковке</label>
-              <input
-                type="text"
-                placeholder="Размер модели в упаковке"
-                value={modelSizeInPackage}
-                onChange={(e) => setModelSizeInPackage(e.target.value)}
-                required
-              />
-            </div>
-            <div className={styles.inputWrapper}>
-              <label>Ссылка на видео</label>
-              <input
-                type="text"
-                placeholder="Ссылка на видео"
-                value={video}
-                onChange={(e) => setVideo(e.target.value)}
-                required
-              />
-            </div>
-          </div>
+        <div className={styles.seoWrapper}>
+          <HTag tag='h3'>СЕО</HTag>
         </div>
         {/* <button onClick={() => postProduct()}>Отправить</button> */}
       </form>
