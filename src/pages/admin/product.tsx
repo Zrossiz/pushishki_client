@@ -3,7 +3,7 @@ import { AdminLayout } from '@/layout/admin/AdminLayout';
 import { IAdminProduct, IProduct, IProductWithLength } from '@/types';
 import { useEffect, useState } from 'react';
 import styles from '../../styles/admin/Product.module.scss';
-import { ProductForm, ProductListItem } from '@/components/admin';
+import { Pagination, ProductForm, ProductListItem } from '@/components/admin';
 import cn from 'classnames';
 
 const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
@@ -14,11 +14,6 @@ const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
   const [page, setPage] = useState<number>(1);
   const [search, setSearch] = useState<string>('');
   const [create, setCreate] = useState<boolean>(false);
-
-  const pagesArr =
-    products && 'totalPages' in products
-      ? Array.from({ length: products.totalPages }, (_, index) => index + 1)
-      : [];
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -78,19 +73,10 @@ const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
         </div>
         {
           search.length === 0 &&
+          products &&
+          'totalPages' in products &&
           <div className={styles.paginationWrapper}>
-            {pagesArr.map((item) => {
-              return (
-                <div
-                  className={cn(styles.button, {
-                    [styles.active]: item === page,
-                  })}
-                  onClick={() => setPage(item)}
-                >
-                  {item}
-                </div>
-              );
-            })}
+            <Pagination curPage={page} setCurPage={setPage} totalPages={products?.totalPages} />
           </div>
         }
       </>

@@ -1,0 +1,33 @@
+.pagination {
+    display: flex;
+    gap: 20px;
+
+    li {
+        cursor: pointer;
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: var(--white);
+            transition: 0.6s;
+            font-size: 20px;
+            
+            &:hover {
+                color: var(--light-green);
+            }
+        }
+    }
+
+    :global {
+        .selected {
+            a {
+                color: var(--light-green);
+                border-color: var(--light-green);
+            }
+        }
+    }
+}
