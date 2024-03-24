@@ -23,6 +23,12 @@
         justify-content: end;
         gap: 20px;
 
+        .formatColors {
+            position: relative;
+            width: 24px;
+            height: 28px;
+        }
+
         div {
             cursor: pointer;
         }

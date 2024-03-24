@@ -29,6 +29,9 @@ export const ProductListItem = ({ product, brands, countries, categories }: Prod
       </div>
       <div className={styles.name}>{product.name}</div>
       <div className={styles.options}>
+        <div className={styles.formatColors}>
+          <Image src={'/icons/Variants.svg'} alt={'Редактирование вариантов товара'} fill  />
+        </div>
         <div className={styles.edit} onClick={() => setEdit(true)}>
           <svg
             width="24"
