@@ -71,14 +71,11 @@ const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
                 return <ProductListItem product={item} key={item.id} />;
               })}
         </div>
-        {
-          search.length === 0 &&
-          products &&
-          'totalPages' in products &&
+        {search.length === 0 && products && 'totalPages' in products && (
           <div className={styles.paginationWrapper}>
             <Pagination curPage={page} setCurPage={setPage} totalPages={products?.totalPages} />
           </div>
-        }
+        )}
       </>
     </AdminLayout>
   );
