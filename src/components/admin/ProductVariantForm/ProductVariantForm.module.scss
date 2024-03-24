@@ -23,38 +23,47 @@
         background-color: var(--white);
         padding: 40px;
         border-radius: 20px;
+        width: 80%;
 
-        .variantsWrapper {
-            margin-top: 40px;
+        .columnsWrapper {
+            display: flex;
 
-            .titleWrapper {
-                font-size: 30px;
-            }
-
-            .listWrapper {
-                margin-top: 20px;
-
-                .itemWrapper {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    padding: 10px 0;
-                    border-bottom: 2px solid var(--darker-grey);
-
-                    .colorWrapper {
-                        width: 25px;
-                        height: 25px;
-                        border-radius: 50%;
+            .variantsWrapper {
+                margin-top: 40px;
+                width: 40%;
+    
+                .titleWrapper {
+                    text-align: center;
+                    font-size: 30px;
+                }
+    
+                .listWrapper {
+                    margin-top: 30px;
+    
+                    .itemWrapper {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 10px 0;
+                        border-bottom: 2px solid var(--darker-grey);
+    
+                        .colorWrapper {
+                            width: 25px;
+                            height: 25px;
+                            border-radius: 50%;
+                        }
                     }
                 }
             }
-        }
-
-        .createWrapper {
-            margin-top: 40px;
-
-            .titleWrapper {
-                font-size: 30px;
+    
+            .createWrapper {
+                margin-top: 40px;
+                width: 60%;
+    
+                .titleWrapper {
+                    text-align: center;
+                    font-size: 30px;
+                }
             }
         }
     }
