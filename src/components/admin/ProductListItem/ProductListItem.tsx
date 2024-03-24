@@ -3,23 +3,33 @@ import styles from './ProductListItem.module.scss';
 import Image from 'next/image';
 import getConfig from 'next/config';
 import { useState } from 'react';
-import { DeleteItem } from '..';
+import { DeleteItem, ProductForm } from '..';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
-export const ProductListItem = ({ product }: ProductListItemProps) => {
+export const ProductListItem = ({ product, brands, countries, categories }: ProductListItemProps) => {
   const [remove, setRemove] = useState<boolean>(false);
+  const [edit, setEdit] = useState<boolean>(false);
 
   return (
     <div className={styles.itemWrapper}>
-      {remove && <DeleteItem id={product.id} setOpen={setRemove} name={product.name} entity='product' />}
+      {remove && (
+        <DeleteItem id={product.id} setOpen={setRemove} name={product.name} entity="product" />
+      )}
+      {edit && (
+        <ProductForm
+          setOpen={setEdit}
+          product={product}
+          update={true}
+        />
+      )}
       <div className={styles.image}>
         <Image fill alt={product.name} src={`${FILESERVER_URL}/upload/${product.image}`} />
       </div>
       <div className={styles.name}>{product.name}</div>
       <div className={styles.options}>
-        <div className={styles.edit}>
+        <div className={styles.edit} onClick={() => setEdit(true)}>
           <svg
             width="24"
             height="28"

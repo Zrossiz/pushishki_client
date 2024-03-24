@@ -7,7 +7,7 @@ import { create, uploadFiles } from '@/api';
 import { ICreateProduct } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
 
-export const ProductForm = ({ setOpen, countries, categories, brands }: ProductFormProps) => {
+export const ProductForm = ({ setOpen, countries, categories, brands, update, product }: ProductFormProps) => {
   const [selectedCountry, setSelectedCountry] = useState<number>(1);
   const [selectedBrand, setSelectedBrand] = useState<number>(1);
   const [selectedCategory, setSelectedCategory] = useState<number>(1);
@@ -81,14 +81,14 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
     label: item.name,
   }));
 
-  const postProduct = () => {
-    (async () => {
+  const postProduct = async () => {
+    if (update) {
+
+    } else {
       await create(createProductData);
-    })();
+    };
     if (image) {
-      (async () => {
-        await uploadFiles(image);
-      })();
+      await uploadFiles(image);
     }
   };
 
@@ -106,63 +106,78 @@ export const ProductForm = ({ setOpen, countries, categories, brands }: ProductF
     <div className={styles.wrapper}>
       <div className={styles.bg} onClick={() => setOpen(false)}></div>
       <form className={styles.formWrapper}>
+        {update && (
+            <div style={{marginBottom: '20px'}}>
+              <HTag tag={'h2'}>Редактирование {product?.name}</HTag>
+            </div>
+          )
+        }
         <div className={styles.requiredAndOptionWrapper}>
           <div>
             <HTag tag="h3">Обязательные параметры</HTag>
             <div className={styles.requiredWrapper}>
-              <div className={styles.selectWrapper}>
-                <label htmlFor="countries">Страна</label>
-                <Select
-                  id="countries"
-                  options={countryOptions}
-                  value={countryOptions.find((option) => option.value === selectedCountry)}
-                  onChange={(selectedOption) => setSelectedCountry(selectedOption?.value ?? 1)}
-                  theme={(theme) => ({
-                    ...theme,
-                    colors: {
-                      ...theme.colors,
-                      primary: 'green',
-                    },
-                  })}
-                  placeholder={'Выберите страну'}
-                  required
-                />
-              </div>
-              <div className={styles.selectWrapper}>
-                <label htmlFor="brands">Бренд</label>
-                <Select
-                  id="brands"
-                  options={brandOptions}
-                  value={brandOptions.find((option) => option.value === selectedBrand)}
-                  onChange={(selectedOption) => setSelectedBrand(selectedOption?.value ?? 1)}
-                  theme={(theme) => ({
-                    ...theme,
-                    colors: {
-                      ...theme.colors,
-                      primary: 'green',
-                    },
-                  })}
-                  placeholder={'Выберите бренд'}
-                />
-              </div>
-              <div className={styles.selectWrapper}>
-                <label htmlFor="categories">Категория</label>
-                <Select
-                  id="categories"
-                  options={categoryOptions}
-                  value={categoryOptions.find((option) => option.value === selectedCategory)}
-                  onChange={(selectedOption) => setSelectedCategory(selectedOption?.value ?? 1)}
-                  theme={(theme) => ({
-                    ...theme,
-                    colors: {
-                      ...theme.colors,
-                      primary: 'green',
-                    },
-                  })}
-                  placeholder={'Выберите категорию'}
-                  required
-                />
-              </div>
+              {
+                countryOptions &&
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="countries">Страна</label>
+                  <Select
+                    id="countries"
+                    options={countryOptions}
+                    value={countryOptions.find((option) => option.value === selectedCountry)}
+                    onChange={(selectedOption) => setSelectedCountry(selectedOption?.value ?? 1)}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder={'Выберите страну'}
+                    required
+                  />
+                </div>
+              }
+              {
+                brandOptions &&
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="brands">Бренд</label>
+                  <Select
+                    id="brands"
+                    options={brandOptions}
+                    value={brandOptions.find((option) => option.value === selectedBrand)}
+                    onChange={(selectedOption) => setSelectedBrand(selectedOption?.value ?? 1)}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder={'Выберите бренд'}
+                  />
+                </div>
+              }
+              {
+                categoryOptions &&
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="categories">Категория</label>
+                  <Select
+                    id="categories"
+                    options={categoryOptions}
+                    value={categoryOptions.find((option) => option.value === selectedCategory)}
+                    onChange={(selectedOption) => setSelectedCategory(selectedOption?.value ?? 1)}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder={'Выберите категорию'}
+                    required
+                  />
+                </div>
+              }
               <div className={styles.inputWrapper}>
                 <label>Название товара</label>
                 <input
