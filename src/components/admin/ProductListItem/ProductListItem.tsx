@@ -13,7 +13,7 @@ export const ProductListItem = ({ product }: ProductListItemProps) => {
 
   return (
     <div className={styles.itemWrapper}>
-      {remove && <DeleteItem id={product.id} setOpen={setRemove} />}
+      {remove && <DeleteItem id={product.id} setOpen={setRemove} name={product.name} entity='product' />}
       <div className={styles.image}>
         <Image fill alt={product.name} src={`${FILESERVER_URL}/upload/${product.image}`} />
       </div>
