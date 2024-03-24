@@ -1,0 +1,61 @@
+.wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    .bg {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+    }
+
+    .formAndVariantsWrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--white);
+        padding: 40px;
+        border-radius: 20px;
+
+        .variantsWrapper {
+            margin-top: 40px;
+
+            .titleWrapper {
+                font-size: 30px;
+            }
+
+            .listWrapper {
+                margin-top: 20px;
+
+                .itemWrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 10px 0;
+                    border-bottom: 2px solid var(--darker-grey);
+
+                    .colorWrapper {
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+
+        .createWrapper {
+            margin-top: 40px;
+
+            .titleWrapper {
+                font-size: 30px;
+            }
+        }
+    }
+}

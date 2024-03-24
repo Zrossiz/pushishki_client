@@ -3,7 +3,7 @@ import styles from './ProductListItem.module.scss';
 import Image from 'next/image';
 import getConfig from 'next/config';
 import { useState } from 'react';
-import { DeleteItem, ProductForm } from '..';
+import { DeleteItem, ProductForm, ProductVariantForm } from '..';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -11,11 +11,17 @@ const { FILESERVER_URL } = publicRuntimeConfig;
 export const ProductListItem = ({ product, brands, countries, categories }: ProductListItemProps) => {
   const [remove, setRemove] = useState<boolean>(false);
   const [edit, setEdit] = useState<boolean>(false);
+  const [variant, setVariant] = useState<boolean>(false);
 
   return (
     <div className={styles.itemWrapper}>
       {remove && (
-        <DeleteItem id={product.id} setOpen={setRemove} name={product.name} entity="product" />
+        <DeleteItem 
+          id={product.id} 
+          setOpen={setRemove} 
+          name={product.name} 
+          entity="product" 
+        />
       )}
       {edit && (
         <ProductForm
@@ -24,12 +30,19 @@ export const ProductListItem = ({ product, brands, countries, categories }: Prod
           update={true}
         />
       )}
+      {variant && (
+        <ProductVariantForm 
+          id={product.id} 
+          name={product.name} 
+          setOpen={setVariant}
+        />
+      )}
       <div className={styles.image}>
         <Image fill alt={product.name} src={`${FILESERVER_URL}/upload/${product.image}`} />
       </div>
       <div className={styles.name}>{product.name}</div>
       <div className={styles.options}>
-        <div className={styles.formatColors}>
+        <div className={styles.formatColors} onClick={() => setVariant(true)}>
           <Image src={'/icons/Variants.svg'} alt={'Редактирование вариантов товара'} fill  />
         </div>
         <div className={styles.edit} onClick={() => setEdit(true)}>
