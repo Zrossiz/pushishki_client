@@ -2,7 +2,7 @@ import axios from 'axios';
 import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
-const { FILESERVER_URL, BOT_URL } = publicRuntimeConfig;
+const { BOT_URL } = publicRuntimeConfig;
 
 export const postOrder = async (
   name: string,

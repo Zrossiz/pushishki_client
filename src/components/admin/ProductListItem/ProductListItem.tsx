@@ -35,6 +35,7 @@ export const ProductListItem = ({ product, brands, countries, categories }: Prod
           id={product.id} 
           name={product.name} 
           setOpen={setVariant}
+          defaultPrice={product.defaultPrice}
         />
       )}
       <div className={styles.image}>

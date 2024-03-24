@@ -6,10 +6,14 @@ import { IProductVariant } from "@/types";
 import { getAllColors, getProductVariants } from "@/api";
 import Image from "next/image";
 import { IColor } from "@/types/Color";
+import cn from 'classnames';
 
-export const ProductVariantForm = ({ id, name, setOpen }: ProductVariantFormProps) => {
+export const ProductVariantForm = ({ id, name, setOpen, defaultPrice }: ProductVariantFormProps) => {
     const [variants, setVariants] = useState<IProductVariant[]>([]);
     const [colors, setColors] = useState<IColor[]>([]);
+
+    const [selectedColor, setSelectedColor] = useState<number>();
+    const [price, setPrice] = useState<number>(defaultPrice);
 
     useEffect(() => {
         (async () => {
@@ -26,18 +30,41 @@ export const ProductVariantForm = ({ id, name, setOpen }: ProductVariantFormProp
         })()
     }, []);
 
-    console.log(colors);
     return (
         <div className={styles.wrapper}>
             <div className={styles.bg} onClick={() => setOpen(false)}></div>
             <div className={styles.formAndVariantsWrapper}>
                 <HTag tag='h2'>{name}</HTag>
                 <div className={styles.columnsWrapper}>
-                    <div className={styles.createWrapper}>
+                    <form className={styles.createWrapper}>
                         <div className={styles.titleWrapper}>
                             Создать вариацию
                         </div>
-                    </div>
+                        <div className={styles.colorsWrapper}>
+                            <div className={styles.title}>
+                                Выберите цвет
+                            </div>
+                            {colors.map((item) => {
+                                return (
+                                    <div 
+                                        className={cn(styles.colorWrapper, {
+                                            [styles.active]: selectedColor === item.id
+                                        })} 
+                                        style={{ backgroundColor: item.color }}
+                                        onClick={() => setSelectedColor(item.id)}
+                                        key={item.id}
+                                    ></div>
+                                )
+                            })}
+                        </div>
+                        <div className={styles.colorsWrapper}>
+                            <div className={styles.title}>
+                                Укажите цену
+                            </div>
+                            <input type="number" value={price} onChange={(e) => setPrice(+e.target.value)} />
+                        </div>
+                        <button disabled={selectedColor ? false : true}>Опубликовать</button>
+                    </form>
                     <div className={styles.variantsWrapper}>
                         <div className={styles.titleWrapper}>
                             Активные вариации
