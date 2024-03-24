@@ -138,11 +138,22 @@ export const create = async (data: ICreateProduct) => {
       .catch((err) => {
         console.log(err);
       });
-    console.log(product);
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при создании товара товаров',
+      message: 'Ошибка при создании товара',
     };
   }
 };
+
+export const updateProduct = async (data: ICreateProduct, id?: number) => {
+  try {
+    const product = await axiosInst.put(`${API_URL}/product/${id}/update`, data);
+    return product;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при обновлении товара',
+    };
+  }
+}

@@ -3,7 +3,7 @@ import styles from './ProductForm.module.scss';
 import { ProductFormProps } from './ProductForm.props';
 import Select from 'react-select';
 import { HTag } from '@/elements';
-import { create, uploadFiles } from '@/api';
+import { create, updateProduct, uploadFiles } from '@/api';
 import { ICreateProduct } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -11,23 +11,23 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
   const [selectedCountry, setSelectedCountry] = useState<number>(1);
   const [selectedBrand, setSelectedBrand] = useState<number>(1);
   const [selectedCategory, setSelectedCategory] = useState<number>(1);
-  const [selectedName, setSelectedName] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
-  const [articul, setArticul] = useState<string>('');
-  const [gearbox, setGearbox] = useState<string>();
-  const [battery, setBattery] = useState<string>();
-  const [maximumLoad, setMaximumLoad] = useState<number>();
-  const [assembledModelSize, setAssembledModelSize] = useState<string>();
-  const [modelSizeInPackage, setModelSizeInPackage] = useState<string>();
-  const [video, setVideo] = useState<string>();
+  const [selectedName, setSelectedName] = useState<string>(product?.name ?? '');
+  const [description, setDescription] = useState<string>(product?.description ?? '');
+  const [articul, setArticul] = useState<string>(product?.articul ?? '');
+  const [gearbox, setGearbox] = useState<string>(product?.gearbox ?? '');
+  const [battery, setBattery] = useState<string>(product?.battery ?? '');
+  const [maximumLoad, setMaximumLoad] = useState<number>(product?.maximumLoad ?? 0);
+  const [assembledModelSize, setAssembledModelSize] = useState<string>(product?.assembledModelSize ?? '');
+  const [modelSizeInPackage, setModelSizeInPackage] = useState<string>(product?.modelSizeInPackage ?? '');
+  const [video, setVideo] = useState<string>(product?.video ?? '');
   const [image, setImage] = useState<File | null>(null);
-  const [bestSeller, setBestSeller] = useState<boolean>(false);
-  const [newModel, setNewModel] = useState<boolean>(false);
-  const [defaultPrice, setDefaultPrice] = useState<number>(0);
-  const [characteristics, setCharacteristics] = useState<string>();
-  const [metaTitle, setMetaTitle] = useState<string>();
-  const [metaDescription, setMetaDescription] = useState<string>();
-  const [metaKeyWords, setMetaKeyWords] = useState<string>();
+  const [bestSeller, setBestSeller] = useState<boolean>(product?.bestseller ?? false);
+  const [newModel, setNewModel] = useState<boolean>(product?.new ?? false);
+  const [defaultPrice, setDefaultPrice] = useState<number>(product?.defaultPrice ?? 0);
+  const [characteristics, setCharacteristics] = useState<string>(product?.characteristics ?? '');
+  const [metaTitle, setMetaTitle] = useState<string>(product?.metaTitle ?? '');
+  const [metaDescription, setMetaDescription] = useState<string>(product?.metaDescription ?? '');
+  const [metaKeyWords, setMetaKeyWords] = useState<string>(product?.metaKeyWords ?? '');
 
   let disabled = true;
 
@@ -38,8 +38,12 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
     selectedName &&
     description &&
     articul &&
-    defaultPrice
-  ) {
+    defaultPrice 
+    ) {
+    disabled = false;
+  }
+
+  if (update) {
     disabled = false;
   }
 
@@ -83,7 +87,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
 
   const postProduct = async () => {
     if (update) {
-
+      await updateProduct(createProductData, product?.id);
     } else {
       await create(createProductData);
     };
@@ -174,7 +178,6 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
                       },
                     })}
                     placeholder={'Выберите категорию'}
-                    required
                   />
                 </div>
               }
@@ -185,7 +188,6 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
                   placeholder="Введите название товара"
                   value={selectedName}
                   onChange={(e) => setSelectedName(e.target.value)}
-                  required
                 />
               </div>
               <div className={styles.inputWrapper}>
@@ -195,7 +197,6 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
                   placeholder="Введите стоимость товара"
                   value={defaultPrice}
                   onChange={(e) => setDefaultPrice(+e.target.value)}
-                  required
                 />
               </div>
               <div className={styles.inputWrapper}>
@@ -205,7 +206,6 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
                   placeholder="Введите артикул товара товара"
                   value={articul}
                   onChange={(e) => setArticul(e.target.value)}
-                  required
                 />
               </div>
               <div className={styles.inputWrapper}>
@@ -214,7 +214,6 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
                   placeholder="Введите описание товара товара"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  required
                 />
               </div>
             </div>
