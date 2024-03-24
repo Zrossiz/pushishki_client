@@ -1,4 +1,5 @@
 import { IProductVariant } from '@/types';
+import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
 
@@ -21,3 +22,21 @@ export const getProductVariants = async (
     };
   }
 };
+
+export const createProductVariant = async (productId: number, colorId: number, price: number, images?: string[]): Promise<IProductVariant | { message: string }> => {
+  try {
+    const { data } = await axiosInst.post(`${API_URL}/product-variant`, {
+      productId,
+      colorId,
+      price,
+      images
+    });
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при создании варианта товара',
+    };
+  }
+}

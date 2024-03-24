@@ -3,7 +3,7 @@ import { ProductVariantFormProps } from "./ProductVariant.props";
 import styles from './ProductVariantForm.module.scss';
 import { useEffect, useState } from "react";
 import { IProductVariant } from "@/types";
-import { getAllColors, getProductVariants } from "@/api";
+import { createProductVariant, getAllColors, getProductVariants } from "@/api";
 import Image from "next/image";
 import { IColor } from "@/types/Color";
 import cn from 'classnames';
@@ -12,7 +12,7 @@ export const ProductVariantForm = ({ id, name, setOpen, defaultPrice }: ProductV
     const [variants, setVariants] = useState<IProductVariant[]>([]);
     const [colors, setColors] = useState<IColor[]>([]);
 
-    const [selectedColor, setSelectedColor] = useState<number>();
+    const [selectedColor, setSelectedColor] = useState<number>(1);
     const [price, setPrice] = useState<number>(defaultPrice);
 
     useEffect(() => {
@@ -29,6 +29,11 @@ export const ProductVariantForm = ({ id, name, setOpen, defaultPrice }: ProductV
             }
         })()
     }, []);
+
+    const create = async () => {
+        const productVariant = await createProductVariant(id, +selectedColor, price, ['1231']);
+        console.log(productVariant)
+    }
 
     return (
         <div className={styles.wrapper}>
@@ -63,7 +68,7 @@ export const ProductVariantForm = ({ id, name, setOpen, defaultPrice }: ProductV
                             </div>
                             <input type="number" value={price} onChange={(e) => setPrice(+e.target.value)} />
                         </div>
-                        <button disabled={selectedColor ? false : true}>Опубликовать</button>
+                        <button disabled={selectedColor ? false : true} onClick={create}>Опубликовать</button>
                     </form>
                     <div className={styles.variantsWrapper}>
                         <div className={styles.titleWrapper}>
