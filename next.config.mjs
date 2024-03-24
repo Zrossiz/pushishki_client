@@ -9,7 +9,7 @@ const nextConfig = {
     API_KEY: process.env.API_KEY,
   },
   images: {
-    domains: ['localhost', '90.156.211.246'],
+    domains: ['localhost'],
   },
 };
 

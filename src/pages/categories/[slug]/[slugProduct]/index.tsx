@@ -138,7 +138,7 @@ const ProductCardPage = ({
 
   return (
     <Layout
-      title={`${product?.metaTitle} | Пушишки`}
+      title={`${product?.metaTitle ? `${product?.metaTitle} | Пушишки` : 'Пушишки'}`}
       description={product?.metaDescription}
       keyWords={product?.metaKeyWords}
     >
