@@ -7,7 +7,14 @@ import { create, updateProduct, uploadFiles } from '@/api';
 import { ICreateProduct } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
 
-export const ProductForm = ({ setOpen, countries, categories, brands, update, product }: ProductFormProps) => {
+export const ProductForm = ({
+  setOpen,
+  countries,
+  categories,
+  brands,
+  update,
+  product,
+}: ProductFormProps) => {
   const [selectedCountry, setSelectedCountry] = useState<number>(1);
   const [selectedBrand, setSelectedBrand] = useState<number>(1);
   const [selectedCategory, setSelectedCategory] = useState<number>(1);
@@ -17,8 +24,12 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
   const [gearbox, setGearbox] = useState<string>(product?.gearbox ?? '');
   const [battery, setBattery] = useState<string>(product?.battery ?? '');
   const [maximumLoad, setMaximumLoad] = useState<number>(product?.maximumLoad ?? 0);
-  const [assembledModelSize, setAssembledModelSize] = useState<string>(product?.assembledModelSize ?? '');
-  const [modelSizeInPackage, setModelSizeInPackage] = useState<string>(product?.modelSizeInPackage ?? '');
+  const [assembledModelSize, setAssembledModelSize] = useState<string>(
+    product?.assembledModelSize ?? '',
+  );
+  const [modelSizeInPackage, setModelSizeInPackage] = useState<string>(
+    product?.modelSizeInPackage ?? '',
+  );
   const [video, setVideo] = useState<string>(product?.video ?? '');
   const [image, setImage] = useState<File | null>(null);
   const [bestSeller, setBestSeller] = useState<boolean>(product?.bestseller ?? false);
@@ -38,8 +49,8 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
     selectedName &&
     description &&
     articul &&
-    defaultPrice 
-    ) {
+    defaultPrice
+  ) {
     disabled = false;
   }
 
@@ -90,10 +101,10 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
       await updateProduct(createProductData, product?.id);
     } else {
       await create(createProductData);
-    };
+    }
     if (image) {
       await uploadFiles(image);
-    };
+    }
   };
 
   const handleImageChange = (e: any) => {
@@ -103,7 +114,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
       const newName = `${uuidv4()}.${fileExtension}`;
       const renamedFile = new File([file], newName, { type: file.type });
       setImage(renamedFile);
-    };
+    }
   };
 
   return (
@@ -111,17 +122,15 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
       <div className={styles.bg} onClick={() => setOpen(false)}></div>
       <form className={styles.formWrapper}>
         {update && (
-            <div style={{marginBottom: '20px'}}>
-              <HTag tag={'h2'}>Редактирование {product?.name}</HTag>
-            </div>
-          )
-        }
+          <div style={{ marginBottom: '20px' }}>
+            <HTag tag={'h2'}>Редактирование {product?.name}</HTag>
+          </div>
+        )}
         <div className={styles.requiredAndOptionWrapper}>
           <div>
             <HTag tag="h3">Обязательные параметры</HTag>
             <div className={styles.requiredWrapper}>
-              {
-                countryOptions &&
+              {countryOptions && (
                 <div className={styles.selectWrapper}>
                   <label htmlFor="countries">Страна</label>
                   <Select
@@ -140,9 +149,8 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
                     required
                   />
                 </div>
-              }
-              {
-                brandOptions &&
+              )}
+              {brandOptions && (
                 <div className={styles.selectWrapper}>
                   <label htmlFor="brands">Бренд</label>
                   <Select
@@ -160,9 +168,8 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
                     placeholder={'Выберите бренд'}
                   />
                 </div>
-              }
-              {
-                categoryOptions &&
+              )}
+              {categoryOptions && (
                 <div className={styles.selectWrapper}>
                   <label htmlFor="categories">Категория</label>
                   <Select
@@ -180,7 +187,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
                     placeholder={'Выберите категорию'}
                   />
                 </div>
-              }
+              )}
               <div className={styles.inputWrapper}>
                 <label>Название товара</label>
                 <input

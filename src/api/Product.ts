@@ -156,4 +156,4 @@ export const updateProduct = async (data: ICreateProduct, id?: number) => {
       message: 'Ошибка при обновлении товара',
     };
   }
-}
+};

@@ -8,7 +8,12 @@ import { DeleteItem, ProductForm, ProductVariantForm } from '..';
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
-export const ProductListItem = ({ product, brands, countries, categories }: ProductListItemProps) => {
+export const ProductListItem = ({
+  product,
+  brands,
+  countries,
+  categories,
+}: ProductListItemProps) => {
   const [remove, setRemove] = useState<boolean>(false);
   const [edit, setEdit] = useState<boolean>(false);
   const [variant, setVariant] = useState<boolean>(false);
@@ -16,24 +21,13 @@ export const ProductListItem = ({ product, brands, countries, categories }: Prod
   return (
     <div className={styles.itemWrapper}>
       {remove && (
-        <DeleteItem 
-          id={product.id} 
-          setOpen={setRemove} 
-          name={product.name} 
-          entity="product" 
-        />
+        <DeleteItem id={product.id} setOpen={setRemove} name={product.name} entity="product" />
       )}
-      {edit && (
-        <ProductForm
-          setOpen={setEdit}
-          product={product}
-          update={true}
-        />
-      )}
+      {edit && <ProductForm setOpen={setEdit} product={product} update={true} />}
       {variant && (
-        <ProductVariantForm 
-          id={product.id} 
-          name={product.name} 
+        <ProductVariantForm
+          id={product.id}
+          name={product.name}
           setOpen={setVariant}
           defaultPrice={product.defaultPrice}
         />
@@ -44,7 +38,7 @@ export const ProductListItem = ({ product, brands, countries, categories }: Prod
       <div className={styles.name}>{product.name}</div>
       <div className={styles.options}>
         <div className={styles.formatColors} onClick={() => setVariant(true)}>
-          <Image src={'/icons/Variants.svg'} alt={'Редактирование вариантов товара'} fill  />
+          <Image src={'/icons/Variants.svg'} alt={'Редактирование вариантов товара'} fill />
         </div>
         <div className={styles.edit} onClick={() => setEdit(true)}>
           <svg

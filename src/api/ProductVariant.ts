@@ -23,13 +23,18 @@ export const getProductVariants = async (
   }
 };
 
-export const createProductVariant = async (productId: number, colorId: number, price: number, images?: string[]): Promise<IProductVariant | { message: string }> => {
+export const createProductVariant = async (
+  productId: number,
+  colorId: number,
+  price: number,
+  images?: string[],
+): Promise<IProductVariant | { message: string }> => {
   try {
     const { data } = await axiosInst.post(`${API_URL}/product-variant`, {
       productId,
       colorId,
       price,
-      images
+      images,
     });
 
     return data;
@@ -39,9 +44,11 @@ export const createProductVariant = async (productId: number, colorId: number, p
       message: 'Ошибка при создании варианта товара',
     };
   }
-}
+};
 
-export const deleteProductVariant = async (variantId: number): Promise<IProductVariant | { message: string }> => {
+export const deleteProductVariant = async (
+  variantId: number,
+): Promise<IProductVariant | { message: string }> => {
   try {
     const { data } = await axiosInst.delete(`${API_URL}/product-variant/${variantId}`);
 
@@ -52,4 +59,4 @@ export const deleteProductVariant = async (variantId: number): Promise<IProductV
       message: 'Ошибка при удалении варианта товара',
     };
   }
-}
+};
