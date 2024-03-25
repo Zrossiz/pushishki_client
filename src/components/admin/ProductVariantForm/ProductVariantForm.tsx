@@ -3,7 +3,7 @@ import { ProductVariantFormProps } from './ProductVariant.props';
 import styles from './ProductVariantForm.module.scss';
 import { ChangeEvent, useEffect, useState, MouseEvent } from 'react';
 import { IProductVariant } from '@/types';
-import { createProductVariant, getAllColors, getProductVariants, uploadFiles } from '@/api';
+import { createProductVariant, deleteProductVariant, getAllColors, getProductVariants, uploadFiles } from '@/api';
 import Image from 'next/image';
 import { IColor } from '@/types/Color';
 import cn from 'classnames';
@@ -68,6 +68,14 @@ export const ProductVariantForm = ({
     }
   };
 
+  const deleteVariant = async (id: number) => {
+    const variant: IProductVariant | { message: string } = await deleteProductVariant(id);
+    const queryVariants = await getProductVariants(id);
+    if (Array.isArray(queryVariants)) {
+      setVariants(queryVariants);
+    }
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.bg} onClick={() => setOpen(false)}></div>
@@ -127,7 +135,7 @@ export const ProductVariantForm = ({
                       style={{ backgroundColor: item.color }}
                     ></div>
                     <div className={styles.price}>{item.price} ₽</div>
-                    <div className={styles.delete}>
+                    <div className={styles.delete} onClick={() => deleteVariant(item.id)}>
                       <Image src="/icons/Trash.svg" width={30} height={30} alt={'Удалить'} />
                     </div>
                   </div>
