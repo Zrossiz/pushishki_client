@@ -12,7 +12,9 @@ const CategoryPage = () => {
       <>
         {create && <CategoryForm setOpen={setCreate} />}
         <div className={styles.addButtonWrapper}>
-          <LinkButton element='button' onClick={() => setCreate(true)}>Добавить</LinkButton>
+          <LinkButton element="button" onClick={() => setCreate(true)}>
+            Добавить
+          </LinkButton>
         </div>
       </>
     </AdminLayout>

@@ -3,7 +3,13 @@ import { ProductVariantFormProps } from './ProductVariant.props';
 import styles from './ProductVariantForm.module.scss';
 import { ChangeEvent, useEffect, useState, MouseEvent } from 'react';
 import { IProductVariant } from '@/types';
-import { createProductVariant, deleteProductVariant, getAllColors, getProductVariants, uploadFiles } from '@/api';
+import {
+  createProductVariant,
+  deleteProductVariant,
+  getAllColors,
+  getProductVariants,
+  uploadFiles,
+} from '@/api';
 import Image from 'next/image';
 import { IColor } from '@/types/Color';
 import cn from 'classnames';
@@ -74,7 +80,7 @@ export const ProductVariantForm = ({
     if (Array.isArray(queryVariants)) {
       setVariants(queryVariants);
     }
-  }
+  };
 
   return (
     <div className={styles.wrapper}>
