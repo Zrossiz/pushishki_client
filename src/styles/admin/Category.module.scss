@@ -2,3 +2,49 @@
     width: 30%;
     height: 60px;
 }
+
+.listWrapper {
+    background-color: var(--white);
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    overflow: auto;
+    max-height: 80%;
+
+    .itemWrapper {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--medium-grey);
+        padding-bottom: 10px;
+    
+        .image {
+            position: relative;
+            width: 80px;
+            height: 60px;
+            margin-top: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    
+        .name {
+            margin-left: 20px;
+        }
+    
+        .options {
+            flex: 1;
+            display: flex;
+            justify-content: end;
+            gap: 20px;
+    
+            .formatColors {
+                position: relative;
+                width: 24px;
+                height: 28px;
+            }
+    
+            div {
+                cursor: pointer;
+            }
+        }
+    }
+}

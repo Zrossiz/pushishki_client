@@ -8,7 +8,7 @@ const { API_URL } = publicRuntimeConfig;
 
 export const getCategories = async (): Promise<ICategoryWithLength | { message: string }> => {
   try {
-    const { data } = await axios.get<ICategoryWithLength>(`${process.env.API_URL}/category`);
+    const { data } = await axios.get<ICategoryWithLength>(`${API_URL}/category`);
 
     return data;
   } catch (err) {
