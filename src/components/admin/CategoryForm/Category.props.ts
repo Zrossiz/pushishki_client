@@ -1,5 +1,7 @@
+import { ICategory } from "@/types";
+
 export interface CategoryFormProps {
-  id?: number;
+  category?: ICategory;
   update?: boolean;
   setOpen: (arg0: boolean) => void;
 }

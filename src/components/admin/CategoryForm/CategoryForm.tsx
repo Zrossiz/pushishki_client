@@ -6,11 +6,11 @@ import { v4 as uuidv4 } from 'uuid';
 import { ICategory } from '@/types';
 import { createCategory, uploadFiles } from '@/api';
 
-export const CategoryForm = ({ setOpen, update, id }: CategoryFormProps) => {
-  const [name, setName] = useState<string>('');
-  const [metaTitle, setMetaTitle] = useState<string>('');
-  const [metaDescription, setMetaDescription] = useState<string>('');
-  const [metaKeyWords, setMetaKeyWords] = useState<string>('');
+export const CategoryForm = ({ setOpen, update, category }: CategoryFormProps) => {
+  const [name, setName] = useState<string>(category?.name ?? '');
+  const [metaTitle, setMetaTitle] = useState<string>(category?.metaTitle ?? '');
+  const [metaDescription, setMetaDescription] = useState<string>(category?.metaDescription ?? '');
+  const [metaKeyWords, setMetaKeyWords] = useState<string>(category?.metaKeyWords ?? '');
   const [image, setImage] = useState<File | null>(null);
 
   const handleImageChange = (e: any) => {
@@ -41,9 +41,13 @@ export const CategoryForm = ({ setOpen, update, id }: CategoryFormProps) => {
     <div className={styles.wrapper}>
       <div className={styles.bg} onClick={() => setOpen(false)}></div>
       <form className={styles.formWrapper}>
-        {!update && (
+        {!update ? (
           <div className={styles.titleWrapper}>
             <HTag tag="h2">Создать категорию</HTag>
+          </div>
+        ) : (
+          <div className={styles.titleWrapper}>
+            <HTag tag="h2">Редактирование {category?.name}</HTag>
           </div>
         )}
         <div className={styles.inputWrapper}>

@@ -15,7 +15,6 @@ const { FILESERVER_URL } = publicRuntimeConfig;
 const CategoryPage = () => {
   const [create, setCreate] = useState<boolean>(false);
   const [categories, setCategories] = useState<ICategoryWithLength>();
-  const [edit, setEdit] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
@@ -38,8 +37,11 @@ const CategoryPage = () => {
         </div>
         <div className={styles.listWrapper}>
           {categories && categories.data.map((item) => {
+            const [edit, setEdit] = useState<boolean>(false);
+
             return (
               <div key={item.id} className={styles.itemWrapper}>
+                {edit && <CategoryForm update={true} category={item} setOpen={setEdit} />}
                 <div className={styles.image}>
                   <Image fill alt={product.name} src={`${FILESERVER_URL}/upload/${item.image}`} />
                 </div>
