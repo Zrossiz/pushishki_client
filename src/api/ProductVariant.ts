@@ -40,3 +40,16 @@ export const createProductVariant = async (productId: number, colorId: number, p
     };
   }
 }
+
+export const deleteProductVariant = async (variantId: number): Promise<IProductVariant | { message: string }> => {
+  try {
+    const { data } = await axiosInst.delete(`${API_URL}/product-variant/${variantId}`);
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при удалении варианта товара',
+    };
+  }
+}
