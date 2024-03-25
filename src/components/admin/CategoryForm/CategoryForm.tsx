@@ -1,8 +1,10 @@
-import { HTag, Input } from '@/elements';
+import { HTag, Input, LinkButton } from '@/elements';
 import styles from './Category.module.scss';
 import { CategoryFormProps } from './Category.props';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { ICategory } from '@/types';
+import { createCategory, uploadFiles } from '@/api';
 
 export const CategoryForm = ({ setOpen, update, id }: CategoryFormProps) => {
   const [name, setName] = useState<string>('');
@@ -18,6 +20,20 @@ export const CategoryForm = ({ setOpen, update, id }: CategoryFormProps) => {
       const newName = `${uuidv4()}.${fileExtension}`;
       const renamedFile = new File([file], newName, { type: file.type });
       setImage(renamedFile);
+    }
+  };
+
+  const create = async () => {
+    if (image) {
+      const category: ICategory | { message: string } = await createCategory(
+        name,
+        image?.name,
+        metaTitle,
+        metaDescription,
+        metaKeyWords,
+      );
+
+      await uploadFiles(image);
     }
   };
 
@@ -50,6 +66,7 @@ export const CategoryForm = ({ setOpen, update, id }: CategoryFormProps) => {
           <label>Изображение</label>
           <input type="file" accept="image/*" onChange={handleImageChange} />
         </div>
+        <LinkButton element='button' onClick={() => create()} disabled={name && image ? false : true}>Создать</LinkButton>
       </form>
     </div>
   );
