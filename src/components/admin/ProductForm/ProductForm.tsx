@@ -93,7 +93,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
     };
     if (image) {
       await uploadFiles(image);
-    }
+    };
   };
 
   const handleImageChange = (e: any) => {
@@ -103,7 +103,7 @@ export const ProductForm = ({ setOpen, countries, categories, brands, update, pr
       const newName = `${uuidv4()}.${fileExtension}`;
       const renamedFile = new File([file], newName, { type: file.type });
       setImage(renamedFile);
-    }
+    };
   };
 
   return (
