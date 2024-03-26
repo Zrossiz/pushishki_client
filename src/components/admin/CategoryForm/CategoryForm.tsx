@@ -13,6 +13,16 @@ export const CategoryForm = ({ setOpen, update, category }: CategoryFormProps) =
   const [metaKeyWords, setMetaKeyWords] = useState<string>(category?.metaKeyWords ?? '');
   const [image, setImage] = useState<File | null>(null);
 
+  let disabled = true;
+
+  if (name && image) {
+    disabled = false;
+  }
+
+  if (update) {
+    disabled = false;
+  }
+
   const handleImageChange = (e: any) => {
     const file = e.target.files && e.target.files[0];
     if (file) {
@@ -70,7 +80,7 @@ export const CategoryForm = ({ setOpen, update, category }: CategoryFormProps) =
           <label>Изображение</label>
           <input type="file" accept="image/*" onChange={handleImageChange} />
         </div>
-        <LinkButton element='button' onClick={() => create()} disabled={name && image ? false : true}>Создать</LinkButton>
+        <LinkButton element='button' onClick={() => create()} disabled={disabled}>Создать</LinkButton>
       </form>
     </div>
   );

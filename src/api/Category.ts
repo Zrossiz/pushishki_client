@@ -56,3 +56,27 @@ export const createCategory = async (
     };
   }
 };
+
+export const updateCategory = async (
+  id: number,
+  image: string,
+  metaTitle: string,
+  metaDescription: string,
+  metaKeyWords: string,
+): Promise<ICategory | { message: string }> => {
+  try {
+    const { data } = await axiosInst.put(`${API_URL}/category/${id}`, {
+      image,
+      metaTitle,
+      metaDescription,
+      metaKeyWords,
+    });
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при обновлении категории',
+    };
+  }
+}
