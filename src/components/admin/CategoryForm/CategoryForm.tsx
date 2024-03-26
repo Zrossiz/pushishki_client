@@ -4,7 +4,7 @@ import { CategoryFormProps } from './Category.props';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { ICategory } from '@/types';
-import { createCategory, uploadFiles } from '@/api';
+import { createCategory, updateCategory, uploadFiles } from '@/api';
 
 export const CategoryForm = ({ setOpen, update, category }: CategoryFormProps) => {
   const [name, setName] = useState<string>(category?.name ?? '');
@@ -34,17 +34,26 @@ export const CategoryForm = ({ setOpen, update, category }: CategoryFormProps) =
   };
 
   const create = async () => {
-    if (image) {
-      const category: ICategory | { message: string } = await createCategory(
-        name,
-        image?.name,
-        metaTitle,
-        metaDescription,
-        metaKeyWords,
+    if (update && category) {
+      await updateCategory(
+        category?.slug, 
+        metaTitle, 
+        metaDescription, 
+        metaKeyWords, 
       );
-
-      await uploadFiles(image);
-    }
+    } else {
+      if (image) {
+        const category: ICategory | { message: string } = await createCategory(
+          name,
+          image?.name,
+          metaTitle,
+          metaDescription,
+          metaKeyWords,
+        );
+  
+        await uploadFiles(image);
+      };
+    };
   };
 
   return (

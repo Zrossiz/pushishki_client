@@ -58,15 +58,13 @@ export const createCategory = async (
 };
 
 export const updateCategory = async (
-  id: number,
-  image: string,
+  slug: string,
   metaTitle: string,
   metaDescription: string,
   metaKeyWords: string,
 ): Promise<ICategory | { message: string }> => {
   try {
-    const { data } = await axiosInst.put(`${API_URL}/category/${id}`, {
-      image,
+    const { data } = await axiosInst.put(`${API_URL}/category/${slug}`, {
       metaTitle,
       metaDescription,
       metaKeyWords,
