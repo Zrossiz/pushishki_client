@@ -4,6 +4,7 @@ import { HTag } from "@/elements";
 import { useEffect, useState } from "react";
 import { IReview, IReviewWithLength } from "@/types";
 import { getReviewsProduct } from "@/api";
+import { ReviewListItem } from "..";
 
 export const ProductReviewForm = ({ setOpen, product }: ProductReviewFormProps) => {
     const [reviews, setReviews] = useState<IReview[]>();
@@ -26,18 +27,9 @@ export const ProductReviewForm = ({ setOpen, product }: ProductReviewFormProps) 
                 <div className={styles.listWrapper}>
                     {
                         reviews?.map((item) => {
-                            const activeColor: string = item.active ? 'green' : 'red';
                             return (
-                                <div key={item.id} className={styles.itemWrapper}>
-                                    <div className={styles.nameWrapper}>
-                                        Имя: {item.username}
-                                    </div>
-                                    <div className={styles.ratingWrapper}>
-                                        Оценка: {item.rating}
-                                    </div>
-                                    <div className={styles.activeWrapper} style={{ backgroundColor: activeColor }}></div>
-                                </div>
-                            )
+                                <ReviewListItem review={item} key={item.id} />
+                            );
                         })
                     }
                 </div>

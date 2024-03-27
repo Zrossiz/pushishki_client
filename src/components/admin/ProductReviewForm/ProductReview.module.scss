@@ -28,29 +28,6 @@
 
         .listWrapper {
             margin-top: 20px;
-
-            .itemWrapper {
-                display: flex;
-                padding: 10px 20px;
-                border-bottom: 2px solid var(--darker-grey);
-                font-size: 20px;
-
-                .nameWrapper {
-                    width: 20%;
-                }
-
-                .ratingWrapper {
-                    margin-left: 40px;
-                }
-
-                .activeWrapper {
-                    display: inline-block;
-                    margin-left: auto;
-                    width: 26px;
-                    height: 26px;
-                    border-radius: 50%;
-                }
-            }
         }
     }
 }
