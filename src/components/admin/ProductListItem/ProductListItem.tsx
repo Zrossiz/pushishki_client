@@ -3,7 +3,7 @@ import styles from './ProductListItem.module.scss';
 import Image from 'next/image';
 import getConfig from 'next/config';
 import { useState } from 'react';
-import { DeleteItem, ProductForm, ProductVariantForm } from '..';
+import { DeleteItem, ProductForm, ProductReviewForm, ProductVariantForm } from '..';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -33,6 +33,11 @@ export const ProductListItem = ({
           defaultPrice={product.defaultPrice}
         />
       )}
+      {
+        reviews && (
+          <ProductReviewForm setOpen={setReviews} product={product} />
+        )
+      }
       <div className={styles.image}>
         <Image fill alt={product.name} src={`${FILESERVER_URL}/upload/${product.image}`} />
       </div>

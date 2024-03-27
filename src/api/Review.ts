@@ -7,10 +7,11 @@ const { API_URL, BOT_URL } = publicRuntimeConfig;
 
 export const getReviewsProduct = async (
   id: number,
+  all?: boolean
 ): Promise<IReviewWithLength | { message: string }> => {
   try {
     const { data } = await axios.get<IReviewWithLength>(
-      `${process.env.API_URL}/review/product/${id}`,
+      `${API_URL}/review/product/${id}?all=${all}`,
     );
 
     return data;
