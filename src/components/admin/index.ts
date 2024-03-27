@@ -6,3 +6,4 @@ export * from './ProductVariantForm/ProductVariantForm';
 export * from './CategoryForm/CategoryForm';
 export * from './CategoryListItem/CategoryListItem';
 export * from './ProductReviewForm/ProductReviewForm';
+export * from './ReviewListItem/ReviewListItem';
