@@ -17,6 +17,7 @@ export const ProductListItem = ({
   const [remove, setRemove] = useState<boolean>(false);
   const [edit, setEdit] = useState<boolean>(false);
   const [variant, setVariant] = useState<boolean>(false);
+  const [reviews, setReviews] = useState<boolean>(false);
 
   return (
     <div className={styles.itemWrapper}>
@@ -37,6 +38,9 @@ export const ProductListItem = ({
       </div>
       <div className={styles.name}>{product.name}</div>
       <div className={styles.options}>
+        <div className={styles.reviews} onClick={() => setReviews(true)}>
+          <Image src={'/icons/Review.svg'} alt={'Редактирование отзывов товара'} fill />
+        </div>
         <div className={styles.formatColors} onClick={() => setVariant(true)}>
           <Image src={'/icons/Variants.svg'} alt={'Редактирование вариантов товара'} fill />
         </div>
