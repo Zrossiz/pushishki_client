@@ -1,6 +1,6 @@
-import { IReviewWithLength } from '@/types';
+import { IReview, IReviewWithLength } from '@/types';
 
 export interface CardreviewsProps {
-  reviews?: IReviewWithLength;
+  reviews?: IReview[];
   setOpen: (arg0: boolean) => void;
 }

@@ -6,6 +6,7 @@ import {
   IProduct,
   IProductVariant,
   IProductWithLength,
+  IReview,
   IReviewWithLength,
 } from '.';
 
@@ -35,7 +36,7 @@ export interface IProductCardPageProps {
   bestSellers?: IProduct[];
   product?: IProduct;
   productVariants?: IProductVariant[];
-  reviews?: IReviewWithLength;
+  reviews?: IReview[];
 }
 
 export interface ISearchPageProps {
