@@ -120,7 +120,7 @@ const ProductCardPage = ({
           ? productVariants[activeVariant].color
           : undefined,
       count: 1,
-      variantId: productVariants ? productVariants[activeVariant].id : 0
+      variantId: productVariants ? productVariants[activeVariant]?.id : 0
     });
     return localStorage.setItem('cart', JSON.stringify(cart));
   };

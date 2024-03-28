@@ -1,7 +1,7 @@
 import { Layout } from '@/layout/client/Layout';
 import { PageTitle } from '@/pageComponents';
 import styles from '../styles/client/Order.module.scss';
-import { IItemCart } from '@/types';
+import { IApiItemCart, IItemCart } from '@/types';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import 'swiper/css';
 import { useEffect, useState } from 'react';
@@ -12,7 +12,7 @@ import { Input, LinkButton } from '@/elements';
 import { InfoPopup } from '@/components/client';
 import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { postOrder } from '@/api';
+import { createBasket, postOrder } from '@/api';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -49,18 +49,37 @@ const OrderPage = () => {
   const router = useRouter();
 
   const checkout = async () => {
-    await postOrder(name, lastName, address, phone, delivery, totalProductsPrice);
+    const order = await postOrder(name, lastName, address, phone, delivery, totalProductsPrice);
+
+    const apiCart: IApiItemCart[] = [];
+
+    cart.forEach((item: IItemCart) => {
+      const basketItem = {
+        productId: +item.product.id,
+        orderId: +order.id,
+        quantity: +item.count,
+        price: +item.product.defaultPrice * +item.count,
+        color: item.color,
+      };
+      console.log(basketItem);
+      apiCart.push(basketItem);
+    });
+
+    console.log(order);
+
+    const basket = await createBasket(apiCart);
+
     setSuccess(true);
-    setDelivery('');
-    setName('');
-    setLastName('');
-    setAddress('');
-    setPhone('');
-    localStorage.setItem('cart', '[]');
+    // setDelivery('');
+    // setName('');
+    // setLastName('');
+    // setAddress('');
+    // setPhone('');
+    // localStorage.setItem('cart', '[]');
     setTimeout(() => setSuccess(false), 2000);
-    setTimeout(() => {
-      router.push('/');
-    }, 2400);
+    // setTimeout(() => {
+    //   router.push('/');
+    // }, 2400);
   };
 
   useEffect(() => {

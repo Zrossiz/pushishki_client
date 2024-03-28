@@ -6,3 +6,11 @@ export interface IItemCart {
   color: string | undefined;
   variantId: number;
 }
+
+export interface IApiItemCart {
+  productId: number;
+  color?: string;
+  orderId: number;
+  quantity: number;
+  price: number;
+}

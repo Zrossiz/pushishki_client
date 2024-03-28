@@ -22,16 +22,16 @@ export const postOrder = async (
       price
     });
 
-    const order = await axios.post(`${BOT_URL}/bot/order`, {
-      name,
-      lastName,
-      address,
-      phone,
-      delivery,
-      price,
-    });
+    // const order = await axios.post(`${BOT_URL}/bot/order`, {
+    //   name,
+    //   lastName,
+    //   address,
+    //   phone,
+    //   delivery,
+    //   price,
+    // });
 
-    return order.data;
+    return apiOrder.data;
   } catch (err) {
     console.log(err);
     return {
