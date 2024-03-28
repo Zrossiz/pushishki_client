@@ -1,28 +1,65 @@
 .itemWrapper {
-    display: flex;
-    padding: 10px 20px;
-    border-bottom: 2px solid var(--darker-grey);
-    font-size: 20px;
-
-    .nameWrapper {
-        width: 20%;
+    input[type='checkbox'],
+    input[type='radio'] {
+        display: block;
+        width: fit-content;
     }
 
-    .ratingWrapper {
-        margin-left: 40px;
+    .infoWrapper {
+        display: flex;
+        padding: 10px 20px;
+        border-bottom: 2px solid var(--darker-grey);
+        font-size: 20px;
+
+
+        .nameWrapper {
+            width: 20%;
+        }
+
+        .ratingWrapper {
+            margin-left: 40px;
+        }
+
+        .activeWrapper {
+            display: inline-block;
+            margin-left: auto;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+        }
+
+        .edit {
+            display: inline-block;
+            margin-left: auto;
+            cursor: pointer;
+        }
     }
 
-    .activeWrapper {
-        display: inline-block;
-        margin-left: auto;
-        width: 26px;
-        height: 26px;
-        border-radius: 50%;
-    }
+    .editWrapper {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
 
-    .edit {
-        display: inline-block;
-        margin-left: auto;
-        cursor: pointer;
+        .input {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            
+            .title {
+                width: 200px;
+                font-size: 20px;
+            }
+
+            .input {
+                width: 300px;
+            }
+        }
+
+        .btn {
+            display: flex;
+            margin-left: auto;
+            margin-top: 20px;
+            width: 20%;
+        }
     }
 }

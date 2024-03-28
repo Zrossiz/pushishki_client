@@ -73,7 +73,7 @@ export const updateReview = async (
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при публикации отзыва',
+      message: 'Ошибка при обновлении отзыва',
     };
   }
 }
