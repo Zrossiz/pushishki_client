@@ -1,4 +1,5 @@
 import { IReview, IReviewWithLength } from '@/types';
+import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
 
@@ -54,3 +55,25 @@ export const postReview = async (
     };
   }
 };
+
+export const updateReview = async (
+  id: number,
+  title: string,
+  description: string,
+  rating: number,
+  active: boolean,
+) => {
+  try {
+    const updatedReview = axiosInst.put(`${API_URL}/review/${id}/update`, {
+      title,
+      description,
+      rating,
+      active,
+    })
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при публикации отзыва',
+    };
+  }
+}
