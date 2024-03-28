@@ -2,7 +2,7 @@ import axios from 'axios';
 import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
-const { BOT_URL } = publicRuntimeConfig;
+const { BOT_URL, API_URL } = publicRuntimeConfig;
 
 export const postOrder = async (
   name: string,
@@ -13,6 +13,15 @@ export const postOrder = async (
   price: number,
 ) => {
   try {
+
+    const apiOrder = await axios.post(`${API_URL}/order`, {
+      name,
+      lastname: lastName,
+      phone,
+      address,
+      price
+    });
+
     const order = await axios.post(`${BOT_URL}/bot/order`, {
       name,
       lastName,
