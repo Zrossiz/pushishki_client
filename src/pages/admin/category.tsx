@@ -15,10 +15,9 @@ const CategoryPage = () => {
       const queryCategories = await getCategories();
       if ('data' in queryCategories) {
         setCategories(queryCategories);
-      };
+      }
     })();
   }, []);
-
 
   return (
     <AdminLayout>
@@ -30,11 +29,10 @@ const CategoryPage = () => {
           </LinkButton>
         </div>
         <div className={styles.listWrapper}>
-          {categories && categories.data.map((item) => {
-            return (
-              <CategoryListItem category={item} />
-            )
-          })}
+          {categories &&
+            categories.data.map((item) => {
+              return <CategoryListItem category={item} />;
+            })}
         </div>
       </>
     </AdminLayout>

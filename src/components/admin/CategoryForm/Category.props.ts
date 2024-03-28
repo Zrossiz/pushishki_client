@@ -1,4 +1,4 @@
-import { ICategory } from "@/types";
+import { ICategory } from '@/types';
 
 export interface CategoryFormProps {
   category?: ICategory;

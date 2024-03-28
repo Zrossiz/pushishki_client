@@ -8,12 +8,10 @@ const { API_URL, BOT_URL } = publicRuntimeConfig;
 
 export const getReviewsProduct = async (
   id: number,
-  all?: boolean
+  all?: boolean,
 ): Promise<IReview[] | { message: string }> => {
   try {
-    const { data } = await axios.get<IReview[]>(
-      `${API_URL}/review/product/${id}?all=${all}`,
-    );
+    const { data } = await axios.get<IReview[]>(`${API_URL}/review/product/${id}?all=${all}`);
 
     return data;
   } catch (err) {
@@ -69,11 +67,11 @@ export const updateReview = async (
       description,
       rating,
       active,
-    })
+    });
   } catch (err) {
     console.log(err);
     return {
       message: 'Ошибка при обновлении отзыва',
     };
   }
-}
+};

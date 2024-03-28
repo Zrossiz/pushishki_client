@@ -33,11 +33,7 @@ export const ProductListItem = ({
           defaultPrice={product.defaultPrice}
         />
       )}
-      {
-        reviews && (
-          <ProductReviewForm setOpen={setReviews} product={product} />
-        )
-      }
+      {reviews && <ProductReviewForm setOpen={setReviews} product={product} />}
       <div className={styles.image}>
         <Image fill alt={product.name} src={`${FILESERVER_URL}/upload/${product.image}`} />
       </div>

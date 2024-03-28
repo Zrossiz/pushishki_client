@@ -1,5 +1,5 @@
-import { IReview } from "@/types";
+import { IReview } from '@/types';
 
 export interface ReviewListItemProps {
-    review: IReview
+  review: IReview;
 }

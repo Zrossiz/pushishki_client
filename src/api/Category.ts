@@ -77,4 +77,4 @@ export const updateCategory = async (
       message: 'Ошибка при обновлении категории',
     };
   }
-}
+};
