@@ -9,3 +9,4 @@ export * from './CardVideo/CardVideo';
 export * from './WhyChoose/WhyChoose';
 export * from './Cart/Cart';
 export * from './Favorites/Favorites';
+export * from './MobileMenu/MobileMenu';
