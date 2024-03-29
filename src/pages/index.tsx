@@ -42,7 +42,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: mainTitleRefIsInView ? 0 : 30, opacity: mainTitleRefIsInView ? 1 : 0 }}
             >
-              Доставка&nbsp;электромоб
+              Доставка электромоб
               <span>и</span>
               лей
               <br />

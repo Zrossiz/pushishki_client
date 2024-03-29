@@ -5,6 +5,10 @@
     @media screen and (min-width: 1800px) {
         max-width: 1300px;
     }
+
+    @media screen and (max-width: 900px) {
+        max-width: 100%;
+    }
 }
 
 .header {

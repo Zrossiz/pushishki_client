@@ -5,6 +5,10 @@
     border-radius: 40px;
     overflow: hidden;
 
+    @media screen and (max-width: 480px) {
+        height: 320px;
+    }
+
     .titleWrapper {
         display: flex;
         justify-content: center;
@@ -22,6 +26,11 @@
             @media screen and (max-width: 1400px) {
                 font-size: 50px;
                 padding-top: 30px;
+            }
+
+            @media screen and (max-width: 480px) {
+                font-size: 26px;
+                text-align: center;
             }
 
             span {
@@ -43,6 +52,9 @@
             z-index: -1;
             overflow: hidden;
 
+            @media screen and (max-width: 480px) {
+                height: 320px;
+            }
         }
     }
 
@@ -77,11 +89,14 @@
                 &:hover {
                     border-color: #f1f1f1;
                 }
-
             }
 
             .category:not(:last-child) {
                 margin-right: 16px;
+            }
+
+            @media screen and (max-width: 480px) {
+                display: none;
             }
         }
 
@@ -102,9 +117,28 @@
                 padding: 10px;
                 border: 1px dashed var(--white);
                 border-radius: 50%;
+                position: relative;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
 
                 &:hover {
                     border-style: solid;
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                display: inline-block;
+                margin-left: auto;
+
+                .iconWrapper {
+
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
                 }
             }
         }
