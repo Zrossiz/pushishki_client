@@ -1,4 +1,6 @@
 .header {
+    position: relative;
+
     .headerWrapper {
         display: flex;
         justify-content: space-between;
@@ -49,6 +51,8 @@
                 position: relative;
                 width: 34px;
                 height: 34px;
+                position: relative;
+                z-index: 10;
             }
 
             .logoWrapper {
@@ -66,6 +70,8 @@
                 justify-content: space-around;
                 width: 30px;
                 height: 30px;
+                position: relative;
+                z-index: 10;
             }
 
             .line {

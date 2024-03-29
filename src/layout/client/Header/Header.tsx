@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import cn from 'classnames';
+import { MobileMenu } from '@/pageComponents';
+import { AnimatePresence } from 'framer-motion';
 
 export const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -40,6 +42,9 @@ export const Header = () => {
           <div className={styles.line}></div>
         </div>
       </div>
+      <AnimatePresence>
+        {open && <MobileMenu />}
+      </AnimatePresence>
     </header>
   );
 };

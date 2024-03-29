@@ -1,0 +1,40 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--dark-green);
+    z-index: 3;
+    overflow: hidden;
+
+    .titleWrapper {
+        color: var(--white);
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 16px;
+    }
+
+    .navWrapper {
+        margin-top: 20px;
+
+        li {
+            font-size: 20px;
+            color: var(--white);
+            border-top: 2px solid rgba(255, 255, 255, .5);
+
+            &:last-child {
+                border-bottom: 2px solid rgba(255, 255, 255, .5);
+            }
+
+            a {
+                display: inline-block;
+                color: var(--white);
+                width: 100%;
+                height: 100%;
+                padding: 10px 14px;
+            }
+        }
+    }
+}
