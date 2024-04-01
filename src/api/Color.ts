@@ -29,4 +29,16 @@ export const createColor = async (color: string): Promise<IColor | { message: st
       message: 'Ошибка при создании цвета',
     };
   }
-}
+};
+
+export const deleteColor = async (id: number): Promise<IColor | { message: string }> => {
+  try {
+    const { data } = await axiosInst.delete<IColor>(`${API_URL}/color/${id}`);
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при создании цвета',
+    };
+  }
+};
