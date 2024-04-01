@@ -4,6 +4,7 @@ import { LinkButton } from '@/elements';
 import { useEffect, useState } from 'react';
 import { IColor } from '@/types/Color';
 import { getAllColors } from '@/api';
+import { ColorForm } from '@/components/admin';
 
 const ColorPage = () => {
   const [create, setCreate] = useState<boolean>(false);
@@ -21,6 +22,7 @@ const ColorPage = () => {
   return (
     <AdminLayout>
       <>
+        {create && <ColorForm setOpen={setCreate} />}
         <div className={styles.addButtonWrapper}>
           <LinkButton element="button" onClick={() => setCreate(true)}>
             Добавить
