@@ -1,0 +1,30 @@
+.itemWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-bottom: 1px solid var(--medium-grey);
+    padding: 10px;
+
+    .colorWrapper {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+    }
+
+    .titleWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .deleteWrapper {
+        display: flex;
+        flex: 1;
+        cursor: pointer;
+
+        img {
+            display: inline-block;
+            margin-left: auto;
+        }
+    }
+}

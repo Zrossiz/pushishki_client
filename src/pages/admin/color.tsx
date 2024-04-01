@@ -4,7 +4,7 @@ import { LinkButton } from '@/elements';
 import { useEffect, useState } from 'react';
 import { IColor } from '@/types/Color';
 import { getAllColors } from '@/api';
-import { ColorForm } from '@/components/admin';
+import { ColorForm, ColorListItem } from '@/components/admin';
 
 const ColorPage = () => {
   const [create, setCreate] = useState<boolean>(false);
@@ -17,7 +17,7 @@ const ColorPage = () => {
         setColors(queryColors);
       }
     })();
-  })
+  }, []);
 
   return (
     <AdminLayout>
@@ -31,7 +31,7 @@ const ColorPage = () => {
         <div className={styles.listWrapper}>
           {colors.map((item) => {
             return (
-              <div>{item.color}</div>
+              <ColorListItem color={item} key={item.id} />
             )
           })}
         </div>
