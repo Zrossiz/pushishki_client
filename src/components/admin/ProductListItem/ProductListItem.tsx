@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { DeleteItem, ProductForm, ProductReviewForm, ProductVariantForm } from '..';
 
 const { publicRuntimeConfig } = getConfig();
-const { FILESERVER_URL } = publicRuntimeConfig;
+const { FILESERVER_URL, CLIENT_URL } = publicRuntimeConfig;
 
 export const ProductListItem = ({
   product,
@@ -39,6 +39,9 @@ export const ProductListItem = ({
       </div>
       <div className={styles.name}>{product.name}</div>
       <div className={styles.options}>
+        <a href={`${CLIENT_URL}/categories/${product.category.slug}/${product.slug}`} target='_blank' className={styles.view}>
+          <Image src={'/icons/Eye.svg'} alt={'Просмотр'} width={24} height={28} />
+        </a>
         <div className={styles.reviews} onClick={() => setReviews(true)}>
           <Image src={'/icons/Review.svg'} alt={'Редактирование отзывов товара'} fill />
         </div>
