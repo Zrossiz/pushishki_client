@@ -28,23 +28,24 @@ export const Header = () => {
         </div>
       </div>
       <div className={styles.mobileHeaderWrapper}>
-        <Link href='#' className={styles.phoneWrapper}>
-          <Image src={'/icons/Phone.svg'} fill alt='Позвонить'/>
+        <Link href="#" className={styles.phoneWrapper}>
+          <Image src={'/icons/Phone.svg'} fill alt="Позвонить" />
         </Link>
         <Link href="/" className={styles.logoWrapper}>
-          <Image src="/Logo.png" fill alt='Пушишки' style={{ objectFit: 'contain' }} />
+          <Image src="/Logo.png" fill alt="Пушишки" style={{ objectFit: 'contain' }} />
         </Link>
-        <div className={cn(styles.burgerWrapper, {
-          [styles.open]: open
-        })} onClick={() => setOpen(!open)}>
+        <div
+          className={cn(styles.burgerWrapper, {
+            [styles.open]: open,
+          })}
+          onClick={() => setOpen(!open)}
+        >
           <div className={styles.line}></div>
           <div className={styles.line}></div>
           <div className={styles.line}></div>
         </div>
       </div>
-      <AnimatePresence>
-        {open && <MobileMenu />}
-      </AnimatePresence>
+      <AnimatePresence>{open && <MobileMenu />}</AnimatePresence>
     </header>
   );
 };

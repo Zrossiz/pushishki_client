@@ -113,14 +113,14 @@ const ProductCardPage = ({
     cart?.push({
       product: {
         ...item,
-        defaultPrice: activePrice
+        defaultPrice: activePrice,
       },
       color:
         productVariants && productVariants?.length > 0
           ? productVariants[activeVariant].color
           : undefined,
       count: 1,
-      variantId: productVariants ? productVariants[activeVariant]?.id : 0
+      variantId: productVariants ? productVariants[activeVariant]?.id : 0,
     });
     return localStorage.setItem('cart', JSON.stringify(cart));
   };

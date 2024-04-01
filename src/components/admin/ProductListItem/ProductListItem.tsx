@@ -39,7 +39,11 @@ export const ProductListItem = ({
       </div>
       <div className={styles.name}>{product.name}</div>
       <div className={styles.options}>
-        <a href={`${CLIENT_URL}/categories/${product.category.slug}/${product.slug}`} target='_blank' className={styles.view}>
+        <a
+          href={`${CLIENT_URL}/categories/${product.category.slug}/${product.slug}`}
+          target="_blank"
+          className={styles.view}
+        >
           <Image src={'/icons/Eye.svg'} alt={'Просмотр'} width={24} height={28} />
         </a>
         <div className={styles.reviews} onClick={() => setReviews(true)}>

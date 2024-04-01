@@ -20,7 +20,7 @@ export const getAllColors = async (): Promise<IColor[] | { message: string }> =>
 export const createColor = async (color: string): Promise<IColor | { message: string }> => {
   try {
     const { data } = await axiosInst.post<IColor>(`${API_URL}/color`, {
-      color
+      color,
     });
     return data;
   } catch (err) {

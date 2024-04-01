@@ -13,13 +13,12 @@ export const postOrder = async (
   price: number,
 ) => {
   try {
-
     const apiOrder = await axios.post(`${API_URL}/order`, {
       name,
       lastname: lastName,
       phone,
       address,
-      price
+      price,
     });
 
     // const order = await axios.post(`${BOT_URL}/bot/order`, {

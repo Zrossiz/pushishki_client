@@ -30,9 +30,7 @@ const ColorPage = () => {
         </div>
         <div className={styles.listWrapper}>
           {colors.map((item) => {
-            return (
-              <ColorListItem color={item} key={item.id} />
-            )
+            return <ColorListItem color={item} key={item.id} />;
           })}
         </div>
       </>
