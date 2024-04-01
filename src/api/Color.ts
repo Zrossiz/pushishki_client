@@ -16,3 +16,17 @@ export const getAllColors = async (): Promise<IColor[] | { message: string }> =>
     };
   }
 };
+
+export const createColor = async (color: string): Promise<IColor | { message: string }> => {
+  try {
+    const { data } = await axiosInst.post<IColor>(`${API_URL}/color`, {
+      color
+    });
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при создании цвета',
+    };
+  }
+}

@@ -1,13 +1,22 @@
 import { AdminLayout } from '@/layout/admin/AdminLayout';
 import styles from '../../styles/admin/Color.module.scss';
 import { LinkButton } from '@/elements';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IColor } from '@/types/Color';
-import { color } from 'framer-motion';
+import { getAllColors } from '@/api';
 
 const ColorPage = () => {
   const [create, setCreate] = useState<boolean>(false);
   const [colors, setColors] = useState<IColor[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const queryColors = await getAllColors();
+      if (Array.isArray(queryColors)) {
+        setColors(queryColors);
+      }
+    })();
+  })
 
   return (
     <AdminLayout>
