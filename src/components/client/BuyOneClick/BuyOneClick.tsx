@@ -4,10 +4,23 @@ import { BuyOneClickProps } from './BuyOneClick.props';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
+import { buyOneClick } from '@/api';
+import getConfig from 'next/config';
+import { InfoPopup } from '..';
 
-export const BuyOneClick = ({ setOpen }: BuyOneClickProps) => {
+const { publicRuntimeConfig } = getConfig();
+const { CLIENT_URL } = publicRuntimeConfig;
+
+export const BuyOneClick = ({ product, setOpen }: BuyOneClickProps) => {
   const [name, setName] = useState<string>('');
   const [phone, setPhone] = useState<number>();
+
+  const postOrder = async () => {
+    if (product) {
+      const result = await buyOneClick(name, String(phone), product?.name, `${CLIENT_URL}/categories/${product.category.slug}/${product.slug}`);
+      setOpen(false);
+    };
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -32,7 +45,7 @@ export const BuyOneClick = ({ setOpen }: BuyOneClickProps) => {
             </div>
           </div>
           <div className={styles.sendButtonWrapper}>
-            <LinkButton onClick={() => console.log(name, phone)} element="button">
+            <LinkButton onClick={postOrder} element="button">
               Отправить
             </LinkButton>
           </div>

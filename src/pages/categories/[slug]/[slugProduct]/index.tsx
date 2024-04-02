@@ -148,7 +148,7 @@ const ProductCardPage = ({
     >
       <>
         <section className={styles.itemDescriptionWrapper}>
-          {openBuyOnClick && <BuyOneClick setOpen={setOpenBuyOnClick} />}
+          {openBuyOnClick && <BuyOneClick product={product} setOpen={setOpenBuyOnClick} />}
           {openReviewForm && (
             <FormReview
               name={name}
