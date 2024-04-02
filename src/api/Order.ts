@@ -1,5 +1,6 @@
 import axios from 'axios';
 import getConfig from 'next/config';
+import { StringDecoder } from 'string_decoder';
 
 const { publicRuntimeConfig } = getConfig();
 const { BOT_URL, API_URL } = publicRuntimeConfig;
@@ -21,14 +22,14 @@ export const postOrder = async (
       price,
     });
 
-    // const order = await axios.post(`${BOT_URL}/bot/order`, {
-    //   name,
-    //   lastName,
-    //   address,
-    //   phone,
-    //   delivery,
-    //   price,
-    // });
+    const order = await axios.post(`${BOT_URL}/bot/order`, {
+      name,
+      lastName,
+      address,
+      phone,
+      delivery,
+      price,
+    });
 
     return apiOrder.data;
   } catch (err) {
@@ -36,5 +37,23 @@ export const postOrder = async (
     return {
       message: 'Ошибка при создании заказа',
     };
+  }
+};
+
+export const buyOneClick = async (name: string, phone: string, productName: string, link: string): Promise<boolean | { message: string }> => {
+  try {
+    await axios.post(`${BOT_URL}/bot/order/oneClick`, {
+      name,
+      phone,
+      productName,
+      link,
+    });
+  
+    return true;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при создании заказа'
+    }
   }
 };
