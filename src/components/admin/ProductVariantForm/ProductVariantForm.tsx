@@ -35,8 +35,6 @@ export const ProductVariantForm = ({
     }
   };
 
-  console.log(selectedFiles);
-
   useEffect(() => {
     (async () => {
       const queryVariants = await getProductVariants(id);

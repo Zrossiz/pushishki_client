@@ -61,25 +61,22 @@ const OrderPage = () => {
         price: +item.product.defaultPrice * +item.count,
         color: item.color,
       };
-      console.log(basketItem);
       apiCart.push(basketItem);
     });
-
-    console.log(order);
 
     const basket = await createBasket(apiCart);
 
     setSuccess(true);
-    // setDelivery('');
-    // setName('');
-    // setLastName('');
-    // setAddress('');
-    // setPhone('');
-    // localStorage.setItem('cart', '[]');
+    setDelivery('');
+    setName('');
+    setLastName('');
+    setAddress('');
+    setPhone('');
+    localStorage.setItem('cart', '[]');
     setTimeout(() => setSuccess(false), 2000);
-    // setTimeout(() => {
-    //   router.push('/');
-    // }, 2400);
+    setTimeout(() => {
+      router.push('/');
+    }, 2400);
   };
 
   useEffect(() => {

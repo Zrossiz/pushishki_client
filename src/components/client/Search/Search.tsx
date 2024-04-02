@@ -28,7 +28,6 @@ export const Search = ({ search, setSearch, products, stateSearch, getProducts }
         <div className={styles.popupWrapper}>
           {products && products?.length >= 1 ? (
             products?.slice(0, 4).map((item, index) => {
-              console.log(item);
               return (
                 <Link
                   href={`/categories/${item.category.slug}/${item.slug}`}

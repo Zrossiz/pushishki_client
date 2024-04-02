@@ -132,9 +132,6 @@ export const create = async (data: ICreateProduct) => {
   try {
     const product = await axiosInst
       .post(`${API_URL}/product`, data)
-      .then(() => {
-        console.log(true);
-      })
       .catch((err) => {
         console.log(err);
       });
