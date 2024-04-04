@@ -79,7 +79,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
         <Slider title="Новинки" products={newProducts} />
         <section className={styles.advantages}>
           <div className={styles.imgWrapper}>
-            <Image fill src={'/mgu.png'} alt="Индивидуальный подход" />
+            <Image fill style={{objectFit: 'cover'}} src={'/mgu.png'} alt="Индивидуальный подход" />
           </div>
           <div className={styles.advantagesWrapper}>
             <motion.div

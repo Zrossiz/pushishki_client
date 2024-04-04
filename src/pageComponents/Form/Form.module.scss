@@ -7,6 +7,10 @@
     border-radius: 40px;
     padding: 100px 70px 110px 150px;
 
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+
     .wrapper {
         margin-right: 100px;
         width: 60%;

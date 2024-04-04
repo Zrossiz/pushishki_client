@@ -10,7 +10,7 @@
     color: var(--black);
 
     @media screen and (max-width: 480px) {
-        font-size: 40px;
+        font-size: 30px;
     }
 }
 
@@ -18,6 +18,10 @@
     margin: 0;
     font-size: 32px;
     color: var(--black);
+
+    @media screen and (max-width: 480px) {
+        font-size: 24px;
+    }
 }
 
 .white {
