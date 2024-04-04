@@ -8,18 +8,34 @@
     border-radius: 40px;
     margin-top: 10px;
 
+    @media screen and (max-width: 900px) {
+        border-radius: 20px;
+        height: fit-content;
+    }
+
     .titleWrapper {
         padding-top: 52px;
         padding-left: 30px;
+
+        @media screen and (max-width: 900px) {
+            padding-top: 20px;
+            padding-left: 20px;
+        }
     }
 
     .advantagesWrapper {
         border-top: 1px solid #E6E6E6;
         width: 100%;
+        margin-top: 20px;
 
         ul {
             display: flex;
             justify-content: space-between;
+            margin-top: 20px;
+
+            @media screen and (max-width: 900px) {
+                flex-direction: column;
+            }
 
             .advantage {
                 align-self: self-start;
@@ -29,14 +45,38 @@
                 padding-left: 24px;
                 padding-bottom: 26px;
 
+                @media screen and (max-width: 900px) {
+                    width: 100%;
+                    border-right: none;
+                    border-bottom: 1px solid #E6E6E6;
+                }
+
                 .imgWrapper {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    position: relative;
                     width: 80px;
                     height: 80px;
                     background-color: #238C00;
                     border-radius: 50%;
+
+                    @media screen and (max-width: 900px) {
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    .img {
+                        position: relative;
+                        width: 50px;
+                        height: 50px;
+
+                        @media screen and (max-width: 900px) {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+
                 }
     
                 h3 {

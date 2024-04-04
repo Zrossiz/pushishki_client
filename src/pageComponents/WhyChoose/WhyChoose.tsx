@@ -14,7 +14,9 @@ export const WhyChoose = () => {
         <ul>
           <li className={styles.advantage}>
             <div className={styles.imgWrapper}>
-              <Image src={'/icons/Delivery.svg'} width={50} height={50} alt="Быстрая доставка" />
+              <div className={styles.img}>
+                <Image src={'/icons/Delivery.svg'} fill style={{objectFit: 'cover'}} alt="Быстрая доставка" />
+              </div>
             </div>
             <HTag tag="h3">Быстрая доставка</HTag>
             <span>
@@ -23,7 +25,9 @@ export const WhyChoose = () => {
           </li>
           <li className={styles.advantage}>
             <div className={styles.imgWrapper}>
-              <Image src={'/icons/Help.svg'} width={50} height={50} alt="Помощь в выборе" />
+              <div className={styles.img}>
+                <Image src={'/icons/Help.svg'} fill style={{objectFit: 'cover'}} alt="Помощь в выборе" />
+              </div>
             </div>
             <HTag tag="h3">Помощь в выборе</HTag>
             <span>
@@ -34,7 +38,9 @@ export const WhyChoose = () => {
           </li>
           <li className={styles.advantage}>
             <div className={styles.imgWrapper}>
-              <Image src={'/icons/Delivery.svg'} width={50} height={50} alt="Лучшие предложения" />
+              <div className={styles.img}>
+                <Image src={'/icons/Delivery.svg'} fill style={{objectFit: 'cover'}} alt="Лучшие предложения" />
+              </div>
             </div>
             <HTag tag="h3">Лучшие предложения</HTag>
             <span>
