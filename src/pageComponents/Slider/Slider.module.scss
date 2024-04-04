@@ -9,6 +9,12 @@
 .swiper {
     overflow: visible !important;
 
+    @media screen and (max-width: 480px) {
+        .navigationWrapper {
+            display: none;
+        }
+    }
+
     .wrapper {
         display: flex;
         justify-content: space-between;
@@ -102,4 +108,10 @@
     position: absolute;
     top: -40px;
     right: -20px;
+}
+
+@media screen and (max-width: 480px) {
+    .slider {
+        padding: 20px;
+    }
 }

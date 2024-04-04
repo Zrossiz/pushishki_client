@@ -19,7 +19,7 @@ export const SliderItem = ({ product }: SliderItemProps) => {
       className={styles.itemWrapper}
     >
       <div className={styles.imgWrapper}>
-        <Image src={'/sliderImg.png'} width={200} height={150} alt={product.name} />
+        <Image src={'/sliderImg.png'} fill alt={product.name} />
       </div>
       <div className={styles.descWrapper}>
         <div className={styles.titleWrapper}>{product.name}</div>
