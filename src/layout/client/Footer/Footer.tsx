@@ -21,7 +21,7 @@ export const Footer = () => {
       <div className={styles.contactsWrapper}>
         <div className={styles.linksWrapper}>
           <div className={styles.additionally}>
-            <HTag tag="h3">Дополнительно</HTag>
+            <div className={styles.title}>Дополнительно</div>
             <ul className={styles.linksList}>
               <li className={styles.linkItem}>
                 <Link href="#">Контакты</Link>
@@ -32,7 +32,7 @@ export const Footer = () => {
             </ul>
           </div>
           <div className={styles.forClients}>
-            <HTag tag="h3">Клиентам</HTag>
+            <div className={styles.title}>Клиентам</div>
             <ul className={styles.linksList}>
               <li className={styles.linkItem}>
                 <Link href="#">Доставка</Link>
