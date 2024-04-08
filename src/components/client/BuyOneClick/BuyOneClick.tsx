@@ -17,9 +17,14 @@ export const BuyOneClick = ({ product, setOpen }: BuyOneClickProps) => {
 
   const postOrder = async () => {
     if (product) {
-      const result = await buyOneClick(name, String(phone), product?.name, `${CLIENT_URL}/categories/${product.category.slug}/${product.slug}`);
+      const result = await buyOneClick(
+        name,
+        String(phone),
+        product?.name,
+        `${CLIENT_URL}/categories/${product.category.slug}/${product.slug}`,
+      );
       setOpen(false);
-    };
+    }
   };
 
   return (

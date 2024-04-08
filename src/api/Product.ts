@@ -130,11 +130,9 @@ export const getAllProducts = async (
 
 export const create = async (data: ICreateProduct) => {
   try {
-    const product = await axiosInst
-      .post(`${API_URL}/product`, data)
-      .catch((err) => {
-        console.log(err);
-      });
+    const product = await axiosInst.post(`${API_URL}/product`, data).catch((err) => {
+      console.log(err);
+    });
   } catch (err) {
     console.log(err);
     return {

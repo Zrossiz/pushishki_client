@@ -15,7 +15,12 @@ export const WhyChoose = () => {
           <li className={styles.advantage}>
             <div className={styles.imgWrapper}>
               <div className={styles.img}>
-                <Image src={'/icons/Delivery.svg'} fill style={{objectFit: 'cover'}} alt="Быстрая доставка" />
+                <Image
+                  src={'/icons/Delivery.svg'}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  alt="Быстрая доставка"
+                />
               </div>
             </div>
             <HTag tag="h3">Быстрая доставка</HTag>
@@ -26,7 +31,12 @@ export const WhyChoose = () => {
           <li className={styles.advantage}>
             <div className={styles.imgWrapper}>
               <div className={styles.img}>
-                <Image src={'/icons/Help.svg'} fill style={{objectFit: 'cover'}} alt="Помощь в выборе" />
+                <Image
+                  src={'/icons/Help.svg'}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  alt="Помощь в выборе"
+                />
               </div>
             </div>
             <HTag tag="h3">Помощь в выборе</HTag>
@@ -39,7 +49,12 @@ export const WhyChoose = () => {
           <li className={styles.advantage}>
             <div className={styles.imgWrapper}>
               <div className={styles.img}>
-                <Image src={'/icons/Delivery.svg'} fill style={{objectFit: 'cover'}} alt="Лучшие предложения" />
+                <Image
+                  src={'/icons/Delivery.svg'}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  alt="Лучшие предложения"
+                />
               </div>
             </div>
             <HTag tag="h3">Лучшие предложения</HTag>

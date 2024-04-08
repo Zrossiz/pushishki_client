@@ -1,6 +1,6 @@
-import { IProduct } from "@/types";
+import { IProduct } from '@/types';
 
 export interface BuyOneClickProps {
-  product?: IProduct,
+  product?: IProduct;
   setOpen: (arg0: boolean) => void;
 }

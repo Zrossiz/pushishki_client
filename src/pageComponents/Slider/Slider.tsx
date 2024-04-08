@@ -39,8 +39,8 @@ export const Slider = ({ title, products }: SliderProps) => {
         <Swiper
           className={cn('mySwipper', styles.swiper)}
           autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
+            delay: 2000,
+            disableOnInteraction: false,
           }}
           loop
           slidesPerView={3}

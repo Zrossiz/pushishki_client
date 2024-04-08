@@ -40,7 +40,12 @@ export const postOrder = async (
   }
 };
 
-export const buyOneClick = async (name: string, phone: string, productName: string, link: string): Promise<boolean | { message: string }> => {
+export const buyOneClick = async (
+  name: string,
+  phone: string,
+  productName: string,
+  link: string,
+): Promise<boolean | { message: string }> => {
   try {
     await axios.post(`${BOT_URL}/bot/order/oneClick`, {
       name,
@@ -48,12 +53,12 @@ export const buyOneClick = async (name: string, phone: string, productName: stri
       productName,
       link,
     });
-  
+
     return true;
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при создании заказа'
-    }
+      message: 'Ошибка при создании заказа',
+    };
   }
 };
