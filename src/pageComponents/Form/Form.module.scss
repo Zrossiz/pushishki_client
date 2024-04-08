@@ -7,13 +7,20 @@
     border-radius: 40px;
     padding: 100px 70px 110px 150px;
 
-    @media screen and (max-width: 900px) {
-        display: none;
+    @media screen and (max-width: 480px) {
+        padding: 30px;
+        border-radius: 20px;
+        margin-top: 4px;
     }
 
     .wrapper {
         margin-right: 100px;
         width: 60%;
+
+        @media screen and (max-width: 480px) {
+            width: 100%;
+            margin-right: 0;
+        }
 
         .formWrapper {
             display: flex;
@@ -21,12 +28,23 @@
             justify-content: space-between;
             margin-top: 82px;
 
+            @media screen and (max-width: 480px) {
+                justify-content: center;
+                align-items: center;
+                margin-top: 0;
+            }
+
             input {
                 border: none;
                 background-color: transparent;
                 border-bottom: 2px solid var(--medium-grey);
                 font-size: 24px;
                 width: 250px;
+
+                @media screen and (max-width: 480px) {
+                    margin-top: 30px;
+                    width: 100%;
+                }
 
                 &::placeholder {
                     color: var(--darker-grey);
@@ -50,6 +68,10 @@
             width: 100%;
             margin-top: 50px;
             overflow: hidden;
+
+            @media screen and (max-width: 480px) {
+                justify-content: center;
+            }
             
             button {
                 position: relative;
@@ -119,5 +141,9 @@
 
     .reviewsWrapper {
         align-self: flex-start;
+
+        @media screen and (max-width: 900px) {
+            display: none;
+        }
     }
 }
