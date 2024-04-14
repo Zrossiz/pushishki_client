@@ -47,6 +47,30 @@ export const Pagination = ({ curPage = 1, totalPages, slug }: PaginationProps) =
     }, 600);
   };
 
+  const renderPagination = () => {
+    const windowSize = 4;
+    const windowStart = Math.max(1, curPage - Math.floor(windowSize / 2));
+    const windowEnd = Math.min(totalPages, windowStart + windowSize - 1);
+
+    const pages = [];
+    for (let i = windowStart; i <= windowEnd; i++) {
+        pages.push(
+          <li
+            className={cn(styles.paginationItem, {
+              [styles.active]: i === curPage,
+            })}
+            key={Math.floor(Math.random() * 1000)}
+          >
+            <div onClick={() => changePage(i)} className={styles.link}>
+              {i}
+            </div>
+          </li>
+        );
+  };
+
+    return pages;
+};
+
   return (
     <ul className={styles.wrapper}>
       <li className={cn(styles.button, styles.prevBtn)}>
@@ -76,20 +100,7 @@ export const Pagination = ({ curPage = 1, totalPages, slug }: PaginationProps) =
           </div>
         )}
       </li>
-      {pagesArr.map((page) => {
-        return (
-          <li
-            className={cn(styles.paginationItem, {
-              [styles.active]: page === curPage,
-            })}
-            key={Math.floor(Math.random() * 1000)}
-          >
-            <div onClick={() => changePage(page)} className={styles.link}>
-              {page}
-            </div>
-          </li>
-        );
-      })}
+      {renderPagination()}
       <li className={styles.button}>
         {curPage !== pagesArr.length ? (
           <div onClick={() => nextPage()}>

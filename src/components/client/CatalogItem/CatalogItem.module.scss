@@ -72,6 +72,8 @@
             @media screen and (max-width: 480px) {
                 font-size: 18px;
                 font-weight: 500;
+                overflow: hidden;
+                max-width: 190px;
             }
         }
     
