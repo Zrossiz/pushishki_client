@@ -6,6 +6,7 @@ import { HTag } from '@/elements';
 import { create, updateProduct, uploadFiles } from '@/api';
 import { ICreateProduct } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
+import 'react-quill/dist/quill.snow.css';
 
 export const ProductForm = ({
   setOpen,
@@ -15,6 +16,8 @@ export const ProductForm = ({
   update,
   product,
 }: ProductFormProps) => {
+  const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
+
   const [selectedCountry, setSelectedCountry] = useState<number>(1);
   const [selectedBrand, setSelectedBrand] = useState<number>(1);
   const [selectedCategory, setSelectedCategory] = useState<number>(1);
@@ -127,7 +130,7 @@ export const ProductForm = ({
           </div>
         )}
         <div className={styles.requiredAndOptionWrapper}>
-          <div>
+          <div className={styles.required}>
             <HTag tag="h3">Обязательные параметры</HTag>
             <div className={styles.requiredWrapper}>
               {countryOptions && (
@@ -217,15 +220,11 @@ export const ProductForm = ({
               </div>
               <div className={styles.inputWrapper}>
                 <label>Описание товара</label>
-                <textarea
-                  placeholder="Введите описание товара товара"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                />
+                <ReactQuill theme="snow" value={description} onChange={setDescription} />
               </div>
             </div>
           </div>
-          <div>
+          <div className={styles.option}>
             <HTag tag="h3">Необязательные параметры</HTag>
             <div className={styles.optionWrapper}>
               <div className={styles.inputWrapper}>
@@ -284,11 +283,7 @@ export const ProductForm = ({
               </div>
               <div className={styles.inputWrapper}>
                 <label>Характеристики</label>
-                <textarea
-                  placeholder="Характеристики товара"
-                  value={characteristics}
-                  onChange={(e) => setCharacteristics(e.target.value)}
-                />
+                  <ReactQuill theme="snow" value={characteristics} onChange={setCharacteristics} />
               </div>
               <div className={styles.inputWrapper}>
                 <label>Новинки</label>

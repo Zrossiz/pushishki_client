@@ -197,8 +197,7 @@ const ProductCardPage = ({
                   </ul>
                 </div>
               </div>
-              <div>
-                <span dangerouslySetInnerHTML={{ __html: option === 'Описание' ? (product?.description || '') : (product?.characteristics || '') }}></span>
+              <div className={styles.textWrapper} dangerouslySetInnerHTML={{ __html: option === 'Описание' ? (product?.description || '') : (product?.characteristics || '') }}>
               </div>
             </div>
           </div>

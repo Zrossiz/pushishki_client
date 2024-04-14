@@ -49,6 +49,14 @@
             gap: 80px;
             border-bottom: 2px solid var(--medium-grey);
 
+            .required {
+                width: 46%;
+            }
+
+            .option {
+                width: 48%;
+            }
+
             .requiredWrapper {
                 display: flex;
                 flex-direction: column;

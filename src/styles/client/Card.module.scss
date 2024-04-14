@@ -21,6 +21,8 @@
             border-radius: 12px 12px 12px 40px;
             background-color: var(--white);
 
+
+
             .titleOptionWrapper {
                 display: flex;
                 justify-content: center;
@@ -55,13 +57,31 @@
                 }
             }
 
-            span {
+            .textWrapper {
                 display: inline-block;
                 width: 100%;
                 font-weight: 400;
-                font-size: 20px;
+                font-size: 18px;
                 margin-top: 20px;
-                text-align: start;
+                text-align: justify;
+
+                li {
+                    display: flex;
+                    position: relative;
+                    padding-left: 20px;
+                
+                    &::before {
+                        content: '';
+                        width: 6px;
+                        height: 6px;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        border-radius: 50%;
+                        background-color: var(--light-green);
+                        position: absolute;
+                    }
+                }
             }
         }
     }
