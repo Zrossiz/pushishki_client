@@ -283,7 +283,7 @@ export const ProductForm = ({
               </div>
               <div className={styles.inputWrapper}>
                 <label>Характеристики</label>
-                  <ReactQuill theme="snow" value={characteristics} onChange={setCharacteristics} />
+                <ReactQuill theme="snow" value={characteristics} onChange={setCharacteristics} />
               </div>
               <div className={styles.inputWrapper}>
                 <label>Новинки</label>
