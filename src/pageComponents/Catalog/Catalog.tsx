@@ -17,10 +17,14 @@ import { LinkButton } from '@/elements';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { IProduct } from '@/types';
+import { MobileFilter } from '..';
+import { AnimatePresence } from 'framer-motion';
 
 export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps) => {
   const router = useRouter();
   const { query } = router;
+
+  const [mobileFilter, setMobileFilter] = useState<boolean>(false);
 
   const [loading, setLoading] = useState(false);
 
@@ -91,6 +95,9 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
 
   return (
     <section className={styles.catalog}>
+      <AnimatePresence>
+        {mobileFilter && <MobileFilter />}
+      </AnimatePresence>
       <div className={styles.filtersWrapper}>
         <div className={styles.filterWrapper}>
           <PriceFilter
@@ -119,7 +126,12 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
         </div>
       </div>
       <div className={styles.catalogWrapper}>
-        <Sort />
+        <div className={styles.sortWrapper}>
+          <Sort />
+          <div className={styles.filters} onClick={() => setMobileFilter(!mobileFilter)}>
+            Фильтры
+          </div>
+        </div>
         {loading ? (
           <Loader />
         ) : products && products?.length > 0 ? (

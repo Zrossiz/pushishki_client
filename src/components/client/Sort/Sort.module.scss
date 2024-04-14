@@ -4,6 +4,7 @@
     .titleWrapper {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         font-weight: bold;
         font-size: 24px;
         cursor: pointer;
@@ -13,8 +14,23 @@
             opacity: 0.5;
         }
 
-        img {
-            margin-right: 16px;
+        .imgWrapper {
+            position: relative;
+            width: 48px;
+            height: 48px;
+
+            @media screen and (max-width: 480px) {
+                width: 34px;
+                height: 34px;
+            }
+
+            img {
+                margin-right: 16px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            font-size: 16px;
         }
     }
 

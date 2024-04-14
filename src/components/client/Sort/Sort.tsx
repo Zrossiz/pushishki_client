@@ -36,7 +36,9 @@ export const Sort = () => {
   return (
     <div className={styles.sortWrapper}>
       <div className={styles.titleWrapper} onClick={() => setOpen(!open)}>
-        <Image src={'/icons/Sort.svg'} width={48} height={48} alt="Сортировать" />
+        <div className={styles.imgWrapper}>
+          <Image src={'/icons/Sort.svg'} fill alt="Сортировать" />
+        </div>
         {settings[setting]}
       </div>
       <AnimatePresence>

@@ -10,3 +10,4 @@ export * from './WhyChoose/WhyChoose';
 export * from './Cart/Cart';
 export * from './Favorites/Favorites';
 export * from './MobileMenu/MobileMenu';
+export * from './MobileFilter/MobileFilter';
