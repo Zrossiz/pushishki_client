@@ -27,7 +27,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
 
   const [mobileFilter, setMobileFilter] = useState<boolean>(false);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const handleStart = () => {

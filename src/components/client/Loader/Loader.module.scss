@@ -3,15 +3,19 @@
     margin-top: 100px;
     text-align: center;
     width: 100%;
-    border-width: 600;
     font-size: 40px;
     animation: blink 1s infinite;
+
+    @media screen and (max-width: 480px) {
+      font-size: 20px;
+      padding-bottom: 50px;
+    }
 }
 
 .loader::after {
     position: absolute;
     content: '';
-    animation: dot-animation 0.4s infinite;
+    animation: dot-animation 0.6s infinite;
 }
 
 .loader::after {
