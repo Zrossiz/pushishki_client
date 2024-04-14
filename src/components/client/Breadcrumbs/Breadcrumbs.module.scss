@@ -4,7 +4,10 @@
     .linkWrapper {
         position: relative;
         display: inline-block;
-        padding-right: 26px;
+
+        &:not(:last-child) {
+            padding-right: 26px;
+        }
     
         .link {
             font-size: 24px;

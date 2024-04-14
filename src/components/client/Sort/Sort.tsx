@@ -45,7 +45,7 @@ export const Sort = () => {
         {open && (
           <motion.div
             initial={{ height: 0 }}
-            animate={{ height: 100 }}
+            animate={{ height: 'fit-content' }}
             exit={{ height: 0 }}
             transition={{ duration: 0.4 }}
             className={styles.sortList}
