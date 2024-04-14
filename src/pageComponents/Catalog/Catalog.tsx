@@ -96,7 +96,15 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
   return (
     <section className={styles.catalog}>
       <AnimatePresence>
-        {mobileFilter && <MobileFilter />}
+        {mobileFilter && <MobileFilter 
+          setOpen={setMobileFilter} 
+          priceFilterProps={{
+            priceRangeFrom,
+            setPriceRangeFrom,
+            priceRangeTo,
+            setPriceRangeTo
+          }}
+        />}
       </AnimatePresence>
       <div className={styles.filtersWrapper}>
         <div className={styles.filterWrapper}>

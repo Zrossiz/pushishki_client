@@ -1,11 +1,19 @@
 .span {
     font-weight: 700;
     font-size: 36px;
+
+    @media screen and (max-width: 900px) {
+        font-size: 24px;
+    }
 }
 
 .filter {
     display: flex;
     margin-top: 20px;
+
+    @media screen and (max-width: 900px) {
+        margin-top: 10px;
+    }
 
     .brandWrapper {
         
@@ -26,6 +34,11 @@
             font-weight: 700;
             color: var(--dark-grey);
             opacity: 0.5;
+
+            @media screen and (max-width: 900px) {
+                font-size: 18px;
+                top: 26%;
+            }
         }
 
         input {
@@ -36,6 +49,11 @@
             border: none;
             background-color: var(--light-grey);
             border-radius: 16px;
+
+            @media screen and (max-width: 900px) {
+                font-size: 18px;
+                height: 60px;
+            }
 
             &:focus {
                 outline: 2px solid #238C00;
