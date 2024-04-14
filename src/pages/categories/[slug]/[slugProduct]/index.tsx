@@ -23,6 +23,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import { AnimatePresence } from 'framer-motion';
+import { HtmlContext } from 'next/dist/shared/lib/html-context.shared-runtime';
 
 const ProductCardPage = ({
   bestSellers,
@@ -196,7 +197,9 @@ const ProductCardPage = ({
                   </ul>
                 </div>
               </div>
-              <span>{option === 'Описание' ? product?.description : product?.characteristics}</span>
+              <div>
+                <span dangerouslySetInnerHTML={{ __html: option === 'Описание' ? (product?.description || '') : (product?.characteristics || '') }}></span>
+              </div>
             </div>
           </div>
           <div className={styles.aboutItemWrapper}>
