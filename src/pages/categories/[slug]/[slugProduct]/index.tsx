@@ -58,6 +58,7 @@ const ProductCardPage = ({
   const switchActiveVariant = (index: number) => {
     setActiveVariant(index);
     setActivePrice(productVariants?.[index].price || 0);
+    window.scrollTo(0, 0);
   };
 
   let localStorageFavorites: IProduct[];
@@ -218,7 +219,7 @@ const ProductCardPage = ({
               />
             </div>
             <div className={styles.titleWrapper}>
-              <HTag tag="h1">{product?.name}</HTag>
+              <h1>{product?.name}</h1>
             </div>
             <div className={styles.inStockAndRatingWrapper}>
               <div className={styles.rating}>

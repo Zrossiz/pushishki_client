@@ -20,7 +20,7 @@ const categories = [
   },
   {
     name: 'Аксессуары',
-    slug: 'aksessuary',
+    slug: 'aksessury',
   },
 ];
 
