@@ -66,10 +66,10 @@ export const Pagination = ({ curPage = 1, totalPages, slug }: PaginationProps) =
             </div>
           </li>
         );
-  };
+    };
 
     return pages;
-};
+  };
 
   return (
     <ul className={styles.wrapper}>

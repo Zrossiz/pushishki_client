@@ -12,8 +12,10 @@ export const CatalogItemAttract = ({ type }: CatalogItemAttractProps) => {
               Позвоните нам прямо сейчас и получите профессиональную консультацию!
             </div>
             <div className={styles.byNumber}>
-              По номеру <br />
-              <a href="">телефона</a>!
+              <span>
+                По номеру <br />
+                <a href="">телефона</a>!
+              </span>
             </div>
             <a href="" className={styles.phoneIcon}>
               <Image src="/icons/Phone.svg" height={42} width={42} alt="Позвонить сейчас!" />

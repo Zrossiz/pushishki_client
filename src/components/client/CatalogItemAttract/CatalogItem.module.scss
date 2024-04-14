@@ -4,6 +4,11 @@
     border-bottom: 2px solid var(--light-grey);
     width: 33%;
 
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        padding-right: 0;
+    }
+
     .cardWrapper {
         display: flex;
         flex-direction: column;
@@ -14,11 +19,20 @@
         height: 460px;
         padding: 20px 20px;
 
+        @media screen and (max-width: 480px) {
+            height: fit-content;
+            height: 300px;
+        }
+
         .callWrapper {
             text-align: center;
             color: var(--white);
             font-size: 24px;
             font-weight: 700;
+
+            @media screen and (max-width: 480px) {
+                font-size: 20px;
+            }
         }
 
         .byNumber {
@@ -27,6 +41,13 @@
             font-weight: 700;
             color: var(--white);
             text-align: right;
+
+            @media screen and (max-width: 480px) {
+                span {
+                    display: none;
+                }
+            }
+            
 
             &::before {
                 content: '';
@@ -37,6 +58,11 @@
                 height: 190px;
                 background-image: url('/icons/HypeArrow.svg');
                 background-repeat: no-repeat;
+
+                @media screen and (max-width: 480px) {
+                    top: -10px;
+                    left: 10px;
+                }
             }
 
             a {
@@ -54,6 +80,10 @@
             height: 80px;
             border-radius: 50%;
 
+            @media screen and (max-width: 480px) {
+                margin-top: auto;
+            }
+
             &:hover img {
                 transform: scale(1.1);
             }
@@ -68,6 +98,10 @@
             font-weight: 600;
             text-align: center;
             color: var(--white);
+
+            @media screen and (max-width: 480px) {
+                font-size: 20px;
+            }
         }
 
         .takeGiftImg {
