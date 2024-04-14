@@ -34,11 +34,7 @@ export const CardItemGallery = ({ images }: CardItemGalleryProps) => {
   return (
     <div className={styles.sliderWrapper}>
       {images && images[0] !== '' ? (
-        <Swiper className="mySwiper">
-          <div className={styles.navWrapper}>
-            <SwiperButtonPrev />
-            <SwiperButtonNext />
-          </div>
+        <Swiper className={cn('mySwiper', styles.centered)}>
           {images.map((item, index) => {
             return (
               <SwiperSlide key={index}>
@@ -55,6 +51,8 @@ export const CardItemGallery = ({ images }: CardItemGalleryProps) => {
               </SwiperSlide>
             );
           })}
+          <SwiperButtonPrev />
+          <SwiperButtonNext />
         </Swiper>
       ) : (
         <div className={styles.noPhoto}>

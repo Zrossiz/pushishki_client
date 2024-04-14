@@ -1,56 +1,58 @@
 .sliderWrapper {
     position: relative;
     height: fit-content;
-    
-    .itemWrapper {
+
+    .centered {
         display: flex;
         justify-content: center;
-        align-items: center;
-        width: 100%;
 
-        a {
-            position: relative;
-            height: 340px;
-            width: 476px;
+        .itemWrapper {
             display: flex;
             justify-content: center;
-            width: 80%;
-
-            img {
-                border-radius: 20px;
-                overflow: hidden;
+            align-items: center;
+            width: 100%;
+    
+            a {
+                position: relative;
+                height: 340px;
+                width: 476px;
+                display: flex;
+                justify-content: center;
+                width: 80%;
+    
+                img {
+                    border-radius: 20px;
+                    overflow: hidden;
+                }
             }
+    
         }
-
-    }
-
-    .noPhoto {
-        height: 340px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .navWrapper {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        position: absolute;
-        top: 48%;
-        z-index: 4;
-
+    
+        .noPhoto {
+            height: 340px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
         .navButton {
             display: flex;
             justify-content: center;
             align-items: center;
+            position: absolute;
             border: none;
             background-color: transparent;
             cursor: pointer;
+            right: 0;
+            top: 48%;
+            z-index: 20;
+            width: fit-content;
         }
     
         .reverse {
             transform: rotate(180deg);
+            left: 0;
         }
     }
-
+    
 }
