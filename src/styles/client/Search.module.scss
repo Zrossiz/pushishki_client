@@ -8,6 +8,21 @@
     padding: 40px 80px;
     margin-top: 10px;
 
+    
+
+    @media screen and (max-width: 480px)  {
+        padding: 10px 20px;
+        margin-top: 4px;
+        border-radius: 20px;
+
+        .search {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           width: 100%;
+        }
+    }
+
     .notFoundWrapper {
         display: flex;
         justify-content: center;
@@ -15,11 +30,24 @@
         min-height: 600px;
         font-size: 42px;
         font-weight: 700;
+
+        @media screen and (max-width: 480px)  {
+            font-size: 30px;
+            text-align: center;
+        }
     }
 
     .resultWrapper {
         align-self: self-start;
         margin-top: 40px;
+
+        @media screen and (max-width: 480px)  {
+            margin-top: 20px;
+        }
+
+        .sortWrapper {
+            width: fit-content;
+        }
 
         .itemsWrapper {
             display: flex;

@@ -13,6 +13,10 @@
             border-radius: 12px;
             transition: 0.6s;
             outline: none;
+
+            @media screen and (max-width: 480px)  {
+                width: 80%;
+            }
         }
 
         .btnWrapper {
@@ -47,12 +51,20 @@
         background-color: var(--light-grey);
         z-index: 10;
 
+        @media screen and (max-width: 480px)  {
+            width: 80%;
+        }
+
         .itemWrapper {
             display: flex;
             align-items: center;
             color: var(--black);
             font-size: 26px;
             margin-top: 10px;
+
+            @media screen and (max-width: 480px)  {
+                font-size: 20px;
+            }
 
             .photo {
                 position: relative;
@@ -64,10 +76,19 @@
 
             .name {
                 margin-left: 20px;
+                
+                @media screen and (max-width: 480px)  {
+                    width: 40%;
+                    overflow: hidden;
+                }
             }
 
             .price {
                 margin-left: auto;
+
+                @media screen and (max-width: 480px)  {
+                    display: none;
+                }
             }
         }
     }

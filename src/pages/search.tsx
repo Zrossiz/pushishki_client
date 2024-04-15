@@ -63,7 +63,9 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
           </div>
           {products && products?.length >= 1 ? (
             <div className={styles.resultWrapper}>
-              <Sort />
+              <div className={styles.sortWrapper}>
+                <Sort />
+              </div>
               <div className={styles.itemsWrapper}>
                 {products.data.map((item: IProduct) => {
                   return <CatalogItem key={item.id} product={item} />;
