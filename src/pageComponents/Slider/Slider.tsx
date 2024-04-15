@@ -27,10 +27,10 @@ const SwiperButtonPrev = () => {
   );
 };
 
-export const Slider = ({ title, products }: SliderProps) => {
+export const Slider = ({ title, products, style }: SliderProps) => {
   return (
     <>
-      <section className={styles.slider}>
+      <section className={styles.slider} style={style}>
         <div className={styles.wrapper}>
           <div className={styles.titleWrapper}>
             <HTag tag="h2">{title}</HTag>
