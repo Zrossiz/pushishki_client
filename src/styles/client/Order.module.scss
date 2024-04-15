@@ -3,27 +3,61 @@
     margin-top: 10px;
     gap: 10px;
 
+    @media screen and (max-width: 480px) {
+        margin-top: 4px;
+        gap: 4px;
+    }
+
     .infoWrapper {
         width: 70%;
+
+        @media screen and (max-width: 480px) {
+            width: 54%;
+        }
 
         .titleWrapper {
             font-size: 48px;
             font-weight: 500;
+
+            @media screen and (max-width: 480px) {
+                font-size: 26px;
+            }
         }
 
         .optionWrapper {
             display: flex;
             margin-top: 20px;
 
+            @media screen and (max-width: 480px) {
+                flex-direction: column;
+            }
+
             .option {
                 display: flex;
+
+                @media screen and (max-width: 480px) {
+                    align-items: center;
+                }
     
                 label {
                     font-size: 36px;
+                    
+                    @media screen and (max-width: 480px) {
+                        font-size: 20px;
+                        margin-top: 10px;
+
+                        &::before {
+                            top: 10%;
+                        }
+                    }
                 }
     
                 &:not(:last-child) {
                     margin-right: 40px;
+
+                    @media screen and (max-width: 480px) {
+                        margin-right: 10px;
+                    }
                 }
             }
         }
@@ -33,9 +67,18 @@
             background-color: var(--white);
             border-radius: 40px 12px 12px 40px;
 
+            @media screen and (max-width: 480px) {
+                padding: 10px;
+                border-radius: 20px 4px 4px 20px;
+            }
+
             .titleWrapper {
                 font-size: 48px;
                 font-weight: 500;
+
+                @media screen and (max-width: 480px) {
+                    font-size: 26px;
+                }
             }
 
             .swiperWrapper {
@@ -45,12 +88,21 @@
                     width: fit-content;
                     padding-left: 32px;
 
+                    @media screen and (max-width: 480px) {
+                        padding-left: 4px;
+                    }
+
                     .imgWrapper {
                         position: relative;
                         border-radius: 20px;
                         overflow: hidden;
                         width: 200px;
                         height: 130px;
+
+                        @media screen and (max-width: 480px) {
+                            width: 80px;
+                            height: 60px;
+                        }
 
                         img {
                             border-radius: 20px;
@@ -61,6 +113,10 @@
                     .title {
                         font-size: 20px;
                         margin-top: 10px;
+
+                        @media screen and (max-width: 480px) {
+                            font-size: 18px;
+                        }
                     }
 
                     .priceColorWrapper {
@@ -70,12 +126,22 @@
 
                         .price {
                             font-size: 24px;
+
+                            @media screen and (max-width: 480px) {
+                                font-size: 18px;
+                            }
                         }
 
                         .colorWrapper {
                             width: 30px;
                             height: 30px;
                             border-radius: 50%;
+
+                            @media screen and (max-width: 480px) {
+                               margin-top: auto;
+                               width: 20px;
+                               height: 20px;
+                            }
                         }
                     }
                 }
@@ -110,6 +176,11 @@
             margin-top: 10px;
             padding: 40px;
 
+            @media screen and (max-width: 480px) {
+                padding: 10px;
+                border-radius: 20px 4px 4px 20px;
+                margin-top: 4px;
+            }
         }
 
         .contactsWrapper {
@@ -118,11 +189,22 @@
             margin-top: 10px;
             padding: 40px;
 
+            @media screen and (max-width: 480px) {
+                padding: 10px;
+                border-radius: 20px 4px 4px 20px;
+                margin-top: 4px;
+            }
+
+
             .inputsWrapper {
                 margin-top: 20px;
 
                 input:not(:first-child) {
                     margin-top: 10px;
+
+                    @media screen and (max-width: 480px) {
+                        height: 60px;
+                    }
                 }
             }
         }
@@ -132,6 +214,10 @@
             border-radius: 40px 12px 12px 40px;
             margin-top: 10px;
             padding: 40px;
+
+            @media screen and (max-width: 480px) {
+                display: none;
+            }
         }
 
         .resultWrapper {
@@ -142,20 +228,42 @@
             margin-top: 10px;
             padding: 40px;   
 
+            @media screen and (max-width: 480px) {
+                padding: 10px;
+                border-radius: 20px 4px 4px 20px;
+                margin-top: 4px;
+            }
+
             .result {
                 display: flex;
                 align-items: center;
+
+                @media screen and (max-width: 480px) {
+                    flex-wrap: wrap;
+                    align-items: start;
+                }
 
                 .price {
                     margin-left: 10px;
                     font-size: 48px;
                     color: var(--light-green);
+
+                    @media screen and (max-width: 480px) {
+                        font-size: 30px;
+                        margin-left: 0;
+                    }
                 }
             }
 
             .infoWrapper {
                 margin-top: 20px;
                 font-size: 22px;
+
+                @media screen and (max-width: 480px) {
+                    width: 100%;
+                    text-align: center;
+                    font-size: 18px;
+                }
             }
         }
     }
@@ -166,11 +274,22 @@
         padding: 20px;
         width: 30%;
 
+        @media screen and (max-width: 480px) {
+            width: 46%;
+            border-radius: 4px 20px 20px 4px;
+            padding: 10px;
+        }
+
         .titlePriceWrapper {
             display: flex;
             justify-content: space-between;
             font-size: 30px;
             font-weight: 600;
+
+            @media screen and (max-width: 480px) {
+                flex-wrap: wrap;
+                font-size: 26px;
+            }
 
             .priceWrapper {
                 color: var(--light-green);
@@ -182,6 +301,10 @@
             justify-content: space-between;
             margin-top: 10px;
             font-size: 20px;
+
+            @media screen and (max-width: 480px) {
+                flex-wrap: wrap;
+            }
         }
 
         .infoWrapper {
@@ -197,6 +320,10 @@
         button {
             height: 60px;
             margin-top: 40px;
+
+            @media screen and (max-width: 480px) {
+                font-size: 20px;
+            }
         }
     }
 }

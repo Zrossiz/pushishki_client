@@ -13,6 +13,7 @@ import { InfoPopup } from '@/components/client';
 import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { createBasket, postOrder } from '@/api';
+import { Autoplay } from 'swiper/modules';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -132,7 +133,26 @@ const OrderPage = () => {
               <div className={styles.listWrapper}>
                 <div className={styles.titleWrapper}>Купить {totalProductsCounter} шт.</div>
                 <div className={styles.swiperWrapper}>
-                  <Swiper className="mySwipper" slidesPerView={3}>
+                  <Swiper 
+                    className="mySwipper" 
+                    slidesPerView={3}
+                    breakpoints={{
+                      360: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                      },
+                      900: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                      }
+                    }}
+                    autoplay={{
+                      delay: 2000,
+                      disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay]}
+                    freeMode={true}
+                  >
                     {cart.length > 3 && (
                       <div className={styles.navWrapper}>
                         <SwiperButtonPrev />
