@@ -42,7 +42,7 @@ export const QuestionPopup = ({ setForm }: QuestionPopupProps) => {
           transition={{ duration: 0.6 }}
         >
           <div className={styles.close} onClick={() => setForm(false)}>
-            <Image src="/icons/Close.svg" width={30} height={30} alt="Закрыть" />
+            <Image src="/icons/Close.svg" fill alt="Закрыть" />
           </div>
           <div>
             <HTag tag="h2">Задайте вопрос</HTag>

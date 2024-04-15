@@ -22,12 +22,24 @@
         width: 900px;
         z-index: 5;
 
+        @media screen and (max-width: 480px) {
+            width: 94%;
+            padding: 30px 20px;
+        }
+
         .close {
             position: absolute;
             top: 20px;
             right: 20px;
             margin-left: auto;
             cursor: pointer;
+            width: 30px;
+            height: 30px;
+
+            @media screen and (max-width: 480px) {
+                width: 20px;
+                height: 20px;
+            }
 
             img {
                 transition: 1s;
@@ -100,6 +112,10 @@
             button {
                 width: 300px;
                 height: 60px;
+
+                @media screen and (max-width: 480px) {
+                    width: 100%;
+                }
             }
         }
         
