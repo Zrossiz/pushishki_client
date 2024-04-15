@@ -4,11 +4,22 @@
     width: 100%;
     margin-top: 10px;
 
+    @media screen and (max-width: 480px) {
+        flex-direction: column;
+        margin-top: 4px;
+        gap: 4px;
+    }
+
     .cartList {
         width: 70%;
         padding: 20px 0;
         background-color: var(--white);
         border-radius: 40px 12px 12px 40px;
+
+        @media screen and (max-width: 480px) {
+            width: 100%;
+            border-radius: 20px 20px 4px 4px;
+        }
 
         .titleWrapper {
             font-size: 36px;
@@ -34,6 +45,11 @@
         width: 30%;
         background-color: var(--white);
         border-radius: 12px 40px 40px 12px;
+
+        @media screen and (max-width: 480px) {
+            width: 100%;
+            border-radius: 4px 4px 20px 20px;
+        }
 
         .titlePriceWrapper {
             display: flex;
