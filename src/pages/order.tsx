@@ -133,8 +133,8 @@ const OrderPage = () => {
               <div className={styles.listWrapper}>
                 <div className={styles.titleWrapper}>Купить {totalProductsCounter} шт.</div>
                 <div className={styles.swiperWrapper}>
-                  <Swiper 
-                    className="mySwipper" 
+                  <Swiper
+                    className="mySwipper"
                     slidesPerView={3}
                     breakpoints={{
                       360: {
@@ -143,8 +143,8 @@ const OrderPage = () => {
                       },
                       900: {
                         slidesPerView: 3,
-                        spaceBetween: 30
-                      }
+                        spaceBetween: 30,
+                      },
                     }}
                     autoplay={{
                       delay: 2000,

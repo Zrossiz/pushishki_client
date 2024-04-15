@@ -54,19 +54,19 @@ export const Pagination = ({ curPage = 1, totalPages, slug }: PaginationProps) =
 
     const pages = [];
     for (let i = windowStart; i <= windowEnd; i++) {
-        pages.push(
-          <li
-            className={cn(styles.paginationItem, {
-              [styles.active]: i === curPage,
-            })}
-            key={Math.floor(Math.random() * 1000)}
-          >
-            <div onClick={() => changePage(i)} className={styles.link}>
-              {i}
-            </div>
-          </li>
-        );
-    };
+      pages.push(
+        <li
+          className={cn(styles.paginationItem, {
+            [styles.active]: i === curPage,
+          })}
+          key={Math.floor(Math.random() * 1000)}
+        >
+          <div onClick={() => changePage(i)} className={styles.link}>
+            {i}
+          </div>
+        </li>,
+      );
+    }
 
     return pages;
   };

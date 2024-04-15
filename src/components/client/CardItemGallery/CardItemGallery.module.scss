@@ -28,13 +28,6 @@
     
         }
     
-        .noPhoto {
-            height: 340px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    
         .navButton {
             display: flex;
             justify-content: center;
@@ -55,4 +48,10 @@
         }
     }
     
+    .noPhoto {
+        height: 340px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

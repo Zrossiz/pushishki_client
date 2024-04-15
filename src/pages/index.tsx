@@ -156,7 +156,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
             </a>
           </div>
         </section>
-        <Slider title="Лучшие предложения" products={bestSellers} style={{marginTop: '-10px'}} />
+        <Slider title="Лучшие предложения" products={bestSellers} />
         <WhyChoose />
         <Quiz categories={categories?.data} />
         <Questions />

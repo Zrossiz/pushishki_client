@@ -172,7 +172,9 @@ const ProductCardPage = ({
           </AnimatePresence>
           <div className={styles.galleryAndDescriptionWrapper}>
             <div className={styles.galleryWrapper}>
-              <CardItemGallery images={productVariants && productVariants[activeVariant]?.images} />
+              {product && 
+                <CardItemGallery images={productVariants && productVariants?.length >= 1 ? productVariants[activeVariant]?.images : [product?.image]} />
+              }
             </div>
             <div className={styles.descriptionWrapper}>
               <div className={styles.titleOptionWrapper}>
