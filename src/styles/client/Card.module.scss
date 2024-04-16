@@ -34,6 +34,11 @@
             border-radius: 12px 12px 12px 40px;
             background-color: var(--white);
 
+            @media screen and (max-width: 480px) {
+                border-radius: 20px;
+                margin-top: 4px;
+            }
+
             .titleOptionWrapper {
                 display: flex;
                 justify-content: center;
@@ -49,6 +54,10 @@
                             font-size: 30px;
                             font-weight: 500;
                             cursor: pointer;
+
+                            @media screen and (max-width: 480px) {
+                                font-size: 20px;
+                            }
                         }
 
                         .active {
