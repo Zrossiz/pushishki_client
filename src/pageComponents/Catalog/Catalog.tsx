@@ -110,6 +110,10 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
               inStock,
               setInStock
             }}
+            brandFilter={{
+              brands,
+              selectedBrands
+            }}
           />
         )}
       </AnimatePresence>

@@ -1,3 +1,5 @@
+import { IBrandWithLength } from "@/types";
+
 export interface MobileFilterProps {
   priceFilterProps: {
     priceRangeFrom?: number;
@@ -8,6 +10,10 @@ export interface MobileFilterProps {
   availabilityFilter: {
     inStock?: boolean;
     setInStock?: (arg0: boolean) => void;
+  };
+  brandFilter: {
+    brands?: IBrandWithLength;
+    selectedBrands: number[];
   };
   setOpen: (arg0: boolean) => void;
 }
