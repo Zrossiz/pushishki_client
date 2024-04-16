@@ -3,6 +3,7 @@
     justify-content: space-between;
 
     @media screen and (max-width: 480px) {
+        flex-direction: column-reverse;
         overflow: hidden;
     }
 
@@ -12,10 +13,18 @@
         width: 51%;
         margin-right: 10px;
 
+        @media screen and (max-width: 480px) {
+            width: 100%;
+        }
+
         .galleryWrapper {
             background-color: var(--white);
             border-radius: 40px 12px 12px 12px;
             padding: 20px;
+
+            @media screen and (max-width: 480px) {
+                display: none;
+            }
         }
 
         .descriptionWrapper {
@@ -24,8 +33,6 @@
             margin-top: 10px;
             border-radius: 12px 12px 12px 40px;
             background-color: var(--white);
-
-
 
             .titleOptionWrapper {
                 display: flex;
@@ -97,6 +104,20 @@
         border-radius: 12px 40px 40px 12px;
         width: 48%;
         padding: 30px 40px;
+
+        @media screen and (max-width: 480px) {
+            width: 100%;
+            border-radius: 20px;
+            padding: 10px 20px;
+        }
+
+        .mobileGallery {
+            display: none;
+
+            @media screen and (max-width: 480px) {
+                display: inline-block;
+            }
+        }
 
         .breadcrumbsWrapper {
             align-self: center;

@@ -210,6 +210,11 @@ const ProductCardPage = ({
             </div>
           </div>
           <div className={styles.aboutItemWrapper}>
+              <div className={styles.mobileGallery}>
+                {product && 
+                  <CardItemGallery images={productVariants && productVariants?.length >= 1 ? productVariants[activeVariant]?.images : [product?.image]} />
+                }
+              </div>
             <div className={styles.breadcrumbsWrapper}>
               <Breadcrumbs
                 breadcrumbs={[
