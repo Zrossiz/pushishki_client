@@ -163,6 +163,10 @@
         .propsWrapper {
             margin-top: 30px;
 
+            @media screen and (max-width: 480px) {
+                margin-top: 10px;
+            }
+
             ul {
 
                 li {
@@ -171,9 +175,17 @@
                     font-weight: 700;
                     font-size: 22px;
 
+                    @media screen and (max-width: 480px) {
+                        margin-top: 6px;
+                    }
+
                     span {
                         font-size: 24px;
                         color: var(--black);
+
+                        @media screen and (max-width: 480px) {
+                            font-size: 20px;
+                        }
                     }
                 }
             }
@@ -183,6 +195,11 @@
             margin-top: 30px;
             font-size: 44px;
             font-weight: 700;
+
+            @media screen and (max-width: 480px) {
+                font-size: 30px;
+                margin-top: 10px;
+            }
 
             span {
                 color: var(--light-green);
@@ -196,6 +213,11 @@
             font-size: 32px;
             font-weight: 700;
 
+            @media screen and (max-width: 480px) {
+                font-size: 26px;
+                margin-top: 10px;
+            }
+
             .active {
                 border: 2px solid var(--medium-grey);
             }
@@ -206,6 +228,11 @@
                 border-radius: 50%;
                 width: 40px;
                 height: 40px;
+
+                @media screen and (max-width: 480px) {
+                    width: 30px;
+                    height: 30px;
+                }
             }
         }
 
@@ -269,6 +296,12 @@
             font-weight: 600;
             font-size: 20px;
 
+            @media screen and (max-width: 480px) {
+                margin-top: 10px;
+                font-size: 18px;
+                text-align: center;
+            }
+
             span {
                 color: var(--light-green);
             }
@@ -286,6 +319,11 @@
             font-weight: 700;
             font-size: 24px;
             color: var(--dark-grey);
+
+            @media screen and (max-width: 480px) {
+                font-size: 26px;
+                margin-top: 10px;
+            }
 
             a {
                 color: var(--light-green);
