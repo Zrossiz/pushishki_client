@@ -9,6 +9,10 @@
     height: 100vh;
     z-index: 3;
 
+    @media screen and (max-width: 480px) {
+        z-index: 10;
+    }
+
     .background {
         position: absolute;
         left: 0;
@@ -21,17 +25,31 @@
 
     .formWrapper {
         text-align: center;
-        width: 600px;
+        width: 80%; /* Пример использования процентного значения */
+        max-width: 600px; /* Максимальная ширина для больших экранов */
         padding: 20px;
         padding-bottom: 40px;
         background-color: var(--white);
         border-radius: 20px;
         z-index: 5;
 
+        @media screen and (max-width: 480px) {
+            width: 94%;
+            padding: 30px 20px;
+        }
+
         .close {
+            position: relative;
             margin-left: auto;
             width: fit-content;
             cursor: pointer;
+            width: 30px;
+            height: 30px;
+
+            @media screen and (max-width: 480px) {
+                width: 20px;
+                height: 20px;
+            }
 
             img {
                 transition: 1s;
@@ -49,6 +67,10 @@
             padding: 0 40px;
             margin-top: 40px;
             width: 100%;
+
+            @media screen and (max-width: 480px) {
+                padding: 0;
+            }
 
             .phoneInputWrapper {
                 margin-top: 10px;
