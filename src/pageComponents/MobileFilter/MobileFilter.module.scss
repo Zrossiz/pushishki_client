@@ -30,9 +30,21 @@
     }
 
     .body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
 
         .filter {
             margin-top: 10px;
+        }
+
+        .send {
+            margin-top: auto;
+            margin-left: auto;
+            margin-bottom: 40px;
+            width: 200px;
+            height: 60px;
         }
     }
 }

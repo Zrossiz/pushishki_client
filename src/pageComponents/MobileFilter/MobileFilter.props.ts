@@ -15,5 +15,6 @@ export interface MobileFilterProps {
     brands?: IBrandWithLength;
     selectedBrands: number[];
   };
+  setCatalogFilter: () => void;
   setOpen: (arg0: boolean) => void;
 }

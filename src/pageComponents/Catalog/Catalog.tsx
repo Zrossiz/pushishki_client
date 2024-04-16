@@ -64,6 +64,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
   let selectedBrands: number[] = [];
 
   const setCatalogFilter = () => {
+    setMobileFilter(false);
     const newQuery = {
       ...query,
       priceRangeFrom,
@@ -79,6 +80,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
     if (products) {
       products.length = 0;
     }
+
 
     setTimeout(() => {
       router.push({
@@ -114,6 +116,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
               brands,
               selectedBrands
             }}
+            setCatalogFilter={setCatalogFilter}
           />
         )}
       </AnimatePresence>

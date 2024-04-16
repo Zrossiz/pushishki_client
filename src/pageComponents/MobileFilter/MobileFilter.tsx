@@ -3,8 +3,9 @@ import styles from './MobileFilter.module.scss';
 import { MobileFilterProps } from './MobileFilter.props';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { LinkButton } from '@/elements';
 
-export const MobileFilter = ({ setOpen, priceFilterProps, availabilityFilter, brandFilter }: MobileFilterProps) => {
+export const MobileFilter = ({ setOpen, priceFilterProps, availabilityFilter, brandFilter, setCatalogFilter }: MobileFilterProps) => {
   return (
     <motion.div
       initial={{ y: '100vh' }}
@@ -31,6 +32,11 @@ export const MobileFilter = ({ setOpen, priceFilterProps, availabilityFilter, br
         </div>
         <div className={styles.filter}>
           <BrandFilter selectedBrands={brandFilter.selectedBrands} brands={brandFilter.brands}  />
+        </div>
+        <div className={styles.send}>
+          <LinkButton element="button" onClick={() => setCatalogFilter()}>
+            Показать
+          </LinkButton>
         </div>
       </div>
     </motion.div>
