@@ -106,6 +106,10 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
               priceRangeTo,
               setPriceRangeTo,
             }}
+            availabilityFilter={{
+              inStock,
+              setInStock
+            }}
           />
         )}
       </AnimatePresence>

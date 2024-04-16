@@ -1,10 +1,10 @@
-import { PriceFilter } from '@/components/client';
+import { AvailabilityFilter, PriceFilter } from '@/components/client';
 import styles from './MobileFilter.module.scss';
 import { MobileFilterProps } from './MobileFilter.props';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-export const MobileFilter = ({ setOpen, priceFilterProps }: MobileFilterProps) => {
+export const MobileFilter = ({ setOpen, priceFilterProps, availabilityFilter }: MobileFilterProps) => {
   return (
     <motion.div
       initial={{ y: '100vh' }}
@@ -26,6 +26,7 @@ export const MobileFilter = ({ setOpen, priceFilterProps }: MobileFilterProps) =
           priceRangeTo={priceFilterProps.priceRangeTo}
           setPriceRangeTo={priceFilterProps.setPriceRangeTo}
         />
+        <AvailabilityFilter inStock={availabilityFilter.inStock} setInStock={availabilityFilter.setInStock} />
       </div>
     </motion.div>
   );

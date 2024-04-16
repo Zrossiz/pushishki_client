@@ -27,6 +27,12 @@
                 background-position: center;
                 background-image: none;
                 transition: 0.4s;
+
+                @media screen and (max-width: 480px) {
+                    width: 26px;
+                    height: 26px;
+                    top: 2px;
+                }
             }
         }
     }    

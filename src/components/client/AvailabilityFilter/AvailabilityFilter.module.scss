@@ -1,8 +1,17 @@
 .span {
     font-weight: 700;
     font-size: 36px;
+
+    @media screen and (max-width: 480px) {
+        font-size: 24px;
+        font-weight: 500;
+    }
 }
 
 .filter {
     margin-top: 20px;
+
+    @media screen and (max-width: 480px) {
+        margin-top: 10px;
+    }
 }
