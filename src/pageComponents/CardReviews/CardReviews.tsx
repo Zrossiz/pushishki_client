@@ -27,7 +27,6 @@ const SwiperButtonPrev = () => {
 };
 
 export const CardReviews = ({ reviews, setOpen }: CardreviewsProps) => {
-  console.log(reviews);
   return (
     <section className={styles.cardReviewsWrapper}>
       {reviews && reviews?.length > 0 ? (
@@ -47,7 +46,7 @@ export const CardReviews = ({ reviews, setOpen }: CardreviewsProps) => {
                   spaceBetween: 30,
                 },
                 900: {
-                  slidesPerView: 3,
+                  slidesPerView: 2,
                   spaceBetween: 30,
                 },
               }}
