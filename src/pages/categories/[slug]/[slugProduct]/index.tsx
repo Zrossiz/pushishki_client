@@ -23,7 +23,6 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import { AnimatePresence } from 'framer-motion';
-import { HtmlContext } from 'next/dist/shared/lib/html-context.shared-runtime';
 
 const ProductCardPage = ({
   bestSellers,
@@ -414,7 +413,7 @@ export const getServerSideProps = async (context: { params: { slugProduct: strin
   const accessories = await getAccessories();
   const product = await getOneProduct(slugProduct);
   const productVariants = await getProductVariants('id' in product ? product.id : 1);
-  const reviews = await getReviewsProduct('id' in product ? product.id : 1);
+  const reviews = await getReviewsProduct('id' in product ? product.id : 1, false);
 
   return {
     props: {

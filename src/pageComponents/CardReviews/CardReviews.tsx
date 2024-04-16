@@ -6,6 +6,7 @@ import 'swiper/css';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import cn from 'classnames';
 import { CardReview } from '@/components/client';
+import { Autoplay } from 'swiper/modules';
 
 const SwiperButtonNext = () => {
   const swiper = useSwiper();
@@ -26,6 +27,7 @@ const SwiperButtonPrev = () => {
 };
 
 export const CardReviews = ({ reviews, setOpen }: CardreviewsProps) => {
+  console.log(reviews);
   return (
     <section className={styles.cardReviewsWrapper}>
       {reviews && reviews?.length > 0 ? (
@@ -34,7 +36,27 @@ export const CardReviews = ({ reviews, setOpen }: CardreviewsProps) => {
             <HTag tag="h2">Отзывы</HTag>
           </div>
           <div className={styles.sliderWrapper}>
-            <Swiper className="mySwiper" slidesPerView={2}>
+            <Swiper 
+              className="mySwiper" 
+              slidesPerView={2}
+              loop
+              freeMode
+              breakpoints={{
+                240: {
+                  slidesPerView: 1,
+                  spaceBetween: 30,
+                },
+                900: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+              }}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+            >
               {reviews?.map((item) => {
                 return (
                   <SwiperSlide key={item.id}>
