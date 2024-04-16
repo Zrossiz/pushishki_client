@@ -25,8 +25,8 @@
 
     .formWrapper {
         text-align: center;
-        width: 80%; /* Пример использования процентного значения */
-        max-width: 600px; /* Максимальная ширина для больших экранов */
+        width: 80%;
+        max-width: 600px;
         padding: 20px;
         padding-bottom: 40px;
         background-color: var(--white);
@@ -70,6 +70,7 @@
 
             @media screen and (max-width: 480px) {
                 padding: 0;
+                margin-top: 20px;
             }
 
             .phoneInputWrapper {
