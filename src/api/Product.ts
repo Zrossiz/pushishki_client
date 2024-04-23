@@ -1,7 +1,8 @@
-import { ICreateProduct, IProduct, IProductWithLength } from '@/types';
+import { ICreateProduct, IProduct, IProductVariant, IProductWithLength } from '@/types';
 import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
+import { deleteFile, getProductVariants } from '.';
 
 const { publicRuntimeConfig } = getConfig();
 const { API_URL } = publicRuntimeConfig;
@@ -152,3 +153,25 @@ export const updateProduct = async (data: ICreateProduct, id?: number) => {
     };
   }
 };
+
+export const deleteProduct = async (productId: number): Promise<{ message: string }> => {
+  try {
+    const productVariants: IProductVariant[] | { message: string } = await getProductVariants(productId);
+    if (Array.isArray(productVariants)) {
+      for (let i = 0; i < productVariants.length; i++) {
+        productVariants[i].images.map(async (item) => {
+          await deleteFile(item);
+        });
+      };
+    };
+    await axios.delete(`${API_URL}/product/${productId}`);
+    return {
+      message: 'Товар успешно удален'
+    }
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при удалении товара',
+    };
+  };
+}
