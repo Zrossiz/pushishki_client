@@ -22,7 +22,7 @@ export const ProductListItem = ({
   return (
     <div className={styles.itemWrapper}>
       {remove && (
-        <DeleteItem id={product.id} setOpen={setRemove} name={product.name} entity="product" />
+        <DeleteItem id={product.id} setOpen={setRemove} name={product.name} imgName={product.image} entity="product" />
       )}
       {edit && <ProductForm setOpen={setEdit} product={product} update={true} />}
       {variant && (
