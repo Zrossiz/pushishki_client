@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import styles from '../../../styles/admin/Product.module.scss';
 import { Pagination, ProductForm, ProductListItem } from '@/components/admin';
 import cn from 'classnames';
+import { LinkButton } from '@/elements';
 
 const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
   const [products, setProducts] = useState<IProductWithLength | { message: string }>();
@@ -50,7 +51,9 @@ const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
           />
         )}
         <div className={styles.addButtonWrapper}>
-          <button onClick={() => setCreate(true)}>Добавить товар</button>
+          <LinkButton element="button" onClick={() => setCreate(true)}>
+            Добавить
+          </LinkButton>
           <input
             type="text"
             value={search}
