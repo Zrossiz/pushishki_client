@@ -21,14 +21,14 @@ const CategoryPage = ({
 }: ICatalogPageProps) => {
   return (
     <Layout
-      title={`${category?.metaTitle} | Пушишки`}
+      title={`${category?.metaTitle ? category?.metaTitle : 'Ничего не найдено'} | Пушишки`}
       description={category?.metaDescription}
       keyWords={category?.metaKeyWords}
     >
       <>
         <PageTitle
           title={'Каталог'}
-          counter={`${products && products?.totalPages * 10} товаров`}
+          counter={`${products?.totalPages ? products?.totalPages * 10 : 0} товаров`}
           breadcrumbs={[
             {
               name: 'Главная',
