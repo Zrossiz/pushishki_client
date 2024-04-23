@@ -1,6 +1,6 @@
 import { LinkButton } from '@/elements';
 import { AdminLayout } from '@/layout/admin/AdminLayout';
-import styles from '../../styles/admin/Category.module.scss';
+import styles from '../../../styles/admin/Category.module.scss';
 import { useEffect, useState } from 'react';
 import { CategoryForm, CategoryListItem } from '@/components/admin';
 import { ICategoryWithLength } from '@/types';

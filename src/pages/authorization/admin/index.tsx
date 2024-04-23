@@ -10,7 +10,7 @@ const AdminPage = () => {
     (async () => {
       const isLogin = await checkUser();
       if (isLogin.message.startsWith('Ошибка')) {
-        return router.push('/auth/login');
+        return router.push('/authorization/login');
       }
     })();
   }, []);

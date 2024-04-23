@@ -17,7 +17,7 @@ const LoginPage = () => {
       if ('message' in user) {
         setError(user.message);
       } else {
-        router.push('/admin');
+        router.push('/authorization/admin');
       }
     } catch (err) {
       setError('Неверный логин или пароль. Пожалуйста, попробуйте снова');

@@ -11,7 +11,7 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
   const router = useRouter();
   const [active, setActive] = useState<string>('Дашборд');
 
-  const pagePath = router.asPath.split('/admin/')[1];
+  const pagePath = router.asPath.split('/authorization/admin/')[1];
 
   const entities: { name: string; slug: string }[] = [
     {
@@ -87,7 +87,7 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
                   key={index}
                   onClick={() => switchEntity(item)}
                 >
-                  <Link className={styles.link} href={`/admin/${item.slug}`}>
+                  <Link className={styles.link} href={`/authorization/admin/${item.slug}`}>
                     {item.name}
                   </Link>
                 </li>

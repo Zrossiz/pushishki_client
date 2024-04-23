@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './CategoryListItem.module.scss';
 import { CategoryListItemProps } from './CategoryListItem.props';
-import product from '@/pages/admin/product';
+import product from '@/pages/authorization/admin/product';
 import { CategoryForm } from '..';
 import Image from 'next/image';
 import getConfig from 'next/config';

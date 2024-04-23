@@ -2,7 +2,7 @@ import { findProducts, getAllProducts, getBrands, getCategories, getCountries } 
 import { AdminLayout } from '@/layout/admin/AdminLayout';
 import { IAdminProduct, IProduct, IProductWithLength } from '@/types';
 import { useEffect, useState } from 'react';
-import styles from '../../styles/admin/Product.module.scss';
+import styles from '../../../styles/admin/Product.module.scss';
 import { Pagination, ProductForm, ProductListItem } from '@/components/admin';
 import cn from 'classnames';
 
