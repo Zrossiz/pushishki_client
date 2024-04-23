@@ -11,11 +11,17 @@ const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
 const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
+
+  const pluralizeCategory = (count: number): string => {
+    const cases = [2, 0, 1, 1, 1, 2];
+    return count + ' ' + ['категория', 'категории', 'категорий'][count % 100 > 4 && count % 100 < 20 ? 2 : cases[Math.min(count % 10, 5)]];
+  };
+
   return (
     <Layout title="Категории | Пушишки">
       <>
         <PageTitle
-          counter={`${categories?.length} категорий`}
+          counter={pluralizeCategory(categories?.length ? categories?.length : 0)}
           title={'Категории'}
           breadcrumbs={[
             {
