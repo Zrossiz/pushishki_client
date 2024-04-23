@@ -62,7 +62,11 @@ export const CatalogItem = ({ product, localStorageFavorites }: CatalogItemProps
         />
       </div>
       <div className={styles.infoWrapper}>
-        <div className={styles.nameWrapper}>{product.name}</div>
+        <div className={styles.nameWrapper}>
+          <span>
+            {product.name}
+          </span>
+        </div>
         <div className={styles.priceWrapper}>
           от <span>{formattedPrice}</span>
         </div>

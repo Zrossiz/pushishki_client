@@ -68,6 +68,10 @@
             font-weight: 800;
             font-size: 24px;
             color: var(--light-green);
+
+            span {
+                word-break: break-all;
+            }
             
             @media screen and (max-width: 480px) {
                 font-size: 18px;
