@@ -154,19 +154,22 @@ export const updateProduct = async (data: ICreateProduct, id?: number) => {
   }
 };
 
-export const deleteProduct = async (productId: number): Promise<{ message: string }> => {
+export const deleteProductFiles = async (productId: number): Promise<{ message: string }> => {
   try {
     const productVariants: IProductVariant[] | { message: string } = await getProductVariants(productId);
     if (Array.isArray(productVariants)) {
       for (let i = 0; i < productVariants.length; i++) {
         productVariants[i].images.map(async (item) => {
-          await deleteFile(item);
+          try {
+            await deleteFile(item);
+          } catch (err) {
+            console.log(err);
+          }
         });
       };
     };
-    await axios.delete(`${API_URL}/product/${productId}`);
     return {
-      message: 'Товар успешно удален'
+      message: 'Изображения товара успешно удалены'
     }
   } catch (err) {
     console.log(err);

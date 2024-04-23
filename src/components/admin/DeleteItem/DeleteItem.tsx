@@ -4,7 +4,7 @@ import { HTag } from '@/elements';
 import { axiosInst } from '@/utils';
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';
-import { deleteFile } from '@/api';
+import { deleteFile, deleteProductFiles } from '@/api';
 
 const { publicRuntimeConfig } = getConfig();
 const { API_URL } = publicRuntimeConfig;
@@ -13,16 +13,22 @@ export const DeleteItem = ({ id, name, entity, setOpen, imgName }: DeleteItemPro
   const router = useRouter();
 
   const deleteItem = async () => {
-    const product = await axiosInst.delete(`${API_URL}/${entity}/${id}`);
+
+    if (entity = 'product') {
+      await deleteProductFiles(id);
+    };
 
     if (imgName) {
       await deleteFile(imgName);
-    }
+    };
+
+    const product = await axiosInst.delete(`${API_URL}/${entity}/${id}`);
 
     if (product.status === 200) {
       router.reload();
     }
   };
+
 
   return (
     <div className={styles.wrapper}>
