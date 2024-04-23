@@ -5,9 +5,9 @@
     margin-top: 10px;
     background-color: var(--white);
     border-radius: 40px;
-    padding: 100px 70px 110px 150px;
+    padding: 4rem;
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 900px) {
         padding: 30px;
         border-radius: 20px;
         margin-top: 4px;
@@ -17,7 +17,7 @@
         margin-right: 100px;
         width: 60%;
 
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 900px) {
             width: 100%;
             margin-right: 0;
         }
@@ -28,7 +28,7 @@
             justify-content: space-between;
             margin-top: 82px;
 
-            @media screen and (max-width: 480px) {
+            @media screen and (max-width: 900px) {
                 justify-content: center;
                 align-items: center;
                 margin-top: 0;
@@ -41,7 +41,14 @@
                 font-size: 24px;
                 width: 250px;
 
-                @media screen and (max-width: 480px) {
+                @media screen and (max-width: 1260px) {
+                    width: 100%;
+                    &:nth-child(2n) {
+                        margin-top: 30px;
+                    }
+                }
+
+                @media screen and (max-width: 900px) {
                     margin-top: 30px;
                     width: 100%;
                 }

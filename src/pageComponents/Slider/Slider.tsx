@@ -51,10 +51,14 @@ export const Slider = ({ title, products, style }: SliderProps) => {
               spaceBetween: 20,
             },
             768: {
+              slidesPerView: 4,
+              spaceBetween: 10,
+            },
+            900: {
               slidesPerView: 3,
               spaceBetween: 10,
             },
-            968: {
+            1000: {
               slidesPerView: 4,
               spaceBetween: 10,
             },
