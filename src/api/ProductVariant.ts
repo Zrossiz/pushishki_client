@@ -2,6 +2,7 @@ import { IProductVariant } from '@/types';
 import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
+import { deleteFile } from '.';
 
 const { publicRuntimeConfig } = getConfig();
 const { API_URL } = publicRuntimeConfig;
@@ -50,8 +51,10 @@ export const deleteProductVariant = async (
   variantId: number,
 ): Promise<IProductVariant | { message: string }> => {
   try {
-    const { data } = await axiosInst.delete(`${API_URL}/product-variant/${variantId}`);
-
+    const { data } = await axiosInst.delete<IProductVariant>(`${API_URL}/product-variant/${variantId}`);
+    data.images.map(async (item) => {
+      await deleteFile(item);
+    });
     return data;
   } catch (err) {
     console.log(err);
