@@ -81,7 +81,6 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
       products.length = 0;
     }
 
-
     setTimeout(() => {
       router.push({
         pathname: router.pathname,
@@ -110,11 +109,11 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
             }}
             availabilityFilter={{
               inStock,
-              setInStock
+              setInStock,
             }}
             brandFilter={{
               brands,
-              selectedBrands
+              selectedBrands,
             }}
             setCatalogFilter={setCatalogFilter}
           />

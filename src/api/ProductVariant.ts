@@ -51,7 +51,9 @@ export const deleteProductVariant = async (
   variantId: number,
 ): Promise<IProductVariant | { message: string }> => {
   try {
-    const { data } = await axiosInst.delete<IProductVariant>(`${API_URL}/product-variant/${variantId}`);
+    const { data } = await axiosInst.delete<IProductVariant>(
+      `${API_URL}/product-variant/${variantId}`,
+    );
     data.images.map(async (item) => {
       await deleteFile(item);
     });

@@ -33,12 +33,12 @@ export const deleteFile = async (fileName: string): Promise<{ message: string }>
   try {
     await axios.delete(`${FILESERVER_URL}/upload/${fileName}`);
     return {
-      message: 'Успешно'
+      message: 'Успешно',
     };
   } catch (err) {
     console.log(err);
     return {
       message: 'Ошибка при удалении файла',
-    }
-  };
+    };
+  }
 };

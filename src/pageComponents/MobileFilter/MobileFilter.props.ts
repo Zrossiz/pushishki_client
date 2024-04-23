@@ -1,4 +1,4 @@
-import { IBrandWithLength } from "@/types";
+import { IBrandWithLength } from '@/types';
 
 export interface MobileFilterProps {
   priceFilterProps: {

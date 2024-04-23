@@ -17,11 +17,11 @@ export const DeleteItem = ({ id, name, entity, setOpen, imgName }: DeleteItemPro
 
     if (imgName) {
       await deleteFile(imgName);
-    };
+    }
 
     if (product.status === 200) {
       router.reload();
-    };
+    }
   };
 
   return (

@@ -35,8 +35,8 @@ export const CardReviews = ({ reviews, setOpen }: CardreviewsProps) => {
             <HTag tag="h2">Отзывы</HTag>
           </div>
           <div className={styles.sliderWrapper}>
-            <Swiper 
-              className="mySwiper" 
+            <Swiper
+              className="mySwiper"
               slidesPerView={2}
               loop
               freeMode

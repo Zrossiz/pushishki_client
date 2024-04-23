@@ -5,7 +5,13 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { LinkButton } from '@/elements';
 
-export const MobileFilter = ({ setOpen, priceFilterProps, availabilityFilter, brandFilter, setCatalogFilter }: MobileFilterProps) => {
+export const MobileFilter = ({
+  setOpen,
+  priceFilterProps,
+  availabilityFilter,
+  brandFilter,
+  setCatalogFilter,
+}: MobileFilterProps) => {
   return (
     <motion.div
       initial={{ y: '100vh' }}
@@ -28,10 +34,13 @@ export const MobileFilter = ({ setOpen, priceFilterProps, availabilityFilter, br
           setPriceRangeTo={priceFilterProps.setPriceRangeTo}
         />
         <div className={styles.filter}>
-          <AvailabilityFilter inStock={availabilityFilter.inStock} setInStock={availabilityFilter.setInStock} />
+          <AvailabilityFilter
+            inStock={availabilityFilter.inStock}
+            setInStock={availabilityFilter.setInStock}
+          />
         </div>
         <div className={styles.filter}>
-          <BrandFilter selectedBrands={brandFilter.selectedBrands} brands={brandFilter.brands}  />
+          <BrandFilter selectedBrands={brandFilter.selectedBrands} brands={brandFilter.brands} />
         </div>
         <div className={styles.send}>
           <LinkButton element="button" onClick={() => setCatalogFilter()}>
