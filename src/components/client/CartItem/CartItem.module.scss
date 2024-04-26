@@ -2,6 +2,10 @@
     display: flex;
     padding: 0 30px;
 
+    @media screen and (max-width: 480px) {
+        flex-wrap: wrap;
+    }
+
     &:not(:first-child) {
         margin-top: 20px;
     }
@@ -19,7 +23,7 @@
 
         @media screen and (max-width: 480px) {
             width: 110px;
-            height: 60px;
+            height: 80px;
             border-radius: 10px;
         }
 
@@ -36,6 +40,10 @@
         margin-left: 10px;
         padding: 4px 0 10px 0;
         width: 40%;
+
+        @media screen and (max-width: 480px) {
+            margin-left: auto;
+        }
 
         .titleWrapper {
             font-size: 24px;
@@ -72,6 +80,10 @@
         flex-direction: column;
         justify-content: space-between;
         margin-left: 20px;
+
+        @media screen and (max-width: 480px) {
+            margin-left: auto;
+        }
         
         .priceWrapper {
             font-size: 24px;
