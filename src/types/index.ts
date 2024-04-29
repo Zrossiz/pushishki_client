@@ -7,3 +7,4 @@ export * from './ProductVariant';
 export * from './Review';
 export * from './Cart';
 export * from './User';
+export * from './Order';

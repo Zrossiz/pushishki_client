@@ -1,3 +1,4 @@
+import { IOrderWithLength } from '@/types';
 import axios from 'axios';
 import getConfig from 'next/config';
 import { StringDecoder } from 'string_decoder';
@@ -60,5 +61,18 @@ export const buyOneClick = async (
     return {
       message: 'Ошибка при создании заказа',
     };
+  }
+};
+
+export const getAllOrders = async (page: number): Promise<IOrderWithLength | { message: string }> => {
+  try {
+    const { data } = await axios.get<IOrderWithLength>(`${API_URL}/order?page=${page}`);
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при получении заказов'
+    }
   }
 };
