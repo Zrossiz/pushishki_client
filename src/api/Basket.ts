@@ -21,7 +21,7 @@ export const createBasket = async (apiBasket: IApiItemCart[]) => {
   }
 };
 
-export const getOne = async (orderId: number): Promise<IBasketItem | {message: string}> => {
+export const getBasketByOrder = async (orderId: number): Promise<IBasketItem | {message: string}> => {
   try {
     const { data } = await axiosInst.get<IBasketItem>(`${API_URL}/basket/${orderId}`);
 
