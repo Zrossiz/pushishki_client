@@ -1,8 +1,9 @@
 import { AdminLayout } from '@/layout/admin/AdminLayout';
 import styles from '../../../styles/admin/Basket.module.scss'
 import { useEffect, useState } from 'react';
-import { IOrderWithLength } from '@/types';
+import { IOrder, IOrderWithLength } from '@/types';
 import { getAllOrders } from '@/api';
+import { OrderListItem } from '@/components/admin';
 
 const BasketPage = () => {
 
@@ -21,7 +22,11 @@ const BasketPage = () => {
   return (
     <AdminLayout>
       <div className={styles.listWrapper}>
-        
+        {orders?.data.map((item: IOrder) => {
+          return (
+            <OrderListItem order={item} />
+          );
+        })}
       </div>
     </AdminLayout>
   );

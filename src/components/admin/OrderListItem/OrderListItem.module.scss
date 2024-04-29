@@ -1,0 +1,11 @@
+.itemWrapper {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--medium-grey);
+    padding-bottom: 10px;
+    padding: 10px 6px;
+
+    .nameWrapper {
+        min-width: 40%;
+    }
+}
