@@ -6,7 +6,6 @@ import { IBrand, IBrandWithLength } from '@/types';
 import { getBrands } from '@/api';
 import { BrandListItem } from '@/components/admin';
 
-
 const BrandPage = () => {
   const [create, setCreate] = useState<boolean>(false);
   const [brands, setBrands] = useState<IBrandWithLength>();
@@ -17,9 +16,8 @@ const BrandPage = () => {
       if ('data' in apiBrands) {
         setBrands(apiBrands);
       }
-    })()
+    })();
   }, []);
-
 
   return (
     <AdminLayout>
@@ -31,9 +29,7 @@ const BrandPage = () => {
         </div>
         <div className={styles.listWrapper}>
           {brands?.data.map((item: IBrand) => {
-            return (
-              <BrandListItem key={item.id} brand={item} />
-            );
+            return <BrandListItem key={item.id} brand={item} />;
           })}
         </div>
       </>

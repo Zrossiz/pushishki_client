@@ -156,7 +156,8 @@ export const updateProduct = async (data: ICreateProduct, id?: number) => {
 
 export const deleteProductFiles = async (productId: number): Promise<{ message: string }> => {
   try {
-    const productVariants: IProductVariant[] | { message: string } = await getProductVariants(productId);
+    const productVariants: IProductVariant[] | { message: string } =
+      await getProductVariants(productId);
     if (Array.isArray(productVariants)) {
       for (let i = 0; i < productVariants.length; i++) {
         productVariants[i].images.map(async (item) => {
@@ -166,15 +167,15 @@ export const deleteProductFiles = async (productId: number): Promise<{ message: 
             console.log(err);
           }
         });
-      };
-    };
-    return {
-      message: 'Изображения товара успешно удалены'
+      }
     }
+    return {
+      message: 'Изображения товара успешно удалены',
+    };
   } catch (err) {
     console.log(err);
     return {
       message: 'Ошибка при удалении товара',
     };
-  };
-}
+  }
+};

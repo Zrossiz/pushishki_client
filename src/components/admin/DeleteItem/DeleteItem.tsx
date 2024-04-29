@@ -13,14 +13,13 @@ export const DeleteItem = ({ id, name, entity, setOpen, imgName }: DeleteItemPro
   const router = useRouter();
 
   const deleteItem = async () => {
-
-    if (entity = 'product') {
+    if ((entity = 'product')) {
       await deleteProductFiles(id);
-    };
+    }
 
     if (imgName) {
       await deleteFile(imgName);
-    };
+    }
 
     const product = await axiosInst.delete(`${API_URL}/${entity}/${id}`);
 
@@ -28,7 +27,6 @@ export const DeleteItem = ({ id, name, entity, setOpen, imgName }: DeleteItemPro
       router.reload();
     }
   };
-
 
   return (
     <div className={styles.wrapper}>

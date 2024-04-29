@@ -1,5 +1,5 @@
-import { IBrand } from "@/types";
+import { IBrand } from '@/types';
 
 export interface BrandListItemProps {
-    brand: IBrand;
+  brand: IBrand;
 }

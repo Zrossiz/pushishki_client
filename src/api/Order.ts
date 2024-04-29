@@ -65,14 +65,16 @@ export const buyOneClick = async (
   }
 };
 
-export const getAllOrders = async (page: number): Promise<IOrderWithLength | { message: string }> => {
+export const getAllOrders = async (
+  page: number,
+): Promise<IOrderWithLength | { message: string }> => {
   try {
     const { data } = await axiosInst.get<IOrderWithLength>(`${API_URL}/order?page=${page}`);
     return data;
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при получении заказов'
-    }
+      message: 'Ошибка при получении заказов',
+    };
   }
 };

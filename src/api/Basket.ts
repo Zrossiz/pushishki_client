@@ -21,7 +21,9 @@ export const createBasket = async (apiBasket: IApiItemCart[]) => {
   }
 };
 
-export const getBasketByOrder = async (orderId: number): Promise<IBasketItem | {message: string}> => {
+export const getBasketByOrder = async (
+  orderId: number,
+): Promise<IBasketItem | { message: string }> => {
   try {
     const { data } = await axiosInst.get<IBasketItem>(`${API_URL}/basket/${orderId}`);
 
@@ -29,7 +31,7 @@ export const getBasketByOrder = async (orderId: number): Promise<IBasketItem | {
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при получении корзины'
-    }
-  };
+      message: 'Ошибка при получении корзины',
+    };
+  }
 };
