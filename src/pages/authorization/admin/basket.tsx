@@ -1,9 +1,10 @@
 import { AdminLayout } from '@/layout/admin/AdminLayout';
+import styles from '../../../styles/admin/Basket.module.scss'
 
 const BasketPage = () => {
   return (
     <AdminLayout>
-      <div>Страница корзины</div>
+      <div className={styles.listWrapper}></div>
     </AdminLayout>
   );
 };

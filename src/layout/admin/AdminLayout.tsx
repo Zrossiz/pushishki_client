@@ -35,10 +35,6 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
       slug: 'product',
     },
     {
-      name: 'Заказ',
-      slug: 'order',
-    },
-    {
       name: 'История покупок',
       slug: 'basket',
     },
