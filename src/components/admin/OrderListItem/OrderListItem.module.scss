@@ -8,4 +8,11 @@
     .nameWrapper {
         min-width: 40%;
     }
+
+    .aboutWrapper {
+        color: var(--light-green);
+        margin-left: auto;
+        border-bottom: 1px solid var(--light-green);
+        cursor: pointer;
+    }
 }

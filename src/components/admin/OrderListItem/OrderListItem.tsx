@@ -1,8 +1,11 @@
 import { OrderListItemProps } from "./OrderListItem.props";
 import styles from './OrderListItem.module.scss';
+import { useState } from "react";
 
 export const OrderListItem = ({ order }: OrderListItemProps) => {
     const dateArr: string[] = new Date(order.createdAt).toISOString().split('T');
+    const [open, setOpen] = useState<boolean>(false);
+
     return (
         <div className={styles.itemWrapper}>
             <div className={styles.nameWrapper}>
@@ -10,6 +13,9 @@ export const OrderListItem = ({ order }: OrderListItemProps) => {
             </div>
             <div className={styles.dateWrapper}>
                 {dateArr[0]} {dateArr[1].split('.')[0]}
+            </div>
+            <div className={styles.aboutWrapper} onClick={() => setOpen(true)}>
+                Подробнее
             </div>
         </div>
     )
