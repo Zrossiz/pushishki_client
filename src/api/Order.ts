@@ -16,7 +16,7 @@ export const postOrder = async (
   price: number,
 ) => {
   try {
-    const apiOrder = await axios.post(`${API_URL}/order`, {
+    const apiOrder = await axiosInst.post(`${API_URL}/order`, {
       name,
       lastname: lastName,
       phone,

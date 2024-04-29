@@ -8,3 +8,4 @@ export * from './Review';
 export * from './Cart';
 export * from './User';
 export * from './Order';
+export * from './Basket';

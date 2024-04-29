@@ -1,4 +1,5 @@
-import { IApiItemCart } from '@/types';
+import { IApiItemCart, IBasketItem } from '@/types';
+import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
 
@@ -18,4 +19,17 @@ export const createBasket = async (apiBasket: IApiItemCart[]) => {
       message: 'Ошибка при создании корзины',
     };
   }
+};
+
+export const getOne = async (orderId: number): Promise<IBasketItem | {message: string}> => {
+  try {
+    const { data } = await axiosInst.get<IBasketItem>(`${API_URL}/basket/${orderId}`);
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при получении корзины'
+    }
+  };
 };
