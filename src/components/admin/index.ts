@@ -9,3 +9,4 @@ export * from './ProductReviewForm/ProductReviewForm';
 export * from './ReviewListItem/ReviewListItem';
 export * from './ColorForm/ColorForm';
 export * from './ColorListItem/ColorListItem';
+export * from './OrderListItem/OrderListItem';

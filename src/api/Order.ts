@@ -1,4 +1,5 @@
 import { IOrderWithLength } from '@/types';
+import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
 import { StringDecoder } from 'string_decoder';
@@ -66,8 +67,7 @@ export const buyOneClick = async (
 
 export const getAllOrders = async (page: number): Promise<IOrderWithLength | { message: string }> => {
   try {
-    const { data } = await axios.get<IOrderWithLength>(`${API_URL}/order?page=${page}`);
-
+    const { data } = await axiosInst.get<IOrderWithLength>(`${API_URL}/order?page=${page}`);
     return data;
   } catch (err) {
     console.log(err);
