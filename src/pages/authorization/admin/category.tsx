@@ -31,7 +31,7 @@ const CategoryPage = () => {
         <div className={styles.listWrapper}>
           {categories &&
             categories.data.map((item) => {
-              return <CategoryListItem category={item} />;
+              return <CategoryListItem key={item.id} category={item} />;
             })}
         </div>
       </>

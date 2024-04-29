@@ -1,17 +1,21 @@
+import { useState } from 'react';
 import styles from './BrandListItem.module.scss';
 import { BrandListItemProps } from './BrandListItem.props';
+import { BrandForm } from '..';
 
 
-export const BrandListItem = ({ brand, setOpen }: BrandListItemProps) => {
+export const BrandListItem = ({ brand }: BrandListItemProps) => {
+    const [edit, setEdit] = useState<boolean>(false);
     return (
         <div className={styles.itemWrapper}>
+            {edit && <BrandForm isEdit={true} setOpen={setEdit} brand={brand}/>}
             <div className={styles.nameWrapper}>
                 {brand.name}
             </div>
             <div className={styles.slugWrapper}>
                 Slug: {brand.slug}
             </div>
-            <div className={styles.edit} onClick={() => setOpen(true)}>
+            <div className={styles.edit} onClick={() => setEdit(true)}>
                 <svg
                     width="24"
                     height="28"
