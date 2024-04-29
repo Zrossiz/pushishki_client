@@ -32,7 +32,7 @@ const BrandPage = () => {
         <div className={styles.listWrapper}>
           {brands?.data.map((item: IBrand) => {
             return (
-              <BrandListItem brand={item} setOpen={setCreate} />
+              <BrandListItem key={item.id} brand={item} setOpen={setCreate} />
             );
           })}
         </div>
