@@ -1,4 +1,5 @@
-import { IBrandWithLength } from '@/types';
+import { IBrand, IBrandWithLength } from '@/types';
+import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
 
@@ -17,3 +18,18 @@ export const getBrands = async (): Promise<IBrandWithLength | { message: string 
     };
   }
 };
+
+
+export const updateBrand = async (brandId: number, brandName: string): Promise<IBrand | {message: string}> => {
+  try {
+    const { data } = await axiosInst.put<IBrand>(`${API_URL}/brand/${brandId}`, {
+      name: brandName
+    });
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при обновлении бренда'
+    }
+  }
+}
