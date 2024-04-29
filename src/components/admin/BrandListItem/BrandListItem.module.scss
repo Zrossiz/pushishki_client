@@ -1,0 +1,16 @@
+.itemWrapper {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--medium-grey);
+    padding: 10px 6px;
+    font-size: 20px;
+
+    .nameWrapper {
+        width: 30%;
+    }
+
+    .edit {
+        margin-left: auto;
+        cursor: pointer;
+    }
+}

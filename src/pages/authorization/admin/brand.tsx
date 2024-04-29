@@ -2,8 +2,9 @@ import { AdminLayout } from '@/layout/admin/AdminLayout';
 import styles from '../../../styles/admin/Category.module.scss';
 import { LinkButton } from '@/elements';
 import { useEffect, useState } from 'react';
-import { IBrandWithLength } from '@/types';
+import { IBrand, IBrandWithLength } from '@/types';
 import { getBrands } from '@/api';
+import { BrandListItem } from '@/components/admin';
 
 
 const BrandPage = () => {
@@ -19,7 +20,6 @@ const BrandPage = () => {
     })()
   }, []);
 
-  console.log(brands);
 
   return (
     <AdminLayout>
@@ -30,7 +30,11 @@ const BrandPage = () => {
           </LinkButton>
         </div>
         <div className={styles.listWrapper}>
-
+          {brands?.data.map((item: IBrand) => {
+            return (
+              <BrandListItem brand={item} setOpen={setCreate} />
+            );
+          })}
         </div>
       </>
     </AdminLayout>
