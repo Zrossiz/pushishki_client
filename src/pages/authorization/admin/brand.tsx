@@ -4,7 +4,7 @@ import { LinkButton } from '@/elements';
 import { useEffect, useState } from 'react';
 import { IBrand, IBrandWithLength } from '@/types';
 import { getBrands } from '@/api';
-import { BrandListItem } from '@/components/admin';
+import { BrandForm, BrandListItem } from '@/components/admin';
 
 const BrandPage = () => {
   const [create, setCreate] = useState<boolean>(false);
@@ -22,6 +22,7 @@ const BrandPage = () => {
   return (
     <AdminLayout>
       <>
+        {create && <BrandForm setOpen={setCreate} isEdit={false} />}
         <div className={styles.addButtonWrapper}>
           <LinkButton element="button" onClick={() => setCreate(true)}>
             Добавить

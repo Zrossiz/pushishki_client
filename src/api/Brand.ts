@@ -33,3 +33,19 @@ export const updateBrand = async (brandId: number, brandName: string): Promise<I
     }
   }
 }
+
+export const createBrand = async (countryId: number, name: string): Promise<IBrand | { message: string }> => {
+  try {
+    const { data } = await axiosInst.post<IBrand>(`${API_URL}/brand`, {
+      name,
+      countryId
+    });
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при создании бренда'
+    }
+  }
+}
