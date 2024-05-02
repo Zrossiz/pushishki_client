@@ -26,6 +26,22 @@
         max-height: 80%;
         width: 80%;
 
+        .selectWrapper {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            width: 50%;
+
+            label {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            div {
+                border-radius: 6px;
+            }
+        }
+
         .inputWrapper {
             display: flex;
             flex-direction: column;
