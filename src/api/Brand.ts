@@ -19,33 +19,38 @@ export const getBrands = async (): Promise<IBrandWithLength | { message: string 
   }
 };
 
-
-export const updateBrand = async (brandId: number, brandName: string): Promise<IBrand | {message: string}> => {
+export const updateBrand = async (
+  brandId: number,
+  brandName: string,
+): Promise<IBrand | { message: string }> => {
   try {
     const { data } = await axiosInst.put<IBrand>(`${API_URL}/brand/${brandId}`, {
-      name: brandName
+      name: brandName,
     });
     return data;
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при обновлении бренда'
-    }
+      message: 'Ошибка при обновлении бренда',
+    };
   }
-}
+};
 
-export const createBrand = async (countryId: number, name: string): Promise<IBrand | { message: string }> => {
+export const createBrand = async (
+  countryId: number,
+  name: string,
+): Promise<IBrand | { message: string }> => {
   try {
     const { data } = await axiosInst.post<IBrand>(`${API_URL}/brand`, {
       name,
-      countryId
+      countryId,
     });
 
     return data;
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при создании бренда'
-    }
+      message: 'Ошибка при создании бренда',
+    };
   }
-}
+};

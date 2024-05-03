@@ -50,7 +50,7 @@ export const WhyChoose = () => {
             <div className={styles.imgWrapper}>
               <div className={styles.img}>
                 <Image
-                  src={'/icons/Delivery.svg'}
+                  src={'/icons/BestChoice.svg'}
                   fill
                   style={{ objectFit: 'cover' }}
                   alt="Лучшие предложения"

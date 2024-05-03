@@ -11,15 +11,14 @@ export const BrandForm = ({ setOpen, isEdit, brand }: BrandFormProps) => {
   const [selectedCountry, setSelectedCountry] = useState<number>(0);
   const [countries, setCountries] = useState<ICountryWithLength>();
 
-
   const postBrand = async () => {
     if (isEdit) {
       if (brand && name) {
         await updateBrand(brand?.id, name);
-      };
+      }
     } else {
       if (name) {
-        await createBrand(selectedCountry, name)
+        await createBrand(selectedCountry, name);
       }
     }
     window.location.reload();
@@ -30,9 +29,9 @@ export const BrandForm = ({ setOpen, isEdit, brand }: BrandFormProps) => {
       const countriesApi = await getCountries();
 
       if ('data' in countriesApi) {
-        setCountries(countriesApi)
+        setCountries(countriesApi);
       }
-    })()
+    })();
   }, []);
 
   const countryOptions = countries?.data.map((item) => ({
@@ -69,7 +68,9 @@ export const BrandForm = ({ setOpen, isEdit, brand }: BrandFormProps) => {
           <label>Название бренда</label>
           <Input type={'text'} value={name} onChange={setName} />
         </div>
-        <LinkButton element="button" onClick={() => postBrand()} disabled={name ? false : true}>{isEdit ? 'Обновить': 'Создать'}</LinkButton>
+        <LinkButton element="button" onClick={() => postBrand()} disabled={name ? false : true}>
+          {isEdit ? 'Обновить' : 'Создать'}
+        </LinkButton>
       </div>
     </div>
   );
