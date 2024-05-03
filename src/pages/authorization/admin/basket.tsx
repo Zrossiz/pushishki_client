@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { IOrder, IOrderWithLength } from '@/types';
 import { getAllOrders } from '@/api';
 import { OrderListItem, Pagination } from '@/components/admin';
+import { HTag } from '@/elements';
 
 const BasketPage = () => {
   const [curPage, setCurPage] = useState<number>(1);
@@ -17,14 +18,18 @@ const BasketPage = () => {
       }
     })();
   }, [curPage]);
+  console.log(orders);
 
   return (
     <AdminLayout>
       <>
         <div className={styles.listWrapper}>
-          {orders?.data.map((item: IOrder) => {
-            return <OrderListItem order={item} key={item.id} />;
-          })}
+          {orders && orders?.totalPages >= 1 ?
+            orders?.data.map((item: IOrder) => {
+              return <OrderListItem order={item} key={item.id} />;
+            }) :
+            <HTag tag='h3'>Ничего не найдено</HTag>
+          }
         </div>
         {orders && orders?.totalPages > 1 && (
           <div className={styles.paginationWrapper}>

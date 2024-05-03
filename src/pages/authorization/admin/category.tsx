@@ -1,9 +1,9 @@
-import { LinkButton } from '@/elements';
+import { HTag, LinkButton } from '@/elements';
 import { AdminLayout } from '@/layout/admin/AdminLayout';
 import styles from '../../../styles/admin/Category.module.scss';
 import { useEffect, useState } from 'react';
 import { CategoryForm, CategoryListItem } from '@/components/admin';
-import { ICategoryWithLength } from '@/types';
+import { ICategory, ICategoryWithLength } from '@/types';
 import { getCategories } from '@/api';
 
 const CategoryPage = () => {
@@ -29,10 +29,12 @@ const CategoryPage = () => {
           </LinkButton>
         </div>
         <div className={styles.listWrapper}>
-          {categories &&
-            categories.data.map((item) => {
+          {categories && categories?.totalPages >= 1 ?
+            categories?.data.map((item: ICategory) => {
               return <CategoryListItem key={item.id} category={item} />;
-            })}
+            }) :
+            <HTag tag='h3'>Ничего не найдено</HTag>
+          }
         </div>
       </>
     </AdminLayout>

@@ -4,7 +4,6 @@ import { IAdminProduct, IProduct, IProductWithLength } from '@/types';
 import { useEffect, useState } from 'react';
 import styles from '../../../styles/admin/Product.module.scss';
 import { Pagination, ProductForm, ProductListItem } from '@/components/admin';
-import cn from 'classnames';
 import { LinkButton } from '@/elements';
 
 const ProductPage = ({ brands, categories, countries }: IAdminProduct) => {
