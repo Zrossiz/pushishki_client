@@ -6,8 +6,8 @@ import { loginUser } from '@/api';
 import { useRouter } from 'next/router';
 
 const LoginPage = () => {
-  const [name, setName] = useState<string>('test');
-  const [password, setPassword] = useState<string>('test123');
+  const [name, setName] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
   const router = useRouter();
 
