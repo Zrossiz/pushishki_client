@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import styles from './BrandListItem.module.scss';
 import { BrandListItemProps } from './BrandListItem.props';
-import { BrandForm } from '..';
+import { BrandForm, DeleteItem } from '..';
+import Image from 'next/image';
 
 export const BrandListItem = ({ brand }: BrandListItemProps) => {
   const [edit, setEdit] = useState<boolean>(false);
+  const [remove, setRemove] = useState<boolean>(false);
+
   return (
     <div className={styles.itemWrapper}>
       {edit && <BrandForm isEdit={true} setOpen={setEdit} brand={brand} />}
+      {remove && <DeleteItem idOrSlug={brand.slug} setOpen={setRemove} entity='brand' name={brand.name}/>}
       <div className={styles.nameWrapper}>{brand.name}</div>
       <div className={styles.slugWrapper}>Slug: {brand.slug}</div>
       <div className={styles.edit} onClick={() => setEdit(true)}>
@@ -72,6 +76,9 @@ export const BrandListItem = ({ brand }: BrandListItemProps) => {
           </defs>
         </svg>
       </div>
+      <div className={styles.delete} onClick={() => setRemove(true)}>
+          <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />
+        </div>
     </div>
   );
 };

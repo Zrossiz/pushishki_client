@@ -23,7 +23,7 @@ export const ProductListItem = ({
     <div className={styles.itemWrapper}>
       {remove && (
         <DeleteItem
-          id={product.id}
+          idOrSlug={product.id}
           setOpen={setRemove}
           name={product.name}
           imgName={product.image}

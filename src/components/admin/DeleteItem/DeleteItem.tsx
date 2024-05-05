@@ -9,19 +9,19 @@ import { deleteFile, deleteProductFiles } from '@/api';
 const { publicRuntimeConfig } = getConfig();
 const { API_URL } = publicRuntimeConfig;
 
-export const DeleteItem = ({ id, name, entity, setOpen, imgName }: DeleteItemProps) => {
+export const DeleteItem = ({ idOrSlug, name, entity, setOpen, imgName }: DeleteItemProps) => {
   const router = useRouter();
 
   const deleteItem = async () => {
-    if ((entity = 'product')) {
-      await deleteProductFiles(id);
+    if (entity == 'product' && typeof(idOrSlug) == 'number') {
+      await deleteProductFiles(idOrSlug);
     }
 
     if (imgName) {
       await deleteFile(imgName);
     }
 
-    const product = await axiosInst.delete(`${API_URL}/${entity}/${id}`);
+    const product = await axiosInst.delete(`${API_URL}/${entity}/${idOrSlug}`);
 
     if (product.status === 200) {
       router.reload();

@@ -1,5 +1,5 @@
 export interface DeleteItemProps {
-  id: number;
+  idOrSlug: number | string;
   entity: string;
   name: string;
   imgName?: string;
