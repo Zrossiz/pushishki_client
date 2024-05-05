@@ -54,3 +54,16 @@ export const createBrand = async (
     };
   }
 };
+
+
+export const deleteBrand = async (slug: string): Promise<IBrand | { message: string }> => {
+  try { 
+    const { data } = await axiosInst.delete<IBrand>(`${API_URL}/brand/${slug}`);
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при удалении бренда'
+    }
+  }
+}
