@@ -40,7 +40,7 @@ const ProductCardPage = ({
   const [rating, setRating] = useState<number>(0);
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
-  const [option, setOption] = useState<string>('Описание');
+  const [option, setOption] = useState<string>('Характеристики');
 
   const [activePrice, setActivePrice] = useState<number>(product?.defaultPrice || 0);
 
@@ -186,20 +186,20 @@ const ProductCardPage = ({
                 <div className={styles.optionWrapper}>
                   <ul>
                     <li
-                      onClick={() => setOption('Описание')}
-                      className={cn({
-                        [styles.active]: option === 'Описание',
-                      })}
-                    >
-                      Описание
-                    </li>
-                    <li
                       onClick={() => setOption('Характеристики')}
                       className={cn({
                         [styles.active]: option === 'Характеристики',
                       })}
                     >
                       Характеристики
+                    </li>
+                    <li
+                      onClick={() => setOption('Описание')}
+                      className={cn({
+                        [styles.active]: option === 'Описание',
+                      })}
+                    >
+                      Описание
                     </li>
                   </ul>
                 </div>
