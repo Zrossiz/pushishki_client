@@ -28,10 +28,10 @@ const ContactsPage = () => {
               Ежедневно с 10:00 до 20:00
             </div>
             <div className={styles.phoneWrapper}>
-              <a href="">8 495-766-07-13</a>
+              <a href="tel:+79857660713">8 495-766-07-13</a>
             </div>
             <div className={styles.mailWrapper}>
-              <a href="">info@pushishki.ru</a>
+              <a href="mailto:info@pushishki.ru">info@pushishki.ru</a>
             </div>
             <div className={styles.callUs}>
               Перед посещением шоурума, свяжитесь с нами для 
