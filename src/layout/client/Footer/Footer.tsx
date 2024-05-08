@@ -24,10 +24,10 @@ export const Footer = () => {
             <div className={styles.title}>Дополнительно</div>
             <ul className={styles.linksList}>
               <li className={styles.linkItem}>
-                <Link href="#">Контакты</Link>
+                <Link href="/contacts">Контакты</Link>
               </li>
               <li className={styles.linkItem}>
-                <Link href="#">О компании</Link>
+                <Link href="/contacts">О компании</Link>
               </li>
             </ul>
           </div>
@@ -35,33 +35,33 @@ export const Footer = () => {
             <div className={styles.title}>Клиентам</div>
             <ul className={styles.linksList}>
               <li className={styles.linkItem}>
-                <Link href="#">Доставка</Link>
+                <Link href="/contacts">Доставка</Link>
               </li>
               <li className={styles.linkItem}>
-                <Link href="#">Оплата</Link>
+                <Link href="/contacts">Оплата</Link>
               </li>
               <li className={styles.linkItem}>
-                <Link href="#">Возврат</Link>
+                <Link href="/contacts">Возврат</Link>
               </li>
             </ul>
           </div>
         </div>
         <div className={styles.contacts}>
-          <div className={styles.iconWrapper}>
+          <a href="tel:+79857660713" className={styles.iconWrapper}>
             <Image src={'/icons/Phone.svg'} width={38} height={38} alt="Позвонить" />
-          </div>
+          </a>
           <div className={styles.phoneWrapper}>
             <a href="">10:00 до 20:00</a>
-            <a href="">8 (495) 766-07-13</a>
+            <a href="tel:+79857660713">+7 (985) 766-07-13</a>
           </div>
           <div className={styles.socialWrapper}>
-            <a href="">
+            <a href="https://vk.com/club29256126" target='_blank'>
               <Image src={'/icons/Vk.svg'} height={56} width={56} alt="Вк" />
             </a>
-            <a href="">
+            <a href="https://avito.ru/brands/pushishki" target='_blank'>
               <Image src={'/icons/Avito.svg'} height={34} width={34} alt="Авито" />
             </a>
-            <a href="">
+            <a href="https://www.youtube.com/channel/UCJBDQZzSQ5XN-vBUJXO1DBw" target='_blank'>
               <Image src={'/icons/Youtube.svg'} height={36} width={48} alt="Youtube" />
             </a>
           </div>
