@@ -4,7 +4,7 @@
     border-bottom: 2px solid var(--light-grey);
     width: 33%;
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 900px) {
         width: 100%;
         padding-right: 0;
     }
@@ -19,7 +19,7 @@
         height: 460px;
         padding: 20px 20px;
 
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 900px) {
             height: fit-content;
             height: 260px;
         }
@@ -30,7 +30,7 @@
             font-size: 24px;
             font-weight: 700;
 
-            @media screen and (max-width: 480px) {
+            @media screen and (max-width: 900px) {
                 font-size: 20px;
             }
         }
@@ -42,7 +42,7 @@
             color: var(--white);
             text-align: right;
 
-            @media screen and (max-width: 480px) {
+            @media screen and (max-width: 900px) {
                 span {
                     display: none;
                 }
@@ -59,7 +59,7 @@
                 background-image: url('/icons/HypeArrow.svg');
                 background-repeat: no-repeat;
 
-                @media screen and (max-width: 480px) {
+                @media screen and (max-width: 900px) {
                     top: -20px;
                     left: 10px;
                     transform: rotate(-20deg);
@@ -81,7 +81,7 @@
             height: 80px;
             border-radius: 50%;
 
-            @media screen and (max-width: 480px) {
+            @media screen and (max-width: 900px) {
                 margin-top: auto;
             }
 
@@ -100,7 +100,7 @@
             text-align: center;
             color: var(--white);
 
-            @media screen and (max-width: 480px) {
+            @media screen and (max-width: 900px) {
                 font-size: 20px;
             }
         }
@@ -115,6 +115,5 @@
             border-radius: 50%;
             margin: 0 auto;
         }
-
     }
 }
