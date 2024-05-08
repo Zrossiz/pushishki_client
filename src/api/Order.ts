@@ -1,4 +1,4 @@
-import { IOrderWithLength } from '@/types';
+import { IOrder, IOrderWithLength } from '@/types';
 import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
@@ -14,9 +14,9 @@ export const postOrder = async (
   phone: string,
   delivery: string,
   price: number,
-) => {
+): Promise<IOrder | { message: string }> => {
   try {
-    const apiOrder = await axiosInst.post(`${API_URL}/order`, {
+    const { data } = await axiosInst.post(`${API_URL}/order`, {
       name,
       lastname: lastName,
       phone,
@@ -33,7 +33,7 @@ export const postOrder = async (
       price,
     });
 
-    return apiOrder.data;
+    return data;
   } catch (err) {
     console.log(err);
     return {

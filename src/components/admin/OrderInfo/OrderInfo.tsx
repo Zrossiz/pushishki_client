@@ -40,7 +40,7 @@ export const OrderInfo = ({ setOpen, order, date }: OrderInfoProps) => {
               <div className={styles.item}>
                 <div className={styles.nameWrapper}>{item.Product.name}</div>
                 <div className={styles.quantityWrapper}>Количество: {item.quantity}</div>
-                <div className={styles.priceWrapper}>{item.price} ₽</div>
+                <div className={styles.priceWrapper}>Стоимость: {item.price} ₽</div>
                 {item.color && (
                   <div
                     className={styles.colorWrapper}

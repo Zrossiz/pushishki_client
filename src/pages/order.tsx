@@ -1,7 +1,7 @@
 import { Layout } from '@/layout/client/Layout';
 import { PageTitle } from '@/pageComponents';
 import styles from '../styles/client/Order.module.scss';
-import { IApiItemCart, IItemCart } from '@/types';
+import { IApiItemCart, IItemCart, IOrder } from '@/types';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import 'swiper/css';
 import { useEffect, useState } from 'react';
@@ -50,34 +50,37 @@ const OrderPage = () => {
   const router = useRouter();
 
   const checkout = async () => {
-    const order = await postOrder(name, lastName, address, phone, delivery, totalProductsPrice);
+    const order: IOrder | { message: string } = 
+      await postOrder(name, lastName, address, phone, delivery, totalProductsPrice);
+    console.log("Order: ", order)
 
     const apiCart: IApiItemCart[] = [];
 
-    cart.forEach((item: IItemCart) => {
-      const basketItem = {
-        productId: +item.product.id,
-        orderId: +order.id,
-        quantity: +item.count,
-        price: +item.product.defaultPrice * +item.count,
-        color: item.color,
-      };
-      apiCart.push(basketItem);
-    });
-
+    if ('id' in order) {
+      cart.forEach((item: IItemCart) => {
+        const basketItem = {
+          productId: +item.product.id,
+          orderId: order.id,
+          quantity: +item.count,
+          price: +item.product.defaultPrice * +item.count,
+          color: item.color,
+        };
+        apiCart.push(basketItem);
+      });
+    }
     const basket = await createBasket(apiCart);
 
-    setSuccess(true);
-    setDelivery('');
-    setName('');
-    setLastName('');
-    setAddress('');
-    setPhone('');
-    localStorage.setItem('cart', '[]');
-    setTimeout(() => setSuccess(false), 2000);
-    setTimeout(() => {
-      router.push('/');
-    }, 2400);
+    // setSuccess(true);
+    // setDelivery('');
+    // setName('');
+    // setLastName('');
+    // setAddress('');
+    // setPhone('');
+    // localStorage.setItem('cart', '[]');
+    // setTimeout(() => setSuccess(false), 2000);
+    // setTimeout(() => {
+    //   router.push('/');
+    // }, 2400);
   };
 
   useEffect(() => {
