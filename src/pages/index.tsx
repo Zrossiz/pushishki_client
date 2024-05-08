@@ -191,7 +191,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   <HTag tag="h3">Москва</HTag>
                 </div>
                 <div className={styles.address}>
-                  <a target="_blank" href="https://yandex.ru/maps/-/CDBmu-9y">
+                  <a target="_blank" href="https://yandex.ru/maps/-/CDbFZ-y0">
                     ул. Вилиса Лациса, 30 с2 <br />
                   </a>
                 </div>
@@ -204,21 +204,21 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   <HTag tag="h3">Связаться с нами</HTag>
                 </div>
                 <div className={styles.linksWrapper}>
-                  <a href="" target="_blank">
+                  <a href="https://www.youtube.com/channel/UCJBDQZzSQ5XN-vBUJXO1DBw" target="_blank">
                     Youtube
                   </a>
-                  <a href="" target="_blank">
+                  <a href="https://vk.com/club29256126" target="_blank">
                     Вконтакте
                   </a>
-                  <a href="" target="_blank">
+                  <a href="https://www.avito.ru/brands/pushishki" target="_blank">
                     Авито
                   </a>
-                  <a href="" target="_blank">
+                  <a href="info@pushishki.ru" target="_blank">
                     E-mail
                   </a>
                 </div>
                 <div className={styles.phoneWrapper}>
-                  <a href="" target="_blank">
+                  <a href="tel:+79857660713" target="_blank">
                     +7 495-766-07-13
                   </a>
                 </div>
