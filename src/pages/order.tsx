@@ -81,6 +81,14 @@ const OrderPage = () => {
   };
 
   useEffect(() => {
+    if (delivery === 'Самовывоз') {
+      setAddress('ул. Вилиса Лациса, 30, стр. 2, Москва');
+    } else {
+      setAddress('');
+    }
+  }, [delivery]);
+
+  useEffect(() => {
     setCart(JSON.parse(localStorage.getItem('cart') || '[]'));
   }, []);
 
