@@ -47,15 +47,25 @@
         width: 100%;
 
         .titleWrapper {
-            display: inline;
-            width: 100%;
-            font-weight: 700;
-            font-size: 24px;
-            color: var(--black);
 
-            @media screen and (max-width: 900px) {
-                font-size: 20px;
-            };
+
+            span {
+                width: 100%;
+                font-weight: 700;
+                font-size: 24px;
+                color: var(--black);
+                line-height: 1.2em;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+
+    
+                @media screen and (max-width: 900px) {
+                    font-size: 20px;
+                };
+            }
         }
 
         .articulWrapper {
