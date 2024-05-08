@@ -70,17 +70,17 @@ const OrderPage = () => {
     }
     const basket = await createBasket(apiCart);
 
-    // setSuccess(true);
-    // setDelivery('');
-    // setName('');
-    // setLastName('');
-    // setAddress('');
-    // setPhone('');
-    // localStorage.setItem('cart', '[]');
-    // setTimeout(() => setSuccess(false), 2000);
-    // setTimeout(() => {
-    //   router.push('/');
-    // }, 2400);
+    setSuccess(true);
+    setDelivery('');
+    setName('');
+    setLastName('');
+    setAddress('');
+    setPhone('');
+    localStorage.setItem('cart', '[]');
+    setTimeout(() => setSuccess(false), 2000);
+    setTimeout(() => {
+      router.push('/');
+    }, 2400);
   };
 
   useEffect(() => {
