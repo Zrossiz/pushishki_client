@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './CategoryListItem.module.scss';
 import { CategoryListItemProps } from './CategoryListItem.props';
 import product from '@/pages/authorization/admin/product';
-import { CategoryForm } from '..';
+import { CategoryForm, DeleteItem } from '..';
 import Image from 'next/image';
 import getConfig from 'next/config';
 
@@ -11,10 +11,12 @@ const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const CategoryListItem = ({ category }: CategoryListItemProps) => {
   const [edit, setEdit] = useState<boolean>(false);
+  const [remove, setRemove] = useState<boolean>(false);
 
   return (
     <div className={styles.itemWrapper}>
       {edit && <CategoryForm update={true} category={category} setOpen={setEdit} />}
+      {remove && <DeleteItem idOrSlug={category.slug} entity='category' name={category.name} setOpen={setRemove} imgName={category.image} />}
       <div className={styles.image}>
         <Image fill alt={product.name} src={`${FILESERVER_URL}/upload/${category.image}`} />
       </div>
@@ -81,6 +83,9 @@ export const CategoryListItem = ({ category }: CategoryListItemProps) => {
               </clipPath>
             </defs>
           </svg>
+        </div>
+        <div className={styles.delete} onClick={() => setRemove(true)}>
+          <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />
         </div>
       </div>
     </div>
