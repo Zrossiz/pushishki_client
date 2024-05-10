@@ -1,7 +1,7 @@
 import { CountryListItemProps } from './CountryListItem.props';
 import styles from './CountryListItem.module.scss';
 import { useState } from 'react';
-import { DeleteItem } from '..';
+import { CountryForm, DeleteItem } from '..';
 import Image from 'next/image';
 
 export const CountryListItem = ({ country }: CountryListItemProps) => {
@@ -15,6 +15,13 @@ export const CountryListItem = ({ country }: CountryListItemProps) => {
           setOpen={setRemove}
           entity="country"
           name={country.name}
+        />
+      )}
+      {edit && (
+        <CountryForm 
+          setOpen={setEdit} 
+          isEdit={true} 
+          country={country} 
         />
       )}
       <div className={styles.nameWrapper}>{country.name}</div>

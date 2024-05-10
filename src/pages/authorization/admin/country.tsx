@@ -2,7 +2,7 @@ import { AdminLayout } from '@/layout/admin/AdminLayout';
 import styles from '../../../styles/admin/Category.module.scss';
 import { LinkButton } from '@/elements';
 import { useEffect, useState } from 'react';
-import { CountryListItem } from '@/components/admin';
+import { CountryForm, CountryListItem } from '@/components/admin';
 import { ICountry, ICountryWithLength } from '@/types';
 import { getCountries } from '@/api';
 
@@ -23,6 +23,7 @@ const CountryPage = () => {
   return (
     <AdminLayout>
       <>
+        {create && <CountryForm isEdit={false} setOpen={setCreate} />}
         <div className={styles.addButtonWrapper}>
           <LinkButton element="button" onClick={() => setCreate(true)}>
             Добавить
