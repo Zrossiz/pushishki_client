@@ -78,7 +78,7 @@ export const BrandListItem = ({ brand }: BrandListItemProps) => {
       </div>
       <div className={styles.delete} onClick={() => setRemove(true)}>
           <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />
-        </div>
+      </div>
     </div>
   );
 };

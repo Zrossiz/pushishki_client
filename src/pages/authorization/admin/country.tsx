@@ -1,10 +1,25 @@
 import { AdminLayout } from '@/layout/admin/AdminLayout';
-import styles from '../../../styles/admin/Country.module.scss';
+import styles from '../../../styles/admin/Category.module.scss';
 import { LinkButton } from '@/elements';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { CountryListItem } from '@/components/admin';
+import { ICountry, ICountryWithLength } from '@/types';
+import { getCountries } from '@/api';
 
 const CountryPage = () => {
   const [create, setCreate] = useState<boolean>(false);
+  const [countries, setCountries] = useState<ICountry[]>();
+
+  useEffect(() => {
+    (async () => {
+      const countiresApi: ICountryWithLength | { message: string } = await getCountries();
+
+      if ('data' in countiresApi) {
+        setCountries(countiresApi.data);
+      }
+    })()
+  }, [])
+
   return (
     <AdminLayout>
       <>
@@ -12,9 +27,13 @@ const CountryPage = () => {
           <LinkButton element="button" onClick={() => setCreate(true)}>
             Добавить
           </LinkButton>
-          <div className={styles.litsWrapper}>
-            
-          </div>
+        </div>
+        <div className={styles.listWrapper}>
+            {countries?.map((item: ICountry) => {
+              return (
+                <CountryListItem country={item} />
+              )
+            })}
         </div>
       </>
     </AdminLayout>
