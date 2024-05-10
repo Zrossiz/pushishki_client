@@ -36,7 +36,7 @@ export const createCountry = async (name: string): Promise<ICountry | { message:
 
 export const updateCountry = async (slug: string, name: string): Promise<ICountry | { message: string }> => {
   try {
-    const { data } = await axiosInst.post<ICountry>(`${API_URL}/country/${slug}`, {
+    const { data } = await axiosInst.put<ICountry>(`${API_URL}/country/${slug}`, {
       name
     });
 

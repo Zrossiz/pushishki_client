@@ -31,7 +31,7 @@ const CountryPage = () => {
         </div>
         <div className={styles.listWrapper}>
           {countries?.map((item: ICountry) => {
-            return <CountryListItem country={item} />;
+            return <CountryListItem country={item} key={item.id} />;
           })}
         </div>
       </>

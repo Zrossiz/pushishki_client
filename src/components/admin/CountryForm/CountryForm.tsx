@@ -3,12 +3,18 @@ import styles from './CountryForm.module.scss';
 import { CountryFormProps } from './CountryForm.props';
 import { HTag, LinkButton } from '@/elements';
 import { Input } from '@/elements';
+import { createCountry, updateCountry } from '@/api';
 
 export const CountryForm = ({ setOpen, isEdit, country }: CountryFormProps) => {
     const [name, setName] = useState<string>('');
 
-    const postCountry = () => {
-
+    const postCountry = async () => {
+        if (isEdit && country) {
+            await updateCountry(country.slug, name);
+        } else {
+            await createCountry(name);
+        };
+        window.location.reload();
     };
 
     return (
