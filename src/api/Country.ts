@@ -1,4 +1,5 @@
-import { ICountryWithLength } from '@/types';
+import { ICountry, ICountryWithLength } from '@/types';
+import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
 
@@ -17,3 +18,18 @@ export const getCountries = async (): Promise<ICountryWithLength | { message: st
     };
   }
 };
+
+export const createCountry = async (name: string): Promise<ICountry | { message: string }> => {
+  try {
+    const { data } = await axiosInst.post<ICountry>(`${API_URL}/country`, {
+      name
+    });
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при получении стран',
+    };
+  }
+}
