@@ -356,6 +356,7 @@ const ProductCardPage = ({
               {productVariants?.map((item, index) => {
                 return (
                   <div
+                    title={item.color}
                     key={item.id}
                     onClick={() => switchActiveVariant(index)}
                     className={cn(styles.colorOption, {

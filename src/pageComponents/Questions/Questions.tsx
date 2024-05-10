@@ -72,7 +72,7 @@ export const Questions = () => {
                 <div className={styles.buttonWrapper} onClick={() => setFormQuestion(true)}>
                   <button>Задать вопрос</button>
                 </div>
-                <a href="#" className={styles.link}>
+                <a href="https://wa.me/+79857660713" className={styles.link}>
                   <Image
                     src={'/icons/WhatsApp.svg'}
                     width={40}
