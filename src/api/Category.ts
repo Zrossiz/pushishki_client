@@ -78,3 +78,17 @@ export const updateCategory = async (
     };
   }
 };
+
+
+export const deleteCategory = async (slug: string): Promise<ICategory | {message: string}> => {
+  try {
+    const { data } = await axiosInst.delete<ICategory>(`${API_URL}/category/${slug}`);
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при обновлении категории',
+    };
+  }
+};
