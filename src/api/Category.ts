@@ -79,8 +79,7 @@ export const updateCategory = async (
   }
 };
 
-
-export const deleteCategory = async (slug: string): Promise<ICategory | {message: string}> => {
+export const deleteCategory = async (slug: string): Promise<ICategory | { message: string }> => {
   try {
     const { data } = await axiosInst.delete<ICategory>(`${API_URL}/category/${slug}`);
 

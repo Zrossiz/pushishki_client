@@ -23,9 +23,7 @@ export const SliderItem = ({ product }: SliderItemProps) => {
       </div>
       <div className={styles.descWrapper}>
         <div className={styles.titleWrapper}>
-          <span>
-            {product.name}
-          </span>
+          <span>{product.name}</span>
         </div>
         <div className={styles.articulWrapper}>
           <span>Артикул: {product.articul}</span>

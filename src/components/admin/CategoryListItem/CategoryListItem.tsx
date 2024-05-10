@@ -16,7 +16,15 @@ export const CategoryListItem = ({ category }: CategoryListItemProps) => {
   return (
     <div className={styles.itemWrapper}>
       {edit && <CategoryForm update={true} category={category} setOpen={setEdit} />}
-      {remove && <DeleteItem idOrSlug={category.slug} entity='category' name={category.name} setOpen={setRemove} imgName={category.image} />}
+      {remove && (
+        <DeleteItem
+          idOrSlug={category.slug}
+          entity="category"
+          name={category.name}
+          setOpen={setRemove}
+          imgName={category.image}
+        />
+      )}
       <div className={styles.image}>
         <Image fill alt={product.name} src={`${FILESERVER_URL}/upload/${category.image}`} />
       </div>

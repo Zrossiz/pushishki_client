@@ -29,12 +29,13 @@ const CategoryPage = () => {
           </LinkButton>
         </div>
         <div className={styles.listWrapper}>
-          {categories && categories?.totalPages >= 1 ?
+          {categories && categories?.totalPages >= 1 ? (
             categories?.data.map((item: ICategory) => {
               return <CategoryListItem key={item.id} category={item} />;
-            }) :
-            <HTag tag='h3'>Ничего не найдено</HTag>
-          }
+            })
+          ) : (
+            <HTag tag="h3">Ничего не найдено</HTag>
+          )}
         </div>
       </>
     </AdminLayout>

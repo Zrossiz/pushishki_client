@@ -55,13 +55,13 @@ export const Footer = () => {
             <a href="tel:+79857660713">+7 (985) 766-07-13</a>
           </div>
           <div className={styles.socialWrapper}>
-            <a href="https://vk.com/club29256126" target='_blank'>
+            <a href="https://vk.com/club29256126" target="_blank">
               <Image src={'/icons/Vk.svg'} height={56} width={56} alt="Вк" />
             </a>
-            <a href="https://avito.ru/brands/pushishki" target='_blank'>
+            <a href="https://avito.ru/brands/pushishki" target="_blank">
               <Image src={'/icons/Avito.svg'} height={34} width={34} alt="Авито" />
             </a>
-            <a href="https://www.youtube.com/channel/UCJBDQZzSQ5XN-vBUJXO1DBw" target='_blank'>
+            <a href="https://www.youtube.com/channel/UCJBDQZzSQ5XN-vBUJXO1DBw" target="_blank">
               <Image src={'/icons/Youtube.svg'} height={36} width={48} alt="Youtube" />
             </a>
           </div>

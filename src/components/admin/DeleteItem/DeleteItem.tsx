@@ -13,7 +13,7 @@ export const DeleteItem = ({ idOrSlug, name, entity, setOpen, imgName }: DeleteI
   const router = useRouter();
 
   const deleteItem = async () => {
-    if (entity == 'product' && typeof(idOrSlug) == 'number') {
+    if (entity == 'product' && typeof idOrSlug == 'number') {
       await deleteProductFiles(idOrSlug);
     }
 

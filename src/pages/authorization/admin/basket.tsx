@@ -24,12 +24,13 @@ const BasketPage = () => {
     <AdminLayout>
       <>
         <div className={styles.listWrapper}>
-          {orders && orders?.totalPages >= 1 ?
+          {orders && orders?.totalPages >= 1 ? (
             orders?.data.map((item: IOrder) => {
               return <OrderListItem order={item} key={item.id} />;
-            }) :
-            <HTag tag='h3'>Ничего не найдено</HTag>
-          }
+            })
+          ) : (
+            <HTag tag="h3">Ничего не найдено</HTag>
+          )}
         </div>
         {orders && orders?.totalPages > 1 && (
           <div className={styles.paginationWrapper}>

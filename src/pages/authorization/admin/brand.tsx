@@ -29,12 +29,13 @@ const BrandPage = () => {
           </LinkButton>
         </div>
         <div className={styles.listWrapper}>
-          {brands && brands?.totalPages >= 1 ?
+          {brands && brands?.totalPages >= 1 ? (
             brands?.data.map((item: IBrand) => {
               return <BrandListItem key={item.id} brand={item} />;
-            }) :
-            <HTag tag='h3'>Ничего не найдено</HTag>
-          }
+            })
+          ) : (
+            <HTag tag="h3">Ничего не найдено</HTag>
+          )}
         </div>
       </>
     </AdminLayout>

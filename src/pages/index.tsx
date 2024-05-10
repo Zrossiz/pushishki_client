@@ -204,7 +204,10 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   <HTag tag="h3">Связаться с нами</HTag>
                 </div>
                 <div className={styles.linksWrapper}>
-                  <a href="https://www.youtube.com/channel/UCJBDQZzSQ5XN-vBUJXO1DBw" target="_blank">
+                  <a
+                    href="https://www.youtube.com/channel/UCJBDQZzSQ5XN-vBUJXO1DBw"
+                    target="_blank"
+                  >
                     Youtube
                   </a>
                   <a href="https://vk.com/club29256126" target="_blank">

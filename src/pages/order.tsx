@@ -50,9 +50,15 @@ const OrderPage = () => {
   const router = useRouter();
 
   const checkout = async () => {
-    const order: IOrder | { message: string } = 
-      await postOrder(name, lastName, address, phone, delivery, totalProductsPrice);
-    console.log("Order: ", order)
+    const order: IOrder | { message: string } = await postOrder(
+      name,
+      lastName,
+      address,
+      phone,
+      delivery,
+      totalProductsPrice,
+    );
+    console.log('Order: ', order);
 
     const apiCart: IApiItemCart[] = [];
 

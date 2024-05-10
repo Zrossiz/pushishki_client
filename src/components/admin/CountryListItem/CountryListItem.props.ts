@@ -1,5 +1,5 @@
-import { ICountry } from "@/types";
+import { ICountry } from '@/types';
 
 export interface CountryListItemProps {
-    country: ICountry;
+  country: ICountry;
 }

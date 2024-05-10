@@ -17,8 +17,8 @@ const CountryPage = () => {
       if ('data' in countiresApi) {
         setCountries(countiresApi.data);
       }
-    })()
-  }, [])
+    })();
+  }, []);
 
   return (
     <AdminLayout>
@@ -29,11 +29,9 @@ const CountryPage = () => {
           </LinkButton>
         </div>
         <div className={styles.listWrapper}>
-            {countries?.map((item: ICountry) => {
-              return (
-                <CountryListItem country={item} />
-              )
-            })}
+          {countries?.map((item: ICountry) => {
+            return <CountryListItem country={item} />;
+          })}
         </div>
       </>
     </AdminLayout>

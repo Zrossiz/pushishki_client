@@ -10,7 +10,12 @@ export const ColorListItem = ({ color }: ColorListItemProps) => {
   return (
     <div className={styles.itemWrapper}>
       {deleteItem && (
-        <DeleteItem idOrSlug={color.id} entity={'color'} name={color.color} setOpen={setDeleteItem} />
+        <DeleteItem
+          idOrSlug={color.id}
+          entity={'color'}
+          name={color.color}
+          setOpen={setDeleteItem}
+        />
       )}
       <div className={styles.colorWrapper} style={{ backgroundColor: color.color }}></div>
       <div className={styles.titleWrapper}>{color.color}</div>
