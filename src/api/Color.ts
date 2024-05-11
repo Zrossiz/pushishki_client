@@ -17,10 +17,16 @@ export const getAllColors = async (): Promise<IColor[] | { message: string }> =>
   }
 };
 
-export const createColor = async (color: string): Promise<IColor | { message: string }> => {
+export const createColor = async (
+  title: string,
+  color?: string,
+  image?: string
+): Promise<IColor | { message: string }> => {
   try {
     const { data } = await axiosInst.post<IColor>(`${API_URL}/color`, {
       color,
+      title,
+      image
     });
     return data;
   } catch (err) {
