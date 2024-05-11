@@ -1,6 +1,8 @@
+import { IColor } from "./Color";
+
 export interface IProductVariant {
   id: number;
-  color: string;
+  color: IColor;
   description: string;
   articul: number;
   gearbox: string;

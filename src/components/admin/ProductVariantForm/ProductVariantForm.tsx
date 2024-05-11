@@ -14,6 +14,10 @@ import Image from 'next/image';
 import { IColor } from '@/types/Color';
 import cn from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const ProductVariantForm = ({
   id,
@@ -91,7 +95,7 @@ export const ProductVariantForm = ({
             <div className={styles.colorsWrapper}>
               <div className={styles.title}>Выберите цвет</div>
               {colors.map((item) => {
-                return (
+                return item.color ? (
                   <div
                     className={cn(styles.colorWrapper, {
                       [styles.active]: selectedColor === item.id,
@@ -100,7 +104,17 @@ export const ProductVariantForm = ({
                     onClick={() => setSelectedColor(item.id)}
                     key={item.id}
                   ></div>
-                );
+                ) : (
+                  <div 
+                    className={cn(styles.colorWrapper, {
+                      [styles.active]: selectedColor === item.id,
+                    })}                     
+                    onClick={() => setSelectedColor(item.id)}
+                    key={item.id}
+                  >
+                    <Image src={`${FILESERVER_URL}/upload/${item.image}`} fill alt={item.title}/>
+                  </div>
+                )
               })}
             </div>
             <div className={styles.colorsWrapper}>
@@ -134,10 +148,12 @@ export const ProductVariantForm = ({
               {variants.map((item: IProductVariant) => {
                 return (
                   <div className={styles.itemWrapper} key={item.id}>
-                    <div
-                      className={styles.colorWrapper}
-                      style={{ backgroundColor: item.color }}
-                    ></div>
+                    {item.color.color ? 
+                      <div className={styles.colorWrapper} style={{ backgroundColor: item.color.color }}></div> : 
+                      <div className={styles.colorWrapper}>
+                        <Image src={`${FILESERVER_URL}/upload/${item.color.image}`} fill alt={item.color.title}/>
+                      </div>
+                    }
                     <div className={styles.price}>{item.price} ₽</div>
                     <div className={styles.delete} onClick={() => deleteVariant(item.id)}>
                       <Image src="/icons/Trash.svg" width={30} height={30} alt={'Удалить'} />
