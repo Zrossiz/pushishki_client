@@ -78,3 +78,16 @@ export const getAllOrders = async (
     };
   }
 };
+
+export const setRead = async (orderId: number): Promise<IOrder | { message: string }> => {
+  try {
+    const { data } = await axiosInst.put<IOrder>(`${API_URL}/order/read/${orderId}`);
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при получении заказов',
+    };
+  };
+}
