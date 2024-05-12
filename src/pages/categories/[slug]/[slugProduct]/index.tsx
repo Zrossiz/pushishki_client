@@ -8,7 +8,7 @@ import {
 } from '@/api';
 import { Layout } from '@/layout/client/Layout';
 import { CardReviews, CardVideo, Form, Questions, Slider } from '@/pageComponents';
-import { IItemCart, IProduct, IProductCardPageProps } from '@/types';
+import { IItemCart, IProduct, IProductCardPageProps, IProductVariant } from '@/types';
 import styles from '../../../../styles/client/Card.module.scss';
 import {
   Breadcrumbs,
@@ -23,6 +23,10 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import { AnimatePresence } from 'framer-motion';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+const { FILESERVER_URL } = publicRuntimeConfig;
 
 const ProductCardPage = ({
   bestSellers,
@@ -118,7 +122,7 @@ const ProductCardPage = ({
       },
       color:
         productVariants && productVariants?.length > 0
-          ? productVariants[activeVariant].color
+          ? productVariants[activeVariant].color.color || `${FILESERVER_URL}/upload/${productVariants[activeVariant].color.image}`
           : undefined,
       count: 1,
       variantId: productVariants ? productVariants[activeVariant]?.id : 0,
@@ -356,15 +360,19 @@ const ProductCardPage = ({
               {productVariants?.map((item, index) => {
                 return (
                   <div
-                    title={item.color}
+                    title={item.color.title}
                     key={item.id}
                     onClick={() => switchActiveVariant(index)}
                     className={cn(styles.colorOption, {
                       [styles.active]: index === activeVariant,
                     })}
-                    style={{ backgroundColor: item?.color }}
-                  ></div>
-                );
+                    style={{ backgroundColor: item?.color?.color || 'transparent' }}
+                    >
+                    {item.color.image &&
+                      <Image src={`${FILESERVER_URL}/upload/${item.color.image}`} width={32} height={32} alt={item.color.title}/>
+                    }
+                  </div>
+                )
               })}
             </div>
             <div className={styles.buttonsWrapper}>

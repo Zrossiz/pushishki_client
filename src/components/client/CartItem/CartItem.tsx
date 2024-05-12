@@ -52,7 +52,17 @@ export const CartItem = ({
         <div className={styles.titleWrapper}>{product.product.name}</div>
         {product.color && (
           <div className={styles.colorWrapper}>
-            Цвет: <span style={{ backgroundColor: product.color }} className={styles.color}></span>
+            Цвет: 
+            {product.color.startsWith('http') ? 
+            <span className={styles.color}>
+              <Image
+                src={product.color}
+                alt={product.color}
+                fill
+              />
+            </span> : 
+            <span style={{ backgroundColor: product.color }} className={styles.color}></span>
+            }
           </div>
         )}
       </div>
