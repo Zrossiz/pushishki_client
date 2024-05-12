@@ -11,6 +11,7 @@ export interface IOrder {
   phone: string;
   address: string;
   price: number;
+  read: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

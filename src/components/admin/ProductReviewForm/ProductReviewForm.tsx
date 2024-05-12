@@ -18,7 +18,6 @@ export const ProductReviewForm = ({ setOpen, product }: ProductReviewFormProps) 
       if (Array.isArray(queryReviews)) {
         setReviews(queryReviews);
       }
-      console.log(reviews);
     })();
   }, []);
 

@@ -18,7 +18,6 @@ const BasketPage = () => {
       }
     })();
   }, [curPage]);
-  console.log(orders);
 
   return (
     <AdminLayout>

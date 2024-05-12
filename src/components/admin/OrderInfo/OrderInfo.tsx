@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './OrderInfo.module.scss';
 import { OrderInfoProps } from './OrderInfo.props';
 import { IBasketItem } from '@/types';
-import { getBasketByOrder } from '@/api';
+import { getBasketByOrder, setReadOrder } from '@/api';
 import { HTag } from '@/elements';
 
 export const OrderInfo = ({ setOpen, order, date }: OrderInfoProps) => {
@@ -12,7 +12,9 @@ export const OrderInfo = ({ setOpen, order, date }: OrderInfoProps) => {
       const basket = await getBasketByOrder(order.id);
       if (Array.isArray(basket)) {
         setBasketInfo(basket);
-      }
+      };
+
+      await setReadOrder(order.id);
     })();
   }, []);
 

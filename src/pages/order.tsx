@@ -58,7 +58,6 @@ const OrderPage = () => {
       delivery,
       totalProductsPrice,
     );
-    console.log('Order: ', order);
 
     const apiCart: IApiItemCart[] = [];
 

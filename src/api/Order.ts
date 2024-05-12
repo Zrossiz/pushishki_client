@@ -79,7 +79,7 @@ export const getAllOrders = async (
   }
 };
 
-export const setRead = async (orderId: number): Promise<IOrder | { message: string }> => {
+export const setReadOrder = async (orderId: number): Promise<IOrder | { message: string }> => {
   try {
     const { data } = await axiosInst.put<IOrder>(`${API_URL}/order/read/${orderId}`);
 
