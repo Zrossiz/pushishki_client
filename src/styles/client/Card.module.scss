@@ -239,6 +239,10 @@
                 height: 40px;
                 border: 1px solid var(--medium-grey);
 
+                img {
+                    border-radius: 50%;
+                }
+
                 @media screen and (max-width: 480px) {
                     width: 30px;
                     height: 30px;
