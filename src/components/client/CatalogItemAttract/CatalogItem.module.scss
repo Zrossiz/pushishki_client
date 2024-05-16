@@ -4,7 +4,12 @@
     border-bottom: 2px solid var(--light-grey);
     width: 33%;
 
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 1300px) {
+        width: 250px;
+        height: 480px;
+    }
+
+    @media screen and (max-width: 480px) {
         width: 100%;
         padding-right: 0;
     }
@@ -20,7 +25,10 @@
         padding: 20px 20px;
 
         @media screen and (max-width: 900px) {
-            height: fit-content;
+            height: 100%; 
+        }
+
+        @media screen and (max-width: 480px) {
             height: 260px;
         }
 
@@ -31,6 +39,10 @@
             font-weight: 700;
 
             @media screen and (max-width: 900px) {
+                font-size: 18px;
+            }
+
+            @media screen and (max-width: 480px) {
                 font-size: 20px;
             }
         }
@@ -60,6 +72,10 @@
                 background-repeat: no-repeat;
 
                 @media screen and (max-width: 900px) {
+                    display: none;
+                }
+
+                @media screen and (max-width: 480px) {
                     top: -20px;
                     left: 10px;
                     transform: rotate(-20deg);

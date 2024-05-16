@@ -5,6 +5,10 @@
     border-bottom: 2px solid var(--light-grey);
     width: 275px;
 
+    @media screen and (max-width: 1200px) {
+        width: 250px;
+    }
+
     @media screen and (max-width: 480px) {
         display: flex;
         align-items: center;
@@ -24,6 +28,12 @@
 
         img {
             width: 100%;
+        }
+
+        @media screen and (max-width: 480px) {
+            img {
+                height: 120px;
+            }
         }
 
         @media screen and (max-width: 480px) {
