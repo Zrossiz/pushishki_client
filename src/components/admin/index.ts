@@ -15,3 +15,4 @@ export * from './BrandListItem/BrandListItem';
 export * from './BrandForm/BrandForm';
 export * from './CountryListItem/CountryListItem';
 export * from './CountryForm/CountryForm';
+export * from './ProductVariantForm/ProductVariantForm';
