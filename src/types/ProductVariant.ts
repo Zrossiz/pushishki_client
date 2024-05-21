@@ -3,6 +3,7 @@ import { IColor } from './Color';
 export interface IProductVariant {
   id: number;
   color: IColor;
+  productId: number;
   description: string;
   articul: number;
   gearbox: string;

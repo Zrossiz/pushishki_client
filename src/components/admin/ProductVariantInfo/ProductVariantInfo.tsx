@@ -4,7 +4,7 @@ import { ProductVariantInfoProps } from './ProductVariantInfo.props';
 import Image from 'next/image';
 import { Input } from '@/elements';
 import { useState } from 'react';
-import { deleteProductVariant } from '@/api';
+import { deleteProductVariant, updateProductVariant } from '@/api';
 import { IProductVariant } from '@/types';
 
 const { publicRuntimeConfig } = getConfig();
@@ -12,12 +12,17 @@ const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) => {
   const [price, setPrice] = useState<number>(productVariant.price);
+  const [images, setImages] = useState<string[]>(productVariant.images);
 
   const deleteVariant = async (id: number) => {
     const variant: IProductVariant | { message: string } = await deleteProductVariant(id);
 
     window.location.reload();
   };
+
+  const updateVariant = async (id: number) => {
+    await updateProductVariant(id, images, price)
+  }
 
   return (
     <div className={styles.wrapper}>

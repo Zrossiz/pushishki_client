@@ -65,3 +65,25 @@ export const deleteProductVariant = async (
     };
   }
 };
+
+export const updateProductVariant = async (
+  variantId: number,
+  images: string[],
+  price: number,
+): Promise<IProductVariant | { message: string }> => {
+  try {
+
+    const { data } = await axiosInst.post<IProductVariant>(
+      `${API_URL}/product-variant/${variantId}`, {
+        images,
+        price
+      }
+    );
+
+    return data;
+  } catch (err) {
+    return {
+      message: 'Ошибка при обновлении товара варианта товара',
+    };
+  }
+};
