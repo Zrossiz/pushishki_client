@@ -122,7 +122,8 @@ const ProductCardPage = ({
       },
       color:
         productVariants && productVariants?.length > 0
-          ? productVariants[activeVariant].color.color || `${FILESERVER_URL}/upload/${productVariants[activeVariant].color.image}`
+          ? productVariants[activeVariant].color.color ||
+            `${FILESERVER_URL}/upload/${productVariants[activeVariant].color.image}`
           : undefined,
       count: 1,
       variantId: productVariants ? productVariants[activeVariant]?.id : 0,
@@ -367,12 +368,17 @@ const ProductCardPage = ({
                       [styles.active]: index === activeVariant,
                     })}
                     style={{ backgroundColor: item?.color?.color || 'transparent' }}
-                    >
-                    {item.color.image &&
-                      <Image src={`${FILESERVER_URL}/upload/${item.color.image}`} width={32} height={32} alt={item.color.title}/>
-                    }
+                  >
+                    {item.color.image && (
+                      <Image
+                        src={`${FILESERVER_URL}/upload/${item.color.image}`}
+                        width={32}
+                        height={32}
+                        alt={item.color.title}
+                      />
+                    )}
                   </div>
-                )
+                );
               })}
             </div>
             <div className={styles.buttonsWrapper}>

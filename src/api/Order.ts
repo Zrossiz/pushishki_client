@@ -89,5 +89,5 @@ export const setReadOrder = async (orderId: number): Promise<IOrder | { message:
     return {
       message: 'Ошибка при получении заказов',
     };
-  };
-}
+  }
+};

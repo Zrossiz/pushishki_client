@@ -12,7 +12,7 @@ export const OrderInfo = ({ setOpen, order, date }: OrderInfoProps) => {
       const basket = await getBasketByOrder(order.id);
       if (Array.isArray(basket)) {
         setBasketInfo(basket);
-      };
+      }
 
       await setReadOrder(order.id);
     })();

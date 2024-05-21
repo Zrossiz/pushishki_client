@@ -22,7 +22,7 @@ export const getCountries = async (): Promise<ICountryWithLength | { message: st
 export const createCountry = async (name: string): Promise<ICountry | { message: string }> => {
   try {
     const { data } = await axiosInst.post<ICountry>(`${API_URL}/country`, {
-      name
+      name,
     });
 
     return data;
@@ -32,19 +32,22 @@ export const createCountry = async (name: string): Promise<ICountry | { message:
       message: 'Ошибка при создании стран',
     };
   }
-}
+};
 
-export const updateCountry = async (slug: string, name: string): Promise<ICountry | { message: string }> => {
+export const updateCountry = async (
+  slug: string,
+  name: string,
+): Promise<ICountry | { message: string }> => {
   try {
     const { data } = await axiosInst.put<ICountry>(`${API_URL}/country/${slug}`, {
-      name
+      name,
     });
 
     return data;
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при обновлении страны'
-    }
+      message: 'Ошибка при обновлении страны',
+    };
   }
-}
+};

@@ -1,7 +1,7 @@
-import { ICountry } from "@/types";
+import { ICountry } from '@/types';
 
 export interface CountryFormProps {
-    country?: ICountry;
-    setOpen: (arg0: boolean) => void;
-    isEdit: boolean;
+  country?: ICountry;
+  setOpen: (arg0: boolean) => void;
+  isEdit: boolean;
 }

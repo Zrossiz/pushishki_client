@@ -1,5 +1,5 @@
-import { IProductVariant } from "@/types";
+import { IProductVariant } from '@/types';
 
 export interface ProductVariantInfoProps {
-    productVariant: IProductVariant;
+  productVariant: IProductVariant;
 }

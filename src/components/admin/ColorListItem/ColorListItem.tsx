@@ -21,12 +21,13 @@ export const ColorListItem = ({ color }: ColorListItemProps) => {
           setOpen={setDeleteItem}
         />
       )}
-      {color.color ? 
-        <div className={styles.colorWrapper} style={{ backgroundColor: color.color }}></div> : 
+      {color.color ? (
+        <div className={styles.colorWrapper} style={{ backgroundColor: color.color }}></div>
+      ) : (
         <div className={styles.colorWrapper}>
-          <Image src={`${FILESERVER_URL}/upload/${color.image}`} fill alt={color.title}/>
+          <Image src={`${FILESERVER_URL}/upload/${color.image}`} fill alt={color.title} />
         </div>
-      }
+      )}
       <div className={styles.titleWrapper}>{color.title}</div>
       <div className={styles.deleteWrapper} onClick={() => setDeleteItem(true)}>
         <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />

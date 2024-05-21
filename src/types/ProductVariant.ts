@@ -1,4 +1,4 @@
-import { IColor } from "./Color";
+import { IColor } from './Color';
 
 export interface IProductVariant {
   id: number;

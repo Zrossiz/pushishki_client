@@ -15,7 +15,7 @@ export const ColorForm = ({ setOpen }: ColorFormProps) => {
 
     if (image) {
       await uploadFiles(image);
-    };
+    }
   };
 
   const handleImageChange = (e: any) => {
@@ -35,7 +35,12 @@ export const ColorForm = ({ setOpen }: ColorFormProps) => {
         <HTag tag="h2">Создание цвета</HTag>
         <div className={styles.inputWrapper}>
           <label>Введите заголовок для цвета</label>
-          <Input type="text" placeholder="Введите заголовок для цвета" value={title} onChange={setTitle} />
+          <Input
+            type="text"
+            placeholder="Введите заголовок для цвета"
+            value={title}
+            onChange={setTitle}
+          />
         </div>
         <div className={styles.inputWrapper}>
           <label>Введите цвет</label>
@@ -48,7 +53,7 @@ export const ColorForm = ({ setOpen }: ColorFormProps) => {
         <LinkButton
           element="button"
           onClick={() => create()}
-          disabled={color.length > 1 || (image?.name) ? false : true}
+          disabled={color.length > 1 || image?.name ? false : true}
         >
           Создать
         </LinkButton>

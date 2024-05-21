@@ -13,7 +13,10 @@ export const OrderListItem = ({ order }: OrderListItemProps) => {
   };
 
   return (
-    <div className={styles.itemWrapper} style={{ background: `${!order.read ? 'rgba(231, 231, 231, 0.9)' : '#fff'} ` }}>
+    <div
+      className={styles.itemWrapper}
+      style={{ background: `${!order.read ? 'rgba(231, 231, 231, 0.9)' : '#fff'} ` }}
+    >
       {open && <OrderInfo setOpen={setOpen} order={order} date={dateArr} />}
       <div className={styles.nameWrapper}>
         <span>

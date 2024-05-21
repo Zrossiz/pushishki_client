@@ -3,12 +3,7 @@ import { ProductVariantFormProps } from './ProductVariant.props';
 import styles from './ProductVariantForm.module.scss';
 import { ChangeEvent, useEffect, useState, MouseEvent } from 'react';
 import { IProductVariant } from '@/types';
-import {
-  createProductVariant,
-  getAllColors,
-  getProductVariants,
-  uploadFiles,
-} from '@/api';
+import { createProductVariant, getAllColors, getProductVariants, uploadFiles } from '@/api';
 import Image from 'next/image';
 import { IColor } from '@/types/Color';
 import cn from 'classnames';
@@ -97,16 +92,16 @@ export const ProductVariantForm = ({
                     key={item.id}
                   ></div>
                 ) : (
-                  <div 
+                  <div
                     className={cn(styles.colorWrapper, {
                       [styles.active]: selectedColor === item.id,
-                    })}                     
+                    })}
                     onClick={() => setSelectedColor(item.id)}
                     key={item.id}
                   >
-                    <Image src={`${FILESERVER_URL}/upload/${item.image}`} fill alt={item.title}/>
+                    <Image src={`${FILESERVER_URL}/upload/${item.image}`} fill alt={item.title} />
                   </div>
-                )
+                );
               })}
             </div>
             <div className={styles.colorsWrapper}>
@@ -138,12 +133,7 @@ export const ProductVariantForm = ({
             <div className={styles.titleWrapper}>Активные вариации</div>
             <div className={styles.listWrapper}>
               {variants.map((item: IProductVariant) => {
-                return (
-                  <ProductVariantInfo 
-                    key={item.id}
-                    productVariant={item}
-                  />
-                );
+                return <ProductVariantInfo key={item.id} productVariant={item} />;
               })}
             </div>
           </div>

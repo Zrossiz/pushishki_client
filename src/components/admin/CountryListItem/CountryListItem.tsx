@@ -17,13 +17,7 @@ export const CountryListItem = ({ country }: CountryListItemProps) => {
           name={country.name}
         />
       )}
-      {edit && (
-        <CountryForm 
-          setOpen={setEdit} 
-          isEdit={true} 
-          country={country} 
-        />
-      )}
+      {edit && <CountryForm setOpen={setEdit} isEdit={true} country={country} />}
       <div className={styles.nameWrapper}>{country.name}</div>
       <div className={styles.slugWrapper}>Slug: {country.slug}</div>
       <div className={styles.edit} onClick={() => setEdit(true)}>
