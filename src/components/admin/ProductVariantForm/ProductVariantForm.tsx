@@ -5,7 +5,6 @@ import { ChangeEvent, useEffect, useState, MouseEvent } from 'react';
 import { IProductVariant } from '@/types';
 import {
   createProductVariant,
-  deleteProductVariant,
   getAllColors,
   getProductVariants,
   uploadFiles,
@@ -15,6 +14,7 @@ import { IColor } from '@/types/Color';
 import cn from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 import getConfig from 'next/config';
+import { ProductVariantInfo } from '../ProductVariantInfo/ProductVariantInfo';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -73,14 +73,6 @@ export const ProductVariantForm = ({
     const productVariant = await createProductVariant(id, +selectedColor, price, stringImages);
     if (selectedFiles.length >= 1) {
       await uploadFiles(updatedFiles);
-    }
-  };
-
-  const deleteVariant = async (id: number) => {
-    const variant: IProductVariant | { message: string } = await deleteProductVariant(id);
-    const queryVariants = await getProductVariants(id);
-    if (Array.isArray(queryVariants)) {
-      setVariants(queryVariants);
     }
   };
 
@@ -147,18 +139,10 @@ export const ProductVariantForm = ({
             <div className={styles.listWrapper}>
               {variants.map((item: IProductVariant) => {
                 return (
-                  <div className={styles.itemWrapper} key={item.id}>
-                    {item.color.color ? 
-                      <div className={styles.colorWrapper} style={{ backgroundColor: item.color.color }}></div> : 
-                      <div className={styles.colorWrapper}>
-                        <Image src={`${FILESERVER_URL}/upload/${item.color.image}`} fill alt={item.color.title}/>
-                      </div>
-                    }
-                    <div className={styles.price}>{item.price} ₽</div>
-                    <div className={styles.delete} onClick={() => deleteVariant(item.id)}>
-                      <Image src="/icons/Trash.svg" width={30} height={30} alt={'Удалить'} />
-                    </div>
-                  </div>
+                  <ProductVariantInfo 
+                    key={item.id}
+                    productVariant={item}
+                  />
                 );
               })}
             </div>

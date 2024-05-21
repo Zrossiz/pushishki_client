@@ -24,6 +24,8 @@
         padding: 40px;
         border-radius: 20px;
         width: 80%;
+        overflow: auto;
+        max-height: 80%;
 
         .columnsWrapper {
             display: flex;
