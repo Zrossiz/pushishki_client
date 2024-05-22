@@ -3,8 +3,8 @@ import styles from './ProductVariantInfo.module.scss';
 import { ProductVariantInfoProps } from './ProductVariantInfo.props';
 import Image from 'next/image';
 import { Input } from '@/elements';
-import { useState } from 'react';
-import { deleteProductVariant, updateProductVariant } from '@/api';
+import { useEffect, useState } from 'react';
+import { deleteFile, deleteProductVariant, updateProductVariant } from '@/api';
 import { IProductVariant } from '@/types';
 
 const { publicRuntimeConfig } = getConfig();
@@ -20,9 +20,20 @@ export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) 
     window.location.reload();
   };
 
-  const updateVariant = async (id: number) => {
-    await updateProductVariant(id, images, price)
+  const deleteImage = async (image: string) => {
+    const deletedImageIndex = images.indexOf(image);
+    const newImages = [...images];
+    newImages.splice(deletedImageIndex, 1);
+    setImages(newImages);
+    await updateProductVariant(productVariant.id, newImages);
+    await deleteFile(image);
   }
+
+  useEffect(() => {
+    setTimeout(async () => {
+      await updateProductVariant(productVariant.id, images, +price);
+    }, 1000);
+  }, [price]);
 
   return (
     <div className={styles.wrapper}>
@@ -50,10 +61,10 @@ export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) 
         </div>
       </div>
       <div className={styles.galleryWrapper}>
-        {productVariant.images.map((item: string) => {
+        {images.map((item: string) => {
           return (
             <div className={styles.img}>
-              <div className={styles.delete}>
+              <div className={styles.delete} onClick={() => deleteImage(item)}>
                 <Image src="/icons/Close.svg" width={20} height={20} alt="Удалить" />
               </div>
               <Image src={`${FILESERVER_URL}/upload/${item}`} alt={item} fill />

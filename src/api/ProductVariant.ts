@@ -69,11 +69,11 @@ export const deleteProductVariant = async (
 export const updateProductVariant = async (
   variantId: number,
   images: string[],
-  price: number,
+  price?: number,
 ): Promise<IProductVariant | { message: string }> => {
   try {
 
-    const { data } = await axiosInst.post<IProductVariant>(
+    const { data } = await axiosInst.put<IProductVariant>(
       `${API_URL}/product-variant/${variantId}`, {
         images,
         price
