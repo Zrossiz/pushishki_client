@@ -16,6 +16,7 @@ export const ColorForm = ({ setOpen }: ColorFormProps) => {
     if (image) {
       await uploadFiles(image);
     }
+    window.location.reload();
   };
 
   const handleImageChange = (e: any) => {
