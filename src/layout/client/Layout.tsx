@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from './Layout.module.scss';
 import { Manrope } from 'next/font/google';
 import cn from 'classnames';
-import { ToTop, WhatsApp } from '@/components/client';
+import { MobileNavigation, ToTop, WhatsApp } from '@/components/client';
 import { AppProgressBar } from 'next-nprogress-bar';
 import { Footer } from './Footer/Footer';
 import { Header } from './Header/Header';
@@ -42,7 +42,10 @@ export const Layout = ({ children, title, description, keyWords }: ILayoutProps)
         <div className={styles.header}>
           <Header />
         </div>
-        <main className={styles.main}>{children}</main>
+        <main className={styles.main}>
+          {children}
+          <MobileNavigation />
+        </main>
         <div className={styles.footer}>
           <Footer />
         </div>

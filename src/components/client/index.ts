@@ -26,3 +26,4 @@ export * from './SearchProductForm/SearchProductForm';
 export * from './CartItem/CartItem';
 export * from './Search/Search';
 export * from './QuestionPopup/QuesitonPopup';
+export * from './MobileNavigation/MobileNavigation';
