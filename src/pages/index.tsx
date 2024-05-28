@@ -119,13 +119,13 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   </span>
                 </motion.li>
                 <motion.li
-                  className={cn(styles.itemWrapper, styles.white)}
+                  className={styles.itemWrapper}
                   ref={ref2}
                   transition={{ delay: 0.8, duration: 1 }}
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: isInView2 ? 0 : -30, opacity: isInView2 ? 1 : 0 }}
                 >
-                  <HTag tag="h3" color="white">
+                  <HTag tag="h3">
                     Покупайте только лучшее
                   </HTag>
                   <span className={styles.span}>
@@ -134,13 +134,13 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   </span>
                 </motion.li>
                 <motion.li
-                  className={cn(styles.itemWrapper, styles.white)}
+                  className={styles.itemWrapper}
                   ref={ref3}
                   transition={{ delay: 1, duration: 1 }}
                   initial={{ x: 30, opacity: 0 }}
                   animate={{ x: isInView3 ? 0 : 30, opacity: isInView3 ? 1 : 0 }}
                 >
-                  <HTag tag="h3" color="white">
+                  <HTag tag="h3">
                     Изучите наш большой ассортимент
                   </HTag>
                   <span className={styles.span}>
