@@ -1,18 +1,12 @@
-import { HTag } from '@/elements';
+import { HTag, Select } from '@/elements';
 import { ProductVariantFormProps } from './ProductVariant.props';
 import styles from './ProductVariantForm.module.scss';
 import { ChangeEvent, useEffect, useState, MouseEvent } from 'react';
 import { IProductVariant } from '@/types';
 import { createProductVariant, getAllColors, getProductVariants, uploadFiles } from '@/api';
-import Image from 'next/image';
 import { IColor } from '@/types/Color';
-import cn from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
-import getConfig from 'next/config';
 import { ProductVariantInfo } from '../ProductVariantInfo/ProductVariantInfo';
-
-const { publicRuntimeConfig } = getConfig();
-const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const ProductVariantForm = ({
   id,
@@ -23,7 +17,7 @@ export const ProductVariantForm = ({
   const [variants, setVariants] = useState<IProductVariant[]>([]);
   const [colors, setColors] = useState<IColor[]>([]);
 
-  const [selectedColor, setSelectedColor] = useState<number>(1);
+  const [selectedColor, setSelectedColor] = useState<IColor>();
   const [price, setPrice] = useState<number>(defaultPrice);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
@@ -65,9 +59,11 @@ export const ProductVariantForm = ({
       stringImages.push(item.name);
     });
 
-    const productVariant = await createProductVariant(id, +selectedColor, price, stringImages);
-    if (selectedFiles.length >= 1) {
-      await uploadFiles(updatedFiles);
+    if (selectedColor) {
+      const productVariant = await createProductVariant(id, +selectedColor?.id, price, stringImages);
+      if (selectedFiles.length >= 1) {
+        await uploadFiles(updatedFiles);
+      }
     }
   };
 
@@ -80,29 +76,7 @@ export const ProductVariantForm = ({
           <form className={styles.createWrapper}>
             <div className={styles.titleWrapper}>Создать вариацию</div>
             <div className={styles.colorsWrapper}>
-              <div className={styles.title}>Выберите цвет</div>
-              {colors.map((item) => {
-                return item.color ? (
-                  <div
-                    className={cn(styles.colorWrapper, {
-                      [styles.active]: selectedColor === item.id,
-                    })}
-                    style={{ backgroundColor: item.color }}
-                    onClick={() => setSelectedColor(item.id)}
-                    key={item.id}
-                  ></div>
-                ) : (
-                  <div
-                    className={cn(styles.colorWrapper, {
-                      [styles.active]: selectedColor === item.id,
-                    })}
-                    onClick={() => setSelectedColor(item.id)}
-                    key={item.id}
-                  >
-                    <Image src={`${FILESERVER_URL}/upload/${item.image}`} fill alt={item.title} />
-                  </div>
-                );
-              })}
+              <Select setActiveColor={setSelectedColor} colors={colors} activeColor={selectedColor} />
             </div>
             <div className={styles.colorsWrapper}>
               <div className={styles.title}>Укажите цену</div>

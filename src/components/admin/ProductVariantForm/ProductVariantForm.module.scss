@@ -67,28 +67,6 @@
                     font-size: 30px;
                 }
 
-                .colorsWrapper {
-                    display: flex;
-                    align-items: center;
-                    flex-wrap: wrap;
-                    gap: 40px;
-                    margin-top: 20px;
-
-                    .title {
-                        font-size: 18px;
-                    }
-
-                    .active {
-                        border: 4px solid var(--darker-grey);
-                    }
-
-                    input {
-                        border-radius: 20px;
-                        border: 2px solid var(--light-green);
-                        padding: 10px 20px;
-                    }
-                }
-
                 .filesInputWrapper {
                     display: flex;
                     flex-direction: column;
@@ -119,13 +97,5 @@
                 }
             }
         }
-    }
-
-    .colorWrapper {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        border: 2px solid #c8c7c7;
-        position: relative;
     }
 }
