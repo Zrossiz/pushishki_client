@@ -27,6 +27,10 @@
         overflow: auto;
         max-height: 80%;
 
+        @media screen and (max-width: 480px) {
+            padding: 20px;
+        }
+
         .columnsWrapper {
             display: flex;
             flex-direction: column;
@@ -35,6 +39,10 @@
             .variantsWrapper {
                 margin-top: 40px;
                 width: 40%;
+
+                @media screen and (max-width: 480px) {
+                    width: 100%;
+                 }
     
                 .titleWrapper {
                     text-align: center;
@@ -61,6 +69,10 @@
             .createWrapper {
                 margin-top: 40px;
                 width: 50%;
+
+                @media screen and (max-width: 480px) {
+                    width: 100%;
+                 }
     
                 .titleWrapper {
                     text-align: center;

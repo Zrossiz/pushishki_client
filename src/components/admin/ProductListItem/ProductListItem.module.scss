@@ -33,6 +33,16 @@
             height: 28px;
         }
 
+        @media screen and (max-width: 480px) {
+            .reviews {
+                display: none;
+            }
+
+            .view {
+                display: none;
+            }
+        }
+
         div {
             cursor: pointer;
         }

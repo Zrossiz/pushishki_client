@@ -24,6 +24,10 @@
         z-index: 1;
         width: 80%;
 
+        @media screen and (max-width: 480px) {
+            padding: 20px;
+        }
+
         .orderInfo {
             display: flex;
             flex-direction: column;
@@ -43,6 +47,10 @@
             flex-direction: column;
             margin-top: 20px;
             font-size: 20px;
+
+            @media screen and (max-width: 480px) {
+                font-size: 16px;
+            }
 
             .item {
                 display: flex;

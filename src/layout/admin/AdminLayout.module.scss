@@ -70,15 +70,22 @@
 }
 
 .mobileWrapper {
-    position: relative;
-    height: 126vh;
-    width: 100vw;
+    display: none;
+}
 
-    .infoWrapper {
-        padding-top: 20px;
-    }
-
-    .menuWrapper {
-        margin-top: 200px;
+@media screen and (max-width: 480px) {
+    .mobileWrapper {
+        display: block;
+        position: relative;
+        height: 150vh;
+        width: 100vw;
+    
+        .infoWrapper {
+            padding-top: 20px;
+        }
+    
+        .menuWrapper {
+            margin-top: 200px;
+        }
     }
 }

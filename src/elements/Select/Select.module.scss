@@ -10,6 +10,9 @@
         margin-bottom: 10px;
         cursor: pointer;
         margin-right: 40px;
+        border: 2px solid var(--medium-grey);
+        padding: 10px;
+        border-radius: 10px;
 
         .selectIcon {
             margin-left: 4px;
@@ -26,6 +29,8 @@
         background-color: var(--white);
         cursor: pointer;
         z-index: 10;
+        overflow: auto;
+        max-height: 200px;
 
         .optionWrapper {
             display: flex;
