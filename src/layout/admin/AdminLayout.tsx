@@ -6,6 +6,7 @@ import cn from 'classnames';
 import { AdminLayoutProps } from './AdminLayout.prop';
 import Link from 'next/link';
 import styles from './AdminLayout.module.scss';
+import { Menu } from './Menu/Menu';
 
 export const AdminLayout = ({ children }: AdminLayoutProps) => {
   const router = useRouter();
@@ -94,7 +95,12 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
         <div className={styles.infoWrapper}>{children}</div>
       </div>
       <div className={styles.mobileWrapper}>
-        {children}
+        <div className={styles.infoWrapper}>
+          {children}
+        </div>
+        <div className={styles.menuWrapper}>
+          <Menu />
+        </div>
       </div>
     </>
   );
