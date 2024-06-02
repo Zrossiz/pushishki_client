@@ -95,9 +95,7 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
         <div className={styles.infoWrapper}>{children}</div>
       </div>
       <div className={styles.mobileWrapper}>
-        <div className={styles.infoWrapper}>
-          {children}
-        </div>
+        <div className={styles.infoWrapper}>{children}</div>
         <div className={styles.menuWrapper}>
           <Menu />
         </div>

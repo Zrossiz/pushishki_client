@@ -4,7 +4,12 @@ import { ProductVariantInfoProps } from './ProductVariantInfo.props';
 import Image from 'next/image';
 import { Input } from '@/elements';
 import { useEffect, useState } from 'react';
-import { activateProductVariant, deleteFile, deleteProductVariant, updateProductVariant } from '@/api';
+import {
+  activateProductVariant,
+  deleteFile,
+  deleteProductVariant,
+  updateProductVariant,
+} from '@/api';
 import { IProductVariant } from '@/types';
 
 const { publicRuntimeConfig } = getConfig();
@@ -28,7 +33,7 @@ export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) 
     setImages(newImages);
     await updateProductVariant(productVariant.id, newImages);
     await deleteFile(image);
-  }
+  };
 
   useEffect(() => {
     setTimeout(async () => {
@@ -39,7 +44,7 @@ export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) 
   useEffect(() => {
     (async () => {
       await activateProductVariant(productVariant.id, active);
-    })()
+    })();
   }, [active]);
 
   return (

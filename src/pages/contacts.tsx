@@ -23,7 +23,7 @@ const ContactsPage = () => {
               <HTag tag="h2">Шоурум в Москве</HTag>
             </div>
             <div className={styles.addressWrapper}>
-              г. Москва, улица Вилиса Лациса, 30 с2Москва
+              г. Москва, улица Вилиса Лациса, 30 с2
               <br />
               Ежедневно с 10:00 до 20:00
             </div>
@@ -77,7 +77,7 @@ const ContactsPage = () => {
                 <br />
                 Вилиса Лациса,
                 <br />
-                30 с2Москва
+                30 с2
               </div>
             </li>
             <li>
@@ -87,7 +87,7 @@ const ContactsPage = () => {
                 <br />
                 Вилиса Лациса,
                 <br />
-                30 с2Москва
+                30 с2
               </div>
             </li>
           </ul>

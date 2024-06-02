@@ -73,12 +73,12 @@ export const updateProductVariant = async (
   price?: number,
 ): Promise<IProductVariant | { message: string }> => {
   try {
-
     const { data } = await axiosInst.put<IProductVariant>(
-      `${API_URL}/product-variant/${variantId}`, {
+      `${API_URL}/product-variant/${variantId}`,
+      {
         images,
-        price
-      }
+        price,
+      },
     );
 
     return data;
@@ -89,15 +89,13 @@ export const updateProductVariant = async (
   }
 };
 
-export const activateProductVariant = async (
-  variantId: number,
-  active: boolean
-) => {
+export const activateProductVariant = async (variantId: number, active: boolean) => {
   try {
     const { data } = await axiosInst.put<IProductVariant>(
-      `${API_URL}/product-variant/${variantId}`, {
+      `${API_URL}/product-variant/${variantId}`,
+      {
         active,
-      }
+      },
     );
 
     return data;
@@ -106,4 +104,4 @@ export const activateProductVariant = async (
       message: 'Ошибка при активации товара варианта товара',
     };
   }
-}
+};

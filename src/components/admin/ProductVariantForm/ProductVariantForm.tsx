@@ -60,7 +60,12 @@ export const ProductVariantForm = ({
     });
 
     if (selectedColor) {
-      const productVariant = await createProductVariant(id, +selectedColor?.id, price, stringImages);
+      const productVariant = await createProductVariant(
+        id,
+        +selectedColor?.id,
+        price,
+        stringImages,
+      );
       if (selectedFiles.length >= 1) {
         await uploadFiles(updatedFiles);
       }
@@ -76,7 +81,11 @@ export const ProductVariantForm = ({
           <form className={styles.createWrapper}>
             <div className={styles.titleWrapper}>Создать вариацию</div>
             <div className={styles.colorsWrapper}>
-              <Select setActiveColor={setSelectedColor} colors={colors} activeColor={selectedColor} />
+              <Select
+                setActiveColor={setSelectedColor}
+                colors={colors}
+                activeColor={selectedColor}
+              />
             </div>
             <div className={styles.colorsWrapper}>
               <div className={styles.title}>Укажите цену</div>

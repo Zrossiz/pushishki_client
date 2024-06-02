@@ -125,9 +125,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: isInView2 ? 0 : -30, opacity: isInView2 ? 1 : 0 }}
                 >
-                  <HTag tag="h3">
-                    Покупайте только лучшее
-                  </HTag>
+                  <HTag tag="h3">Покупайте только лучшее</HTag>
                   <span className={styles.span}>
                     Только у нас вы сможете увидеть уникальные <br /> марки автомобилей на любой
                     вкус
@@ -140,9 +138,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   initial={{ x: 30, opacity: 0 }}
                   animate={{ x: isInView3 ? 0 : 30, opacity: isInView3 ? 1 : 0 }}
                 >
-                  <HTag tag="h3">
-                    Изучите наш большой ассортимент
-                  </HTag>
+                  <HTag tag="h3">Изучите наш большой ассортимент</HTag>
                   <span className={styles.span}>
                     Посетите наш шоу-рум находящийся по адресу <br />
                     ул. Вилиса Лациса 30, стр. 2 - и выберите <br />
