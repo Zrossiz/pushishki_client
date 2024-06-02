@@ -71,6 +71,14 @@
 
 .mobileWrapper {
     position: relative;
-    height: 100vh;
+    height: 126vh;
     width: 100vw;
+
+    .infoWrapper {
+        padding-top: 20px;
+    }
+
+    .menuWrapper {
+        margin-top: 200px;
+    }
 }
