@@ -4,7 +4,7 @@ import { ProductVariantInfoProps } from './ProductVariantInfo.props';
 import Image from 'next/image';
 import { Input } from '@/elements';
 import { useEffect, useState } from 'react';
-import { deleteFile, deleteProductVariant, updateProductVariant } from '@/api';
+import { activateProductVariant, deleteFile, deleteProductVariant, updateProductVariant } from '@/api';
 import { IProductVariant } from '@/types';
 
 const { publicRuntimeConfig } = getConfig();
@@ -13,6 +13,7 @@ const { FILESERVER_URL } = publicRuntimeConfig;
 export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) => {
   const [price, setPrice] = useState<number>(productVariant.price);
   const [images, setImages] = useState<string[]>(productVariant.images);
+  const [active, setActive] = useState<boolean>(productVariant.active);
 
   const deleteVariant = async (id: number) => {
     const variant: IProductVariant | { message: string } = await deleteProductVariant(id);
@@ -35,6 +36,12 @@ export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) 
     }, 1000);
   }, [price]);
 
+  useEffect(() => {
+    (async () => {
+      await activateProductVariant(productVariant.id, active);
+    })()
+  }, [active]);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.infoWrapper}>
@@ -55,6 +62,9 @@ export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) 
         <div className={styles.priceWrapper}>
           <Input value={price} onChange={setPrice} type="text" />
           <div className={styles.iconWrapper}>₽</div>
+        </div>
+        <div className={styles.setActive} onClick={() => setActive(!active)}>
+          Опубликован: {active ? 'да' : 'нет'}
         </div>
         <div className={styles.deleteWrapper} onClick={() => deleteVariant(productVariant.id)}>
           <Image src="/icons/Trash.svg" width={30} height={30} alt={'Удалить'} />

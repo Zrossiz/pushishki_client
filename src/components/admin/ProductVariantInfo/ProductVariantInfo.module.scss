@@ -7,6 +7,10 @@
         display: flex;
         align-items: center;
 
+        @media screen and (max-width: 480px) {
+            flex-wrap: wrap;
+        }
+
         .colorWrapper {
             position: relative;
             width: 30px;
@@ -16,13 +20,18 @@
 
             @media screen and (max-width: 480px) {
                 margin-right: 10px;
-                width: 50px;
+                width: 30px;
             }
         }
     
         .priceWrapper {
             display: flex;
             align-items: center;
+
+            @media screen and (max-width: 480px) {
+                flex: 1;
+                min-width: 200px;
+            }
     
             input {
                 font-size: 20px;
@@ -33,10 +42,23 @@
                 margin-left: 10px;
             }
         }
+
+        .setActive {
+            margin-left: 20px;
+            cursor: pointer;
+
+            @media screen and (max-width: 480px) {
+                margin-top: 20px;
+            }
+        }
     
         .deleteWrapper {
             margin-left: 40px;
             cursor: pointer;
+
+            @media screen and (max-width: 480px) {
+                margin-top: 20px;
+            }
         }
     }
 
