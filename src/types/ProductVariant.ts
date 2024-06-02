@@ -15,4 +15,5 @@ export interface IProductVariant {
   inStock: boolean;
   price: number;
   images: string[];
+  active: boolean;
 }

@@ -9,10 +9,11 @@ const { API_URL } = publicRuntimeConfig;
 
 export const getProductVariants = async (
   productId: number,
+  active?: boolean,
 ): Promise<IProductVariant[] | { message: string }> => {
   try {
     const { data } = await axios.get<IProductVariant[]>(
-      `${API_URL}/product-variant/product/${productId}`,
+      `${API_URL}/product-variant/product/${productId}?active=${active}`,
     );
 
     return data;
@@ -87,3 +88,22 @@ export const updateProductVariant = async (
     };
   }
 };
+
+export const activateProductVariant = async (
+  variantId: number,
+  active: boolean
+) => {
+  try {
+    const { data } = await axiosInst.put<IProductVariant>(
+      `${API_URL}/product-variant/${variantId}`, {
+        active,
+      }
+    );
+
+    return data;
+  } catch (err) {
+    return {
+      message: 'Ошибка при активации товара варианта товара',
+    };
+  }
+}

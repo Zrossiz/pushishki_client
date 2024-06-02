@@ -30,7 +30,7 @@ export const ProductVariantForm = ({
 
   useEffect(() => {
     (async () => {
-      const queryVariants = await getProductVariants(id);
+      const queryVariants = await getProductVariants(id, false);
       if (Array.isArray(queryVariants)) {
         setVariants(queryVariants);
       }
