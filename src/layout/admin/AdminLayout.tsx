@@ -93,6 +93,9 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
         </div>
         <div className={styles.infoWrapper}>{children}</div>
       </div>
+      <div className={styles.mobileWrapper}>
+        {children}
+      </div>
     </>
   );
 };
