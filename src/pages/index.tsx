@@ -76,7 +76,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
             </div>
           </div>
         </section>
-        <Slider title="Новинки" products={newProducts} />
+        {/* <Slider title="Новинки" products={newProducts} /> */}
         <section className={styles.advantages}>
           <div className={styles.imgWrapper}>
             <Image
@@ -127,8 +127,8 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 >
                   <HTag tag="h3">Покупайте только лучшее</HTag>
                   <span className={styles.span}>
-                    Только у нас вы сможете увидеть уникальные <br /> марки автомобилей на любой
-                    вкус
+                    Только у нас вы сможете увидеть уникальные
+                    марки автомобилей и другой детской техники на любой вкус
                   </span>
                 </motion.li>
                 <motion.li
@@ -140,9 +140,9 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 >
                   <HTag tag="h3">Изучите наш большой ассортимент</HTag>
                   <span className={styles.span}>
-                    Посетите наш шоу-рум находящийся по адресу <br />
-                    ул. Вилиса Лациса 30, стр. 2 - и выберите <br />
-                    для своего ребенка лучший подарок
+                    Посетите наш шоурум находящийся по адресу
+                    ул. Вилиса Лациса 30, стр. 2 - и выберите
+                    для своего ребенка лучший подарок. В наличии всегда более 150 собранных моделей
                   </span>
                 </motion.li>
               </ul>
@@ -152,7 +152,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
             </a>
           </div>
         </section>
-        <Slider title="Лучшие предложения" products={bestSellers} />
+        {/* <Slider title="Лучшие предложения" products={bestSellers} /> */}
         <WhyChoose />
         <Quiz categories={categories?.data} />
         <Questions />
@@ -175,7 +175,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               </motion.div>
               <div className={styles.descWrapper}>
                 <span>
-                  Приходите в наш шоу-рум, мы поможем <br />
+                  Приходите в наш шоурум, мы поможем <br />
                   подобрать электрокар и расскажем про все <br />
                   нюансы использования
                 </span>

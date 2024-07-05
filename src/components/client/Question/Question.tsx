@@ -6,6 +6,11 @@ import Image from 'next/image';
 
 export const Question = ({ question, answer }: QuestionProps) => {
   const [open, setOpen] = useState<boolean>(false);
+
+  function createMarkup(htmlString: string) {
+    return { __html: htmlString };
+  }
+
   return (
     <li
       className={cn(styles.item, {
@@ -20,7 +25,7 @@ export const Question = ({ question, answer }: QuestionProps) => {
         </div>
       </div>
       <div className={styles.item__reply}>
-        <span>{answer}</span>
+        <span dangerouslySetInnerHTML={createMarkup(answer)} />
       </div>
     </li>
   );
