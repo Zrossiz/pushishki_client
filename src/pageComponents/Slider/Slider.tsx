@@ -73,7 +73,7 @@ export const Slider = ({ title, products, style }: SliderProps) => {
             <SwiperButtonPrev />
             <SwiperButtonNext />
           </div>
-          {products?.map((item) => {
+          {Array.isArray(products) && products?.map((item) => {
             return (
               <SwiperSlide key={item.id}>
                 <SliderItem product={item} />

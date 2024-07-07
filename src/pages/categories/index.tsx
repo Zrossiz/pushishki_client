@@ -37,7 +37,7 @@ const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
         />
         <section className={styles.categoriesWrapper}>
           <div className={styles.wrapper}>
-            {categories?.data.map((item) => {
+            {Array.isArray(categories?.data) && categories?.data.map((item) => {
               return (
                 <Link key={item.id} href={`/categories/${item.slug}?page=1`}>
                   <div className={styles.titleWrapper}>{item.name}</div>
