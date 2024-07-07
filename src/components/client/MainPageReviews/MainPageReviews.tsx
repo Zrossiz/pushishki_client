@@ -9,6 +9,10 @@ import { reviews } from './Data';
 export const MainPageReviews = () => {
   const starsArr = [...Array(5)];
 
+  function createMarkup(htmlString: string) {
+    return { __html: htmlString };
+  }
+
   return (
     <>
       <HTag tag="h2">Отзывы</HTag>
@@ -16,7 +20,7 @@ export const MainPageReviews = () => {
         <Swiper
           loop
           autoplay={{
-            delay: 3000,
+            delay: 2000,
             disableOnInteraction: false,
           }}
           slidesPerView={1}
@@ -25,9 +29,9 @@ export const MainPageReviews = () => {
         >
           {reviews.map((item, index) => {
             return (
-              <SwiperSlide key={item.id}>
+              <SwiperSlide key={item.id} className={styles.swiperSlideItem}>
                 <div className={styles.descWrapper}>
-                  <span>{item.description}</span>
+                  <span dangerouslySetInnerHTML={createMarkup(item.description)} />
                 </div>
                 <div className={styles.nameWrapper}>
                   <div className={styles.avatarWrapper}>

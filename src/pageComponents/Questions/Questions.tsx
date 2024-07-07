@@ -19,6 +19,10 @@ export const Questions = () => {
     setMenu(index);
   };
 
+  function createMarkup(htmlString: string) {
+    return { __html: htmlString };
+  }
+
   return (
     <>
       <section className={styles.question}>
@@ -65,7 +69,7 @@ export const Questions = () => {
                   <HTag tag="h3">{themes[menu].popular?.title}</HTag>
                 </div>
                 <div className={styles.answerWrapper}>
-                  <span>{themes[menu].popular?.answer}</span>
+                  <span dangerouslySetInnerHTML={createMarkup(themes[menu].popular?.answer)} />
                 </div>
               </div>
               <div className={styles.contactsWrapper}>

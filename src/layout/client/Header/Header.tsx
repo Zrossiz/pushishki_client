@@ -28,7 +28,7 @@ export const Header = () => {
         </div>
       </div>
       <div className={styles.mobileHeaderWrapper}>
-        <Link href="#" className={styles.phoneWrapper}>
+        <Link href="tel:+79857660713" className={styles.phoneWrapper}>
           <Image src={'/icons/Phone.svg'} fill alt="Позвонить" />
         </Link>
         <Link href="/" className={styles.logoWrapper}>
