@@ -10,6 +10,7 @@ import {
   IReview,
   IReviewWithLength,
 } from '.';
+import { IVoltage } from './Voltage';
 
 export interface MainPageProps {
   bestSellers?: IProduct[];
@@ -25,7 +26,8 @@ export interface ICatalogPageProps {
   bestSellers?: IProduct[];
   category?: ICategory;
   categories?: ICategoryWithLength;
-  ages?: IAge;
+  ages?: IAge[];
+  voltages?: IVoltage[];
 }
 
 export interface ICategoryPageProps {

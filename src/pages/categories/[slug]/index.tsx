@@ -1,5 +1,6 @@
 import {
   getAllAges,
+  getAllVoltages,
   getBestsellers,
   getBrands,
   getCategories,
@@ -19,9 +20,9 @@ const CategoryPage = ({
   bestSellers,
   category,
   categories,
-  ages
+  ages,
+  voltages
 }: ICatalogPageProps) => {
-  console.log(ages);
   return (
     <Layout
       title={`${category?.metaTitle ? category?.metaTitle : 'Ничего не найдено'} | Пушишки`}
@@ -63,6 +64,7 @@ export const getServerSideProps = async (context: any) => {
   const maxLoad = +context.query?.maxLoad;
   
   const ages = await getAllAges();
+  const voltages = await getAllVoltages();
   const category = await getCategory(slug);
   const brands = await getBrands();
   const countries = await getCountries();
@@ -90,6 +92,7 @@ export const getServerSideProps = async (context: any) => {
       bestSellers,
       categories,
       ages,
+      voltages,
     },
   };
 };
