@@ -1,4 +1,5 @@
 import {
+  IAge,
   IBrandWithLength,
   ICategory,
   ICategoryWithLength,
@@ -24,6 +25,7 @@ export interface ICatalogPageProps {
   bestSellers?: IProduct[];
   category?: ICategory;
   categories?: ICategoryWithLength;
+  ages?: IAge;
 }
 
 export interface ICategoryPageProps {

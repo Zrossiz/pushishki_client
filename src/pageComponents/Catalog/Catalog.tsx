@@ -132,9 +132,6 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
           <BrandFilter selectedBrands={selectedBrands} brands={brands} />
         </div>
         <div className={styles.filterWrapper}>
-          <CountryFilter selectedCountries={selectedCountries} countries={countries} />
-        </div>
-        <div className={styles.filterWrapper}>
           <AvailabilityFilter inStock={inStock} setInStock={setInStock} />
         </div>
         <div className={styles.filterWrapper}>

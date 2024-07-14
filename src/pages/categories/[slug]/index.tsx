@@ -1,4 +1,5 @@
 import {
+  getAllAges,
   getBestsellers,
   getBrands,
   getCategories,
@@ -18,7 +19,9 @@ const CategoryPage = ({
   bestSellers,
   category,
   categories,
+  ages
 }: ICatalogPageProps) => {
+  console.log(ages);
   return (
     <Layout
       title={`${category?.metaTitle ? category?.metaTitle : 'Ничего не найдено'} | Пушишки`}
@@ -58,7 +61,8 @@ export const getServerSideProps = async (context: any) => {
   const selectedCountries = context.query?.selectedCountries || '[]';
   const inStock = Boolean(context.query?.inStock);
   const maxLoad = +context.query?.maxLoad;
-
+  
+  const ages = await getAllAges();
   const category = await getCategory(slug);
   const brands = await getBrands();
   const countries = await getCountries();
@@ -85,6 +89,7 @@ export const getServerSideProps = async (context: any) => {
       curPage,
       bestSellers,
       categories,
+      ages,
     },
   };
 };
