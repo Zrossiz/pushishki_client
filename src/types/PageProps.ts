@@ -10,6 +10,7 @@ import {
   IReview,
   IReviewWithLength,
 } from '.';
+import { IDrive } from './Drive';
 import { IVoltage } from './Voltage';
 
 export interface MainPageProps {
@@ -28,6 +29,7 @@ export interface ICatalogPageProps {
   categories?: ICategoryWithLength;
   ages?: IAge[];
   voltages?: IVoltage[];
+  drives?: IDrive[];
 }
 
 export interface ICategoryPageProps {

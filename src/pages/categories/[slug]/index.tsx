@@ -1,5 +1,6 @@
 import {
   getAllAges,
+  getAllDrives,
   getAllVoltages,
   getBestsellers,
   getBrands,
@@ -21,7 +22,8 @@ const CategoryPage = ({
   category,
   categories,
   ages,
-  voltages
+  voltages,
+  drives,
 }: ICatalogPageProps) => {
   return (
     <Layout
@@ -64,6 +66,7 @@ export const getServerSideProps = async (context: any) => {
   const maxLoad = +context.query?.maxLoad;
   
   const ages = await getAllAges();
+  const drives = await getAllDrives();
   const voltages = await getAllVoltages();
   const category = await getCategory(slug);
   const brands = await getBrands();
@@ -93,6 +96,7 @@ export const getServerSideProps = async (context: any) => {
       categories,
       ages,
       voltages,
+      drives,
     },
   };
 };
