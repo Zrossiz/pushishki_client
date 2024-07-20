@@ -10,13 +10,12 @@ export const CheckboxFilter = ({
   onChange
 }: ICheckboxFilterProps) => {
   const [open, setOpen] = useState<boolean>(false);
-
   return (
     <>
       <span className={styles.span}>{checkBoxFilterName}</span>
       <div className={styles.filter}>
         <div className={styles.list}>
-          {open && items.length > 0
+          {open && items && items.length > 0
             ? items.map((item: any) => {
                 return (
                   <Checkbox
@@ -28,7 +27,7 @@ export const CheckboxFilter = ({
                   />
                 );
               })
-            : items.slice(0, 4).map((item: any) => {
+            : items && items.slice(0, 4).map((item: any) => {
                 return (
                   <Checkbox
                     key={item.id}
@@ -40,7 +39,7 @@ export const CheckboxFilter = ({
                 );
               })}
         </div>
-        {items?.length && items?.length >= 4 ? (
+        {items && items?.length && items?.length >= 4 ? (
           <div className={styles.openAll} onClick={() => setOpen(!open)}>
             {open ? 'Скрыть' : 'Показать'}
           </div>

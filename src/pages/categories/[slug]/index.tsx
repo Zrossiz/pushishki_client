@@ -46,7 +46,15 @@ const CategoryPage = ({
             },
           ]}
         />
-        <Catalog brands={brands} countries={countries} products={products} curPage={curPage} />
+        <Catalog 
+          brands={brands} 
+          countries={countries} 
+          products={products} 
+          curPage={curPage} 
+          voltage={voltages}
+          drives={drives}
+          age={ages}
+        />
         <Slider title={'Лучшие предложения'} products={bestSellers} />
         <Quiz categories={categories?.data} />
       </>

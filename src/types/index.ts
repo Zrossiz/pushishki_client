@@ -10,3 +10,5 @@ export * from './User';
 export * from './Order';
 export * from './Basket';
 export * from './Age';
+export * from './Drive';
+export * from './Voltage';

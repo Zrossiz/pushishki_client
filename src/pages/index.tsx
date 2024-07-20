@@ -76,7 +76,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
             </div>
           </div>
         </section>
-        {/* <Slider title="Новинки" products={newProducts} /> */}
+        <Slider title="Новинки" products={newProducts} />
         <section className={styles.advantages}>
           <div className={styles.imgWrapper}>
             <Image
@@ -152,7 +152,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
             </a>
           </div>
         </section>
-        {/* <Slider title="Лучшие предложения" products={bestSellers} /> */}
+        <Slider title="Лучшие предложения" products={bestSellers} />
         <WhyChoose />
         <Quiz categories={categories?.data} />
         <Questions />

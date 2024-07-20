@@ -19,7 +19,15 @@ import { IProduct } from '@/types';
 import { MobileFilter } from '..';
 import { AnimatePresence } from 'framer-motion';
 
-export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps) => {
+export const Catalog = ({ 
+  brands,
+  countries, 
+  products, 
+  curPage,
+  voltage,
+  age,
+  drives
+}: ICatalogProps) => {
   const router = useRouter();
   const { query } = router;
 
@@ -57,6 +65,8 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
   const [maxLoad, setMaxLoad] = useState<number | undefined>(
     query.maxLoad !== undefined ? +query.maxLoad : undefined,
   );
+
+  const [selectedVoltages, setSelectedVoltages] = useState<number[]>([]);
 
   const [selectedBrands, setSelectedBrands] = useState<number[]>([]);
 
@@ -132,6 +142,17 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
               selectedItems={selectedBrands} 
               items={Array.isArray(brands?.data) && brands?.data} 
               onChange={setSelectedBrands}
+            />
+          }
+        </div>
+        <div className={styles.filterWrapper}>
+          {
+            voltage?.length && voltage?.length > 0 &&
+            <CheckboxFilter 
+              checkBoxFilterName='Вольтаж'
+              selectedItems={selectedVoltages} 
+              items={voltage} 
+              onChange={setSelectedVoltages}
             />
           }
         </div>

@@ -1,6 +1,8 @@
+import { IAge, IBrand, IDrive, IVoltage } from "@/types";
+
 export interface ICheckboxFilterProps {
   checkBoxFilterName: string;
-  items?: any;
+  items?: IBrand[] | IAge[] | IVoltage[] | IDrive[] | false;
   selectedItems: number[];
   onChange: (arg0: number[]) => void;
 }
