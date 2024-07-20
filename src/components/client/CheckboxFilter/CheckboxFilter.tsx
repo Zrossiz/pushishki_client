@@ -1,41 +1,46 @@
-import styles from './BrandFilter.module.scss';
-import { IBrandFilterProps } from './BrandFilter.props';
-import { useState } from 'react';
+import { ICheckboxFilterProps } from './CheckboxFilter.props';
+import styles from './CheckboxFilter.module.scss';
 import { Checkbox } from '@/elements';
+import { useState } from 'react';
 
-export const BrandFilter = ({ brands, selectedBrands }: IBrandFilterProps) => {
+export const CheckboxFilter = ({ 
+  items, 
+  selectedItems,
+  checkBoxFilterName,
+  onChange
+}: ICheckboxFilterProps) => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
     <>
-      <span className={styles.span}>Бренд</span>
+      <span className={styles.span}>{checkBoxFilterName}</span>
       <div className={styles.filter}>
         <div className={styles.list}>
-          {open
-            ? brands?.data?.map((item, index) => {
+          {open && items.length > 0
+            ? items.map((item: any) => {
                 return (
                   <Checkbox
-                    type="brand"
                     key={item.id}
                     name={item.name}
                     itemId={item.id}
-                    selectedBrands={selectedBrands}
+                    selectedItems={selectedItems}
+                    onChange={onChange}
                   />
                 );
               })
-            : brands?.data?.slice(0, 4).map((item, index) => {
+            : items.slice(0, 4).map((item: any) => {
                 return (
                   <Checkbox
-                    type="brand"
                     key={item.id}
                     name={item.name}
                     itemId={item.id}
-                    selectedBrands={selectedBrands}
+                    selectedItems={selectedItems}
+                    onChange={onChange}
                   />
                 );
               })}
         </div>
-        {brands?.length && brands?.length >= 4 ? (
+        {items?.length && items?.length >= 4 ? (
           <div className={styles.openAll} onClick={() => setOpen(!open)}>
             {open ? 'Скрыть' : 'Показать'}
           </div>

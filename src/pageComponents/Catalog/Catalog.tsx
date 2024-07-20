@@ -1,14 +1,13 @@
 import {
   AvailabilityFilter,
-  BrandFilter,
   CatalogItem,
-  CountryFilter,
   MaxWeightFilter,
   Pagination,
   PriceFilter,
   Sort,
   Loader,
   CatalogItemAttract,
+  CheckboxFilter,
 } from '@/components/client';
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
@@ -19,7 +18,6 @@ import React from 'react';
 import { IProduct } from '@/types';
 import { MobileFilter } from '..';
 import { AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
 
 export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps) => {
   const router = useRouter();
@@ -60,8 +58,7 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
     query.maxLoad !== undefined ? +query.maxLoad : undefined,
   );
 
-  let selectedCountries: number[] = [];
-  let selectedBrands: number[] = [];
+  const [selectedBrands, setSelectedBrands] = useState<number[]>([]);
 
   const setCatalogFilter = () => {
     setMobileFilter(false);
@@ -72,7 +69,6 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
       inStock,
       maxLoad,
       selectedBrands: JSON.stringify(selectedBrands),
-      selectedCountries: JSON.stringify(selectedCountries),
     };
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -129,7 +125,15 @@ export const Catalog = ({ brands, countries, products, curPage }: ICatalogProps)
           />
         </div>
         <div className={styles.filterWrapper}>
-          <BrandFilter selectedBrands={selectedBrands} brands={brands} />
+          {
+            brands?.length && brands?.data.length > 0 &&
+            <CheckboxFilter 
+              checkBoxFilterName='Бренды'
+              selectedItems={selectedBrands} 
+              items={Array.isArray(brands?.data) && brands?.data} 
+              onChange={setSelectedBrands}
+            />
+          }
         </div>
         <div className={styles.filterWrapper}>
           <AvailabilityFilter inStock={inStock} setInStock={setInStock} />

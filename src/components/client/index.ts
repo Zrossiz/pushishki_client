@@ -6,7 +6,7 @@ export * from './MainPageReviews/MainPageReviews';
 export * from './Breadcrumbs/Breadcrumbs';
 export * from './Question/Question';
 export * from './PriceFilter/PriceFilter';
-export * from './BrandFilter/BrandFilter';
+export * from './CheckboxFilter/CheckboxFilter';
 export * from './CountryFilter/CountryFilter';
 export * from './AvailabilityFilter/AvailabilityFilter';
 export * from './MaxWeightFilter/MaxWeightFilter';
