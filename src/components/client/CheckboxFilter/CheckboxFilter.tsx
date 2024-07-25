@@ -3,13 +3,19 @@ import styles from './CheckboxFilter.module.scss';
 import { Checkbox } from '@/elements';
 import { useState } from 'react';
 
-export const CheckboxFilter = ({ 
-  items, 
+export const CheckboxFilter = ({
+  items,
   selectedItems,
   checkBoxFilterName,
-  onChange
+  onChange,
 }: ICheckboxFilterProps) => {
   const [open, setOpen] = useState<boolean>(false);
+  const selectAll = () => {
+    if (items) {
+      const itemsIds = items.map((item) => item.id);
+      onChange(itemsIds);
+    }
+  };
   return (
     <>
       <span className={styles.span}>{checkBoxFilterName}</span>
@@ -27,7 +33,8 @@ export const CheckboxFilter = ({
                   />
                 );
               })
-            : items && items.slice(0, 4).map((item: any) => {
+            : items &&
+              items.slice(0, 4).map((item: any) => {
                 return (
                   <Checkbox
                     key={item.id}
@@ -38,6 +45,11 @@ export const CheckboxFilter = ({
                   />
                 );
               })}
+        </div>
+        <div className={styles.selectAll}>
+          <div onClick={selectAll} className={styles.btn}>
+            Выбрать все
+          </div>
         </div>
         {items && items?.length && items?.length >= 4 ? (
           <div className={styles.openAll} onClick={() => setOpen(!open)}>

@@ -28,7 +28,6 @@ export const Catalog = ({
   age,
   drives,
 }: ICatalogProps) => {
-  console.log('Возраст: ', age);
   const router = useRouter();
   const { query } = router;
 
@@ -71,6 +70,8 @@ export const Catalog = ({
   const [selectedAges, setSelectedAges] = useState<number[]>([]);
   const [selectedBrands, setSelectedBrands] = useState<number[]>([]);
   const [selectedDrives, setSelectedDrives] = useState<number[]>([]);
+  console.log('selected voltage: ', selectedVoltages);
+  console.log('selected ages: ', selectedAges);
 
   const setCatalogFilter = () => {
     setMobileFilter(false);
