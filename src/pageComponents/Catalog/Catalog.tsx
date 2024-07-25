@@ -19,15 +19,16 @@ import { IProduct } from '@/types';
 import { MobileFilter } from '..';
 import { AnimatePresence } from 'framer-motion';
 
-export const Catalog = ({ 
+export const Catalog = ({
   brands,
-  countries, 
-  products, 
+  countries,
+  products,
   curPage,
   voltage,
   age,
-  drives
+  drives,
 }: ICatalogProps) => {
+  console.log('Возраст: ', age);
   const router = useRouter();
   const { query } = router;
 
@@ -67,8 +68,9 @@ export const Catalog = ({
   );
 
   const [selectedVoltages, setSelectedVoltages] = useState<number[]>([]);
-
+  const [selectedAges, setSelectedAges] = useState<number[]>([]);
   const [selectedBrands, setSelectedBrands] = useState<number[]>([]);
+  const [selectedDrives, setSelectedDrives] = useState<number[]>([]);
 
   const setCatalogFilter = () => {
     setMobileFilter(false);
@@ -135,26 +137,44 @@ export const Catalog = ({
           />
         </div>
         <div className={styles.filterWrapper}>
-          {
-            brands?.length && brands?.data.length > 0 &&
-            <CheckboxFilter 
-              checkBoxFilterName='Бренды'
-              selectedItems={selectedBrands} 
-              items={Array.isArray(brands?.data) && brands?.data} 
-              onChange={setSelectedBrands}
+          {age?.length && age?.length > 0 && (
+            <CheckboxFilter
+              checkBoxFilterName="Возраст"
+              selectedItems={selectedAges}
+              items={age}
+              onChange={setSelectedAges}
             />
-          }
+          )}
         </div>
         <div className={styles.filterWrapper}>
-          {
-            voltage?.length && voltage?.length > 0 &&
-            <CheckboxFilter 
-              checkBoxFilterName='Вольтаж'
-              selectedItems={selectedVoltages} 
-              items={voltage} 
+          {drives?.length && drives?.length > 0 && (
+            <CheckboxFilter
+              checkBoxFilterName="Привод"
+              selectedItems={selectedDrives}
+              items={drives}
+              onChange={setSelectedDrives}
+            />
+          )}
+        </div>
+        <div className={styles.filterWrapper}>
+          {voltage?.length && voltage?.length > 0 && (
+            <CheckboxFilter
+              checkBoxFilterName="Вольтаж"
+              selectedItems={selectedVoltages}
+              items={voltage}
               onChange={setSelectedVoltages}
             />
-          }
+          )}
+        </div>
+        <div className={styles.filterWrapper}>
+          {brands?.length && brands?.data.length > 0 && (
+            <CheckboxFilter
+              checkBoxFilterName="Бренды"
+              selectedItems={selectedBrands}
+              items={Array.isArray(brands?.data) && brands?.data}
+              onChange={setSelectedBrands}
+            />
+          )}
         </div>
         <div className={styles.filterWrapper}>
           <AvailabilityFilter inStock={inStock} setInStock={setInStock} />
@@ -179,8 +199,7 @@ export const Catalog = ({
                 height="24"
                 viewBox="0 0 49 32"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+                xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_283_63)">
                   <path
                     d="M29.3428 25.0435H45.8706C46.697 25.0435 47.3732 25.6696 47.3732 26.4348V27.8261C47.3732 28.5913 46.697 29.2174 45.8706 29.2174H29.3428"
