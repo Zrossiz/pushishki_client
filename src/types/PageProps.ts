@@ -9,6 +9,7 @@ import {
   IProductWithLength,
   IReview,
   IReviewWithLength,
+  ISubCategory,
 } from '.';
 import { IDrive } from './Drive';
 import { IVoltage } from './Voltage';
@@ -66,4 +67,8 @@ export interface IAdminProduct {
   categories: ICategoryWithLength;
   countries: ICategoryWithLength;
   brands: IBrandWithLength;
+}
+
+export interface IElektromobiliPage {
+  subCategories?: ISubCategory[]
 }

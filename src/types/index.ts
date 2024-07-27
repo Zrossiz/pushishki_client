@@ -12,3 +12,4 @@ export * from './Basket';
 export * from './Age';
 export * from './Drive';
 export * from './Voltage';
+export * from './SubCategory';
