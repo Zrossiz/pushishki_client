@@ -17,6 +17,9 @@ export const getCategoryProducts = async (
   countriesFilter: number[],
   inStock: boolean,
   maximumLoad: number,
+  ages: number[],
+  voltages: number[],
+  drives: number[],
 ): Promise<IProductWithLength | { message: string }> => {
   try {
     const sortSetting = sort ? `&sort=${sort}` : '';
@@ -28,10 +31,13 @@ export const getCategoryProducts = async (
       brandsFilter.length >= 1 ? `&brands=${JSON.stringify(brandsFilter)}` : '';
     const countriesFilterSetting =
       countriesFilter.length >= 1 ? `&countries=${JSON.stringify(countriesFilter)}` : '';
+    const agesFilterSetting = ages.length >= 1 ? `&ages=${JSON.stringify(ages)}` : '';
+    const voltagesFilterSetting = voltages.length >= 1 ? `&voltages=${JSON.stringify(voltages)}` : '';
+    const drivesFilterSetting = drives.length >= 1 ? `&drives=${JSON.stringify(drives)}` : '';
+    
+    const url: string = `${API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}${drivesFilterSetting}${agesFilterSetting}${voltagesFilterSetting}`
 
-    const { data } = await axios.get<IProductWithLength>(
-      `${API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}`,
-    );
+    const { data } = await axios.get<IProductWithLength>(url);
 
     return data;
   } catch (err) {

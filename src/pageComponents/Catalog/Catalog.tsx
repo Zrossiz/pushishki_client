@@ -70,8 +70,6 @@ export const Catalog = ({
   const [selectedAges, setSelectedAges] = useState<number[]>([]);
   const [selectedBrands, setSelectedBrands] = useState<number[]>([]);
   const [selectedDrives, setSelectedDrives] = useState<number[]>([]);
-  console.log('selected voltage: ', selectedVoltages);
-  console.log('selected ages: ', selectedAges);
 
   const setCatalogFilter = () => {
     setMobileFilter(false);
@@ -81,7 +79,10 @@ export const Catalog = ({
       priceRangeTo,
       inStock,
       maxLoad,
-      selectedBrands: JSON.stringify(selectedBrands),
+      brands: JSON.stringify(selectedBrands),
+      ages: JSON.stringify(selectedAges),
+      voltages: JSON.stringify(selectedVoltages),
+      drives: JSON.stringify(selectedDrives),
     };
 
     window.scrollTo({ top: 0, behavior: 'smooth' });

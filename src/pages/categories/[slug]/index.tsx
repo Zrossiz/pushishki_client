@@ -68,11 +68,14 @@ export const getServerSideProps = async (context: any) => {
   const sort = context.query?.sort;
   const priceRangeFrom = +context.query?.priceRangeFrom;
   const priceRangeTo = +context.query?.priceRangeTo || 999999;
-  const selectedBrands = context.query?.selectedBrands || '[]';
+  const selectedBrands = context.query?.brands || '[]';
   const selectedCountries = context.query?.selectedCountries || '[]';
   const inStock = Boolean(context.query?.inStock);
   const maxLoad = +context.query?.maxLoad;
-  
+  const selectedAges = context.query?.ages || '[]';
+  const selectedVoltages = context.query?.voltages || '[]';
+  const selectedDrives = context.query?.drives || '[]';
+
   const ages = await getAllAges();
   const drives = await getAllDrives();
   const voltages = await getAllVoltages();
@@ -90,6 +93,9 @@ export const getServerSideProps = async (context: any) => {
     JSON.parse(selectedCountries),
     inStock,
     maxLoad,
+    JSON.parse(selectedAges),
+    JSON.parse(selectedVoltages),
+    JSON.parse(selectedDrives)
   );
   const categories = await getCategories();
 
