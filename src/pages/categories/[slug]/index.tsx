@@ -46,11 +46,11 @@ const CategoryPage = ({
             },
           ]}
         />
-        <Catalog 
-          brands={brands} 
-          countries={countries} 
-          products={products} 
-          curPage={curPage} 
+        <Catalog
+          brands={brands}
+          countries={countries}
+          products={products}
+          curPage={curPage}
           voltage={voltages}
           drives={drives}
           age={ages}
@@ -95,7 +95,7 @@ export const getServerSideProps = async (context: any) => {
     maxLoad,
     JSON.parse(selectedAges),
     JSON.parse(selectedVoltages),
-    JSON.parse(selectedDrives)
+    JSON.parse(selectedDrives),
   );
   const categories = await getCategories();
 

@@ -1,4 +1,11 @@
-import { IAge, IBrandWithLength, ICountryWithLength, IDrive, IProductWithLength, IVoltage } from '@/types';
+import {
+  IAge,
+  IBrandWithLength,
+  ICountryWithLength,
+  IDrive,
+  IProductWithLength,
+  IVoltage,
+} from '@/types';
 
 export interface ICatalogProps {
   brands?: IBrandWithLength;

@@ -1,4 +1,4 @@
 export interface IAge {
-    id: number;
-    value: string;
+  id: number;
+  value: string;
 }

@@ -12,10 +12,9 @@ const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const CatalogItem = ({ product, localStorageFavorites }: CatalogItemProps) => {
-
   const router = useRouter();
 
-  console.log(router.asPath)
+  console.log(router.asPath);
 
   const formattedPrice: string =
     Intl.NumberFormat('ru-RU', {
@@ -77,10 +76,7 @@ export const CatalogItem = ({ product, localStorageFavorites }: CatalogItemProps
         <div className={styles.articulWrapper}>Артикул: {product.articul}</div>
         <div className={styles.selectAndAvalability}>
           <div className={styles.buttonWrapper}>
-            <LinkButton
-              element="link"
-              href={`${router.asPath}/${product.slug}`}
-            >
+            <LinkButton element="link" href={`${router.asPath}/${product.slug}`}>
               Выбрать
             </LinkButton>
             <div

@@ -33,11 +33,12 @@ export const getCategoryProducts = async (
     const countriesFilterSetting =
       countriesFilter.length >= 1 ? `&countries=${JSON.stringify(countriesFilter)}` : '';
     const agesFilterSetting = ages.length >= 1 ? `&ages=${JSON.stringify(ages)}` : '';
-    const voltagesFilterSetting = voltages.length >= 1 ? `&voltages=${JSON.stringify(voltages)}` : '';
+    const voltagesFilterSetting =
+      voltages.length >= 1 ? `&voltages=${JSON.stringify(voltages)}` : '';
     const drivesFilterSetting = drives.length >= 1 ? `&drives=${JSON.stringify(drives)}` : '';
     const subCategoryFilterSetting = subCategory ? `&subCategory=${subCategory}` : '';
-    
-    const url: string = `${API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}${drivesFilterSetting}${agesFilterSetting}${voltagesFilterSetting}${subCategoryFilterSetting}`
+
+    const url: string = `${API_URL}/category/${slug}/products?page=${page}${sortSetting}${priceFromSetting}${priceToSetting}${inStockSetting}${maxLoadSetting}${brandsFilterSetting}${countriesFilterSetting}${drivesFilterSetting}${agesFilterSetting}${voltagesFilterSetting}${subCategoryFilterSetting}`;
     const { data } = await axios.get<IProductWithLength>(url);
 
     return data;

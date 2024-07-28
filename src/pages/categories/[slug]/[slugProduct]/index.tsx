@@ -16,14 +16,14 @@ const ProductCardPage = ({
   reviews,
 }: IProductCardPageProps) => {
   return (
-    <ProductCard 
-      bestSellers={bestSellers} 
+    <ProductCard
+      bestSellers={bestSellers}
       accessories={accessories}
       product={product}
       productVariants={productVariants}
       reviews={reviews}
     />
-  )
+  );
 };
 
 export default ProductCardPage;

@@ -1,4 +1,4 @@
-import { IAge, IBrand, IDrive, IVoltage } from "@/types";
+import { IAge, IBrand, IDrive, IVoltage } from '@/types';
 
 export interface ICheckboxFilterProps {
   checkBoxFilterName: string;
