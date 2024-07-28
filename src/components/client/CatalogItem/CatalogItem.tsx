@@ -6,11 +6,17 @@ import { IProduct } from '@/types';
 import { useEffect, useState } from 'react';
 import getConfig from 'next/config';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const CatalogItem = ({ product, localStorageFavorites }: CatalogItemProps) => {
+
+  const router = useRouter();
+
+  console.log(router.asPath)
+
   const formattedPrice: string =
     Intl.NumberFormat('ru-RU', {
       style: 'currency',
@@ -73,7 +79,7 @@ export const CatalogItem = ({ product, localStorageFavorites }: CatalogItemProps
           <div className={styles.buttonWrapper}>
             <LinkButton
               element="link"
-              href={`/categories/${product.category.slug}/${product.slug}`}
+              href={`${router.asPath}/${product.slug}`}
             >
               Выбрать
             </LinkButton>
