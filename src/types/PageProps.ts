@@ -69,6 +69,6 @@ export interface IAdminProduct {
   brands: IBrandWithLength;
 }
 
-export interface IElektromobiliPage {
+export interface ISubCategoryPage {
   subCategories?: ISubCategory[]
 }

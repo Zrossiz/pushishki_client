@@ -23,4 +23,13 @@
             background-color: var(--light-grey);
         }
     }
+
+    .notFound {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        width: 100%;
+        font-weight: 600;
+    }
 }

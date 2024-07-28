@@ -5,13 +5,12 @@ import { ISubCategoryPage } from "@/types";
 import styles from '../../../styles/client/SubCategory.module.scss';
 import Link from "next/link";
 
-const ElektromobiliPage = ({ subCategories }: ISubCategoryPage) => {
-  console.log(subCategories);
+const VeltehnikaPage = ({ subCategories }: ISubCategoryPage) => {
   return (
     <Layout>
       <>
         <PageTitle 
-          title="Электромобили" 
+          title="Велотехника" 
           breadcrumbs={[
             {
               name: 'Главная',
@@ -27,7 +26,7 @@ const ElektromobiliPage = ({ subCategories }: ISubCategoryPage) => {
           {Array.isArray(subCategories) && subCategories?.length > 0 ? 
             subCategories.map((subCategory) => {
               return (
-                <Link href={`/categories/elektromobili/${subCategory.slug}`} className={styles.itemWrapper}>
+                <Link href={`/categories/velotehnika/${subCategory.slug}`} className={styles.itemWrapper}>
                   {subCategory.name}
                 </Link>
               )
@@ -41,10 +40,10 @@ const ElektromobiliPage = ({ subCategories }: ISubCategoryPage) => {
   )
 }
 
-export default ElektromobiliPage;
+export default VeltehnikaPage;
 
 export const getServerSideProps = async (context: any) => {
-  const subCategories = await getAllSubCategories('elektromobili');
+  const subCategories = await getAllSubCategories('velotehnika');
   return {
     props: {
       subCategories
