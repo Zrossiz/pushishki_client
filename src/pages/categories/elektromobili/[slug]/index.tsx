@@ -83,12 +83,12 @@ import {
     const ages = await getAllAges();
     const drives = await getAllDrives();
     const voltages = await getAllVoltages();
-    const category = await getCategory(slug);
+    const category = await getCategory("elektromobili");
     const brands = await getBrands();
     const countries = await getCountries();
     const bestSellers = await getBestsellers();
     const products = await getCategoryProducts(
-      slug,
+      "elektromobili",
       curPage,
       sort,
       priceRangeFrom,
@@ -99,7 +99,8 @@ import {
       maxLoad,
       JSON.parse(selectedAges),
       JSON.parse(selectedVoltages),
-      JSON.parse(selectedDrives)
+      JSON.parse(selectedDrives),
+      slug
     );
     const categories = await getCategories();
   
