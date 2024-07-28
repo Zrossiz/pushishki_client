@@ -38,6 +38,9 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
         [],
         true,
         maximumLoad,
+        [],
+        [],
+        [],
       );
       if ('data' in products && products.length === 0) {
         router.push(`/categories/${category}`);

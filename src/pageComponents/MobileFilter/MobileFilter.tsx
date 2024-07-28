@@ -1,4 +1,4 @@
-import { AvailabilityFilter, BrandFilter, PriceFilter } from '@/components/client';
+import { AvailabilityFilter, PriceFilter } from '@/components/client';
 import styles from './MobileFilter.module.scss';
 import { MobileFilterProps } from './MobileFilter.props';
 import { motion } from 'framer-motion';
@@ -38,9 +38,6 @@ export const MobileFilter = ({
             inStock={availabilityFilter.inStock}
             setInStock={availabilityFilter.setInStock}
           />
-        </div>
-        <div className={styles.filter}>
-          <BrandFilter selectedBrands={brandFilter.selectedBrands} brands={brandFilter.brands} />
         </div>
         <div className={styles.send}>
           <LinkButton element="button" onClick={() => setCatalogFilter()}>

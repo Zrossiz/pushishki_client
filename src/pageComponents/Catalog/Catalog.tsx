@@ -178,9 +178,9 @@ export const Catalog = ({
             />
           )}
         </div>
-        <div className={styles.filterWrapper}>
+        {/* <div className={styles.filterWrapper}>
           <AvailabilityFilter inStock={inStock} setInStock={setInStock} />
-        </div>
+        </div> */}
         <div className={styles.filterWrapper}>
           <MaxWeightFilter maxLoad={maxLoad} setMaxLoad={setMaxLoad} />
         </div>
