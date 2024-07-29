@@ -1,5 +1,4 @@
 import {
-  AvailabilityFilter,
   CatalogItem,
   MaxWeightFilter,
   Pagination,
@@ -9,6 +8,7 @@ import {
   CatalogItemAttract,
   CheckboxFilter,
 } from '@/components/client';
+import { ChangeEvent } from 'react';
 import styles from './Catalog.module.scss';
 import { ICatalogProps } from './Catalog.props';
 import { useEffect, useState } from 'react';
@@ -71,6 +71,22 @@ export const Catalog = ({
   const [selectedBrands, setSelectedBrands] = useState<number[]>([]);
   const [selectedDrives, setSelectedDrives] = useState<number[]>([]);
 
+  const updatePriceRangeFrom = (e: ChangeEvent<HTMLInputElement>) => {
+    if (priceRangeFrom && priceRangeFrom <= 9 && e.target.value === '') {
+      setPriceRangeFrom(undefined);
+    } else {
+      setPriceRangeFrom(+e.target.value);
+    }
+  };
+
+  const updatePriceRangeTo = (e: ChangeEvent<HTMLInputElement>) => {
+    if (priceRangeTo && priceRangeTo <= 9 && e.target.value === '') {
+      setPriceRangeTo(undefined);
+    } else {
+      setPriceRangeTo(+e.target.value);
+    }
+  };
+
   const setCatalogFilter = () => {
     setMobileFilter(false);
     const newQuery = {
@@ -117,10 +133,6 @@ export const Catalog = ({
               priceRangeTo,
               setPriceRangeTo,
             }}
-            availabilityFilter={{
-              inStock,
-              setInStock,
-            }}
             brandFilter={{
               brands,
               selectedBrands,
@@ -133,9 +145,9 @@ export const Catalog = ({
         <div className={styles.filterWrapper}>
           <PriceFilter
             priceRangeFrom={priceRangeFrom}
-            setPriceRangeFrom={setPriceRangeFrom}
+            setPriceRangeFrom={updatePriceRangeFrom}
             priceRangeTo={priceRangeTo}
-            setPriceRangeTo={setPriceRangeTo}
+            setPriceRangeTo={updatePriceRangeTo}
           />
         </div>
         <div className={styles.filterWrapper}>
@@ -201,8 +213,7 @@ export const Catalog = ({
                 height="24"
                 viewBox="0 0 49 32"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+                xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_283_63)">
                   <path
                     d="M29.3428 25.0435H45.8706C46.697 25.0435 47.3732 25.6696 47.3732 26.4348V27.8261C47.3732 28.5913 46.697 29.2174 45.8706 29.2174H29.3428"

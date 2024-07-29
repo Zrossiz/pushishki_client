@@ -7,10 +7,6 @@ export interface MobileFilterProps {
     priceRangeTo?: number;
     setPriceRangeTo: (arg0: number) => void;
   };
-  availabilityFilter: {
-    inStock?: boolean;
-    setInStock?: (arg0: boolean) => void;
-  };
   brandFilter: {
     brands?: IBrandWithLength;
     selectedBrands: number[];

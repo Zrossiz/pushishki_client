@@ -17,8 +17,8 @@ export const PriceFilter = ({
             min={0}
             max={99999}
             type="number"
-            value={priceRangeFrom && priceRangeFrom <= 0 ? 0 : priceRangeFrom}
-            onChange={(e) => setPriceRangeFrom(+e.target.value)}
+            value={priceRangeFrom}
+            onChange={(e) => setPriceRangeFrom(e)}
           />
         </div>
         <div className={styles.inputWrapper}>
@@ -28,7 +28,7 @@ export const PriceFilter = ({
             max={99999}
             type="number"
             value={priceRangeTo && priceRangeTo <= 0 ? 0 : priceRangeTo}
-            onChange={(e) => setPriceRangeTo(+e.target.value)}
+            onChange={(e) => setPriceRangeTo(e)}
           />
         </div>
       </div>

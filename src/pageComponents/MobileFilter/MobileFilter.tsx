@@ -8,7 +8,6 @@ import { LinkButton } from '@/elements';
 export const MobileFilter = ({
   setOpen,
   priceFilterProps,
-  availabilityFilter,
   brandFilter,
   setCatalogFilter,
 }: MobileFilterProps) => {
@@ -18,8 +17,7 @@ export const MobileFilter = ({
       animate={{ y: 0 }}
       exit={{ y: '100vh' }}
       transition={{ duration: 0.4 }}
-      className={styles.wrapper}
-    >
+      className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.title}>Фильтры</div>
         <div className={styles.close} onClick={() => setOpen(false)}>
@@ -33,11 +31,53 @@ export const MobileFilter = ({
           priceRangeTo={priceFilterProps.priceRangeTo}
           setPriceRangeTo={priceFilterProps.setPriceRangeTo}
         />
-        <div className={styles.filter}>
-          <AvailabilityFilter
-            inStock={availabilityFilter.inStock}
-            setInStock={availabilityFilter.setInStock}
+        <div className={styles.filterWrapper}>
+          <PriceFilter
+            priceRangeFrom={priceRangeFrom}
+            setPriceRangeFrom={setPriceRangeFrom}
+            priceRangeTo={priceRangeTo}
+            setPriceRangeTo={setPriceRangeTo}
           />
+        </div>
+        <div className={styles.filterWrapper}>
+          {age?.length && age?.length > 0 && (
+            <CheckboxFilter
+              checkBoxFilterName="Возраст"
+              selectedItems={selectedAges}
+              items={age}
+              onChange={setSelectedAges}
+            />
+          )}
+        </div>
+        <div className={styles.filterWrapper}>
+          {drives?.length && drives?.length > 0 && (
+            <CheckboxFilter
+              checkBoxFilterName="Привод"
+              selectedItems={selectedDrives}
+              items={drives}
+              onChange={setSelectedDrives}
+            />
+          )}
+        </div>
+        <div className={styles.filterWrapper}>
+          {voltage?.length && voltage?.length > 0 && (
+            <CheckboxFilter
+              checkBoxFilterName="Вольтаж"
+              selectedItems={selectedVoltages}
+              items={voltage}
+              onChange={setSelectedVoltages}
+            />
+          )}
+        </div>
+        <div className={styles.filterWrapper}>
+          {brands?.length && brands?.data.length > 0 && (
+            <CheckboxFilter
+              checkBoxFilterName="Бренды"
+              selectedItems={selectedBrands}
+              items={Array.isArray(brands?.data) && brands?.data}
+              onChange={setSelectedBrands}
+            />
+          )}
         </div>
         <div className={styles.send}>
           <LinkButton element="button" onClick={() => setCatalogFilter()}>
