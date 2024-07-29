@@ -85,4 +85,5 @@ export interface IAdminProduct {
 
 export interface ISubCategoryPage {
   subCategories?: ISubCategory[];
+  category?: ICategory;
 }

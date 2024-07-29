@@ -1,13 +1,16 @@
-import { getAllSubCategories } from '@/api';
+import { getAllSubCategories, getCategory } from '@/api';
 import { Layout } from '@/layout/client/Layout';
 import { PageTitle } from '@/pageComponents';
 import { ISubCategoryPage } from '@/types';
 import styles from '../../../styles/client/SubCategory.module.scss';
 import Link from 'next/link';
 
-const VelotehnikaPage = ({ subCategories }: ISubCategoryPage) => {
+const VelotehnikaPage = ({ subCategories, category }: ISubCategoryPage) => {
   return (
-    <Layout>
+    <Layout
+      title={`${category?.metaTitle ? category?.metaTitle : 'Ничего не найдено'} | Пушишки`}
+      description={category?.metaDescription}
+      keyWords={category?.metaKeyWords}>
       <>
         <PageTitle
           title="Велотехника"
@@ -46,6 +49,8 @@ export default VelotehnikaPage;
 
 export const getServerSideProps = async (context: any) => {
   const subCategories = await getAllSubCategories('velotehnika');
+  const category = await getCategory('velotehnika');
+
   return {
     props: {
       subCategories,

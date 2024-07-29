@@ -1,11 +1,11 @@
-import { getAllSubCategories } from '@/api';
+import { getAllSubCategories, getCategory } from '@/api';
 import { Layout } from '@/layout/client/Layout';
 import { PageTitle } from '@/pageComponents';
 import { ISubCategoryPage } from '@/types';
 import styles from '../../../styles/client/SubCategory.module.scss';
 import Link from 'next/link';
 
-const ElektromobiliPage = ({ subCategories }: ISubCategoryPage) => {
+const ElektromobiliPage = ({ subCategories, category }: ISubCategoryPage) => {
   return (
     <Layout>
       <>
@@ -46,9 +46,11 @@ export default ElektromobiliPage;
 
 export const getServerSideProps = async (context: any) => {
   const subCategories = await getAllSubCategories('elektromobili');
+  const category = await getCategory('elektromobili');
   return {
     props: {
       subCategories,
+      category,
     },
   };
 };
