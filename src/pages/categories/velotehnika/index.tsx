@@ -5,7 +5,7 @@ import { ISubCategoryPage } from '@/types';
 import styles from '../../../styles/client/SubCategory.module.scss';
 import Link from 'next/link';
 
-const VeltehnikaPage = ({ subCategories }: ISubCategoryPage) => {
+const VelotehnikaPage = ({ subCategories }: ISubCategoryPage) => {
   return (
     <Layout>
       <>
@@ -28,8 +28,7 @@ const VeltehnikaPage = ({ subCategories }: ISubCategoryPage) => {
               return (
                 <Link
                   href={`/categories/velotehnika/${subCategory.slug}`}
-                  className={styles.itemWrapper}
-                >
+                  className={styles.itemWrapper}>
                   {subCategory.name}
                 </Link>
               );
@@ -43,7 +42,7 @@ const VeltehnikaPage = ({ subCategories }: ISubCategoryPage) => {
   );
 };
 
-export default VeltehnikaPage;
+export default VelotehnikaPage;
 
 export const getServerSideProps = async (context: any) => {
   const subCategories = await getAllSubCategories('velotehnika');

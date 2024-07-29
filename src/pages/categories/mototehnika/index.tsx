@@ -6,7 +6,6 @@ import styles from '../../../styles/client/SubCategory.module.scss';
 import Link from 'next/link';
 
 const MototehnikaPage = ({ subCategories }: ISubCategoryPage) => {
-  console.log(subCategories);
   return (
     <Layout>
       <>
@@ -29,8 +28,7 @@ const MototehnikaPage = ({ subCategories }: ISubCategoryPage) => {
               return (
                 <Link
                   href={`/categories/mototehnika/${subCategory.slug}`}
-                  className={styles.itemWrapper}
-                >
+                  className={styles.itemWrapper}>
                   {subCategory.name}
                 </Link>
               );
