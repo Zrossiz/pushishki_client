@@ -1,351 +1,350 @@
 .orderWrapper {
-    display: flex;
-    margin-top: 10px;
-    gap: 10px;
+  display: flex;
+  margin-top: 10px;
+  gap: 10px;
+
+  @media screen and (max-width: 480px) {
+    margin-top: 4px;
+    gap: 4px;
+  }
+
+  .infoWrapper {
+    width: 70%;
 
     @media screen and (max-width: 480px) {
+      width: 54%;
+    }
+
+    .titleWrapper {
+      font-size: 48px;
+      font-weight: 500;
+
+      @media screen and (max-width: 480px) {
+        font-size: 26px;
+      }
+    }
+
+    .optionWrapper {
+      display: flex;
+      margin-top: 20px;
+
+      @media screen and (max-width: 480px) {
+        flex-direction: column;
+      }
+
+      .option {
+        display: flex;
+
+        @media screen and (max-width: 480px) {
+          align-items: center;
+        }
+
+        label {
+          font-size: 36px;
+
+          @media screen and (max-width: 480px) {
+            font-size: 20px;
+            margin-top: 10px;
+
+            &::before {
+              top: 10%;
+            }
+          }
+        }
+
+        &:not(:last-child) {
+          margin-right: 40px;
+
+          @media screen and (max-width: 480px) {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .listWrapper {
+      padding: 40px;
+      background-color: var(--white);
+      border-radius: 40px 12px 12px 40px;
+
+      @media screen and (max-width: 480px) {
+        padding: 10px;
+        border-radius: 20px 4px 4px 20px;
+      }
+
+      .titleWrapper {
+        font-size: 48px;
+        font-weight: 500;
+
+        @media screen and (max-width: 480px) {
+          font-size: 26px;
+        }
+      }
+
+      .swiperWrapper {
+        margin-top: 20px;
+
+        .itemWrapper {
+          width: fit-content;
+          padding-left: 32px;
+
+          @media screen and (max-width: 480px) {
+            padding-left: 4px;
+          }
+
+          .imgWrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            width: 200px;
+            height: 130px;
+
+            @media screen and (max-width: 480px) {
+              width: 80px;
+              height: 60px;
+            }
+
+            img {
+              border-radius: 20px;
+              overflow: hidden;
+            }
+          }
+
+          .title {
+            font-size: 20px;
+            margin-top: 10px;
+
+            @media screen and (max-width: 480px) {
+              font-size: 18px;
+            }
+          }
+
+          .priceColorWrapper {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            .price {
+              font-size: 24px;
+
+              @media screen and (max-width: 480px) {
+                font-size: 18px;
+              }
+            }
+
+            .colorWrapper {
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+
+              @media screen and (max-width: 480px) {
+                margin-top: auto;
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+        }
+
+        .navWrapper {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          position: absolute;
+          top: 30%;
+          z-index: 4;
+
+          .navButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+          }
+
+          .reverse {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    .deliveryWrapper {
+      background-color: var(--white);
+      border-radius: 40px 12px 12px 40px;
+      margin-top: 10px;
+      padding: 40px;
+
+      @media screen and (max-width: 480px) {
+        padding: 10px;
+        border-radius: 20px 4px 4px 20px;
         margin-top: 4px;
-        gap: 4px;
+      }
+    }
+
+    .contactsWrapper {
+      background-color: var(--white);
+      border-radius: 40px 12px 12px 40px;
+      margin-top: 10px;
+      padding: 40px;
+
+      @media screen and (max-width: 480px) {
+        padding: 10px;
+        border-radius: 20px 4px 4px 20px;
+        margin-top: 4px;
+      }
+
+      .inputsWrapper {
+        margin-top: 20px;
+
+        input:not(:first-child) {
+          margin-top: 10px;
+
+          @media screen and (max-width: 480px) {
+            height: 60px;
+          }
+        }
+      }
+    }
+
+    .paymentWrapper {
+      background-color: var(--white);
+      border-radius: 40px 12px 12px 40px;
+      margin-top: 10px;
+      padding: 40px;
+
+      @media screen and (max-width: 480px) {
+        display: none;
+      }
+    }
+
+    .resultWrapper {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--white);
+      border-radius: 40px 12px 12px 40px;
+      margin-top: 10px;
+      padding: 40px;
+
+      @media screen and (max-width: 480px) {
+        padding: 10px;
+        border-radius: 20px 4px 4px 20px;
+        margin-top: 4px;
+      }
+
+      .result {
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width: 480px) {
+          flex-wrap: wrap;
+          align-items: start;
+        }
+
+        .price {
+          margin-left: 10px;
+          font-size: 48px;
+          color: var(--light-green);
+
+          @media screen and (max-width: 480px) {
+            font-size: 30px;
+            margin-left: 0;
+          }
+        }
+      }
+
+      .infoWrapper {
+        margin-top: 20px;
+        font-size: 22px;
+
+        @media screen and (max-width: 480px) {
+          width: 100%;
+          text-align: center;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .priceSectionWrapper {
+    background-color: var(--white);
+    border-radius: 12px 40px 40px 12px;
+    padding: 20px;
+    width: 30%;
+
+    @media screen and (max-width: 480px) {
+      width: 46%;
+      border-radius: 4px 20px 20px 4px;
+      padding: 10px;
+    }
+
+    .titlePriceWrapper {
+      display: flex;
+      justify-content: space-between;
+      font-size: 30px;
+      font-weight: 600;
+
+      @media screen and (max-width: 480px) {
+        flex-wrap: wrap;
+        font-size: 26px;
+      }
+
+      .priceWrapper {
+        color: var(--light-green);
+      }
+    }
+
+    .counterWrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 20px;
+
+      @media screen and (max-width: 480px) {
+        flex-wrap: wrap;
+      }
     }
 
     .infoWrapper {
-        width: 70%;
-
-        @media screen and (max-width: 480px) {
-            width: 54%;
-        }
-
-        .titleWrapper {
-            font-size: 48px;
-            font-weight: 500;
-
-            @media screen and (max-width: 480px) {
-                font-size: 26px;
-            }
-        }
-
-        .optionWrapper {
-            display: flex;
-            margin-top: 20px;
-
-            @media screen and (max-width: 480px) {
-                flex-direction: column;
-            }
-
-            .option {
-                display: flex;
-
-                @media screen and (max-width: 480px) {
-                    align-items: center;
-                }
-    
-                label {
-                    font-size: 36px;
-                    
-                    @media screen and (max-width: 480px) {
-                        font-size: 20px;
-                        margin-top: 10px;
-
-                        &::before {
-                            top: 10%;
-                        }
-                    }
-                }
-    
-                &:not(:last-child) {
-                    margin-right: 40px;
-
-                    @media screen and (max-width: 480px) {
-                        margin-right: 10px;
-                    }
-                }
-            }
-        }
-
-        .listWrapper {
-            padding: 40px;
-            background-color: var(--white);
-            border-radius: 40px 12px 12px 40px;
-
-            @media screen and (max-width: 480px) {
-                padding: 10px;
-                border-radius: 20px 4px 4px 20px;
-            }
-
-            .titleWrapper {
-                font-size: 48px;
-                font-weight: 500;
-
-                @media screen and (max-width: 480px) {
-                    font-size: 26px;
-                }
-            }
-
-            .swiperWrapper {
-                margin-top: 20px;
-
-                .itemWrapper {
-                    width: fit-content;
-                    padding-left: 32px;
-
-                    @media screen and (max-width: 480px) {
-                        padding-left: 4px;
-                    }
-
-                    .imgWrapper {
-                        position: relative;
-                        border-radius: 20px;
-                        overflow: hidden;
-                        width: 200px;
-                        height: 130px;
-
-                        @media screen and (max-width: 480px) {
-                            width: 80px;
-                            height: 60px;
-                        }
-
-                        img {
-                            border-radius: 20px;
-                            overflow: hidden;
-                        }
-                    }
-
-                    .title {
-                        font-size: 20px;
-                        margin-top: 10px;
-
-                        @media screen and (max-width: 480px) {
-                            font-size: 18px;
-                        }
-                    }
-
-                    .priceColorWrapper {
-                        display: flex;
-                        justify-content: space-between;
-                        margin-top: 10px;
-
-                        .price {
-                            font-size: 24px;
-
-                            @media screen and (max-width: 480px) {
-                                font-size: 18px;
-                            }
-                        }
-
-                        .colorWrapper {
-                            width: 30px;
-                            height: 30px;
-                            border-radius: 50%;
-
-                            @media screen and (max-width: 480px) {
-                               margin-top: auto;
-                               width: 20px;
-                               height: 20px;
-                            }
-                        }
-                    }
-                }
-
-                .navWrapper {
-                    display: flex;
-                    justify-content: space-between;
-                    width: 100%;
-                    position: absolute;
-                    top: 30%;
-                    z-index: 4;
-            
-                    .navButton {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        border: none;
-                        background-color: transparent;
-                        cursor: pointer;
-                    }
-                
-                    .reverse {
-                        transform: rotate(180deg);
-                    }
-                }
-            }
-        }
-
-        .deliveryWrapper {
-            background-color: var(--white);
-            border-radius: 40px 12px 12px 40px;
-            margin-top: 10px;
-            padding: 40px;
-
-            @media screen and (max-width: 480px) {
-                padding: 10px;
-                border-radius: 20px 4px 4px 20px;
-                margin-top: 4px;
-            }
-        }
-
-        .contactsWrapper {
-            background-color: var(--white);
-            border-radius: 40px 12px 12px 40px;
-            margin-top: 10px;
-            padding: 40px;
-
-            @media screen and (max-width: 480px) {
-                padding: 10px;
-                border-radius: 20px 4px 4px 20px;
-                margin-top: 4px;
-            }
-
-
-            .inputsWrapper {
-                margin-top: 20px;
-
-                input:not(:first-child) {
-                    margin-top: 10px;
-
-                    @media screen and (max-width: 480px) {
-                        height: 60px;
-                    }
-                }
-            }
-        }
-
-        .paymentWrapper {
-            background-color: var(--white);
-            border-radius: 40px 12px 12px 40px;
-            margin-top: 10px;
-            padding: 40px;
-
-            @media screen and (max-width: 480px) {
-                display: none;
-            }
-        }
-
-        .resultWrapper {
-            display: flex;
-            flex-direction: column;
-            background-color: var(--white);
-            border-radius: 40px 12px 12px 40px;
-            margin-top: 10px;
-            padding: 40px;   
-
-            @media screen and (max-width: 480px) {
-                padding: 10px;
-                border-radius: 20px 4px 4px 20px;
-                margin-top: 4px;
-            }
-
-            .result {
-                display: flex;
-                align-items: center;
-
-                @media screen and (max-width: 480px) {
-                    flex-wrap: wrap;
-                    align-items: start;
-                }
-
-                .price {
-                    margin-left: 10px;
-                    font-size: 48px;
-                    color: var(--light-green);
-
-                    @media screen and (max-width: 480px) {
-                        font-size: 30px;
-                        margin-left: 0;
-                    }
-                }
-            }
-
-            .infoWrapper {
-                margin-top: 20px;
-                font-size: 22px;
-
-                @media screen and (max-width: 480px) {
-                    width: 100%;
-                    text-align: center;
-                    font-size: 18px;
-                }
-            }
-        }
+      background-color: rgba(36, 143, 0, 0.3);
+      border-radius: 20px;
+      width: 100%;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 16px;
+      margin-top: 20px;
     }
 
-    .priceSectionWrapper {
-        background-color: var(--white);
-        border-radius: 12px 40px 40px 12px;
-        padding: 20px;
-        width: 30%;
+    button {
+      height: 60px;
+      margin-top: 40px;
 
-        @media screen and (max-width: 480px) {
-            width: 46%;
-            border-radius: 4px 20px 20px 4px;
-            padding: 10px;
-        }
-
-        .titlePriceWrapper {
-            display: flex;
-            justify-content: space-between;
-            font-size: 30px;
-            font-weight: 600;
-
-            @media screen and (max-width: 480px) {
-                flex-wrap: wrap;
-                font-size: 26px;
-            }
-
-            .priceWrapper {
-                color: var(--light-green);
-            }
-        }
-
-        .counterWrapper {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            font-size: 20px;
-
-            @media screen and (max-width: 480px) {
-                flex-wrap: wrap;
-            }
-        }
-
-        .infoWrapper {
-            background-color: rgba(36, 143, 0, 0.3);
-            border-radius: 20px;
-            width: 100%;
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-
-        button {
-            height: 60px;
-            margin-top: 40px;
-
-            @media screen and (max-width: 480px) {
-                font-size: 20px;
-            }
-        }
+      @media screen and (max-width: 480px) {
+        font-size: 20px;
+      }
     }
+  }
 }
 
 .emptyCartWrapper {
-    width: 100%;
-    background-color: var(--white);
-    border-radius: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    padding: 40px;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 40px;
 
-    .titleWrapper {
-        font-size: 42px;
-    }
+  .titleWrapper {
+    font-size: 42px;
+  }
 
-    a {
-        height: 60px;
-        width: 300px;
-        margin-top: 20px;
-    }
+  a {
+    height: 60px;
+    width: 300px;
+    margin-top: 20px;
+  }
 }

@@ -1,31 +1,31 @@
 .emptyCartWrapper {
-    width: 100%;
-    background-color: var(--white);
-    border-radius: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    padding: 40px;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 40px;
+
+  @media screen and (max-width: 480px) {
+    border-radius: 20px;
+    margin-top: 4px;
+    text-align: center;
+  }
+
+  .titleWrapper {
+    font-size: 42px;
 
     @media screen and (max-width: 480px) {
-        border-radius: 20px;
-        margin-top: 4px;
-        text-align: center;
+      font-size: 30px;
     }
+  }
 
-    .titleWrapper {
-        font-size: 42px;
-
-        @media screen and (max-width: 480px) {
-            font-size: 30px;
-        }
-    }
-
-    a {
-        height: 60px;
-        width: 300px;
-        margin-top: 20px;
-    }
+  a {
+    height: 60px;
+    width: 300px;
+    margin-top: 20px;
+  }
 }

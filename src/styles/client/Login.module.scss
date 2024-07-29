@@ -1,25 +1,25 @@
 .loginPageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: sans-serif;
+  background-color: rgb(37, 37, 37);
+
+  .formWrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    font-family: sans-serif;
-    background-color: rgb(37, 37, 37);
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgb(36, 143, 0, 0.4);
+    backdrop-filter: blur(6.5px);
 
-    .formWrapper {
-        display: flex;
-        flex-direction: column;
-        row-gap: 20px;
-        padding: 20px;
-        border-radius: 20px;
-        background: rgb(36, 143, 0, 0.4);
-        backdrop-filter: blur(6.5px);
-
-        .errorWrapper {
-            color: var(--red);
-            opacity: 0.8;
-            text-align: center;
-        }
+    .errorWrapper {
+      color: var(--red);
+      opacity: 0.8;
+      text-align: center;
     }
+  }
 }
