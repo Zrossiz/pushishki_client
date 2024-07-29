@@ -7,7 +7,10 @@ import Link from 'next/link';
 
 const ElektromobiliPage = ({ subCategories, category }: ISubCategoryPage) => {
   return (
-    <Layout>
+    <Layout
+      title={`${category?.metaTitle ? category?.metaTitle : 'Ничего не найдено'} | Пушишки`}
+      description={category?.metaDescription}
+      keyWords={category?.metaKeyWords}>
       <>
         <PageTitle
           title="Электромобили"
