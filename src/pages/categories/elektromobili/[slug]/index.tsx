@@ -13,7 +13,7 @@ import { Layout } from '@/layout/client/Layout';
 import { Catalog, PageTitle, Quiz, Slider } from '@/pageComponents';
 import { ICatalogPageProps } from '@/types';
 
-const CategoryPage = ({
+const SubCategoryPage = ({
   brands,
   countries,
   products,
@@ -29,8 +29,7 @@ const CategoryPage = ({
     <Layout
       title={`${category?.metaTitle ? category?.metaTitle : 'Ничего не найдено'} | Пушишки`}
       description={category?.metaDescription}
-      keyWords={category?.metaKeyWords}
-    >
+      keyWords={category?.metaKeyWords}>
       <>
         <PageTitle
           title={'Каталог'}
@@ -120,4 +119,4 @@ export const getServerSideProps = async (context: any) => {
   };
 };
 
-export default CategoryPage;
+export default SubCategoryPage;
