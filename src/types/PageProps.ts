@@ -33,6 +33,20 @@ export interface ICatalogPageProps {
   drives?: IDrive[];
 }
 
+export interface ICatalogSubCategoryPageProps {
+  brands?: IBrandWithLength;
+  countries?: ICountryWithLength;
+  products?: IProductWithLength;
+  curPage?: number;
+  bestSellers?: IProduct[];
+  category?: ICategory;
+  categories?: ICategoryWithLength;
+  ages?: IAge[];
+  voltages?: IVoltage[];
+  drives?: IDrive[];
+  subCategory?: ISubCategory;
+}
+
 export interface ICategoryPageProps {
   categories?: ICategoryWithLength;
   bestSellers?: IProduct[];

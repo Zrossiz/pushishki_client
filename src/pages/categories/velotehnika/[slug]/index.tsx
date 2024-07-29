@@ -8,12 +8,13 @@ import {
   getCategory,
   getCategoryProducts,
   getCountries,
+  getOneSubCategory,
 } from '@/api';
 import { Layout } from '@/layout/client/Layout';
 import { Catalog, PageTitle, Quiz, Slider } from '@/pageComponents';
-import { ICatalogPageProps } from '@/types';
+import { ICatalogSubCategoryPageProps } from '@/types';
 
-const CategoryPage = ({
+const SubCategoryPage = ({
   brands,
   countries,
   products,
@@ -24,13 +25,13 @@ const CategoryPage = ({
   ages,
   voltages,
   drives,
-}: ICatalogPageProps) => {
+  subCategory,
+}: ICatalogSubCategoryPageProps) => {
   return (
     <Layout
-      title={`${category?.metaTitle ? category?.metaTitle : 'Ничего не найдено'} | Пушишки`}
-      description={category?.metaDescription}
-      keyWords={category?.metaKeyWords}
-    >
+      title={`${subCategory?.metaTitle || 'Подкатегории'} | Пушишки`}
+      description={subCategory?.metaDescription}
+      keyWords={subCategory?.metaKeyWords}>
       <>
         <PageTitle
           title={'Каталог'}
@@ -83,10 +84,11 @@ export const getServerSideProps = async (context: any) => {
   const ages = await getAllAges();
   const drives = await getAllDrives();
   const voltages = await getAllVoltages();
-  const category = await getCategory('elektromobili');
+  const category = await getCategory('velotehnika');
   const brands = await getBrands();
   const countries = await getCountries();
   const bestSellers = await getBestsellers();
+  const subCategory = await getOneSubCategory(slug);
   const products = await getCategoryProducts(
     'velotehnika',
     curPage,
@@ -116,8 +118,9 @@ export const getServerSideProps = async (context: any) => {
       ages,
       voltages,
       drives,
+      subCategory,
     },
   };
 };
 
-export default CategoryPage;
+export default SubCategoryPage;
