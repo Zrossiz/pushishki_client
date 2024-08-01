@@ -13,3 +13,4 @@ export * from './Age';
 export * from './Drive';
 export * from './Voltage';
 export * from './SubCategory';
+export * from './Filters';
