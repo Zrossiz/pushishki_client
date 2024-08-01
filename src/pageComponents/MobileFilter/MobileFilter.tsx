@@ -1,15 +1,19 @@
-import { AvailabilityFilter, PriceFilter } from '@/components/client';
+import { PriceFilter } from '@/components/client';
 import styles from './MobileFilter.module.scss';
 import { MobileFilterProps } from './MobileFilter.props';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { LinkButton } from '@/elements';
+import { CheckboxFilter } from '@/components/client';
 
 export const MobileFilter = ({
   setOpen,
   priceFilterProps,
   brandFilter,
   setCatalogFilter,
+  ageFilter,
+  voltageFilter,
+  driveFilter,
 }: MobileFilterProps) => {
   return (
     <motion.div
@@ -32,50 +36,42 @@ export const MobileFilter = ({
           setPriceRangeTo={priceFilterProps.setPriceRangeTo}
         />
         <div className={styles.filterWrapper}>
-          <PriceFilter
-            priceRangeFrom={priceRangeFrom}
-            setPriceRangeFrom={setPriceRangeFrom}
-            priceRangeTo={priceRangeTo}
-            setPriceRangeTo={setPriceRangeTo}
-          />
-        </div>
-        <div className={styles.filterWrapper}>
-          {age?.length && age?.length > 0 && (
+          {ageFilter.ages.length && ageFilter.ages.length > 0 && (
             <CheckboxFilter
               checkBoxFilterName="Возраст"
-              selectedItems={selectedAges}
-              items={age}
-              onChange={setSelectedAges}
+              selectedItems={ageFilter.selectedAges}
+              items={ageFilter.ages}
+              onChange={ageFilter.setAges}
             />
           )}
         </div>
         <div className={styles.filterWrapper}>
-          {drives?.length && drives?.length > 0 && (
+          {driveFilter.drives.length > 0 && (
             <CheckboxFilter
               checkBoxFilterName="Привод"
-              selectedItems={selectedDrives}
-              items={drives}
-              onChange={setSelectedDrives}
+              selectedItems={driveFilter.selectedDrives}
+              items={driveFilter.drives}
+              onChange={driveFilter.setDrives}
             />
           )}
         </div>
         <div className={styles.filterWrapper}>
-          {voltage?.length && voltage?.length > 0 && (
+          {voltageFilter.voltages.length > 0 && (
             <CheckboxFilter
               checkBoxFilterName="Вольтаж"
-              selectedItems={selectedVoltages}
-              items={voltage}
-              onChange={setSelectedVoltages}
+              selectedItems={voltageFilter.selectedVoltages}
+              items={voltageFilter.voltages}
+              onChange={voltageFilter.setVoltages}
             />
           )}
         </div>
         <div className={styles.filterWrapper}>
-          {brands?.length && brands?.data.length > 0 && (
+          {brandFilter.brands.length > 0 && (
             <CheckboxFilter
-              checkBoxFilterName="Бренды"
-              selectedItems={selectedBrands}
-              items={Array.isArray(brands?.data) && brands?.data}
-              onChange={setSelectedBrands}
+              checkBoxFilterName="Бренд"
+              selectedItems={brandFilter.selectedBrands}
+              items={brandFilter.brands}
+              onChange={brandFilter.setBrands}
             />
           )}
         </div>

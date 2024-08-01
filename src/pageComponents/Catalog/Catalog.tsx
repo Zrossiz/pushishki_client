@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react';
 import { LinkButton } from '@/elements';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { IProduct } from '@/types';
+import { IMobilePriceFilterProps, IProduct } from '@/types';
 import { MobileFilter } from '..';
 import { AnimatePresence } from 'framer-motion';
 
@@ -71,7 +71,7 @@ export const Catalog = ({
   const [selectedBrands, setSelectedBrands] = useState<number[]>([]);
   const [selectedDrives, setSelectedDrives] = useState<number[]>([]);
 
-  const updatePriceRangeFrom = (e: ChangeEvent<HTMLInputElement>) => {
+  const updatePriceRangeFrom = (e: ChangeEvent<HTMLInputElement>): void => {
     if (priceRangeFrom && priceRangeFrom <= 9 && e.target.value === '') {
       setPriceRangeFrom(undefined);
     } else {
@@ -79,7 +79,7 @@ export const Catalog = ({
     }
   };
 
-  const updatePriceRangeTo = (e: ChangeEvent<HTMLInputElement>) => {
+  const updatePriceRangeTo = (e: ChangeEvent<HTMLInputElement>): void => {
     if (priceRangeTo && priceRangeTo <= 9 && e.target.value === '') {
       setPriceRangeTo(undefined);
     } else {
@@ -121,22 +121,48 @@ export const Catalog = ({
     localStorageFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
   }
 
+  const priceFilterProps: IMobilePriceFilterProps = {
+    priceRangeFrom,
+    setPriceRangeFrom: updatePriceRangeFrom,
+    priceRangeTo,
+    setPriceRangeTo: updatePriceRangeTo,
+  };
+
+  const brandFilterProps = {
+    brands: brands?.data ?? [],
+    selectedBrands,
+    setBrands: setSelectedBrands,
+  };
+
+  const ageFilterProps = {
+    ages: age ?? [],
+    selectedAges,
+    setAges: setSelectedAges,
+  };
+
+  const voltageFilterProps = {
+    voltages: voltage ?? [],
+    selectedVoltages,
+    setVoltages: setSelectedVoltages,
+  };
+
+  const driveFilterProps = {
+    drives: drives ?? [],
+    selectedDrives,
+    setDrives: setSelectedDrives,
+  };
+
   return (
     <section className={styles.catalog}>
       <AnimatePresence>
         {mobileFilter && (
           <MobileFilter
             setOpen={setMobileFilter}
-            priceFilterProps={{
-              priceRangeFrom,
-              setPriceRangeFrom,
-              priceRangeTo,
-              setPriceRangeTo,
-            }}
-            brandFilter={{
-              brands,
-              selectedBrands,
-            }}
+            priceFilterProps={priceFilterProps}
+            brandFilter={brandFilterProps}
+            ageFilter={ageFilterProps}
+            voltageFilter={voltageFilterProps}
+            driveFilter={driveFilterProps}
             setCatalogFilter={setCatalogFilter}
           />
         )}
