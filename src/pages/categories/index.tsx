@@ -1,6 +1,6 @@
 import { PageTitle, Quiz, Slider } from '@/pageComponents';
 import styles from '../../styles/client/Categories.module.scss';
-import { ICategoryPageProps } from '@/types';
+import { ICategory, ICategoryPageProps } from '@/types';
 import Link from 'next/link';
 import { getBestsellers, getCategories } from '@/api';
 import getConfig from 'next/config';
@@ -21,7 +21,6 @@ const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
       ]
     );
   };
-
   return (
     <Layout title="Категории | Пушишки">
       <>
@@ -38,9 +37,13 @@ const CategoriesPage = ({ categories, bestSellers }: ICategoryPageProps) => {
         <section className={styles.categoriesWrapper}>
           <div className={styles.wrapper}>
             {Array.isArray(categories?.data) &&
-              categories?.data.map((item) => {
+              categories?.data.map((item: ICategory) => {
+                const linkToNextPage: string =
+                  item.SubCategory.length > 0
+                    ? `/categories/${item.slug}/sub-category`
+                    : `/categories/${item.slug}`;
                 return (
-                  <Link key={item.id} href={`/categories/${item.slug}`}>
+                  <Link key={item.id} href={linkToNextPage}>
                     <div className={styles.titleWrapper}>{item.name}</div>
                     <div className={styles.imgWrapper}>
                       <Image src={`${FILESERVER_URL}/upload/${item.image}`} alt={item.name} fill />

@@ -1,3 +1,5 @@
+import { ISubCategory } from './SubCategory';
+
 export interface ICategory {
   id: number;
   name: string;
@@ -7,6 +9,7 @@ export interface ICategory {
   metaTitle: string;
   metaDescription: string;
   metaKeyWords: string;
+  SubCategory: ISubCategory[];
 }
 
 export interface ICategoryWithLength {

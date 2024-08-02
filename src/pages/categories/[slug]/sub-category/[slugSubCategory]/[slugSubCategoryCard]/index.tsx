@@ -1,11 +1,48 @@
-import { Layout } from '@/layout/client/Layout';
+import {
+  getAccessories,
+  getBestsellers,
+  getOneProduct,
+  getProductVariants,
+  getReviewsProduct,
+} from '@/api';
+import { ProductCard } from '@/pageComponents/ProductCard/ProductCard';
+import { IProductCardPageProps } from '@/types';
 
-const SubCategoryCardPage = () => {
+const SubCategoryProductCardPage = ({
+  bestSellers,
+  accessories,
+  product,
+  productVariants,
+  reviews,
+}: IProductCardPageProps) => {
   return (
-    <Layout>
-      <div>sub category card page</div>
-    </Layout>
+    <ProductCard
+      bestSellers={bestSellers}
+      accessories={accessories}
+      product={product}
+      productVariants={productVariants}
+      reviews={reviews}
+    />
   );
 };
 
-export default SubCategoryCardPage;
+export default SubCategoryProductCardPage;
+
+export const getServerSideProps = async (context: any) => {
+  const slugProduct = context.query.slugSubCategoryCard;
+  const bestSellers = await getBestsellers();
+  const accessories = await getAccessories();
+  const product = await getOneProduct(slugProduct);
+  const productVariants = await getProductVariants('id' in product ? product.id : 1);
+  const reviews = await getReviewsProduct('id' in product ? product.id : 1, false);
+
+  return {
+    props: {
+      accessories,
+      bestSellers,
+      product,
+      productVariants,
+      reviews,
+    },
+  };
+};
