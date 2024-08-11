@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { HTag, LinkButton } from '@/elements';
 import { ISubCategory } from '@/types';
 import { getAllSubCategories } from '@/api';
-import { SubCategoryForm } from '@/components/admin';
+import { SubCategoryForm, SubCategoryListItem } from '@/components/admin';
 
 const SubCategoryPage = () => {
   const [subCategories, setSubCategories] = useState<ISubCategory[]>([]);
@@ -32,7 +32,7 @@ const SubCategoryPage = () => {
           {subCategories.length > 0 ? (
             subCategories.map((item) => {
               return (
-                <div>{item.name}</div>
+                <SubCategoryListItem key={item.id} subCategory={item} />
               );
             })
           ) : (

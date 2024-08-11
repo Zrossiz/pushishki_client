@@ -20,3 +20,4 @@ export * from './AgeListItem/AgeListItem';
 export * from './VoltageListItem/VoltageListItem';
 export * from './DriveListItem/DriveListItem';
 export * from './SubCategoryForm/SubCategoryForm';
+export * from './SubCategoryListItem/SubCategoryListItem';
