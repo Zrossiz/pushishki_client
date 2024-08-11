@@ -1,12 +1,18 @@
+import { useState } from 'react';
 import styles from './SubCategoryListItem.module.scss';
 import { ISubCategoryListItemProps } from './SubCategoryListItem.props';
 import Image from 'next/image';
+import { DeleteItem, SubCategoryForm } from '..';
 
 export const SubCategoryListItem = ({ subCategory }: ISubCategoryListItemProps) => {
+  const [update, setUpdate] = useState<boolean>(false);
+  const [deleteForm, setDeleteForm] = useState<boolean>(false);
   return (
     <div className={styles.itemWrapper}>
+      {update && <SubCategoryForm action='update' setOpen={setUpdate} subCategory={subCategory} />}
+      {deleteForm && <DeleteItem entity='sub-category' idOrSlug={subCategory.id} setOpen={setDeleteForm} name={subCategory.name} />}
       <div className={styles.nameWrapper}>{subCategory.name}</div>
-      <div className={styles.edit}>
+      <div className={styles.edit} onClick={() => setUpdate(true)}>
         <svg
           width="24"
           height="28"
@@ -68,7 +74,7 @@ export const SubCategoryListItem = ({ subCategory }: ISubCategoryListItemProps) 
           </defs>
         </svg>
       </div>
-      <div className={styles.delete}>
+      <div className={styles.delete} onClick={() => setDeleteForm(true)}>
         <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />
       </div>
     </div>
