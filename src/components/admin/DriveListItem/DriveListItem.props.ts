@@ -1,5 +1,5 @@
-import { IDrive } from "@/types";
+import { IDrive } from '@/types';
 
 export interface DriveListItemProps {
-    drive: IDrive;
+  drive: IDrive;
 }

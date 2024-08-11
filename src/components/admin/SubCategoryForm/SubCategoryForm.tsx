@@ -7,97 +7,125 @@ import { createSubCategory, getCategories } from '@/api';
 import Select from 'react-select';
 
 export const SubCategoryForm = ({ setOpen, action }: SubCategoryFormProps) => {
-    const [name, setName] = useState<string>('');
-    const [selectedCategory, setSelectedCategory] = useState<number>();
-    const [metaDescription, setMetaDescription] = useState<string>('');
-    const [metaTitle, setMetaTitle] = useState<string>('');
-    const [metaKeyWords, setMetaKeyWords] = useState<string>('');
-    console.log(selectedCategory);
+  const [name, setName] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<number>();
+  const [metaDescription, setMetaDescription] = useState<string>('');
+  const [metaTitle, setMetaTitle] = useState<string>('');
+  const [metaKeyWords, setMetaKeyWords] = useState<string>('');
+  console.log(selectedCategory);
 
-    const [categories, setCategories] = useState<ICategoryWithLength>();
+  const [categories, setCategories] = useState<ICategoryWithLength>();
 
-    useEffect(() => {
-        (async () => {
-            const apiCategories = await getCategories();
+  useEffect(() => {
+    (async () => {
+      const apiCategories = await getCategories();
 
-            if ('data' in apiCategories) {
-                setCategories(apiCategories)
-            }
-        })()
-    }, [])
+      if ('data' in apiCategories) {
+        setCategories(apiCategories);
+      }
+    })();
+  }, []);
 
-    const categoryOptions = categories?.data.map((item) => ({
-        value: item.id,
-        label: item.name,
-    }));
+  const categoryOptions = categories?.data.map((item) => ({
+    value: item.id,
+    label: item.name,
+  }));
 
-    const create = async () => {
-        if (!selectedCategory) {
-            return
-        };
-        const created = await createSubCategory(
-            name, selectedCategory, metaTitle, metaDescription, metaKeyWords
-        );
-
-        if ('id' in created) {
-            window.location.reload();
-        };
+  const create = async () => {
+    if (!selectedCategory) {
+      return;
     }
+    const created = await createSubCategory(
+      name,
+      selectedCategory,
+      metaTitle,
+      metaDescription,
+      metaKeyWords,
+    );
 
-    return (
-        <div className={styles.wrapper}>
-            <div className={styles.bg} onClick={() => setOpen(false)}></div>
-            <div className={styles.formWrapper}>
-                <HTag tag='h2'>{action === "create" ? "Создать подкатегорию" : "Обновить подкатегорию" }</HTag>
-                <div className={styles.inputsWrapper}>
-                    <div className={styles.inputWrapper}>
-                        <label>Название подкатегории</label>
-                        <Input type='text' placeholder='Название подкатегории' value={name} onChange={setName} />
-                    </div>
-                </div>
-                {categoryOptions && (
-                <div className={styles.inputsWrapper}>
-                  <label htmlFor="categories">Категория</label>
-                  <div className={styles.categoriesSelect}>
-                    <Select
-                        id="categories"
-                        options={categoryOptions}
-                        value={categoryOptions.find((option) => option.value === selectedCategory)}
-                        onChange={(selectedOption) => setSelectedCategory(selectedOption?.value ?? 1)}
-                        theme={(theme) => ({
-                        ...theme,
-                        colors: {
-                            ...theme.colors,
-                            primary: 'green',
-                        },
-                        })}
-                        placeholder={'Выберите категорию'}
-                    />
-                  </div>
-                </div>
-                )}
-                <div className={styles.inputsWrapper}>
-                    <div className={styles.inputWrapper}>
-                        <label>Мета заголовок</label>
-                        <Input type='text' placeholder='Мета заголовок' value={metaTitle} onChange={setMetaTitle} />
-                    </div>
-                </div>
-                <div className={styles.inputsWrapper}>
-                    <div className={styles.inputWrapper}>
-                        <label>Мета описание</label>
-                        <Input type='text' placeholder='Мета описание' value={metaDescription} onChange={setMetaDescription} />
-                    </div>
-                </div>
-                <div className={styles.inputsWrapper}>
-                    <div className={styles.inputWrapper}>
-                        <label>Мета ключевые слова</label>
-                        <Input type='text' placeholder='Мета ключевые слова' value={metaKeyWords} onChange={setMetaKeyWords} />
-                    </div>
-                </div>
-                <div className={styles.btnWrapper}>
-                    <LinkButton element='button' onClick={create}>Опубликовать</LinkButton>
-                </div>
-            </div>
+    if ('id' in created) {
+      window.location.reload();
+    }
+  };
+
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.bg} onClick={() => setOpen(false)}></div>
+      <div className={styles.formWrapper}>
+        <HTag tag="h2">
+          {action === 'create' ? 'Создать подкатегорию' : 'Обновить подкатегорию'}
+        </HTag>
+        <div className={styles.inputsWrapper}>
+          <div className={styles.inputWrapper}>
+            <label>Название подкатегории</label>
+            <Input
+              type="text"
+              placeholder="Название подкатегории"
+              value={name}
+              onChange={setName}
+            />
+          </div>
         </div>
-    )
-}
+        {categoryOptions && (
+          <div className={styles.inputsWrapper}>
+            <label htmlFor="categories">Категория</label>
+            <div className={styles.categoriesSelect}>
+              <Select
+                id="categories"
+                options={categoryOptions}
+                value={categoryOptions.find((option) => option.value === selectedCategory)}
+                onChange={(selectedOption) => setSelectedCategory(selectedOption?.value ?? 1)}
+                theme={(theme) => ({
+                  ...theme,
+                  colors: {
+                    ...theme.colors,
+                    primary: 'green',
+                  },
+                })}
+                placeholder={'Выберите категорию'}
+              />
+            </div>
+          </div>
+        )}
+        <div className={styles.inputsWrapper}>
+          <div className={styles.inputWrapper}>
+            <label>Мета заголовок</label>
+            <Input
+              type="text"
+              placeholder="Мета заголовок"
+              value={metaTitle}
+              onChange={setMetaTitle}
+            />
+          </div>
+        </div>
+        <div className={styles.inputsWrapper}>
+          <div className={styles.inputWrapper}>
+            <label>Мета описание</label>
+            <Input
+              type="text"
+              placeholder="Мета описание"
+              value={metaDescription}
+              onChange={setMetaDescription}
+            />
+          </div>
+        </div>
+        <div className={styles.inputsWrapper}>
+          <div className={styles.inputWrapper}>
+            <label>Мета ключевые слова</label>
+            <Input
+              type="text"
+              placeholder="Мета ключевые слова"
+              value={metaKeyWords}
+              onChange={setMetaKeyWords}
+            />
+          </div>
+        </div>
+        <div className={styles.btnWrapper}>
+          <LinkButton element="button" onClick={create}>
+            Опубликовать
+          </LinkButton>
+        </div>
+      </div>
+    </div>
+  );
+};

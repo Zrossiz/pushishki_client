@@ -22,9 +22,7 @@ const AgePage = () => {
     <AdminLayout>
       <>
         <div className={styles.addButtonWrapper}>
-            <LinkButton element="button">
-              Добавить
-            </LinkButton>
+          <LinkButton element="button">Добавить</LinkButton>
         </div>
         <div className={styles.listWrapper}>
           {ages.length > 0 ? (

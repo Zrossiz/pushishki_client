@@ -1,12 +1,12 @@
 import styles from './DriveListItem.module.scss';
-import { DriveListItemProps } from "./DriveListItem.props";
+import { DriveListItemProps } from './DriveListItem.props';
 import Image from 'next/image';
 
 export const DriveListItem = ({ drive }: DriveListItemProps) => {
-    return (
-        <div className={styles.itemWrapper}>
-        <div className={styles.nameWrapper}>{drive.name}</div>
-        <div className={styles.edit}>
+  return (
+    <div className={styles.itemWrapper}>
+      <div className={styles.nameWrapper}>{drive.name}</div>
+      <div className={styles.edit}>
         <svg
           width="24"
           height="28"
@@ -71,6 +71,6 @@ export const DriveListItem = ({ drive }: DriveListItemProps) => {
       <div className={styles.delete}>
         <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />
       </div>
-      </div>
-    );
-}
+    </div>
+  );
+};

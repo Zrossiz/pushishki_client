@@ -3,10 +3,10 @@ import { ISubCategoryListItemProps } from './SubCategoryListItem.props';
 import Image from 'next/image';
 
 export const SubCategoryListItem = ({ subCategory }: ISubCategoryListItemProps) => {
-    return (
-        <div className={styles.itemWrapper}>
-            <div className={styles.nameWrapper}>{subCategory.name}</div>
-            <div className={styles.edit}>
+  return (
+    <div className={styles.itemWrapper}>
+      <div className={styles.nameWrapper}>{subCategory.name}</div>
+      <div className={styles.edit}>
         <svg
           width="24"
           height="28"
@@ -71,6 +71,6 @@ export const SubCategoryListItem = ({ subCategory }: ISubCategoryListItemProps) 
       <div className={styles.delete}>
         <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />
       </div>
-        </div>
-    )
-}
+    </div>
+  );
+};

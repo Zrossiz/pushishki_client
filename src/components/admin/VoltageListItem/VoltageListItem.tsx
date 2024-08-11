@@ -1,12 +1,12 @@
-import { VoltageListItemProps } from "./VoltageListItem.props";
+import { VoltageListItemProps } from './VoltageListItem.props';
 import styles from './VoltageListItem.module.scss';
-import Image from "next/image";
+import Image from 'next/image';
 
 export const VoltageListItem = ({ voltage }: VoltageListItemProps) => {
-    return (
-        <div className={styles.itemWrapper}>
-        <div className={styles.nameWrapper}>{voltage.name}</div>
-        <div className={styles.edit}>
+  return (
+    <div className={styles.itemWrapper}>
+      <div className={styles.nameWrapper}>{voltage.name}</div>
+      <div className={styles.edit}>
         <svg
           width="24"
           height="28"
@@ -71,6 +71,6 @@ export const VoltageListItem = ({ voltage }: VoltageListItemProps) => {
       <div className={styles.delete}>
         <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />
       </div>
-      </div>
-    );
-}
+    </div>
+  );
+};

@@ -22,16 +22,12 @@ const DrivePage = () => {
     <AdminLayout>
       <>
         <div className={styles.addButtonWrapper}>
-            <LinkButton element="button">
-              Добавить
-            </LinkButton>
+          <LinkButton element="button">Добавить</LinkButton>
         </div>
         <div className={styles.listWrapper}>
           {drives.length > 0 ? (
             drives.map((item) => {
-              return (
-                <DriveListItem key={item.id} drive={item} />
-              );
+              return <DriveListItem key={item.id} drive={item} />;
             })
           ) : (
             <HTag tag="h3">Ничего не найдено</HTag>

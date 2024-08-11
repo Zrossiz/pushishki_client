@@ -22,18 +22,16 @@ const SubCategoryPage = () => {
   return (
     <AdminLayout>
       <>
-        {create && <SubCategoryForm setOpen={setCreate} action='create' />}
+        {create && <SubCategoryForm setOpen={setCreate} action="create" />}
         <div className={styles.addButtonWrapper}>
-            <LinkButton element="button" onClick={() => setCreate(true)}>
-              Добавить
-            </LinkButton>
+          <LinkButton element="button" onClick={() => setCreate(true)}>
+            Добавить
+          </LinkButton>
         </div>
         <div className={styles.listWrapper}>
           {subCategories.length > 0 ? (
             subCategories.map((item) => {
-              return (
-                <SubCategoryListItem key={item.id} subCategory={item} />
-              );
+              return <SubCategoryListItem key={item.id} subCategory={item} />;
             })
           ) : (
             <HTag tag="h3">Ничего не найдено</HTag>

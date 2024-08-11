@@ -1,5 +1,5 @@
-import { IVoltage } from "@/types";
+import { IVoltage } from '@/types';
 
 export interface VoltageListItemProps {
-    voltage: IVoltage;
+  voltage: IVoltage;
 }

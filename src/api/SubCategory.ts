@@ -8,18 +8,15 @@ const { API_URL } = publicRuntimeConfig;
 
 export const getAllSubCategories = async (): Promise<ISubCategory[] | { message: string }> => {
   try {
-    const { data } = await axios.get<ISubCategory[]>(
-      `${API_URL}/sub-category`,
-    );
+    const { data } = await axios.get<ISubCategory[]>(`${API_URL}/sub-category`);
     return data;
   } catch (err) {
     console.log(err);
     return {
-      message: "Ошибка при получении всех подкатегорий",
-    }
-
+      message: 'Ошибка при получении всех подкатегорий',
+    };
   }
-}
+};
 
 export const getAllSubCategoriesByCategory = async (
   categorySlug: string,
@@ -66,14 +63,14 @@ export const createSubCategory = async (
       categoryId,
       metaTitle,
       metaDescription,
-      metaKeyWords
+      metaKeyWords,
     });
 
     return data;
   } catch (err) {
     console.log(err);
     return {
-      message: "Ошибка при создании подкатегории"
-    }
+      message: 'Ошибка при создании подкатегории',
+    };
   }
-}
+};

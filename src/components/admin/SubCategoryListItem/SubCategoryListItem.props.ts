@@ -1,5 +1,5 @@
-import { ISubCategory } from "@/types";
+import { ISubCategory } from '@/types';
 
 export interface ISubCategoryListItemProps {
-    subCategory: ISubCategory;
+  subCategory: ISubCategory;
 }
