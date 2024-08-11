@@ -1,5 +1,5 @@
 import { Layout } from '@/layout/client/Layout';
-import { getAllSubCategories, getCategory } from '@/api';
+import { getAllSubCategoriesByCategory, getCategory } from '@/api';
 import { ISubCategoryPage } from '@/types';
 import { PageTitle } from '@/pageComponents';
 import Link from 'next/link';
@@ -51,7 +51,7 @@ export default SubCategoryPage;
 
 export const getServerSideProps = async (context: any) => {
   const subCategorySlug = context.query.slug;
-  const subCategories = await getAllSubCategories(subCategorySlug);
+  const subCategories = await getAllSubCategoriesByCategory(subCategorySlug);
   const category = await getCategory(subCategorySlug);
   return {
     props: {

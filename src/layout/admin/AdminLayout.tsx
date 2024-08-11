@@ -32,6 +32,10 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
       slug: 'category',
     },
     {
+      name: 'Подкатегория',
+      slug: 'sub-category',
+    },
+    {
       name: 'Товар',
       slug: 'product',
     },
