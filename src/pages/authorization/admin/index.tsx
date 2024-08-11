@@ -1,5 +1,4 @@
 import { checkUser } from '@/api';
-import styles from '../../styles/Admin.module.scss';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { AdminLayout } from '@/layout/admin/AdminLayout';

@@ -1,8 +1,8 @@
 import { AdminLayout } from '@/layout/admin/AdminLayout';
-import styles from '../../../styles/admin/Voltage.module.scss';
+import styles from '../../../styles/admin/Default.module.scss';
 import { useEffect, useState } from 'react';
-import { IDrive, IVoltage } from '@/types';
-import { getAllDrives, getAllVoltages } from '@/api';
+import { IDrive } from '@/types';
+import { getAllDrives } from '@/api';
 import { HTag, LinkButton } from '@/elements';
 import { DriveListItem, VoltageListItem } from '@/components/admin';
 

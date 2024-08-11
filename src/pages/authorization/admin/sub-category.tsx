@@ -1,5 +1,5 @@
 import { AdminLayout } from '@/layout/admin/AdminLayout';
-import styles from '../../../styles/admin/SubCategory.module.scss';
+import styles from '../../../styles/admin/Default.module.scss';
 import { useEffect, useState } from 'react';
 import { HTag, LinkButton } from '@/elements';
 import { ISubCategory } from '@/types';

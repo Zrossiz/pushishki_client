@@ -1,5 +1,5 @@
 import { AdminLayout } from '@/layout/admin/AdminLayout';
-import styles from '../../../styles/admin/Age.module.scss';
+import styles from '../../../styles/admin/Default.module.scss';
 import { useEffect, useState } from 'react';
 import { IAge } from '@/types';
 import { getAllAges } from '@/api';

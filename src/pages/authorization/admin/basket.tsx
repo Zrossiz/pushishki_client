@@ -1,5 +1,5 @@
 import { AdminLayout } from '@/layout/admin/AdminLayout';
-import styles from '../../../styles/admin/Basket.module.scss';
+import styles from '../../../styles/admin/Default.module.scss';
 import { useEffect, useState } from 'react';
 import { IOrder, IOrderWithLength } from '@/types';
 import { getAllOrders } from '@/api';

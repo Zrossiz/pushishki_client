@@ -1,5 +1,5 @@
 import { AdminLayout } from '@/layout/admin/AdminLayout';
-import styles from '../../../styles/admin/Color.module.scss';
+import styles from '../../../styles/admin/Default.module.scss';
 import { HTag, LinkButton } from '@/elements';
 import { useEffect, useState } from 'react';
 import { IColor } from '@/types/Color';

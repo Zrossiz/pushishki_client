@@ -1,5 +1,5 @@
 import { AdminLayout } from '@/layout/admin/AdminLayout';
-import styles from '../../../styles/admin/Voltage.module.scss';
+import styles from '../../../styles/admin/Default.module.scss';
 import { useEffect, useState } from 'react';
 import { IVoltage } from '@/types';
 import { getAllVoltages } from '@/api';
