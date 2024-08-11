@@ -1,6 +1,6 @@
 import { AdminLayout } from '@/layout/admin/AdminLayout';
 import styles from '../../../styles/admin/Color.module.scss';
-import { LinkButton } from '@/elements';
+import { HTag, LinkButton } from '@/elements';
 import { useEffect, useState } from 'react';
 import { IColor } from '@/types/Color';
 import { getAllColors } from '@/api';
@@ -29,9 +29,11 @@ const ColorPage = () => {
           </LinkButton>
         </div>
         <div className={styles.listWrapper}>
-          {colors.map((item) => {
+          {colors.length > 0 ? colors.map((item) => {
             return <ColorListItem color={item} key={item.id} />;
-          })}
+          }) : (
+            <HTag tag="h3">Ничего не найдено</HTag>
+          )}
         </div>
       </>
     </AdminLayout>
