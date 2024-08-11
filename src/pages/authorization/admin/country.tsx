@@ -30,9 +30,11 @@ const CountryPage = () => {
           </LinkButton>
         </div>
         <div className={styles.listWrapper}>
-          {countries && countries?.length > 0 ? countries?.map((item: ICountry) => {
-            return <CountryListItem country={item} key={item.id} />;
-          }) : (
+          {countries && countries?.length > 0 ? (
+            countries?.map((item: ICountry) => {
+              return <CountryListItem country={item} key={item.id} />;
+            })
+          ) : (
             <HTag tag="h3">Ничего не найдено</HTag>
           )}
         </div>

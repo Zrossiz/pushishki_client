@@ -12,7 +12,8 @@ const SubCategoryPage = ({ subCategories, category }: ISubCategoryPage) => {
     <Layout
       title={`${category?.metaTitle ? category?.metaTitle : 'Ничего не найдено'} | Пушишки`}
       description={category?.metaDescription}
-      keyWords={category?.metaKeyWords}>
+      keyWords={category?.metaKeyWords}
+    >
       <>
         <PageTitle
           title={category?.name ?? 'Подкатегория'}

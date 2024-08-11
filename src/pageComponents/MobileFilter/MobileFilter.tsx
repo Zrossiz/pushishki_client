@@ -21,7 +21,8 @@ export const MobileFilter = ({
       animate={{ y: 0 }}
       exit={{ y: '100vh' }}
       transition={{ duration: 0.4 }}
-      className={styles.wrapper}>
+      className={styles.wrapper}
+    >
       <div className={styles.header}>
         <div className={styles.title}>Фильтры</div>
         <div className={styles.close} onClick={() => setOpen(false)}>

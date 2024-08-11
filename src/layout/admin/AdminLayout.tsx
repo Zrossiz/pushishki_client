@@ -94,7 +94,8 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
                     [styles.active]: item.name === active,
                   })}
                   key={index}
-                  onClick={() => switchEntity(item)}>
+                  onClick={() => switchEntity(item)}
+                >
                   <Link className={styles.link} href={`/authorization/admin/${item.slug}`}>
                     {item.name}
                   </Link>

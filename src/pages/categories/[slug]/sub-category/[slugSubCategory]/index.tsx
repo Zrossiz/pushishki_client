@@ -33,7 +33,8 @@ const SubCategoryCatalogPage = ({
     <Layout
       title={`${subCategory?.metaTitle || 'Подкатегории'} | Пушишки`}
       description={subCategory?.metaDescription}
-      keyWords={subCategory?.metaKeyWords}>
+      keyWords={subCategory?.metaKeyWords}
+    >
       <>
         <PageTitle
           title={'Каталог'}

@@ -29,9 +29,11 @@ const ColorPage = () => {
           </LinkButton>
         </div>
         <div className={styles.listWrapper}>
-          {colors.length > 0 ? colors.map((item) => {
-            return <ColorListItem color={item} key={item.id} />;
-          }) : (
+          {colors.length > 0 ? (
+            colors.map((item) => {
+              return <ColorListItem color={item} key={item.id} />;
+            })
+          ) : (
             <HTag tag="h3">Ничего не найдено</HTag>
           )}
         </div>

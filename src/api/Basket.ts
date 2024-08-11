@@ -4,7 +4,7 @@ import axios from 'axios';
 import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
-const { BOT_URL, API_URL } = publicRuntimeConfig;
+const { API_URL } = publicRuntimeConfig;
 
 export const createBasket = async (apiBasket: IApiItemCart[]) => {
   try {
