@@ -1,4 +1,5 @@
 import { ISubCategory } from '@/types';
+import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
 
@@ -51,3 +52,28 @@ export const getOneSubCategory = async (
     };
   }
 };
+
+export const createSubCategory = async (
+  name: string,
+  categoryId: number,
+  metaTitle: string,
+  metaDescription: string,
+  metaKeyWords: string,
+): Promise<ISubCategory | { message: string }> => {
+  try {
+    const { data } = await axiosInst.post<ISubCategory>(`${API_URL}/sub-category`, {
+      name,
+      categoryId,
+      metaTitle,
+      metaDescription,
+      metaKeyWords
+    });
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: "Ошибка при создании подкатегории"
+    }
+  }
+}

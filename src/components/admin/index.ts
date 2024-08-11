@@ -19,3 +19,4 @@ export * from './ProductVariantForm/ProductVariantForm';
 export * from './AgeListItem/AgeListItem';
 export * from './VoltageListItem/VoltageListItem';
 export * from './DriveListItem/DriveListItem';
+export * from './SubCategoryForm/SubCategoryForm';

@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 import { HTag, LinkButton } from '@/elements';
 import { ISubCategory } from '@/types';
 import { getAllSubCategories } from '@/api';
+import { SubCategoryForm } from '@/components/admin';
 
 const SubCategoryPage = () => {
   const [subCategories, setSubCategories] = useState<ISubCategory[]>([]);
+  const [create, setCreate] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
@@ -20,8 +22,9 @@ const SubCategoryPage = () => {
   return (
     <AdminLayout>
       <>
+        {create && <SubCategoryForm setOpen={setCreate} action='create' />}
         <div className={styles.addButtonWrapper}>
-            <LinkButton element="button">
+            <LinkButton element="button" onClick={() => setCreate(true)}>
               Добавить
             </LinkButton>
         </div>
