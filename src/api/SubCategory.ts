@@ -74,3 +74,29 @@ export const createSubCategory = async (
     };
   }
 };
+
+export const updateSubCategory = async (
+  subCategoryId: number,
+  name: string,
+  categoryId: number,
+  metaTitle: string,
+  metaDescription: string,
+  metaKeyWords: string,
+): Promise<ISubCategory | { message: string }> => {
+  try {
+    const { data } = await axiosInst.post<ISubCategory>(`${API_URL}/sub-category/${subCategoryId}`, {
+      name,
+      categoryId,
+      metaTitle,
+      metaDescription,
+      metaKeyWords,
+    });
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при создании подкатегории',
+    };
+  }
+}
