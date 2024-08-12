@@ -84,13 +84,16 @@ export const updateSubCategory = async (
   metaKeyWords: string,
 ): Promise<ISubCategory | { message: string }> => {
   try {
-    const { data } = await axiosInst.post<ISubCategory>(`${API_URL}/sub-category/${subCategoryId}`, {
-      name,
-      categoryId,
-      metaTitle,
-      metaDescription,
-      metaKeyWords,
-    });
+    const { data } = await axiosInst.post<ISubCategory>(
+      `${API_URL}/sub-category/${subCategoryId}`,
+      {
+        name,
+        categoryId,
+        metaTitle,
+        metaDescription,
+        metaKeyWords,
+      },
+    );
 
     return data;
   } catch (err) {
@@ -99,4 +102,4 @@ export const updateSubCategory = async (
       message: 'Ошибка при создании подкатегории',
     };
   }
-}
+};

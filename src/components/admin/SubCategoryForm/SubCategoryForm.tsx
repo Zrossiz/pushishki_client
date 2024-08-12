@@ -9,7 +9,9 @@ import Select from 'react-select';
 export const SubCategoryForm = ({ setOpen, action, subCategory }: SubCategoryFormProps) => {
   const [name, setName] = useState<string>(subCategory?.name ?? '');
   const [selectedCategory, setSelectedCategory] = useState<number>(subCategory?.categoryId ?? 1);
-  const [metaDescription, setMetaDescription] = useState<string>(subCategory?.metaDescription ?? '');
+  const [metaDescription, setMetaDescription] = useState<string>(
+    subCategory?.metaDescription ?? '',
+  );
   const [metaTitle, setMetaTitle] = useState<string>(subCategory?.metaTitle ?? '');
   const [metaKeyWords, setMetaKeyWords] = useState<string>(subCategory?.metaKeyWords ?? '');
 
@@ -42,13 +44,13 @@ export const SubCategoryForm = ({ setOpen, action, subCategory }: SubCategoryFor
         selectedCategory,
         metaTitle,
         metaDescription,
-        metaKeyWords
+        metaKeyWords,
       );
 
       if ('id' in updated) {
         return window.location.reload();
       }
-    } 
+    }
 
     const created = await createSubCategory(
       name,
@@ -61,7 +63,6 @@ export const SubCategoryForm = ({ setOpen, action, subCategory }: SubCategoryFor
     if ('id' in created) {
       window.location.reload();
     }
-    
   };
 
   return (

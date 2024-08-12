@@ -1,4 +1,4 @@
-import { ISubCategory } from "@/types";
+import { ISubCategory } from '@/types';
 
 export interface SubCategoryFormProps {
   setOpen: (arg0: boolean) => void;
