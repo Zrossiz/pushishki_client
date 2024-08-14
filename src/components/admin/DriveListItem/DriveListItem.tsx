@@ -1,10 +1,22 @@
+import { useState } from 'react';
 import styles from './DriveListItem.module.scss';
 import { DriveListItemProps } from './DriveListItem.props';
 import Image from 'next/image';
+import { DeleteItem } from '..';
 
 export const DriveListItem = ({ drive }: DriveListItemProps) => {
+  const [deleteForm, setDeleteForm] = useState<boolean>(false);
+
   return (
     <div className={styles.itemWrapper}>
+      {deleteForm &&
+        <DeleteItem 
+          name={drive.name}
+          idOrSlug={drive.id}
+          entity='drive'
+          setOpen={setDeleteForm}
+        />
+      }
       <div className={styles.nameWrapper}>{drive.name}</div>
       <div className={styles.edit}>
         <svg
@@ -68,7 +80,7 @@ export const DriveListItem = ({ drive }: DriveListItemProps) => {
           </defs>
         </svg>
       </div>
-      <div className={styles.delete}>
+      <div className={styles.delete} onClick={() => setDeleteForm(true)}>
         <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />
       </div>
     </div>

@@ -1,10 +1,22 @@
 import { VoltageListItemProps } from './VoltageListItem.props';
 import styles from './VoltageListItem.module.scss';
 import Image from 'next/image';
+import { useState } from 'react';
+import { DeleteItem } from '..';
 
 export const VoltageListItem = ({ voltage }: VoltageListItemProps) => {
+  const [deleteForm, setDeleteForm] = useState<boolean>(false);
+  
   return (
     <div className={styles.itemWrapper}>
+      {deleteForm && 
+        <DeleteItem 
+          idOrSlug={voltage.id} 
+          entity='voltage' 
+          name={String(voltage.name)} 
+          setOpen={setDeleteForm}
+        />
+      }
       <div className={styles.nameWrapper}>{voltage.name}</div>
       <div className={styles.edit}>
         <svg
@@ -68,7 +80,7 @@ export const VoltageListItem = ({ voltage }: VoltageListItemProps) => {
           </defs>
         </svg>
       </div>
-      <div className={styles.delete}>
+      <div className={styles.delete} onClick={() => setDeleteForm(true)}>
         <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />
       </div>
     </div>
