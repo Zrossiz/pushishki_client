@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import { IVoltage } from '@/types';
 import { getAllVoltages } from '@/api';
 import { HTag, LinkButton } from '@/elements';
-import { VoltageListItem } from '@/components/admin';
+import { VoltageForm, VoltageListItem } from '@/components/admin';
 
 const VoltagePage = () => {
   const [voltages, setVoltages] = useState<IVoltage[]>([]);
+  const [create, setCreate] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
@@ -21,8 +22,14 @@ const VoltagePage = () => {
   return (
     <AdminLayout>
       <>
+        {create && 
+          <VoltageForm 
+            action='create'
+            setOpen={setCreate}
+          />
+        }
         <div className={styles.addButtonWrapper}>
-          <LinkButton element="button">Добавить</LinkButton>
+          <LinkButton element="button" onClick={() => setCreate(true)}>Добавить</LinkButton>
         </div>
         <div className={styles.listWrapper}>
           {voltages.length > 0 ? (
