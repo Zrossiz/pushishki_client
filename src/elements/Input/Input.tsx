@@ -79,19 +79,31 @@ export const Input = ({
       }
     }
   };
-
-  return (
-    <>
-      {type === 'text' || type === 'password' ? (
+  switch (type) {
+    case 'text': 
+      return (
         <input
           className={styles.input}
           value={value}
-          type={type}
+          type={'text'}
           placeholder={placeholder}
           onChange={(e) => onChange(e.target.value)}
           defaultValue={defaultValue}
         />
-      ) : (
+      )
+    case 'password':
+      return (
+        <input
+          className={styles.input}
+          value={value}
+          type={'password'}
+          placeholder={placeholder}
+          onChange={(e) => onChange(e.target.value)}
+          defaultValue={defaultValue}
+        />
+      )
+    case 'phone':
+      return (
         <input
           id="phoneInput"
           type="tel"
@@ -103,7 +115,17 @@ export const Input = ({
           onKeyDown={(e) => onPhoneKeyDown(e)}
           onPaste={(e) => onPhonePaste(e)}
         />
-      )}
-    </>
-  );
+      )
+    case 'number':
+        return (
+          <input
+            className={styles.input}
+            value={value}
+            type={'number'}
+            placeholder={placeholder}
+            onChange={(e) => onChange(+e.target.value)}
+            defaultValue={defaultValue}
+          />
+        )
+  }
 };
