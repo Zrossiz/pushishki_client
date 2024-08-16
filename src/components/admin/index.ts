@@ -21,3 +21,6 @@ export * from './VoltageListItem/VoltageListItem';
 export * from './DriveListItem/DriveListItem';
 export * from './SubCategoryForm/SubCategoryForm';
 export * from './SubCategoryListItem/SubCategoryListItem';
+export * from './VoltageForm/VoltageForm';
+export * from './DriveForm/DriveForm';
+export * from './AgeForm/AgeForm';
