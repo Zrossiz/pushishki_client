@@ -1,12 +1,32 @@
+import { useState } from 'react';
 import styles from './AgeListItem.module.scss';
 import { AgeListItemProps } from './AgeListItem.props';
 import Image from 'next/image';
+import { AgeForm, DeleteItem } from '..';
 
 export const AgeListItem = ({ age }: AgeListItemProps) => {
+  const [update, setUpdate] = useState<boolean>(false);
+  const [deleteForm, setDeleteForm] = useState<boolean>(false);
+
   return (
     <div className={styles.itemWrapper}>
+      {update && 
+        <AgeForm 
+          action='update'
+          setOpen={setUpdate}
+          age={age}
+        />
+      }
+      {deleteForm && 
+        <DeleteItem 
+          idOrSlug={age.id} 
+          entity='age' 
+          name={age.name} 
+          setOpen={setDeleteForm}
+        />
+      }
       <div className={styles.nameWrapper}>{age.name}</div>
-      <div className={styles.edit}>
+      <div className={styles.edit} onClick={() => setUpdate(true)}>
         <svg
           width="24"
           height="28"
@@ -68,7 +88,7 @@ export const AgeListItem = ({ age }: AgeListItemProps) => {
           </defs>
         </svg>
       </div>
-      <div className={styles.delete}>
+      <div className={styles.delete} onClick={() => setDeleteForm(true)}>
         <Image src={'/icons/Trash.svg'} width={24} height={28} alt="Удалить" />
       </div>
     </div>

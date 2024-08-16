@@ -6,7 +6,7 @@ import { DeleteItem, VoltageForm } from '..';
 
 export const VoltageListItem = ({ voltage }: VoltageListItemProps) => {
   const [deleteForm, setDeleteForm] = useState<boolean>(false);
-  const [update, setUpdate] = useState<boolean>(true);
+  const [update, setUpdate] = useState<boolean>(false);
   
   return (
     <div className={styles.itemWrapper}>
