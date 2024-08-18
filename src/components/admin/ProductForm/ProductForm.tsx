@@ -15,6 +15,10 @@ export const ProductForm = ({
   brands,
   update,
   product,
+  ages,
+  voltages,
+  drives,
+  subCategories
 }: ProductFormProps) => {
   const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
 
@@ -42,6 +46,11 @@ export const ProductForm = ({
   const [metaTitle, setMetaTitle] = useState<string>(product?.metaTitle ?? '');
   const [metaDescription, setMetaDescription] = useState<string>(product?.metaDescription ?? '');
   const [metaKeyWords, setMetaKeyWords] = useState<string>(product?.metaKeyWords ?? '');
+  const [voltage, setVoltage] = useState<number>(product?.voltageId ?? 0);
+  const [drive, setDrive] = useState<number>(product?.driveId ?? 0);
+  const [subCategory, setSubCategory] = useState<number>(product?.subCategoryId ?? 0);
+  const [inStock, setInStock] = useState<boolean>(product?.inStock ?? true);
+  const [age, setAge] = useState<number>(product?.ageId ?? 0);
 
   let disabled = true;
 
@@ -82,6 +91,11 @@ export const ProductForm = ({
     metaTitle,
     metaDescription,
     metaKeyWords,
+    inStock,
+    voltageId: voltage,
+    ageId: age,
+    driveId: drive,
+    subCategoryId: subCategory
   };
 
   const countryOptions = countries?.data.map((item) => ({
@@ -97,6 +111,26 @@ export const ProductForm = ({
   const categoryOptions = categories?.data.map((item) => ({
     value: item.id,
     label: item.name,
+  }));
+
+  const drivesOptions = drives.map((item) => ({
+    value: item.id,
+    label: item.name
+  }));
+
+  const agesOptions = ages.map((item) => ({
+    value: item.id,
+    label: item.name    
+  }));
+
+  const voltagesOptions = voltages.map((item) => ({
+    value: item.id,
+    label: item.name,
+  }))
+
+  const subCategoriesOptions = subCategories.map((item) => ({
+    value: item.id,
+    label: item.name
   }));
 
   const postProduct = async () => {
@@ -285,6 +319,82 @@ export const ProductForm = ({
                 <label>Характеристики</label>
                 <ReactQuill theme="snow" value={characteristics} onChange={setCharacteristics} />
               </div>
+              {agesOptions && (
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="ages">Возраст</label>
+                  <Select
+                    id="ages"
+                    options={agesOptions}
+                    value={agesOptions.find((option) => option.value === age)}
+                    onChange={(selectedOption) => setAge(selectedOption?.value ?? 1)}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder={'Выберите возраст'}
+                  />
+                </div>
+              )}
+              {voltagesOptions && (
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="voltages">Вольтаж</label>
+                  <Select
+                    id="voltages"
+                    options={voltagesOptions}
+                    value={voltagesOptions.find((option) => option.value === voltage)}
+                    onChange={(selectedOption) => setVoltage(selectedOption?.value ?? 1)}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder={'Выберите вольтаж'}
+                  />
+                </div>
+              )}
+              {drivesOptions && (
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="drives">Привод</label>
+                  <Select
+                    id="drives"
+                    options={drivesOptions}
+                    value={drivesOptions.find((option) => option.value === drive)}
+                    onChange={(selectedOption) => setDrive(selectedOption?.value ?? 1)}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder={'Выберите привод'}
+                  />
+                </div>
+              )}
+              {subCategoriesOptions && (
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="sub categories">Подкатегория</label>
+                  <Select
+                    id="sub categories"
+                    options={subCategoriesOptions}
+                    value={subCategoriesOptions.find((option) => option.value === subCategory)}
+                    onChange={(selectedOption) => setSubCategory(selectedOption?.value ?? 1)}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder={'Выберите подкатегорию'}
+                  />
+                </div>
+              )}
               <div className={styles.inputWrapper}>
                 <label>Новинки</label>
                 <input type="checkbox" checked={newModel} onChange={() => setNewModel(!newModel)} />
@@ -295,6 +405,14 @@ export const ProductForm = ({
                   type="checkbox"
                   checked={bestSeller}
                   onChange={() => setBestSeller(!bestSeller)}
+                />
+              </div>
+              <div className={styles.inputWrapper}>
+                <label>В наличии</label>
+                <input
+                  type="checkbox"
+                  checked={inStock}
+                  onChange={() => setInStock(!inStock)}
                 />
               </div>
             </div>
@@ -337,7 +455,7 @@ export const ProductForm = ({
           </div>
         </div>
         <button disabled={disabled} className={styles.sendButton} onClick={() => postProduct()}>
-          Отправить
+          Опубликовать
         </button>
       </form>
     </div>

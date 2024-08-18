@@ -13,6 +13,10 @@ export const ProductListItem = ({
   brands,
   countries,
   categories,
+  voltages,
+  ages,
+  subCategories,
+  drives,
 }: ProductListItemProps) => {
   const [remove, setRemove] = useState<boolean>(false);
   const [edit, setEdit] = useState<boolean>(false);
@@ -30,7 +34,17 @@ export const ProductListItem = ({
           entity="product"
         />
       )}
-      {edit && <ProductForm setOpen={setEdit} product={product} update={true} />}
+      {edit && 
+        <ProductForm 
+          voltages={voltages}
+          subCategories={subCategories}
+          ages={ages}
+          drives={drives}
+          setOpen={setEdit} 
+          product={product} 
+          update={true} 
+        />
+      }
       {variant && (
         <ProductVariantForm
           id={product.id}

@@ -71,7 +71,6 @@ const SubCategoryCatalogPage = ({
 };
 
 export const getServerSideProps = async (context: any) => {
-  console.log('context1: ', context);
   const { slug, slugSubCategory } = context.query;
   const curPage = parseInt(context.query.page) || 1;
   const sort = context.query?.sort;

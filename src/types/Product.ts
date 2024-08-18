@@ -1,4 +1,4 @@
-import { IBrand, ICategory, ICountry } from '.';
+import { IAge, IBrand, ICategory, ICountry, IDrive, IVoltage } from '.';
 
 export interface IProductWithLength {
   length: number;
@@ -11,6 +11,10 @@ export interface IProduct {
   country: ICountry;
   brand: IBrand;
   category: ICategory;
+  age?: IAge;
+  drive?: IDrive;
+  voltage?: IVoltage;
+  subCategoryId?: number;
   name: string;
   description: string;
   articul: string;
@@ -31,6 +35,9 @@ export interface IProduct {
   metaKeyWords: string;
   slug: string;
   characteristics?: string;
+  voltageId?: number;
+  ageId?: number;
+  driveId?: number;
 }
 
 export interface ICreateProduct {
@@ -54,4 +61,9 @@ export interface ICreateProduct {
   metaTitle?: string;
   metaDescription?: string;
   metaKeyWords?: string;
+  inStock?: boolean;
+  voltageId?: number;
+  ageId?: number;
+  driveId?: number;
+  subCategoryId?: number;
 }

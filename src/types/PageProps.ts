@@ -81,6 +81,10 @@ export interface IAdminProduct {
   categories: ICategoryWithLength;
   countries: ICategoryWithLength;
   brands: IBrandWithLength;
+  ages: IAge[];
+  voltages: IVoltage[];
+  subCategories: ISubCategory[];
+  drives: IDrive[];
 }
 
 export interface ISubCategoryPage {

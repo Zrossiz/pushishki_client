@@ -1,4 +1,4 @@
-import { IBrandWithLength, ICategoryWithLength, ICountryWithLength, IProduct } from '@/types';
+import { IAge, IBrandWithLength, ICategoryWithLength, ICountryWithLength, IDrive, IProduct, ISubCategory, IVoltage } from '@/types';
 
 export interface ProductFormProps {
   setOpen: (arg0: boolean) => void;
@@ -7,4 +7,8 @@ export interface ProductFormProps {
   categories?: ICategoryWithLength;
   product?: IProduct;
   update?: boolean;
+  ages: IAge[];
+  voltages: IVoltage[];
+  subCategories: ISubCategory[];
+  drives: IDrive[];
 }
