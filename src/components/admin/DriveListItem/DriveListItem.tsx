@@ -2,10 +2,11 @@ import { useState } from 'react';
 import styles from './DriveListItem.module.scss';
 import { DriveListItemProps } from './DriveListItem.props';
 import Image from 'next/image';
-import { DeleteItem } from '..';
+import { DeleteItem, DriveForm } from '..';
 
 export const DriveListItem = ({ drive }: DriveListItemProps) => {
   const [deleteForm, setDeleteForm] = useState<boolean>(false);
+  const [updateForm, setUpdateForm] = useState<boolean>(false);
 
   return (
     <div className={styles.itemWrapper}>
@@ -17,8 +18,15 @@ export const DriveListItem = ({ drive }: DriveListItemProps) => {
           setOpen={setDeleteForm}
         />
       }
+      {updateForm &&
+        <DriveForm 
+          action='update'
+          setOpen={setUpdateForm}
+          drive={drive}
+        />
+      }
       <div className={styles.nameWrapper}>{drive.name}</div>
-      <div className={styles.edit}>
+      <div className={styles.edit} onClick={() => setUpdateForm(true)}>
         <svg
           width="24"
           height="28"

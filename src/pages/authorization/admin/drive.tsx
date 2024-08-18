@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import { IDrive } from '@/types';
 import { getAllDrives } from '@/api';
 import { HTag, LinkButton } from '@/elements';
-import { DriveListItem, VoltageListItem } from '@/components/admin';
+import { DriveForm, DriveListItem } from '@/components/admin';
 
 const DrivePage = () => {
   const [drives, setDrives] = useState<IDrive[]>([]);
+  const [create, setCreate] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
@@ -21,7 +22,13 @@ const DrivePage = () => {
   return (
     <AdminLayout>
       <>
-        <div className={styles.addButtonWrapper}>
+        {create &&
+          <DriveForm 
+            action='create'
+            setOpen={setCreate}
+          />
+        }
+        <div className={styles.addButtonWrapper} onClick={() => setCreate(true)}>
           <LinkButton element="button">Добавить</LinkButton>
         </div>
         <div className={styles.listWrapper}>
