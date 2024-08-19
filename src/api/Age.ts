@@ -24,9 +24,9 @@ export const updateAge = async (id: number, name: string): Promise<IAge | { mess
     return data;
   } catch (err) {
     console.log(err);
-    return { message: 'Ошибка при обновлении возраста' }
+    return { message: 'Ошибка при обновлении возраста' };
   }
-}
+};
 
 export const createAge = async (name: string): Promise<IAge | { message: string }> => {
   try {
@@ -35,6 +35,6 @@ export const createAge = async (name: string): Promise<IAge | { message: string 
     return data;
   } catch (err) {
     console.log(err);
-    return { message: 'Ошибка при создании возраста' }
+    return { message: 'Ошибка при создании возраста' };
   }
-}
+};

@@ -1,4 +1,13 @@
-import { IAge, IBrandWithLength, ICategoryWithLength, ICountryWithLength, IDrive, IProduct, ISubCategory, IVoltage } from '@/types';
+import {
+  IAge,
+  IBrandWithLength,
+  ICategoryWithLength,
+  ICountryWithLength,
+  IDrive,
+  IProduct,
+  ISubCategory,
+  IVoltage,
+} from '@/types';
 
 export interface ProductListItemProps {
   product: IProduct;

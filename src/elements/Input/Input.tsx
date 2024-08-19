@@ -80,7 +80,7 @@ export const Input = ({
     }
   };
   switch (type) {
-    case 'text': 
+    case 'text':
       return (
         <input
           className={styles.input}
@@ -90,7 +90,7 @@ export const Input = ({
           onChange={(e) => onChange(e.target.value)}
           defaultValue={defaultValue}
         />
-      )
+      );
     case 'password':
       return (
         <input
@@ -101,7 +101,7 @@ export const Input = ({
           onChange={(e) => onChange(e.target.value)}
           defaultValue={defaultValue}
         />
-      )
+      );
     case 'phone':
       return (
         <input
@@ -115,17 +115,17 @@ export const Input = ({
           onKeyDown={(e) => onPhoneKeyDown(e)}
           onPaste={(e) => onPhonePaste(e)}
         />
-      )
+      );
     case 'number':
-        return (
-          <input
-            className={styles.input}
-            value={value}
-            type={'number'}
-            placeholder={placeholder}
-            onChange={(e) => onChange(+e.target.value)}
-            defaultValue={defaultValue}
-          />
-        )
+      return (
+        <input
+          className={styles.input}
+          value={value}
+          type={'number'}
+          placeholder={placeholder}
+          onChange={(e) => onChange(+e.target.value)}
+          defaultValue={defaultValue}
+        />
+      );
   }
 };

@@ -22,14 +22,11 @@ const AgePage = () => {
   return (
     <AdminLayout>
       <>
-        {create &&
-          <AgeForm 
-            action='create'
-            setOpen={setCreate}
-          />
-        }
+        {create && <AgeForm action="create" setOpen={setCreate} />}
         <div className={styles.addButtonWrapper}>
-          <LinkButton element="button" onClick={() => setCreate(true)}>Добавить</LinkButton>
+          <LinkButton element="button" onClick={() => setCreate(true)}>
+            Добавить
+          </LinkButton>
         </div>
         <div className={styles.listWrapper}>
           {ages.length > 0 ? (

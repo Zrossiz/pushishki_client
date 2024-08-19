@@ -7,25 +7,18 @@ import { DeleteItem, VoltageForm } from '..';
 export const VoltageListItem = ({ voltage }: VoltageListItemProps) => {
   const [deleteForm, setDeleteForm] = useState<boolean>(false);
   const [update, setUpdate] = useState<boolean>(false);
-  
+
   return (
     <div className={styles.itemWrapper}>
-      {
-        update && 
-        <VoltageForm 
-          action='update'
-          setOpen={setUpdate}
-          voltage={voltage}
-        />
-      }
-      {deleteForm && 
-        <DeleteItem 
-          idOrSlug={voltage.id} 
-          entity='voltage' 
-          name={String(voltage.name)} 
+      {update && <VoltageForm action="update" setOpen={setUpdate} voltage={voltage} />}
+      {deleteForm && (
+        <DeleteItem
+          idOrSlug={voltage.id}
+          entity="voltage"
+          name={String(voltage.name)}
           setOpen={setDeleteForm}
         />
-      }
+      )}
       <div className={styles.nameWrapper}>{voltage.name}</div>
       <div className={styles.edit} onClick={() => setUpdate(true)}>
         <svg

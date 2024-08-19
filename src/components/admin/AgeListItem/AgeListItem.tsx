@@ -10,21 +10,10 @@ export const AgeListItem = ({ age }: AgeListItemProps) => {
 
   return (
     <div className={styles.itemWrapper}>
-      {update && 
-        <AgeForm 
-          action='update'
-          setOpen={setUpdate}
-          age={age}
-        />
-      }
-      {deleteForm && 
-        <DeleteItem 
-          idOrSlug={age.id} 
-          entity='age' 
-          name={age.name} 
-          setOpen={setDeleteForm}
-        />
-      }
+      {update && <AgeForm action="update" setOpen={setUpdate} age={age} />}
+      {deleteForm && (
+        <DeleteItem idOrSlug={age.id} entity="age" name={age.name} setOpen={setDeleteForm} />
+      )}
       <div className={styles.nameWrapper}>{age.name}</div>
       <div className={styles.edit} onClick={() => setUpdate(true)}>
         <svg

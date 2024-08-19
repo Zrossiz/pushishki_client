@@ -10,21 +10,10 @@ export const DriveListItem = ({ drive }: DriveListItemProps) => {
 
   return (
     <div className={styles.itemWrapper}>
-      {deleteForm &&
-        <DeleteItem 
-          name={drive.name}
-          idOrSlug={drive.id}
-          entity='drive'
-          setOpen={setDeleteForm}
-        />
-      }
-      {updateForm &&
-        <DriveForm 
-          action='update'
-          setOpen={setUpdateForm}
-          drive={drive}
-        />
-      }
+      {deleteForm && (
+        <DeleteItem name={drive.name} idOrSlug={drive.id} entity="drive" setOpen={setDeleteForm} />
+      )}
+      {updateForm && <DriveForm action="update" setOpen={setUpdateForm} drive={drive} />}
       <div className={styles.nameWrapper}>{drive.name}</div>
       <div className={styles.edit} onClick={() => setUpdateForm(true)}>
         <svg

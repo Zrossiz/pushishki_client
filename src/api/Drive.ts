@@ -27,12 +27,15 @@ export const createDrive = async (name: string): Promise<IDrive | { message: str
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при создании привода'
-    }
+      message: 'Ошибка при создании привода',
+    };
   }
-}
+};
 
-export const updateDrive = async (id: number, name: string): Promise<IDrive | { message: string }> => {
+export const updateDrive = async (
+  id: number,
+  name: string,
+): Promise<IDrive | { message: string }> => {
   try {
     const { data } = await axiosInst.post<IDrive>(`${API_URL}/drive/${id}`, { name });
 
@@ -40,7 +43,7 @@ export const updateDrive = async (id: number, name: string): Promise<IDrive | { 
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при обновлении привода'
-    }
+      message: 'Ошибка при обновлении привода',
+    };
   }
-}
+};

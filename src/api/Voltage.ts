@@ -19,24 +19,25 @@ export const getAllVoltages = async (): Promise<IVoltage[] | { message: string }
 
 export const createVoltage = async (name: number): Promise<IVoltage | { message: string }> => {
   try {
-    const { data } = await axiosInst.post<IVoltage>(`${API_URL}/voltage`, { name })
+    const { data } = await axiosInst.post<IVoltage>(`${API_URL}/voltage`, { name });
 
     return data;
   } catch (err) {
     console.log(err);
-    return { message: 'Ошибка при создании объекта вольтажа' }
+    return { message: 'Ошибка при создании объекта вольтажа' };
   }
-}
+};
 
 export const updateVoltage = async (
-  id: number, name: number
+  id: number,
+  name: number,
 ): Promise<IVoltage | { message: string }> => {
   try {
-    const { data } = await axiosInst.post<IVoltage>(`${API_URL}/voltage/${id}`, { name })
+    const { data } = await axiosInst.post<IVoltage>(`${API_URL}/voltage/${id}`, { name });
 
     return data;
   } catch (err) {
     console.log(err);
-    return { message: 'Ошибка при обновлении объекта вольтажа' }
+    return { message: 'Ошибка при обновлении объекта вольтажа' };
   }
-}
+};

@@ -1,7 +1,7 @@
-import { IDrive } from "@/types";
+import { IDrive } from '@/types';
 
 export interface DriveFormProps {
-    drive?: IDrive;
-    action: 'create' | 'update';
-    setOpen: (arg0: boolean) => void;
+  drive?: IDrive;
+  action: 'create' | 'update';
+  setOpen: (arg0: boolean) => void;
 }

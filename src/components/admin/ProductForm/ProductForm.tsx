@@ -18,7 +18,7 @@ export const ProductForm = ({
   ages,
   voltages,
   drives,
-  subCategories
+  subCategories,
 }: ProductFormProps) => {
   const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
 
@@ -95,7 +95,7 @@ export const ProductForm = ({
     voltageId: voltage,
     ageId: age,
     driveId: drive,
-    subCategoryId: subCategory
+    subCategoryId: subCategory,
   };
 
   const countryOptions = countries?.data.map((item) => ({
@@ -115,22 +115,22 @@ export const ProductForm = ({
 
   const drivesOptions = drives.map((item) => ({
     value: item.id,
-    label: item.name
+    label: item.name,
   }));
 
   const agesOptions = ages.map((item) => ({
     value: item.id,
-    label: item.name    
+    label: item.name,
   }));
 
   const voltagesOptions = voltages.map((item) => ({
     value: item.id,
     label: item.name,
-  }))
+  }));
 
   const subCategoriesOptions = subCategories.map((item) => ({
     value: item.id,
-    label: item.name
+    label: item.name,
   }));
 
   const postProduct = async () => {
@@ -409,11 +409,7 @@ export const ProductForm = ({
               </div>
               <div className={styles.inputWrapper}>
                 <label>В наличии</label>
-                <input
-                  type="checkbox"
-                  checked={inStock}
-                  onChange={() => setInStock(!inStock)}
-                />
+                <input type="checkbox" checked={inStock} onChange={() => setInStock(!inStock)} />
               </div>
             </div>
           </div>

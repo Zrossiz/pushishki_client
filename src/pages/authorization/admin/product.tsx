@@ -1,4 +1,14 @@
-import { findProducts, getAllAges, getAllDrives, getAllProducts, getAllSubCategories, getAllVoltages, getBrands, getCategories, getCountries } from '@/api';
+import {
+  findProducts,
+  getAllAges,
+  getAllDrives,
+  getAllProducts,
+  getAllSubCategories,
+  getAllVoltages,
+  getBrands,
+  getCategories,
+  getCountries,
+} from '@/api';
 import { AdminLayout } from '@/layout/admin/AdminLayout';
 import { IAdminProduct, IProduct, IProductWithLength } from '@/types';
 import { useEffect, useState } from 'react';
@@ -6,7 +16,15 @@ import styles from '../../../styles/admin/Product.module.scss';
 import { Pagination, ProductForm, ProductListItem } from '@/components/admin';
 import { LinkButton } from '@/elements';
 
-const ProductPage = ({ brands, categories, countries, ages, voltages, subCategories, drives }: IAdminProduct) => {
+const ProductPage = ({
+  brands,
+  categories,
+  countries,
+  ages,
+  voltages,
+  subCategories,
+  drives,
+}: IAdminProduct) => {
   const [products, setProducts] = useState<IProductWithLength | { message: string }>();
   const [foundedProducts, setFoundedProducts] = useState<
     IProductWithLength | { message: string }
@@ -69,12 +87,30 @@ const ProductPage = ({ brands, categories, countries, ages, voltages, subCategor
             ? foundedProducts &&
               'data' in foundedProducts &&
               foundedProducts.data.map((item: IProduct) => {
-                return <ProductListItem drives={drives} ages={ages} subCategories={subCategories} voltages={voltages} product={item} key={item.id} />;
+                return (
+                  <ProductListItem
+                    drives={drives}
+                    ages={ages}
+                    subCategories={subCategories}
+                    voltages={voltages}
+                    product={item}
+                    key={item.id}
+                  />
+                );
               })
             : products &&
               'data' in products &&
               products.data.map((item: IProduct) => {
-                return <ProductListItem drives={drives} ages={ages} subCategories={subCategories} voltages={voltages} product={item} key={item.id} />;
+                return (
+                  <ProductListItem
+                    drives={drives}
+                    ages={ages}
+                    subCategories={subCategories}
+                    voltages={voltages}
+                    product={item}
+                    key={item.id}
+                  />
+                );
               })}
         </div>
         {search.length === 0 && products && 'totalPages' in products && (
@@ -106,7 +142,7 @@ export const getServerSideProps = async () => {
       ages,
       drives,
       voltages,
-      subCategories
+      subCategories,
     },
   };
 };

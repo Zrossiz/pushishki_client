@@ -34,17 +34,17 @@ export const ProductListItem = ({
           entity="product"
         />
       )}
-      {edit && 
-        <ProductForm 
+      {edit && (
+        <ProductForm
           voltages={voltages}
           subCategories={subCategories}
           ages={ages}
           drives={drives}
-          setOpen={setEdit} 
-          product={product} 
-          update={true} 
+          setOpen={setEdit}
+          product={product}
+          update={true}
         />
-      }
+      )}
       {variant && (
         <ProductVariantForm
           id={product.id}

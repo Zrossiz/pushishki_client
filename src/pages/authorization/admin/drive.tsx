@@ -22,12 +22,7 @@ const DrivePage = () => {
   return (
     <AdminLayout>
       <>
-        {create &&
-          <DriveForm 
-            action='create'
-            setOpen={setCreate}
-          />
-        }
+        {create && <DriveForm action="create" setOpen={setCreate} />}
         <div className={styles.addButtonWrapper} onClick={() => setCreate(true)}>
           <LinkButton element="button">Добавить</LinkButton>
         </div>
