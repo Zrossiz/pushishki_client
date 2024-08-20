@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
-export const CatalogItem = ({ product, localStorageFavorites }: CatalogItemProps) => {
+export const CatalogItem = ({ product, localStorageFavorites, customHref }: CatalogItemProps) => {
   const router = useRouter();
 
   const formattedPrice: string =
@@ -74,7 +74,7 @@ export const CatalogItem = ({ product, localStorageFavorites }: CatalogItemProps
         <div className={styles.articulWrapper}>Артикул: {product.articul}</div>
         <div className={styles.selectAndAvalability}>
           <div className={styles.buttonWrapper}>
-            <LinkButton element="link" href={`${router.asPath}/${product.slug}`}>
+            <LinkButton element="link" href={ customHref ? customHref : `${router.asPath}/${product.slug}`}>
               Выбрать
             </LinkButton>
             <div
