@@ -74,7 +74,7 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
                 {products.data.map((item: IProduct) => {
                   let itemHref = `${CLIENT_URL}/${item.category.slug}/`;
                   if (item.subCategoryId) {
-                    itemHref += `${item.subCategoryId}/${item.slug}`
+                    itemHref += `${item.subCategory?.slug}/${item.slug}`
                   } else {
                     itemHref += String(item.slug)
                   }
