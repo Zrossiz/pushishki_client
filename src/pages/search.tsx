@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
-const { API_URL } = publicRuntimeConfig;
+const { CLIENT_URL } = publicRuntimeConfig;
 
 const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageProps) => {
   const [search, setSearch] = useState<string>('');
@@ -72,7 +72,7 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
               </div>
               <div className={styles.itemsWrapper}>
                 {products.data.map((item: IProduct) => {
-                  let itemHref = `${API_URL}/${item.category.slug}/`;
+                  let itemHref = `${CLIENT_URL}/${item.category.slug}/`;
                   if (item.subCategoryId) {
                     itemHref += `${item.subCategoryId}/${item.slug}`
                   } else {
