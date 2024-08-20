@@ -5,8 +5,9 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 
+
 const { publicRuntimeConfig } = getConfig();
-const { FILESERVER_URL } = publicRuntimeConfig;
+const { FILESERVER_URL, CLIENT_URL } = publicRuntimeConfig;
 
 export const Search = ({ search, setSearch, products, stateSearch, getProducts }: SearchProps) => {
   return (
@@ -28,9 +29,15 @@ export const Search = ({ search, setSearch, products, stateSearch, getProducts }
         <div className={styles.popupWrapper}>
           {products && products?.length >= 1 ? (
             products?.slice(0, 4).map((item, index) => {
+              let itemHref = `${CLIENT_URL}/categories/${item.category.slug}/`;
+              if (item.subCategoryId) {
+                itemHref += `${item.subCategory?.slug}/${item.slug}`
+              } else {
+                itemHref += String(item.slug)
+              }
               return (
                 <Link
-                  href={`/categories/${item.category.slug}/${item.slug}`}
+                  href={itemHref}
                   key={item.id}
                   className={styles.itemWrapper}
                 >

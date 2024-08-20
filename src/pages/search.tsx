@@ -72,7 +72,7 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
               </div>
               <div className={styles.itemsWrapper}>
                 {products.data.map((item: IProduct) => {
-                  let itemHref = `${CLIENT_URL}/${item.category.slug}/`;
+                  let itemHref = `${CLIENT_URL}/categories/${item.category.slug}/`;
                   if (item.subCategoryId) {
                     itemHref += `${item.subCategory?.slug}/${item.slug}`
                   } else {
