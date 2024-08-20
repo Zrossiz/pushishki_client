@@ -92,11 +92,23 @@ export const ProductForm = ({
     metaDescription,
     metaKeyWords,
     inStock,
-    voltageId: voltage,
-    ageId: age,
-    driveId: drive,
-    subCategoryId: subCategory,
   };
+
+  if (drive) {
+    createProductData.driveId = drive;
+  };
+
+  if (age) {
+    createProductData.ageId = age;
+  }
+
+  if (voltage) {
+    createProductData.voltageId = voltage
+  }
+
+  if (subCategory) {
+    createProductData.subCategoryId = subCategory
+  }
 
   const countryOptions = countries?.data.map((item) => ({
     value: item.id,
