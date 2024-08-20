@@ -44,6 +44,7 @@ export const ProductVariantForm = ({
   }, []);
 
   const create = async (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+    e.preventDefault();
     const stringImages: string[] = [];
 
     const updatedFiles = selectedFiles.map((file) => {
@@ -70,6 +71,7 @@ export const ProductVariantForm = ({
         await uploadFiles(updatedFiles);
       }
     }
+    window.location.reload();
   };
 
   return (

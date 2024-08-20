@@ -33,9 +33,12 @@ export const CategoryForm = ({ setOpen, update, category }: CategoryFormProps) =
     }
   };
 
-  const create = async () => {
+  const create = async (e: any) => {
+    e.preventDefault();
+
     if (update && category) {
       await updateCategory(category?.slug, metaTitle, metaDescription, metaKeyWords);
+      window.location.reload()
     } else {
       if (image) {
         const category: ICategory | { message: string } = await createCategory(
@@ -47,6 +50,7 @@ export const CategoryForm = ({ setOpen, update, category }: CategoryFormProps) =
         );
 
         await uploadFiles(image);
+        window.location.reload()
       }
     }
   };
@@ -84,7 +88,7 @@ export const CategoryForm = ({ setOpen, update, category }: CategoryFormProps) =
           <label>Изображение</label>
           <input type="file" accept="image/*" onChange={handleImageChange} />
         </div>
-        <LinkButton element="button" onClick={() => create()} disabled={disabled}>
+        <LinkButton element="button" onClick={(e) => create(e)} disabled={disabled}>
           Создать
         </LinkButton>
       </form>

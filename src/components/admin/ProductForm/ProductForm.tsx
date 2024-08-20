@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { MouseEventHandler, useState } from 'react';
 import styles from './ProductForm.module.scss';
 import { ProductFormProps } from './ProductForm.props';
 import Select from 'react-select';
@@ -145,7 +145,8 @@ export const ProductForm = ({
     label: item.name,
   }));
 
-  const postProduct = async () => {
+  const postProduct = async (e: any) => {
+    e.preventDefault();
     if (update) {
       await updateProduct(createProductData, product?.id);
     } else {
@@ -154,6 +155,7 @@ export const ProductForm = ({
     if (image) {
       await uploadFiles(image);
     }
+    window.location.reload();
   };
 
   const handleImageChange = (e: any) => {
@@ -462,7 +464,7 @@ export const ProductForm = ({
             <input type="file" accept="image/*" onChange={handleImageChange} />
           </div>
         </div>
-        <button disabled={disabled} className={styles.sendButton} onClick={() => postProduct()}>
+        <button disabled={disabled} className={styles.sendButton} onClick={(e) => postProduct(e)}>
           Опубликовать
         </button>
       </form>

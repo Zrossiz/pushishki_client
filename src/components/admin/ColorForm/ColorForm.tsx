@@ -10,7 +10,8 @@ export const ColorForm = ({ setOpen }: ColorFormProps) => {
   const [title, setTitle] = useState<string>('');
   const [image, setImage] = useState<File | null>(null);
 
-  const create = async () => {
+  const create = async (e: any) => {
+    e.preventDefault();
     await createColor(title, color, image?.name);
 
     if (image) {
@@ -53,7 +54,7 @@ export const ColorForm = ({ setOpen }: ColorFormProps) => {
         </div>
         <LinkButton
           element="button"
-          onClick={() => create()}
+          onClick={(e) => create(e)}
           disabled={color.length > 1 || image?.name ? false : true}
         >
           Создать
