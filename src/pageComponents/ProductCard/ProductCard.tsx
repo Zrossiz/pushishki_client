@@ -310,7 +310,7 @@ export const ProductCard = ({
                   )}
                 </li>
                 <li>
-                  {product?.maximumLoad && (
+                  {product && product?.maximumLoad > 0 && (
                     <>
                       Максимальная нагрузка: <span>{product?.maximumLoad} кг</span>
                     </>
