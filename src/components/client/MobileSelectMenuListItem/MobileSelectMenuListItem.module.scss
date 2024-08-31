@@ -1,0 +1,16 @@
+.itemWrapper {
+    display: flex;
+    border-top: 2px solid var(--medium-grey);
+    padding: 10px;
+    padding-left: 40px;
+    text-transform: capitalize;
+
+    .checkbox {
+        display: none;
+        margin-left: auto;
+    }
+
+    .active {
+        display: block;
+    }
+}

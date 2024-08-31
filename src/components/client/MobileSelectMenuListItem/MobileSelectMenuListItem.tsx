@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import Image from 'next/image';
 import styles from './MobileSelectMenuListItem.module.scss';
 import { MobileSelectMenuListItemProps } from './MobileSelectMenuListItem.props';
 import cn from 'classnames';
@@ -24,10 +24,12 @@ export const MobileSelectMenuListItem = ({
             onClick={() => switchState(item.id)} 
             className={styles.itemWrapper}
         >   
-            <div className={cn(styles.checkbox, {
-                [styles.active]: checked 
-            })}>Добавлено</div>
-            {item.name}
+          {item.name}
+          <div className={cn(styles.checkbox, {
+              [styles.active]: checked 
+          })}>
+            <Image src={"/icons/check.svg"} width={20} height={16} alt={"Выбрано"} />
+          </div>
         </div>
     )
 }

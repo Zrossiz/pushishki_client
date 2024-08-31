@@ -1,4 +1,4 @@
-import { PriceFilter } from '@/components/client';
+import { MobileSelectMenu, PriceFilter } from '@/components/client';
 import styles from './MobileFilter.module.scss';
 import { MobileFilterProps } from './MobileFilter.props';
 import { motion } from 'framer-motion';
@@ -37,50 +37,38 @@ export const MobileFilter = ({
           setPriceRangeTo={priceFilterProps.setPriceRangeTo}
         />
         <div className={styles.filterWrapper}>
-          {ageFilter.ages.length && ageFilter.ages.length > 0 && (
-            <CheckboxFilter
-              checkBoxFilterName="Возраст"
-              selectedItems={ageFilter.selectedAges}
-              items={ageFilter.ages}
-              onChange={ageFilter.setAges}
-            />
-          )}
-        </div>
-        <div className={styles.filterWrapper}>
-          {driveFilter.drives.length > 0 && (
-            <CheckboxFilter
-              checkBoxFilterName="Привод"
-              selectedItems={driveFilter.selectedDrives}
-              items={driveFilter.drives}
-              onChange={driveFilter.setDrives}
-            />
-          )}
-        </div>
-        <div className={styles.filterWrapper}>
-          {voltageFilter.voltages.length > 0 && (
-            <CheckboxFilter
-              checkBoxFilterName="Вольтаж"
-              selectedItems={voltageFilter.selectedVoltages}
-              items={voltageFilter.voltages}
-              onChange={voltageFilter.setVoltages}
-            />
-          )}
-        </div>
-        <div className={styles.filterWrapper}>
-          {brandFilter.brands.length > 0 && (
-            <CheckboxFilter
-              checkBoxFilterName="Бренд"
-              selectedItems={brandFilter.selectedBrands}
-              items={brandFilter.brands}
-              onChange={brandFilter.setBrands}
-            />
-          )}
+
+          <MobileSelectMenu 
+            selectMenuName={'Возраст'} 
+            selectedItems={ageFilter.selectedAges}
+            items={ageFilter.ages}
+            onChange={ageFilter.setAges}          
+          />
+          <MobileSelectMenu 
+            selectMenuName={'Привод'} 
+            selectedItems={driveFilter.selectedDrives}
+            items={driveFilter.drives}
+            onChange={driveFilter.setDrives}    
+          />
+          <MobileSelectMenu 
+            selectMenuName={'Вольтаж'} 
+            selectedItems={voltageFilter.selectedVoltages}
+            items={voltageFilter.voltages}
+            onChange={voltageFilter.setVoltages}   
+          />        
+          <MobileSelectMenu 
+            selectMenuName={'Бренд'} 
+            selectedItems={brandFilter.selectedBrands}
+            items={brandFilter.brands}
+            onChange={brandFilter.setBrands} 
+          />
         </div>
         <div className={styles.send}>
           <LinkButton element="button" onClick={() => setCatalogFilter()}>
             Показать
           </LinkButton>
         </div>
+
       </div>
     </motion.div>
   );

@@ -2,6 +2,7 @@ import { MobileSelectMenuProps } from './MobileSelectMenu.props';
 import styles from './MobileSelectMenu.module.scss';
 import { useState } from 'react';
 import { MobileSelectMenuListItem } from '..';
+import Image from 'next/image';
 
 export const MobileSelectMenu = ({
   items,
@@ -14,6 +15,10 @@ export const MobileSelectMenu = ({
     <>
       {open && (
         <div className={styles.listWrapper}>
+          <div className={styles.close} onClick={() => setOpen(false)}>
+            <Image src={'/icons/Close.svg'} fill alt="Закрыть" />
+          </div>
+          <div className={styles.title}>{selectMenuName}</div>
           {Array.isArray(items) && items.map((item) => {
             return (
               <MobileSelectMenuListItem
