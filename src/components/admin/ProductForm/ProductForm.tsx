@@ -96,18 +96,18 @@ export const ProductForm = ({
 
   if (drive) {
     createProductData.driveId = drive;
-  };
+  }
 
   if (age) {
     createProductData.ageId = age;
   }
 
   if (voltage) {
-    createProductData.voltageId = voltage
+    createProductData.voltageId = voltage;
   }
 
   if (subCategory) {
-    createProductData.subCategoryId = subCategory
+    createProductData.subCategoryId = subCategory;
   }
 
   const countryOptions = countries?.data.map((item) => ({

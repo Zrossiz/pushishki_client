@@ -19,15 +19,16 @@ export const MobileSelectMenu = ({
             <Image src={'/icons/Close.svg'} fill alt="Закрыть" />
           </div>
           <div className={styles.title}>{selectMenuName}</div>
-          {Array.isArray(items) && items.map((item) => {
-            return (
-              <MobileSelectMenuListItem
-                item={item}
-                onChange={onChange}
-                selectedItems={selectedItems}
-              />
-            )
-          })}
+          {Array.isArray(items) &&
+            items.map((item) => {
+              return (
+                <MobileSelectMenuListItem
+                  item={item}
+                  onChange={onChange}
+                  selectedItems={selectedItems}
+                />
+              );
+            })}
         </div>
       )}
       <div onClick={() => setOpen(true)} className={styles.menuWrapper}>

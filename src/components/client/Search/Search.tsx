@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 
-
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL, CLIENT_URL } = publicRuntimeConfig;
 
@@ -31,16 +30,12 @@ export const Search = ({ search, setSearch, products, stateSearch, getProducts }
             products?.slice(0, 4).map((item, index) => {
               let itemHref = `${CLIENT_URL}/categories/${item.category.slug}/`;
               if (item.subCategoryId) {
-                itemHref += `sub-category/${item.subCategory?.slug}/${item.slug}`
+                itemHref += `sub-category/${item.subCategory?.slug}/${item.slug}`;
               } else {
-                itemHref += String(item.slug)
+                itemHref += String(item.slug);
               }
               return (
-                <Link
-                  href={itemHref}
-                  key={item.id}
-                  className={styles.itemWrapper}
-                >
+                <Link href={itemHref} key={item.id} className={styles.itemWrapper}>
                   <div className={styles.photo}>
                     <Image fill alt={item.name} src={`${FILESERVER_URL}/upload/${item.image}`} />
                   </div>

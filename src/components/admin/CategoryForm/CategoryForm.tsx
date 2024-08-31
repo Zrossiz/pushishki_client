@@ -38,7 +38,7 @@ export const CategoryForm = ({ setOpen, update, category }: CategoryFormProps) =
 
     if (update && category) {
       await updateCategory(category?.slug, metaTitle, metaDescription, metaKeyWords);
-      window.location.reload()
+      window.location.reload();
     } else {
       if (image) {
         const category: ICategory | { message: string } = await createCategory(
@@ -50,7 +50,7 @@ export const CategoryForm = ({ setOpen, update, category }: CategoryFormProps) =
         );
 
         await uploadFiles(image);
-        window.location.reload()
+        window.location.reload();
       }
     }
   };

@@ -37,30 +37,29 @@ export const MobileFilter = ({
           setPriceRangeTo={priceFilterProps.setPriceRangeTo}
         />
         <div className={styles.filterWrapper}>
-
-          <MobileSelectMenu 
-            selectMenuName={'Возраст'} 
+          <MobileSelectMenu
+            selectMenuName={'Возраст'}
             selectedItems={ageFilter.selectedAges}
             items={ageFilter.ages}
-            onChange={ageFilter.setAges}          
+            onChange={ageFilter.setAges}
           />
-          <MobileSelectMenu 
-            selectMenuName={'Привод'} 
+          <MobileSelectMenu
+            selectMenuName={'Привод'}
             selectedItems={driveFilter.selectedDrives}
             items={driveFilter.drives}
-            onChange={driveFilter.setDrives}    
+            onChange={driveFilter.setDrives}
           />
-          <MobileSelectMenu 
-            selectMenuName={'Вольтаж'} 
+          <MobileSelectMenu
+            selectMenuName={'Вольтаж'}
             selectedItems={voltageFilter.selectedVoltages}
             items={voltageFilter.voltages}
-            onChange={voltageFilter.setVoltages}   
-          />        
-          <MobileSelectMenu 
-            selectMenuName={'Бренд'} 
+            onChange={voltageFilter.setVoltages}
+          />
+          <MobileSelectMenu
+            selectMenuName={'Бренд'}
             selectedItems={brandFilter.selectedBrands}
             items={brandFilter.brands}
-            onChange={brandFilter.setBrands} 
+            onChange={brandFilter.setBrands}
           />
         </div>
         <div className={styles.send}>
@@ -68,7 +67,6 @@ export const MobileFilter = ({
             Показать
           </LinkButton>
         </div>
-
       </div>
     </motion.div>
   );
