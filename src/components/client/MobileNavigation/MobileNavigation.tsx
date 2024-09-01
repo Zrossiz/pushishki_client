@@ -47,7 +47,7 @@ export const MobileNavigation = () => {
           <li>
             <Link href="/contacts">
               <div className={styles.icon}>
-                <Image width={20} height={20} src="icons/MobileNavContacts.svg" alt="Контакты" />
+                <Image width={20} height={20} src="/icons/MobileNavContacts.svg" alt="Контакты" />
               </div>
               <div className={styles.desc}>Контакты</div>
             </Link>
