@@ -153,7 +153,7 @@ export const ProductForm = ({
       await create(createProductData);
     }
     if (image) {
-      await uploadFiles(image);
+      await uploadFiles(image, true);
     }
     window.location.reload();
   };

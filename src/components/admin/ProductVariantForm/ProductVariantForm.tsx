@@ -68,7 +68,7 @@ export const ProductVariantForm = ({
         stringImages,
       );
       if (selectedFiles.length >= 1) {
-        await uploadFiles(updatedFiles);
+        await uploadFiles(updatedFiles, true);
       }
     }
     window.location.reload();

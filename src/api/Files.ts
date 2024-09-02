@@ -4,7 +4,7 @@ import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
-export const uploadFiles = async (files: File[] | File): Promise<{ message: string }> => {
+export const uploadFiles = async (files: File[] | File, watermark?: boolean): Promise<{ message: string }> => {
   try {
     const formData = new FormData();
 
@@ -16,7 +16,7 @@ export const uploadFiles = async (files: File[] | File): Promise<{ message: stri
       formData.append('files', files);
     }
 
-    await axios.post(`${FILESERVER_URL}/upload`, formData);
+    await axios.post(`${FILESERVER_URL}/upload${watermark && 'watermark=true'}`, formData);
 
     return {
       message: 'Успешно',
