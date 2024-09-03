@@ -36,9 +36,6 @@ export const Search = ({ search, setSearch, products, stateSearch, getProducts }
               }
               return (
                 <Link href={itemHref} key={item.id} className={styles.itemWrapper}>
-                  <div className={styles.photo}>
-                    <Image fill alt={item.name} src={`${FILESERVER_URL}/upload/${item.image}`} />
-                  </div>
                   <div className={styles.name}>{item.name}</div>
                   <div className={styles.price}>{item.defaultPrice}₽</div>
                 </Link>
