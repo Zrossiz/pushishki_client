@@ -58,6 +58,32 @@ export const ProductCard = ({
     window.scrollTo(0, 0);
   };
 
+  const breadcrumbsArr = [
+    {
+      name: 'Главная',
+      path: '/',
+    },
+    {
+      name: `Категории`,
+      path: `/categories`,
+    },
+  ]
+
+  if (router.asPath.includes('sub-category')) {
+    breadcrumbsArr.push({
+      name: 'Подкатегории',
+      path: `/categories/${router.query.slug}/sub-category`,
+    }, {
+      name: 'Каталог',
+      path: `/categories/${router.query.slug}/sub-category/${router.query.slugSubCategory}`
+    })
+  } else {
+    breadcrumbsArr.push({
+      name: 'Каталог',
+      path: `/categories/${router.query.slug}`,
+    })
+  }
+
   let localStorageFavorites: IProduct[];
 
   if (typeof window !== 'undefined') {
@@ -227,20 +253,7 @@ export const ProductCard = ({
             </div>
             <div className={styles.breadcrumbsWrapper}>
               <Breadcrumbs
-                breadcrumbs={[
-                  {
-                    name: 'Главная',
-                    path: '/',
-                  },
-                  {
-                    name: `Категории`,
-                    path: `/categories`,
-                  },
-                  {
-                    name: 'Каталог',
-                    path: `/categories/${router.query.slug}`,
-                  },
-                ]}
+                breadcrumbs={breadcrumbsArr}
               />
             </div>
             <div className={styles.titleWrapper}>
