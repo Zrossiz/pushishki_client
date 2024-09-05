@@ -16,7 +16,7 @@ export const uploadFiles = async (files: File[] | File, watermark?: boolean): Pr
       formData.append('files', files);
     }
 
-    await axios.post(`${FILESERVER_URL}/upload${watermark && '?watermark=true'}`, formData);
+    await axios.post(`${FILESERVER_URL}/upload${watermark ? '?watermark=true' : ''}`, formData);
 
     return {
       message: 'Успешно',

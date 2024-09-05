@@ -37,7 +37,12 @@ export const CategoryForm = ({ setOpen, update, category }: CategoryFormProps) =
     e.preventDefault();
 
     if (update && category) {
-      await updateCategory(category?.slug, metaTitle, metaDescription, metaKeyWords);
+      await updateCategory(category?.slug, metaTitle, metaDescription, metaKeyWords, image?.name);
+
+      if (image) {
+        await uploadFiles(image);
+      }
+
       window.location.reload();
     } else {
       if (image) {

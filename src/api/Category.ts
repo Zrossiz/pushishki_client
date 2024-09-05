@@ -62,12 +62,14 @@ export const updateCategory = async (
   metaTitle: string,
   metaDescription: string,
   metaKeyWords: string,
+  image?: string,
 ): Promise<ICategory | { message: string }> => {
   try {
     const { data } = await axiosInst.put(`${API_URL}/category/${slug}`, {
       metaTitle,
       metaDescription,
       metaKeyWords,
+      image
     });
 
     return data;
