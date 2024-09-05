@@ -22,6 +22,10 @@ const categories = [
     name: 'Аксессуары',
     slug: 'aksessury',
   },
+  {
+    name: 'Все варианты',
+    slug: ''
+  }
 ];
 
 export const CategoryNavigation = () => {
