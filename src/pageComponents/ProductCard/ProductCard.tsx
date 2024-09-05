@@ -375,7 +375,7 @@ export const ProductCard = ({
                     })}
                     style={{ backgroundColor: item?.color?.color || 'transparent' }}
                   >
-                    {item.color.image && (
+                    {item.color.image && item.color.image.startsWith("http") && (
                       <Image
                         src={`${FILESERVER_URL}/upload/${item.color.image}`}
                         width={32}

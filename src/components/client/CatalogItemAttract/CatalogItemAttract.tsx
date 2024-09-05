@@ -1,5 +1,5 @@
 import { CatalogItemAttractProps } from './CatalogItemAttract.props';
-import styles from './CatalogItem.module.scss';
+import styles from './CatalogItemAttract.module.scss';
 import Image from 'next/image';
 
 export const CatalogItemAttract = ({ type }: CatalogItemAttractProps) => {
