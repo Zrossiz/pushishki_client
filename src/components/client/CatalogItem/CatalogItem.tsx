@@ -60,8 +60,7 @@ export const CatalogItem = ({ product, localStorageFavorites, customHref }: Cata
         <Image
           src={`${FILESERVER_URL}/upload/${product.image}`}
           alt={product.name}
-          height={156}
-          width={234}
+          fill
         />
       </div>
       <div className={styles.infoWrapper}>
