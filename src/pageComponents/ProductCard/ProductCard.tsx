@@ -332,7 +332,7 @@ export const ProductCard = ({
                 <li>
                   {product?.battery && (
                     <>
-                      Съемный аккумулятор: <span>{product?.battery}</span>
+                      Аккумулятор: <span>{product?.battery}</span>
                     </>
                   )}
                 </li>

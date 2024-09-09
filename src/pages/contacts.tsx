@@ -44,11 +44,11 @@ const ContactsPage = () => {
                   src={'/icons/Happy.svg'}
                   width={42}
                   height={42}
-                  alt="Более 120 довольных клиентов"
+                  alt="Более 1000 довольных клиентов"
                 />
               </div>
               <div className={styles.descWrapper}>
-                <div className={styles.counter}>Более 120 довольных клиентов</div>
+                <div className={styles.counter}>Более 1000 довольных клиентов</div>
                 <div className={styles.conusltWrapper}>Проконсультируем и поможем с выбором</div>
               </div>
             </div>
@@ -67,7 +67,7 @@ const ContactsPage = () => {
             <div className={styles.title}>
               <HTag tag="h2">Реквизиты</HTag>
             </div>
-            <div className={styles.desc}>Общество с ограниченной ответственностью «Пушишки»</div>
+            <div className={styles.desc}>ИП Дедуренко Алексей Анатольевич</div>
           </div>
           <ul className={styles.list}>
             <li>
@@ -79,15 +79,11 @@ const ContactsPage = () => {
                 <br />
                 30 с2
               </div>
-            </li>
-            <li>
-              <div className={styles.title}>Юридический адрес</div>
-              <div className={styles.desc}>
-                125480, г. Москва, улица
-                <br />
-                Вилиса Лациса,
-                <br />
-                30 с2
+              <div>
+                ИНН 233400196630
+              </div>
+              <div>
+                ОГРНИП 305233405300081
               </div>
             </li>
           </ul>

@@ -11,6 +11,7 @@ import { MainPageProps } from '@/types';
 import { Layout } from '@/layout/client/Layout';
 
 const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
+  console.log(bestSellers)
   const mainTitleRef = useRef(null);
   const mainTitleRefIsInView = useInView(mainTitleRef, { once: true });
 

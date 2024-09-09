@@ -2,6 +2,11 @@ import Link from 'next/link';
 import { SliderItemProps } from './SliderItem.props';
 import styles from './SliderItem.module.scss';
 import Image from 'next/image';
+import getConfig from 'next/config';
+
+
+const { publicRuntimeConfig } = getConfig();
+const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const SliderItem = ({ product }: SliderItemProps) => {
   const formattedPrice: string =
@@ -19,7 +24,11 @@ export const SliderItem = ({ product }: SliderItemProps) => {
       className={styles.itemWrapper}
     >
       <div className={styles.imgWrapper}>
-        <Image src={'/sliderImg.png'} fill alt={product.name} />
+        <Image           
+          src={`${FILESERVER_URL}/upload/${product.image}`}
+          fill 
+          alt={product.name} 
+        />
       </div>
       <div className={styles.descWrapper}>
         <div className={styles.titleWrapper}>

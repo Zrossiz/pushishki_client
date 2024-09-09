@@ -6,11 +6,10 @@ import cn from 'classnames';
 import Image from 'next/image';
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
+import { useEffect } from 'react';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
-
-Fancybox.bind('[data-fancybox="gallery"]');
 
 const SwiperButtonNext = () => {
   const swiper = useSwiper();
@@ -31,6 +30,7 @@ const SwiperButtonPrev = () => {
 };
 
 export const CardItemGallery = ({ images }: CardItemGalleryProps) => {
+
   return (
     <div className={styles.sliderWrapper}>
       {images && images[0] !== '' ? (

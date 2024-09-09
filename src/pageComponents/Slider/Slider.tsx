@@ -67,7 +67,7 @@ export const Slider = ({ title, products, style }: SliderProps) => {
               spaceBetween: 20,
             },
           }}
-          // modules={[Autoplay]}
+          modules={[Autoplay]}
         >
           <div className={styles.navigationWrapper}>
             <SwiperButtonPrev />

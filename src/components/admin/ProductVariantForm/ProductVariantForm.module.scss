@@ -23,7 +23,6 @@
         background-color: var(--white);
         padding: 40px;
         border-radius: 20px;
-        width: 80%;
         overflow: auto;
         max-height: 80%;
 
@@ -38,7 +37,6 @@
 
             .variantsWrapper {
                 margin-top: 40px;
-                width: 50%;
 
                 @media screen and (max-width: 480px) {
                     width: 100%;
@@ -68,7 +66,6 @@
     
             .createWrapper {
                 margin-top: 40px;
-                width: 50%;
 
                 @media screen and (max-width: 480px) {
                     width: 100%;
