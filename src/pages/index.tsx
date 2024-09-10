@@ -55,11 +55,11 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               <Link href="/categories/spectehnika" className={styles.category}>
                 Спецтехника
               </Link>
-              <Link href="/categories/velotehnika" className={styles.category}>
-                Велотехника
+              <Link href="/categories/mototehnika" className={styles.category}>
+                Мототехника
               </Link>
               <Link href="/categories/electocary" className={styles.category}>
-                Электрокары
+                Электромобили
               </Link>
               <Link href="/categories" className={styles.category}>
                 И многое другое

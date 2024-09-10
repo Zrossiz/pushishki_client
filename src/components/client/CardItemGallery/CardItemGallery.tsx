@@ -11,6 +11,8 @@ import { useEffect } from 'react';
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
+Fancybox.bind('[data-fancybox="gallery"]');
+
 const SwiperButtonNext = () => {
   const swiper = useSwiper();
   return (
