@@ -52,7 +52,7 @@
             span {
                 width: 100%;
                 font-weight: 700;
-                font-size: 24px;
+                font-size: 20px;
                 color: var(--black);
                 line-height: 1.2em;
                 overflow: hidden;
@@ -60,6 +60,7 @@
                 -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
                 text-overflow: ellipsis;
+                overflow-wrap: break-word;
                 word-wrap: break-word;
                 height: 100px;
                 hyphens: auto;
@@ -67,7 +68,7 @@
 
     
                 @media screen and (max-width: 900px) {
-                    font-size: 18px;
+                    font-size: 16px;
                 };
             }
         }
