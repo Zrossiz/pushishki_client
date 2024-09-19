@@ -52,14 +52,14 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
           </div>
           <div className={styles.chooseWrapper}>
             <div className={styles.categoriesWrapper}>
-              <Link href="/categories/spectehnika" className={styles.category}>
-                Спецтехника
+              <Link href="/categories/elektromobili" className={styles.category}>
+                Электромобили
               </Link>
               <Link href="/categories/mototehnika" className={styles.category}>
                 Мототехника
               </Link>
-              <Link href="/categories/electocary" className={styles.category}>
-                Электромобили
+              <Link href="/categories/spectehnika" className={styles.category}>
+                Спецтехника
               </Link>
               <Link href="/categories" className={styles.category}>
                 И многое другое
