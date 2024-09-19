@@ -68,6 +68,12 @@ const ContactsPage = () => {
               <HTag tag="h2">Реквизиты</HTag>
             </div>
             <div className={styles.desc}>ИП Дедуренко Алексей Анатольевич</div>
+            <div>
+              ИНН 233400196630
+            </div>
+            <div>
+              ОГРНИП 305233405300081
+            </div>
           </div>
           <ul className={styles.list}>
             <li>
@@ -78,12 +84,6 @@ const ContactsPage = () => {
                 Вилиса Лациса,
                 <br />
                 30 с2
-              </div>
-              <div>
-                ИНН 233400196630
-              </div>
-              <div>
-                ОГРНИП 305233405300081
               </div>
             </li>
           </ul>
