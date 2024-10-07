@@ -22,9 +22,9 @@ export const ProductForm = ({
 }: ProductFormProps) => {
   const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
 
-  const [selectedCountry, setSelectedCountry] = useState<number>(1);
-  const [selectedBrand, setSelectedBrand] = useState<number>(1);
-  const [selectedCategory, setSelectedCategory] = useState<number>(1);
+  const [selectedCountry, setSelectedCountry] = useState<number>(product?.country.id ?? 1);
+  const [selectedBrand, setSelectedBrand] = useState<number>(product?.brand.id ?? 1);
+  const [selectedCategory, setSelectedCategory] = useState<number>(product?.category.id ?? 1);
   const [selectedName, setSelectedName] = useState<string>(product?.name ?? '');
   const [description, setDescription] = useState<string>(product?.description ?? '');
   const [articul, setArticul] = useState<string>(product?.articul ?? '');
