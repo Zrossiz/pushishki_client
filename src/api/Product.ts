@@ -52,9 +52,7 @@ export const getCategoryProducts = async (
 
 export const getBestsellers = async (): Promise<IProduct[] | { message: string }> => {
   try {
-    const bestsellers = await axios.get<IProduct[]>(
-      `${process.env.API_URL}/product/bestsellers`,
-    );
+    const bestsellers = await axios.get<IProduct[]>(`${process.env.API_URL}/product/bestsellers`);
 
     return bestsellers.data;
   } catch (err) {

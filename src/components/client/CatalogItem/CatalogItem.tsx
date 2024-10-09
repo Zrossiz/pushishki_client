@@ -57,11 +57,7 @@ export const CatalogItem = ({ product, localStorageFavorites, customHref }: Cata
   return (
     <div className={styles.wrapper}>
       <div className={styles.imgWrapper}>
-        <Image
-          src={`${FILESERVER_URL}/upload/${product.image}`}
-          alt={product.name}
-          fill
-        />
+        <Image src={`${FILESERVER_URL}/upload/${product.image}`} alt={product.name} fill />
       </div>
       <div className={styles.infoWrapper}>
         <div className={styles.nameWrapper}>

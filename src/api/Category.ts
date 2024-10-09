@@ -69,7 +69,7 @@ export const updateCategory = async (
       metaTitle,
       metaDescription,
       metaKeyWords,
-      image
+      image,
     });
 
     return data;

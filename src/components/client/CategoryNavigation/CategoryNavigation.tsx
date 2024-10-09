@@ -24,8 +24,8 @@ const categories = [
   },
   {
     name: 'Все варианты',
-    slug: ''
-  }
+    slug: '',
+  },
 ];
 
 export const CategoryNavigation = () => {

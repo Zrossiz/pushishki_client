@@ -67,21 +67,24 @@ export const ProductCard = ({
       name: `Категории`,
       path: `/categories`,
     },
-  ]
+  ];
 
   if (router.asPath.includes('sub-category')) {
-    breadcrumbsArr.push({
-      name: 'Подкатегории',
-      path: `/categories/${router.query.slug}/sub-category`,
-    }, {
-      name: 'Каталог',
-      path: `/categories/${router.query.slug}/sub-category/${router.query.slugSubCategory}`
-    })
+    breadcrumbsArr.push(
+      {
+        name: 'Подкатегории',
+        path: `/categories/${router.query.slug}/sub-category`,
+      },
+      {
+        name: 'Каталог',
+        path: `/categories/${router.query.slug}/sub-category/${router.query.slugSubCategory}`,
+      },
+    );
   } else {
     breadcrumbsArr.push({
       name: 'Каталог',
       path: `/categories/${router.query.slug}`,
-    })
+    });
   }
 
   let localStorageFavorites: IProduct[];
@@ -252,9 +255,7 @@ export const ProductCard = ({
               )}
             </div>
             <div className={styles.breadcrumbsWrapper}>
-              <Breadcrumbs
-                breadcrumbs={breadcrumbsArr}
-              />
+              <Breadcrumbs breadcrumbs={breadcrumbsArr} />
             </div>
             <div className={styles.titleWrapper}>
               <h1>{product?.name}</h1>
@@ -375,7 +376,7 @@ export const ProductCard = ({
                     })}
                     style={{ backgroundColor: item?.color?.color || 'transparent' }}
                   >
-                    {item.color.image && item.color.image.startsWith("http") && (
+                    {item.color.image && item.color.image.startsWith('http') && (
                       <Image
                         src={`${FILESERVER_URL}/upload/${item.color.image}`}
                         width={32}

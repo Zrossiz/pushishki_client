@@ -4,7 +4,10 @@ import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
 
-export const uploadFiles = async (files: File[] | File, watermark?: boolean): Promise<{ message: string }> => {
+export const uploadFiles = async (
+  files: File[] | File,
+  watermark?: boolean,
+): Promise<{ message: string }> => {
   try {
     const formData = new FormData();
 

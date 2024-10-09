@@ -32,7 +32,6 @@ const SwiperButtonPrev = () => {
 };
 
 export const CardItemGallery = ({ images }: CardItemGalleryProps) => {
-
   return (
     <div className={styles.sliderWrapper}>
       {images && images[0] !== '' ? (
