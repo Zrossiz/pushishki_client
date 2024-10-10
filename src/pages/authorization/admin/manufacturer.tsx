@@ -4,6 +4,7 @@ import { AdminLayout } from "@/layout/admin/AdminLayout"
 import { IManufacturer } from "@/types/Manufacturer";
 import { useEffect, useState } from "react";
 import styles from '../../../styles/admin/Default.module.scss';
+import { ManufacturerListItem } from "@/components/admin";
 
 const ManufacturerPage = () => {
     const [manufacturers, setManufacturers] = useState<IManufacturer[]>([]);
@@ -14,7 +15,7 @@ const ManufacturerPage = () => {
             if (Array.isArray(apiManufacturers)) {
                 setManufacturers(apiManufacturers);
             }
-        })
+        })()
     }, []);
 
     return (
@@ -27,7 +28,9 @@ const ManufacturerPage = () => {
                 </div>
                 <div className={styles.listWrapper}>
                     {manufacturers.length > 0 ? (
-                        <div>Элементы</div>
+                        manufacturers.map((manufacturer) => {
+                            return <ManufacturerListItem key={manufacturer.id} item={manufacturer} />
+                        })
                     ) : (
                         <HTag tag="h3">Ничего не найдено</HTag>
                     )}

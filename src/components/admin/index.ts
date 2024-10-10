@@ -24,3 +24,4 @@ export * from './SubCategoryListItem/SubCategoryListItem';
 export * from './VoltageForm/VoltageForm';
 export * from './DriveForm/DriveForm';
 export * from './AgeForm/AgeForm';
+export * from './ManufacturerListItem/ManufacturerListItem';
