@@ -28,6 +28,10 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
       slug: 'brand',
     },
     {
+      name: 'Производитель',
+      slug: 'manufacturer'
+    },
+    {
       name: 'Категория',
       slug: 'category',
     },

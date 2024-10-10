@@ -43,7 +43,7 @@ export const Slider = ({ title, products, style }: SliderProps) => {
             disableOnInteraction: false,
           }}
           loop
-          slidesPerView={3}
+          slidesPerView={2}
           spaceBetween={60}
           breakpoints={{
             640: {

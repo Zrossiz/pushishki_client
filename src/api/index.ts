@@ -13,3 +13,4 @@ export * from './Age';
 export * from './Voltage';
 export * from './Drive';
 export * from './SubCategory';
+export * from './Manufacturer';
