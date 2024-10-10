@@ -4,10 +4,11 @@ import { AdminLayout } from "@/layout/admin/AdminLayout"
 import { IManufacturer } from "@/types/Manufacturer";
 import { useEffect, useState } from "react";
 import styles from '../../../styles/admin/Default.module.scss';
-import { ManufacturerListItem } from "@/components/admin";
+import { ManufacturerForm, ManufacturerListItem } from "@/components/admin";
 
 const ManufacturerPage = () => {
     const [manufacturers, setManufacturers] = useState<IManufacturer[]>([]);
+    const [create, setCreate] = useState<boolean>(false);
 
     useEffect(() => {
         (async () => {
@@ -21,8 +22,14 @@ const ManufacturerPage = () => {
     return (
         <AdminLayout>
             <>
+                {create && (
+                    <ManufacturerForm 
+                        isEdit={false}
+                        setOpen={setCreate}
+                    />
+                )}
                 <div className={styles.addButtonWrapper}>
-                    <LinkButton element="button">
+                    <LinkButton element="button" onClick={() => setCreate(true)}>
                         Добавить
                     </LinkButton>
                 </div>

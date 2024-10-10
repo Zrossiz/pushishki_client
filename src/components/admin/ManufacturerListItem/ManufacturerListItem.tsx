@@ -2,7 +2,7 @@ import styles from './ManufacturerListItem.module.scss';
 import Image from 'next/image';
 import { IManufacturerListItemProps } from './ManufacturerListItem.props';
 import { useState } from 'react';
-import { DeleteItem } from '..';
+import { DeleteItem, ManufacturerForm } from '..';
 
 export const ManufacturerListItem = ({ item }: IManufacturerListItemProps) => {
     const [edit, setEdit] = useState<boolean>(false);
@@ -19,6 +19,13 @@ export const ManufacturerListItem = ({ item }: IManufacturerListItemProps) => {
                     />
                 )
             }
+            {edit && (
+                <ManufacturerForm 
+                    isEdit={true}
+                    item={item}
+                    setOpen={setEdit}
+                />
+            )}
             <div className={styles.nameWrapper}>{item.name}</div>
             <div className={styles.edit} onClick={() => setEdit(true)}>
                 <svg

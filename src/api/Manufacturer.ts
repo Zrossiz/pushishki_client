@@ -5,7 +5,7 @@ import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 const { API_URL } = publicRuntimeConfig;
 
-export const postManufacturer = async  (name: string): Promise<IManufacturer | { message: string }> => {
+export const createManufacturer = async  (name: string): Promise<IManufacturer | { message: string }> => {
     try {
         const { data } = await axiosInst.post(`${API_URL}/manufacturer`, {
             name
