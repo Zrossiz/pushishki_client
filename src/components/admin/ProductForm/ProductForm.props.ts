@@ -7,6 +7,7 @@ import {
   IProduct,
   ISubCategory,
   IVoltage,
+  IManufacturer
 } from '@/types';
 
 export interface ProductFormProps {
@@ -20,4 +21,5 @@ export interface ProductFormProps {
   voltages: IVoltage[];
   subCategories: ISubCategory[];
   drives: IDrive[];
+  manufacturers: IManufacturer[];
 }

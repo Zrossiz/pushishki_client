@@ -17,6 +17,7 @@ export const ProductListItem = ({
   ages,
   subCategories,
   drives,
+  manufacturers
 }: ProductListItemProps) => {
   const [remove, setRemove] = useState<boolean>(false);
   const [edit, setEdit] = useState<boolean>(false);
@@ -43,6 +44,7 @@ export const ProductListItem = ({
           setOpen={setEdit}
           product={product}
           update={true}
+          manufacturers={manufacturers}
         />
       )}
       {variant && (

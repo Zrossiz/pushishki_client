@@ -12,6 +12,7 @@ import {
   ISubCategory,
 } from '.';
 import { IDrive } from './Drive';
+import { IManufacturer } from './Manufacturer';
 import { IVoltage } from './Voltage';
 
 export interface MainPageProps {
@@ -85,6 +86,7 @@ export interface IAdminProduct {
   voltages: IVoltage[];
   subCategories: ISubCategory[];
   drives: IDrive[];
+  manufacturers: IManufacturer[];
 }
 
 export interface ISubCategoryPage {

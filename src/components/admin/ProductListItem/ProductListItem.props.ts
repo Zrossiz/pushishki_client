@@ -8,6 +8,7 @@ import {
   ISubCategory,
   IVoltage,
 } from '@/types';
+import { IManufacturer } from '@/types/Manufacturer';
 
 export interface ProductListItemProps {
   product: IProduct;
@@ -18,4 +19,5 @@ export interface ProductListItemProps {
   voltages: IVoltage[];
   subCategories: ISubCategory[];
   drives: IDrive[];
+  manufacturers: IManufacturer[];
 }

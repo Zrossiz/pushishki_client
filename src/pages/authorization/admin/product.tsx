@@ -2,6 +2,7 @@ import {
   findProducts,
   getAllAges,
   getAllDrives,
+  getAllManufacturers,
   getAllProducts,
   getAllSubCategories,
   getAllVoltages,
@@ -24,7 +25,9 @@ const ProductPage = ({
   voltages,
   subCategories,
   drives,
+  manufacturers
 }: IAdminProduct) => {
+  console.log(manufacturers);
   const [products, setProducts] = useState<IProductWithLength | { message: string }>();
   const [foundedProducts, setFoundedProducts] = useState<
     IProductWithLength | { message: string }
@@ -69,6 +72,7 @@ const ProductPage = ({
             voltages={voltages}
             ages={ages}
             subCategories={subCategories}
+            manufacturers={manufacturers}
           />
         )}
         <div className={styles.addButtonWrapper}>
@@ -95,6 +99,7 @@ const ProductPage = ({
                     voltages={voltages}
                     product={item}
                     key={item.id}
+                    manufacturers={manufacturers}
                   />
                 );
               })
@@ -109,6 +114,7 @@ const ProductPage = ({
                     voltages={voltages}
                     product={item}
                     key={item.id}
+                    manufacturers={manufacturers}
                   />
                 );
               })}
@@ -133,6 +139,7 @@ export const getServerSideProps = async () => {
   const drives = await getAllDrives();
   const voltages = await getAllVoltages();
   const subCategories = await getAllSubCategories();
+  const manufacturers = await getAllManufacturers();
 
   return {
     props: {
@@ -143,6 +150,7 @@ export const getServerSideProps = async () => {
       drives,
       voltages,
       subCategories,
+      manufacturers
     },
   };
 };

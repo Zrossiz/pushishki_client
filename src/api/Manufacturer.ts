@@ -1,4 +1,5 @@
 import { IManufacturer } from "@/types/Manufacturer"
+import axios from "axios";
 import { axiosInst } from "@/utils";
 import getConfig from 'next/config';
 
@@ -22,8 +23,7 @@ export const createManufacturer = async  (name: string): Promise<IManufacturer |
 
 export const getAllManufacturers = async (): Promise<IManufacturer[] | { message: string }> => {
     try {
-        const { data } = await axiosInst.get(`${API_URL}/manufacturer`);
-
+        const { data } = await axios.get(`${API_URL}/manufacturer`);
         return data;
     } catch (err) {
         console.log(err);

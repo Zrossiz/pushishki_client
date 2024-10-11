@@ -1,4 +1,5 @@
 import { IAge, IBrand, ICategory, ICountry, IDrive, ISubCategory, IVoltage } from '.';
+import { IManufacturer } from './Manufacturer';
 
 export interface IProductWithLength {
   length: number;
@@ -39,6 +40,7 @@ export interface IProduct {
   ageId?: number;
   driveId?: number;
   subCategory?: ISubCategory;
+  manufacturer: IManufacturer;
 }
 
 export interface ICreateProduct {
@@ -67,4 +69,5 @@ export interface ICreateProduct {
   ageId?: number;
   driveId?: number;
   subCategoryId?: number;
+  manufacturerId?: number;
 }

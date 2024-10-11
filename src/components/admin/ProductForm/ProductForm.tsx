@@ -1,9 +1,9 @@
-import { MouseEventHandler, useState } from 'react';
+import { MouseEventHandler, useEffect, useState } from 'react';
 import styles from './ProductForm.module.scss';
 import { ProductFormProps } from './ProductForm.props';
 import Select from 'react-select';
 import { HTag } from '@/elements';
-import { create, updateProduct, uploadFiles } from '@/api';
+import { create, getAllManufacturers, updateProduct, uploadFiles } from '@/api';
 import { ICreateProduct } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
 import 'react-quill/dist/quill.snow.css';
@@ -19,9 +19,9 @@ export const ProductForm = ({
   voltages,
   drives,
   subCategories,
+  manufacturers
 }: ProductFormProps) => {
   const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
-
   const [selectedCountry, setSelectedCountry] = useState<number>(product?.country.id ?? 1);
   const [selectedBrand, setSelectedBrand] = useState<number>(product?.brand.id ?? 1);
   const [selectedCategory, setSelectedCategory] = useState<number>(product?.category.id ?? 1);
@@ -51,7 +51,7 @@ export const ProductForm = ({
   const [subCategory, setSubCategory] = useState<number>(product?.subCategoryId ?? 0);
   const [inStock, setInStock] = useState<boolean>(product?.inStock ?? true);
   const [age, setAge] = useState<number>(product?.ageId ?? 0);
-
+  const [manufacturerId, setManufacturerId] = useState<number>(product?.manufacturer?.id ?? 0);
   let disabled = true;
 
   if (
@@ -110,6 +110,10 @@ export const ProductForm = ({
     createProductData.subCategoryId = subCategory;
   }
 
+  if (manufacturerId) {
+    createProductData.manufacturerId = manufacturerId;
+  }
+
   const countryOptions = countries?.data.map((item) => ({
     value: item.id,
     label: item.name,
@@ -144,6 +148,11 @@ export const ProductForm = ({
     value: item.id,
     label: item.name,
   }));
+
+  const manufacturerOptions = manufacturers.map((item) => ({
+    value: item.id,
+    label: item.name
+  }))
 
   const postProduct = async (e: any) => {
     e.preventDefault();
@@ -368,6 +377,25 @@ export const ProductForm = ({
                       },
                     })}
                     placeholder={'Выберите вольтаж'}
+                  />
+                </div>
+              )}
+              {manufacturerOptions && (
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="manufacturer">Производитель</label>
+                  <Select
+                    id="manufacturers"
+                    options={manufacturerOptions}
+                    value={manufacturerOptions.find((option) => option.value === manufacturerId)}
+                    onChange={(selectedOption) => setManufacturerId(selectedOption?.value ?? 1)}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder={'Выберите производителя'}
                   />
                 </div>
               )}
