@@ -29,8 +29,8 @@ export const Search = ({ search, setSearch, products, stateSearch, getProducts }
           {products && products?.length >= 1 ? (
             products?.slice(0, 4).map((item, index) => {
               let itemHref = `${CLIENT_URL}/categories/${item.category.slug}/`;
-              if (item.subCategoryId) {
-                itemHref += `sub-category/${item.subCategory?.slug}/${item.slug}`;
+              if (item.subCategories && item.subCategories?.length > 0) {
+                itemHref += `sub-category/${item.subCategories[0].slug}/${item.slug}`;
               } else {
                 itemHref += String(item.slug);
               }

@@ -15,7 +15,7 @@ export interface IProduct {
   age?: IAge;
   drive?: IDrive;
   voltage?: IVoltage;
-  subCategoryId?: number;
+  subCategories?: ISubCategory[];
   name: string;
   description: string;
   articul: string;
