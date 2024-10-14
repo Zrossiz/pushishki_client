@@ -1,5 +1,5 @@
-import { IManufacturer } from "@/types/Manufacturer";
+import { IManufacturer } from '@/types/Manufacturer';
 
 export interface IManufacturerListItemProps {
-    item: IManufacturer;
+  item: IManufacturer;
 }

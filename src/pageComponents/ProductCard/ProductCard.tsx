@@ -317,9 +317,9 @@ export const ProductCard = ({
                   )}
                 </li>
                 <li>
-                  {product?.country?.name && (
+                  {product?.manufacturer?.name && (
                     <>
-                      Производитель: <span>{product?.country.name}</span>
+                      Производитель: <span>{product?.manufacturer.name}</span>
                     </>
                   )}
                 </li>

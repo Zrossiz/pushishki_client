@@ -148,10 +148,13 @@ export const create = async (data: ICreateProduct) => {
   }
 };
 
-export const createSubCategoriesRelationForProduct = async (productId: number, subCategories: number[]) => {
+export const createSubCategoriesRelationForProduct = async (
+  productId: number,
+  subCategories: number[],
+) => {
   try {
     const { data } = await axiosInst.post(`${API_URL}/product/sub-categories/${productId}`, {
-      subCategories
+      subCategories,
     });
 
     return data;
@@ -161,7 +164,7 @@ export const createSubCategoriesRelationForProduct = async (productId: number, s
       message: 'Ошибка при создании товара',
     };
   }
-}
+};
 
 export const updateProduct = async (data: ICreateProduct, id?: number) => {
   try {

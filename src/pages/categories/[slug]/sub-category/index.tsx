@@ -33,7 +33,7 @@ const SubCategoryPage = ({ subCategories, category }: ISubCategoryPage) => {
             subCategories.map((subCategory) => {
               const linkToNextPage: string = router.asPath + '/' + subCategory.slug;
               return (
-                <Link href={linkToNextPage} className={styles.itemWrapper}>
+                <Link key={subCategory.id} href={linkToNextPage} className={styles.itemWrapper}>
                   {subCategory.name}
                 </Link>
               );

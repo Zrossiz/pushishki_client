@@ -7,7 +7,7 @@ import {
   IProduct,
   ISubCategory,
   IVoltage,
-  IManufacturer
+  IManufacturer,
 } from '@/types';
 
 export interface ProductFormProps {

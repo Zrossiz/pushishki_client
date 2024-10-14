@@ -39,7 +39,7 @@ export interface IProduct {
   voltageId?: number;
   ageId?: number;
   driveId?: number;
-  manufacturer: IManufacturer;  
+  manufacturer: IManufacturer;
 }
 
 export interface ICreateProduct {

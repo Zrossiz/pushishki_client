@@ -1,4 +1,4 @@
 export interface IManufacturer {
-    id: number;
-    name: string;
+  id: number;
+  name: string;
 }

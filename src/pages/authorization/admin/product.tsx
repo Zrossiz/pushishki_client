@@ -25,7 +25,7 @@ const ProductPage = ({
   voltages,
   subCategories,
   drives,
-  manufacturers
+  manufacturers,
 }: IAdminProduct) => {
   console.log(manufacturers);
   const [products, setProducts] = useState<IProductWithLength | { message: string }>();
@@ -150,7 +150,7 @@ export const getServerSideProps = async () => {
       drives,
       voltages,
       subCategories,
-      manufacturers
+      manufacturers,
     },
   };
 };

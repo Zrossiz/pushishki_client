@@ -17,7 +17,7 @@ export const ProductListItem = ({
   ages,
   subCategories,
   drives,
-  manufacturers
+  manufacturers,
 }: ProductListItemProps) => {
   const [remove, setRemove] = useState<boolean>(false);
   const [edit, setEdit] = useState<boolean>(false);

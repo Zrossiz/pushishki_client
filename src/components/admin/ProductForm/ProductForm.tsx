@@ -3,7 +3,13 @@ import styles from './ProductForm.module.scss';
 import { ProductFormProps } from './ProductForm.props';
 import Select from 'react-select';
 import { HTag } from '@/elements';
-import { create, createSubCategoriesRelationForProduct, getAllManufacturers, updateProduct, uploadFiles } from '@/api';
+import {
+  create,
+  createSubCategoriesRelationForProduct,
+  getAllManufacturers,
+  updateProduct,
+  uploadFiles,
+} from '@/api';
 import { ICreateProduct } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
 import 'react-quill/dist/quill.snow.css';
@@ -19,7 +25,7 @@ export const ProductForm = ({
   voltages,
   drives,
   subCategories,
-  manufacturers
+  manufacturers,
 }: ProductFormProps) => {
   const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
   const [selectedCountry, setSelectedCountry] = useState<number>(product?.country.id ?? 1);
@@ -147,8 +153,8 @@ export const ProductForm = ({
 
   const manufacturerOptions = manufacturers.map((item) => ({
     value: item.id,
-    label: item.name
-  }))
+    label: item.name,
+  }));
 
   const postProduct = async (e: any) => {
     e.preventDefault();
@@ -425,10 +431,12 @@ export const ProductForm = ({
                     id="sub-categories"
                     options={subCategoriesOptions}
                     value={subCategoriesOptions.filter((option) =>
-                      subCategoriesProduct.includes(option.value)
+                      subCategoriesProduct.includes(option.value),
                     )}
                     onChange={(selectedOptions) => {
-                      const selectedValues = selectedOptions ? selectedOptions.map(option => option.value) : [];
+                      const selectedValues = selectedOptions
+                        ? selectedOptions.map((option) => option.value)
+                        : [];
                       setSubCategoriesProduct(selectedValues);
                     }}
                     theme={(theme) => ({
