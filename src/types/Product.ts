@@ -39,8 +39,7 @@ export interface IProduct {
   voltageId?: number;
   ageId?: number;
   driveId?: number;
-  subCategory?: ISubCategory;
-  manufacturer: IManufacturer;
+  manufacturer: IManufacturer;  
 }
 
 export interface ICreateProduct {
@@ -68,6 +67,5 @@ export interface ICreateProduct {
   voltageId?: number;
   ageId?: number;
   driveId?: number;
-  subCategoryId?: number;
   manufacturerId?: number;
 }

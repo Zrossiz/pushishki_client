@@ -3,7 +3,7 @@ import styles from './ProductForm.module.scss';
 import { ProductFormProps } from './ProductForm.props';
 import Select from 'react-select';
 import { HTag } from '@/elements';
-import { create, getAllManufacturers, updateProduct, uploadFiles } from '@/api';
+import { create, createSubCategoriesRelationForProduct, getAllManufacturers, updateProduct, uploadFiles } from '@/api';
 import { ICreateProduct } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
 import 'react-quill/dist/quill.snow.css';
@@ -48,7 +48,7 @@ export const ProductForm = ({
   const [metaKeyWords, setMetaKeyWords] = useState<string>(product?.metaKeyWords ?? '');
   const [voltage, setVoltage] = useState<number>(product?.voltageId ?? 0);
   const [drive, setDrive] = useState<number>(product?.driveId ?? 0);
-  const [subCategory, setSubCategory] = useState<number>(product?.subCategoryId ?? 0);
+  const [subCategoriesProduct, setSubCategoriesProduct] = useState<number[]>([]);
   const [inStock, setInStock] = useState<boolean>(product?.inStock ?? true);
   const [age, setAge] = useState<number>(product?.ageId ?? 0);
   const [manufacturerId, setManufacturerId] = useState<number>(product?.manufacturer?.id ?? 0);
@@ -106,10 +106,6 @@ export const ProductForm = ({
     createProductData.voltageId = voltage;
   }
 
-  if (subCategory) {
-    createProductData.subCategoryId = subCategory;
-  }
-
   if (manufacturerId) {
     createProductData.manufacturerId = manufacturerId;
   }
@@ -163,6 +159,10 @@ export const ProductForm = ({
     }
     if (image) {
       await uploadFiles(image, true);
+    }
+
+    if (product) {
+      await createSubCategoriesRelationForProduct(product?.id, subCategoriesProduct);
     }
     window.location.reload();
   };
@@ -244,7 +244,7 @@ export const ProductForm = ({
                         primary: 'green',
                       },
                     })}
-                    placeholder={'Выберите категорию'}
+                    placeholder={'Выберите категории'}
                   />
                 </div>
               )}
@@ -420,12 +420,17 @@ export const ProductForm = ({
               )}
               {subCategoriesOptions && (
                 <div className={styles.selectWrapper}>
-                  <label htmlFor="sub categories">Подкатегория</label>
+                  <label htmlFor="sub-categories">Подкатегория</label>
                   <Select
-                    id="sub categories"
+                    id="sub-categories"
                     options={subCategoriesOptions}
-                    value={subCategoriesOptions.find((option) => option.value === subCategory)}
-                    onChange={(selectedOption) => setSubCategory(selectedOption?.value ?? 1)}
+                    value={subCategoriesOptions.filter((option) =>
+                      subCategoriesProduct.includes(option.value)
+                    )}
+                    onChange={(selectedOptions) => {
+                      const selectedValues = selectedOptions ? selectedOptions.map(option => option.value) : [];
+                      setSubCategoriesProduct(selectedValues);
+                    }}
                     theme={(theme) => ({
                       ...theme,
                       colors: {
@@ -433,7 +438,8 @@ export const ProductForm = ({
                         primary: 'green',
                       },
                     })}
-                    placeholder={'Выберите подкатегорию'}
+                    placeholder="Выберите подкатегорию"
+                    isMulti // активация множественного выбора
                   />
                 </div>
               )}
