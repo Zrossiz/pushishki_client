@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 
 const SubCategoryPage = ({ subCategories, category }: ISubCategoryPage) => {
   const router = useRouter();
+  console.log(router);
   return (
     <Layout
       title={`${category?.metaTitle ? category?.metaTitle : 'Ничего не найдено'} | Пушишки`}
@@ -29,6 +30,9 @@ const SubCategoryPage = ({ subCategories, category }: ISubCategoryPage) => {
           ]}
         />
         <div className={styles.main}>
+          <Link href={`/categories/${router.query.slug}`} className={styles.itemWrapper}>
+            Все товары
+          </Link>
           {Array.isArray(subCategories) && subCategories?.length > 0 ? (
             subCategories.map((subCategory) => {
               const linkToNextPage: string = router.asPath + '/' + subCategory.slug;
