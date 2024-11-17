@@ -205,7 +205,7 @@ export const ProductForm = ({
       setSubCategoriesProduct(result);
     }
   }, []);
-
+  
   return (
     <div className={styles.wrapper}>
       <div className={styles.bg} onClick={() => setOpen(false)}></div>

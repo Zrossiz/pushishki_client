@@ -45,6 +45,9 @@ export const ProductListItem = ({
           product={product}
           update={true}
           manufacturers={manufacturers}
+          countries={countries}
+          brands={brands}
+          categories={categories}
         />
       )}
       {variant && (

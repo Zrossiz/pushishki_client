@@ -27,7 +27,6 @@ const ProductPage = ({
   drives,
   manufacturers,
 }: IAdminProduct) => {
-  console.log(manufacturers);
   const [products, setProducts] = useState<IProductWithLength | { message: string }>();
   const [foundedProducts, setFoundedProducts] = useState<
     IProductWithLength | { message: string }
@@ -100,6 +99,8 @@ const ProductPage = ({
                     product={item}
                     key={item.id}
                     manufacturers={manufacturers}
+                    brands={brands}
+                    categories={categories}
                   />
                 );
               })
@@ -115,6 +116,8 @@ const ProductPage = ({
                     product={item}
                     key={item.id}
                     manufacturers={manufacturers}
+                    brands={brands}
+                    categories={categories}
                   />
                 );
               })}
