@@ -7,3 +7,9 @@ export interface ISubCategory {
   metaDescription: string;
   metaKeyWords: string;
 }
+
+export interface IProductSubCategory {
+  id: number;
+  subCategoryId: number;
+  productId: number;
+}

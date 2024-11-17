@@ -1,4 +1,13 @@
-import { IAge, IBrand, ICategory, ICountry, IDrive, ISubCategory, IVoltage } from '.';
+import {
+  IAge,
+  IBrand,
+  ICategory,
+  ICountry,
+  IDrive,
+  ISubCategory,
+  IVoltage,
+  IProductSubCategory,
+} from '.';
 import { IManufacturer } from './Manufacturer';
 
 export interface IProductWithLength {
@@ -16,6 +25,7 @@ export interface IProduct {
   drive?: IDrive;
   voltage?: IVoltage;
   subCategories?: ISubCategory[];
+  SubCategoryProduct?: IProductSubCategory[];
   name: string;
   description: string;
   articul: string;

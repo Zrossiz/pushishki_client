@@ -10,7 +10,7 @@ import {
   updateProduct,
   uploadFiles,
 } from '@/api';
-import { ICreateProduct } from '@/types';
+import { ICreateProduct, IProductSubCategory } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
 import 'react-quill/dist/quill.snow.css';
 
@@ -182,6 +182,29 @@ export const ProductForm = ({
       setImage(renamedFile);
     }
   };
+
+  const calculateSubCategories = (subCategoriesProduct: IProductSubCategory[]): number[] => {
+    const newSubCategoriesProduct: number[] = [];
+
+    for (let i = 0; i < subCategoriesProduct.length; i++) {
+      for (let j = 0; j < subCategories.length; j++) {
+        if (subCategoriesProduct[i].subCategoryId === subCategories[j].id) {
+          if (!newSubCategoriesProduct.includes(subCategoriesProduct[i].id)) {
+            newSubCategoriesProduct.push(subCategoriesProduct[i].subCategoryId);
+          }
+        }
+      }
+    }
+
+    return newSubCategoriesProduct;
+  };
+
+  useEffect(() => {
+    if (product?.SubCategoryProduct && product.SubCategoryProduct.length > 0) {
+      const result = calculateSubCategories(product?.SubCategoryProduct);
+      setSubCategoriesProduct(result);
+    }
+  }, []);
 
   return (
     <div className={styles.wrapper}>
