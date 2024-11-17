@@ -203,3 +203,22 @@ export const deleteProductFiles = async (productId: number): Promise<{ message: 
     };
   }
 };
+
+export const getQuizResults = async (
+  categoryId: number,
+  maxAge: number,
+  priceTo: number,
+): Promise<IProduct[] | {message: string}> => {
+  try {
+    const { data } = await axios.get<IProduct[]>(
+      `${API_URL}/product/quiz?categoryId=${categoryId}&maxAge=${maxAge}&priceTo=${priceTo}`
+    );
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при получении результатов опроса',
+    };
+  }
+}

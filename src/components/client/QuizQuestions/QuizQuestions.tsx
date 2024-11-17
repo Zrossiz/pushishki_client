@@ -3,20 +3,20 @@ import styles from './QuizQuestions.module.scss';
 import Image from 'next/image';
 import { QuizQuestionsProps } from './QuizQuestions.props';
 import { IProduct, IProductWithLength } from '@/types';
-import { getCategoryProducts } from '@/api';
+import { getCategoryProducts, getQuizResults } from '@/api';
 import cn from 'classnames';
 import { HTag, Input, LinkButton } from '@/elements';
 import { SliderItem } from '..';
 import { useRouter } from 'next/router';
 
 export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
-  const questions: string[] = ['Какая модель вас интересует?', 'Нагрузка', 'Стоимость'];
+  const questions: string[] = ['Какая модель вас интересует?', 'Возраст', 'Стоимость'];
 
   const router = useRouter();
 
   const [question, setQuesiton] = useState<number>(0);
-  const [category, setCategory] = useState<string>('');
-  const [maximumLoad, setMaximLoad] = useState<number>(0);
+  const [category, setCategory] = useState<number>(0);
+  const [age, setAge] = useState<number>(0);
   const [priceFrom, setPriceFrom] = useState<number>(0);
   const [priceTo, setPriceTo] = useState<number>(0);
 
@@ -28,25 +28,16 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
     }
 
     if (question === questions.length - 1) {
-      const products: IProductWithLength | { message: string } = await getCategoryProducts(
+      const products: IProduct[] | { message: string } = await getQuizResults(
         category,
-        1,
-        1,
-        0,
-        priceTo,
-        [],
-        [],
-        true,
-        maximumLoad,
-        [],
-        [],
-        [],
+        age,
+        priceTo
       );
-      if ('data' in products && products.length === 0) {
-        router.push(`/categories/${category}`);
-      }
-      if ('data' in products) {
-        setResult(products.data);
+      // if ("message" in products) {
+      //   router.push(`/categories/`);
+      // }
+      if (Array.isArray(products)) {
+        setResult(products);
       }
     }
 
@@ -72,9 +63,9 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                     return (
                       <div
                         key={item.id}
-                        onClick={() => setCategory(item.slug)}
+                        onClick={() => setCategory(item.id)}
                         className={cn(styles.category, {
-                          [styles.active]: item.slug === category,
+                          [styles.active]: item.id === category,
                         })}
                       >
                         {item.name}
@@ -84,17 +75,14 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
                 </div>
               )}
               {question === 1 && (
-                <div className={styles.maximumLoadWrapper}>
+                <div className={styles.maxAgeWrapper}>
                   <div className={styles.inputWrapper}>
-                    От <Input type="text" defaultValue={0} />
-                  </div>
-                  <div className={styles.inputWrapper}>
-                    До <Input type="text" value={maximumLoad} onChange={setMaximLoad} />
+                    До <Input type="text" value={age} onChange={setAge} />
                   </div>
                 </div>
               )}
               {question === 2 && (
-                <div className={styles.maximumLoadWrapper}>
+                <div className={styles.maxAgeWrapper}>
                   <div className={styles.inputWrapper}>
                     От <Input type="text" value={priceFrom} onChange={setPriceFrom} />
                   </div>
