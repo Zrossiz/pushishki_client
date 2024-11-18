@@ -7,6 +7,7 @@ import { CatalogItem, Pagination, Search, Sort } from '@/components/client';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import getConfig from 'next/config';
+import { delay } from '@/utils';
 
 const { publicRuntimeConfig } = getConfig();
 const { CLIENT_URL } = publicRuntimeConfig;
@@ -31,6 +32,7 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
   };
 
   const getProducts = async () => {
+    await delay(1000);
     setStartSearch(false);
     router.push({
       pathname: router.pathname,
