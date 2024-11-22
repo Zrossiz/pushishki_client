@@ -19,7 +19,6 @@ export interface ProductFormProps {
   update?: boolean;
   ages: IAge[];
   voltages: IVoltage[];
-  subCategories: ISubCategory[];
   drives: IDrive[];
   manufacturers: IManufacturer[];
 }

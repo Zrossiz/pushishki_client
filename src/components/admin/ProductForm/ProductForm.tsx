@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './ProductForm.module.scss';
 import { ProductFormProps } from './ProductForm.props';
 import Select from 'react-select';
@@ -6,11 +6,11 @@ import { HTag } from '@/elements';
 import {
   create,
   createSubCategoriesRelationForProduct,
-  getAllManufacturers,
+  getSubCategoriesByCategory,
   updateProduct,
   uploadFiles,
 } from '@/api';
-import { ICreateProduct, IProductSubCategory } from '@/types';
+import { ICreateProduct, IProductSubCategory, ISubCategory } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
 import 'react-quill/dist/quill.snow.css';
 
@@ -24,7 +24,6 @@ export const ProductForm = ({
   ages,
   voltages,
   drives,
-  subCategories,
   manufacturers,
 }: ProductFormProps) => {
   const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
@@ -58,6 +57,9 @@ export const ProductForm = ({
   const [inStock, setInStock] = useState<boolean>(product?.inStock ?? true);
   const [age, setAge] = useState<number>(product?.ageId ?? 0);
   const [manufacturerId, setManufacturerId] = useState<number>(product?.manufacturer?.id ?? 0);
+  const [subCategories, setSubCategories] = useState<ISubCategory[]>();
+  const [subCategoriesOptions, setSubCategoriesOptions] = useState<{ value: number; label: string }[]>([]);
+
   let disabled = true;
 
   if (
@@ -146,11 +148,6 @@ export const ProductForm = ({
     label: item.name,
   }));
 
-  const subCategoriesOptions = subCategories.map((item) => ({
-    value: item.id,
-    label: item.name,
-  }));
-
   const manufacturerOptions = manufacturers.map((item) => ({
     value: item.id,
     label: item.name,
@@ -183,29 +180,56 @@ export const ProductForm = ({
     }
   };
 
-  const calculateSubCategories = (subCategoriesProduct: IProductSubCategory[]): number[] => {
+  useEffect(() => {
+    // Обновляем подкатегории при изменении категории
+    const fetchSubCategories = async () => {
+      const result = await getSubCategoriesByCategory(selectedCategory);
+      if (Array.isArray(result)) {
+        setSubCategories(result);
+      }
+    };
+
+    fetchSubCategories();
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    // Обновляем опции для подкатегорий при изменении списка подкатегорий
+    const options = subCategories?.map((item) => ({
+      value: item.id,
+      label: item.name,
+    }));
+    if (options) {
+
+      setSubCategoriesOptions(options);
+    }
+
+    // Если есть продукт и его подкатегории, синхронизируем выбранные
+    if (product?.SubCategoryProduct) {
+      const selectedIds = product.SubCategoryProduct.map((sub) => sub.subCategoryId);
+      setSubCategoriesProduct(selectedIds);
+    }
+  }, [subCategories, product]);
+
+  const calculateSubCategories = (subCategoriesProduct: IProductSubCategory[]): number[] | null => {
     const newSubCategoriesProduct: number[] = [];
 
-    for (let i = 0; i < subCategoriesProduct.length; i++) {
-      for (let j = 0; j < subCategories.length; j++) {
-        if (subCategoriesProduct[i].subCategoryId === subCategories[j].id) {
-          if (!newSubCategoriesProduct.includes(subCategoriesProduct[i].id)) {
-            newSubCategoriesProduct.push(subCategoriesProduct[i].subCategoryId);
+    if (subCategories) {
+      for (let i = 0; i < subCategoriesProduct.length; i++) {
+        for (let j = 0; j < subCategories.length; j++) {
+          if (subCategoriesProduct[i].subCategoryId === subCategories[j].id) {
+            if (!newSubCategoriesProduct.includes(subCategoriesProduct[i].id)) {
+              newSubCategoriesProduct.push(subCategoriesProduct[i].subCategoryId);
+            }
           }
         }
       }
+  
+      return newSubCategoriesProduct;
     }
 
-    return newSubCategoriesProduct;
+    return null;
   };
 
-  useEffect(() => {
-    if (product?.SubCategoryProduct && product.SubCategoryProduct.length > 0) {
-      const result = calculateSubCategories(product?.SubCategoryProduct);
-      setSubCategoriesProduct(result);
-    }
-  }, []);
-  
   return (
     <div className={styles.wrapper}>
       <div className={styles.bg} onClick={() => setOpen(false)}></div>
@@ -447,33 +471,33 @@ export const ProductForm = ({
                   />
                 </div>
               )}
-              {subCategoriesOptions && (
-                <div className={styles.selectWrapper}>
-                  <label htmlFor="sub-categories">Подкатегория</label>
-                  <Select
-                    id="sub-categories"
-                    options={subCategoriesOptions}
-                    value={subCategoriesOptions.filter((option) =>
-                      subCategoriesProduct.includes(option.value),
-                    )}
-                    onChange={(selectedOptions) => {
-                      const selectedValues = selectedOptions
-                        ? selectedOptions.map((option) => option.value)
-                        : [];
-                      setSubCategoriesProduct(selectedValues);
-                    }}
-                    theme={(theme) => ({
-                      ...theme,
-                      colors: {
-                        ...theme.colors,
-                        primary: 'green',
-                      },
-                    })}
-                    placeholder="Выберите подкатегорию"
-                    isMulti // активация множественного выбора
-                  />
-                </div>
-              )}
+{subCategoriesOptions && (
+        <div className={styles.selectWrapper}>
+          <label htmlFor="sub-categories">Подкатегория</label>
+          <Select
+            id="sub-categories"
+            options={subCategoriesOptions}
+            value={subCategoriesOptions.filter((option) =>
+              subCategoriesProduct.includes(option.value),
+            )}
+            onChange={(selectedOptions) => {
+              const selectedValues = selectedOptions
+                ? selectedOptions.map((option) => option.value)
+                : [];
+              setSubCategoriesProduct(selectedValues);
+            }}
+            theme={(theme) => ({
+              ...theme,
+              colors: {
+                ...theme.colors,
+                primary: 'green',
+              },
+            })}
+            placeholder="Выберите подкатегорию"
+            isMulti // активация множественного выбора
+          />
+        </div>
+      )}
               <div className={styles.inputWrapper}>
                 <label>Новинки</label>
                 <input type="checkbox" checked={newModel} onChange={() => setNewModel(!newModel)} />

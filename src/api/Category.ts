@@ -1,4 +1,4 @@
-import { ICategory, ICategoryWithLength } from '@/types';
+import { ICategory, ICategoryWithLength, ISubCategory } from '@/types';
 import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
@@ -93,3 +93,16 @@ export const deleteCategory = async (slug: string): Promise<ICategory | { messag
     };
   }
 };
+
+export const getSubCategoriesByCategory = async (categoryId: number): Promise<ISubCategory[] | { message: string }> => {
+  try {
+    const { data } = await axios.get<ISubCategory[]>(`${API_URL}/category/${categoryId}/sub-categories`);
+    
+    return data;
+  } catch (err) {
+    console.log(err);
+    return {
+      message: 'Ошибка при получении подкатегорий категории'
+    }
+  }
+}
