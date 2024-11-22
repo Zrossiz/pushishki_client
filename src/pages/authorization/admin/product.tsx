@@ -70,7 +70,6 @@ const ProductPage = ({
             drives={drives}
             voltages={voltages}
             ages={ages}
-            subCategories={subCategories}
             manufacturers={manufacturers}
           />
         )}
@@ -94,13 +93,13 @@ const ProductPage = ({
                   <ProductListItem
                     drives={drives}
                     ages={ages}
-                    subCategories={subCategories}
                     voltages={voltages}
                     product={item}
                     key={item.id}
                     manufacturers={manufacturers}
                     brands={brands}
                     categories={categories}
+                    subCategories={subCategories}
                   />
                 );
               })

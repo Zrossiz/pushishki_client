@@ -38,7 +38,6 @@ export const ProductListItem = ({
       {edit && (
         <ProductForm
           voltages={voltages}
-          subCategories={subCategories}
           ages={ages}
           drives={drives}
           setOpen={setEdit}
