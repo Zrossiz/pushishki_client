@@ -9,12 +9,12 @@ export const CardVideo = ({ video }: CardVideoProps) => {
       {isVideo && (
         <section className={styles.videoReviewWrapper}>
           <div className={styles.videoWrapper}>
-            <iframe
+            <iframe 
               className={styles.iframe}
               src={video}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              frameBorder="0" 
+              allow="clipboard-write; autoplay" 
+              allowFullScreen 
             ></iframe>
           </div>
           <div className={styles.youtubeAttract}>
@@ -25,7 +25,7 @@ export const CardVideo = ({ video }: CardVideoProps) => {
               <br />
               на нашем
               <br />
-              YouTube канале!
+              Rutube канале!
             </span>
             <LinkButton element="link">Перейти</LinkButton>
           </div>
