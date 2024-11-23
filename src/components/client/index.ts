@@ -28,3 +28,4 @@ export * from './QuestionPopup/QuesitonPopup';
 export * from './MobileNavigation/MobileNavigation';
 export * from './MobileSelectMenu/MobileSelectMenu';
 export * from './MobileSelectMenuListItem/MobileSelectMenuListItem';
+export * from './SearchItem/SearchItem';

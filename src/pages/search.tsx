@@ -3,7 +3,7 @@ import { PageTitle, Quiz, Slider } from '@/pageComponents';
 import { findProducts, getBestsellers, getCategories } from '@/api';
 import { IProduct, IProductWithLength, ISearchPageProps } from '@/types';
 import { Layout } from '@/layout/client/Layout';
-import { CatalogItem, Pagination, Search, Sort } from '@/components/client';
+import { Pagination, Search, SearchItem, Sort } from '@/components/client';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import getConfig from 'next/config';
@@ -80,7 +80,7 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
                   } else {
                     itemHref += String(item.slug);
                   }
-                  return <CatalogItem customHref={itemHref} key={item.id} product={item} />;
+                  return <SearchItem customHref={itemHref} key={item.id} product={item} />;
                 })}
               </div>
               <div className={styles.paginationWrapper}>
