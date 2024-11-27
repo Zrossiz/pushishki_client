@@ -24,14 +24,13 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
       setStartSearch(true);
     }
     setSearch(letter);
-  };
 
-  setInterval(async () => {
+    await delay(1000);
     const products: IProductWithLength | { message: string } = await findProducts(search, '1');
     if ('data' in products) {
       setInterProducts(products.data);
     }
-  }, 500);
+  };
 
   const getProducts = async () => {
     setStartSearch(false);
