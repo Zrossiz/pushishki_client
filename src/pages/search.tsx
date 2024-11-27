@@ -29,14 +29,13 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
       } else {
         setInterProducts([]);
       }
-      setStartSearch(false);
-    }, 1300),
+      setStartSearch(true);
+    }, 1000),
     []
   );
 
   const handleInputChange = (input: string) => {
     setSearch(input);
-    setStartSearch(true);
     debouncedSearch(input);
   };
 
