@@ -25,6 +25,7 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
     }
 
     setSearch(letter);
+    await delay(1500);
     const products: IProductWithLength | { message: string } = await findProducts(letter, '1');
     if ('data' in products) {
       setInterProducts(products.data);
@@ -32,7 +33,6 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
   };
 
   const getProducts = async () => {
-    await delay(1000);
     setStartSearch(false);
     router.push({
       pathname: router.pathname,
