@@ -23,14 +23,15 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
     if (!startSearch) {
       setStartSearch(true);
     }
-
     setSearch(letter);
-    await delay(1500);
-    const products: IProductWithLength | { message: string } = await findProducts(letter, '1');
+  };
+
+  setInterval(async () => {
+    const products: IProductWithLength | { message: string } = await findProducts(search, '1');
     if ('data' in products) {
       setInterProducts(products.data);
     }
-  };
+  }, 500);
 
   const getProducts = async () => {
     setStartSearch(false);
