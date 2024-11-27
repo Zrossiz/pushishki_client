@@ -4,10 +4,10 @@ import { findProducts, getBestsellers, getCategories } from '@/api';
 import { IProduct, IProductWithLength, ISearchPageProps } from '@/types';
 import { Layout } from '@/layout/client/Layout';
 import { Pagination, Search, SearchItem, Sort } from '@/components/client';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import getConfig from 'next/config';
-import { delay } from '@/utils';
+import { debounce } from '@/utils';
 
 const { publicRuntimeConfig } = getConfig();
 const { CLIENT_URL } = publicRuntimeConfig;
@@ -19,17 +19,25 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
 
   const router = useRouter();
 
-  const intermidateSearch = async (letter: string) => {
-    if (!startSearch) {
-      setStartSearch(true);
-    }
-    setSearch(letter);
+  // Дебаунс-функция для поиска
+  const debouncedSearch = useCallback(
+    debounce(async (query: string) => {
+      if (!query) return;
+      const response: IProductWithLength | { message: string } = await findProducts(query, '1');
+      if ('data' in response) {
+        setInterProducts(response.data);
+      } else {
+        setInterProducts([]);
+      }
+      setStartSearch(false);
+    }, 1300),
+    []
+  );
 
-    await delay(1000);
-    const products: IProductWithLength | { message: string } = await findProducts(search, '1');
-    if ('data' in products) {
-      setInterProducts(products.data);
-    }
+  const handleInputChange = (input: string) => {
+    setSearch(input);
+    setStartSearch(true);
+    debouncedSearch(input);
   };
 
   const getProducts = async () => {
@@ -62,7 +70,7 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
             <Search
               products={interProducts?.length >= 1 ? interProducts : products?.data}
               search={search}
-              setSearch={intermidateSearch}
+              setSearch={handleInputChange}
               stateSearch={startSearch}
               getProducts={getProducts}
             />
