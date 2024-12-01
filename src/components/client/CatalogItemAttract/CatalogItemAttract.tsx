@@ -14,7 +14,7 @@ export const CatalogItemAttract = ({ type }: CatalogItemAttractProps) => {
             <div className={styles.byNumber}>
               <span>
                 По номеру <br />
-                <a href="">телефона</a>!
+                <a href="tel:+79857660713">телефона</a>!
               </span>
             </div>
             <a href="" className={styles.phoneIcon}>

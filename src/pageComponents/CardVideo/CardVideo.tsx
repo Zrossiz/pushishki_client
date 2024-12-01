@@ -27,7 +27,7 @@ export const CardVideo = ({ video }: CardVideoProps) => {
               <br />
               Rutube канале!
             </span>
-            <LinkButton element="link">Перейти</LinkButton>
+            <LinkButton element="link" href='https://rutube.ru/channel/46744242/'>Перейти</LinkButton>
           </div>
         </section>
       )}
