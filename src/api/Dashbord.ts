@@ -50,3 +50,19 @@ export const getOrdersSum = async (duration: string): Promise<{sum: number}> => 
         }
     }
 }
+
+export const getOrdersCount = async (duration: string): Promise<{count: number}> => {
+    try {
+        const [fromDateString, toDateString] = getBoundaryDatesByduration(duration);
+
+        const { data } = await axiosInst.get<{ count: number }>(`
+            ${API_URL}/dashbord/orders-number?dayFrom=${fromDateString}&dayTo=${toDateString}
+        `);
+
+        return data;
+    } catch (err) {
+        return {
+            count: 0
+        }
+    }
+}
