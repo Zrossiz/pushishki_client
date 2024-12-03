@@ -14,3 +14,4 @@ export * from './Voltage';
 export * from './Drive';
 export * from './SubCategory';
 export * from './Manufacturer';
+export * from './Dashbord';

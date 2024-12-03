@@ -1,4 +1,4 @@
-import { checkUser } from '@/api';
+import { checkUser, getAveragePrice } from '@/api';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { AdminLayout } from '@/layout/admin/AdminLayout';
@@ -12,6 +12,8 @@ const AdminPage = () => {
         return router.push('/authorization/login');
       }
     })();
+
+    getAveragePrice('year');
   }, []);
 
   return (
