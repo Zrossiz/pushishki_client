@@ -12,8 +12,6 @@ const AdminPage = () => {
         return router.push('/authorization/login');
       }
     })();
-
-    getAveragePrice('year');
   }, []);
 
   return (

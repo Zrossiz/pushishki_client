@@ -34,3 +34,19 @@ export const getMostSellingProducts = async (duration: string): Promise<IProduct
         return [];
     }
 }
+
+export const getOrdersSum = async (duration: string): Promise<{sum: number}> => {
+    try {
+        const [fromDateString, toDateString] = getBoundaryDatesByduration(duration);
+
+        const { data } = await axiosInst.get<{ sum: number }>(`
+            ${API_URL}/dashbord/orders-sum?dayFrom=${fromDateString}&dayTo=${toDateString}
+        `);
+
+        return data;
+    } catch (err) {
+        return {
+            sum: 0
+        }
+    }
+}
