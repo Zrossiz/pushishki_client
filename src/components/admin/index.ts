@@ -25,3 +25,4 @@ export * from './DriveForm/DriveForm';
 export * from './AgeForm/AgeForm';
 export * from './ManufacturerListItem/ManufacturerListItem';
 export * from './ManufacturerForm/ManufacturerForm';
+export * from './StatisticItem/StatisticItem';
