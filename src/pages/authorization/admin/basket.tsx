@@ -2,9 +2,10 @@ import { AdminLayout } from '@/layout/admin/AdminLayout';
 import styles from '../../../styles/admin/Default.module.scss';
 import { useEffect, useState } from 'react';
 import { IOrder, IOrderWithLength } from '@/types';
-import { getAllOrders } from '@/api';
+import { checkUser, getAllOrders } from '@/api';
 import { OrderListItem, Pagination } from '@/components/admin';
 import { HTag } from '@/elements';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const BasketPage = () => {
   const [curPage, setCurPage] = useState<number>(1);
@@ -42,3 +43,32 @@ const BasketPage = () => {
 };
 
 export default BasketPage;
+
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  try {
+    const cookies = ctx.req.headers.cookie;
+    const isLogin = await checkUser(cookies);
+
+    if (isLogin) {
+      return {
+        props: {
+          message: 'login',
+        },
+      };
+    } else {
+      return {
+        redirect: {
+          destination: '/authorization/login',
+          permanent: false,
+        },
+      };
+    }
+  } catch (err) {
+    return {
+      redirect: {
+        destination: '/authorization/login',
+        permanent: false,
+      },
+    };
+  }
+};

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { AdminLayout } from '@/layout/admin/AdminLayout';
 import { StatisticItem } from '@/components/admin';
 import styles from '../../../styles/admin/Index.module.scss';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const AdminPage = () => {
   const [ordersCount, setOrdersCount] = useState<number>(0);
@@ -14,16 +15,6 @@ const AdminPage = () => {
 
   const [avgOrdersSum, setAvgOrdersSum] = useState<number>(0);
   const [durationAvgOrdersSum, setDurationAvgOrdersSum] = useState<string>('день');
-
-  const router = useRouter();
-  useEffect(() => {
-    (async () => {
-      const isLogin = await checkUser();
-      if (isLogin.message.startsWith('Ошибка')) {
-        return router.push('/authorization/login');
-      }
-    })();
-  }, []);
 
   useEffect(() => {
     (async () => {
@@ -79,3 +70,32 @@ const AdminPage = () => {
 };
 
 export default AdminPage;
+
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  try {
+    const cookies = ctx.req.headers.cookie;
+    const isLogin = await checkUser(cookies);
+
+    if (isLogin) {
+      return {
+        props: {
+          message: 'login',
+        },
+      };
+    } else {
+      return {
+        redirect: {
+          destination: '/authorization/login',
+          permanent: false,
+        },
+      };
+    }
+  } catch (err) {
+    return {
+      redirect: {
+        destination: '/authorization/login',
+        permanent: false,
+      },
+    };
+  }
+};

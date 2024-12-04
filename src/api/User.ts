@@ -1,5 +1,6 @@
 import { ILoginUser } from '@/types';
 import { axiosInst, setCookie } from '@/utils';
+import axios from 'axios';
 import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
@@ -13,6 +14,8 @@ export const loginUser = async (
     const user = await axiosInst.post(`${API_URL}/auth/login`, {
       username,
       password,
+    }, {
+      withCredentials: true
     });
 
     if (user.data.token) {
@@ -21,21 +24,26 @@ export const loginUser = async (
 
     return user.data;
   } catch (err) {
-    console.log(err);
     return {
       message: 'Ошибка при авторизации',
     };
   }
 };
 
-export const checkUser = async (): Promise<{ message: string }> => {
+export const checkUser = async (cookies?: string): Promise<boolean> => {
   try {
-    const { data } = await axiosInst.post(`${API_URL}/auth/check`);
-    return data;
+    const headers: Record<string, string> = {};
+    if (cookies) {
+      headers.Cookie = cookies;
+    }
+
+    const { data } = await axios.get(`${API_URL}/auth/check`, {
+      withCredentials: true,
+      headers
+    });
+
+    return true;
   } catch (err) {
-    console.log(err);
-    return {
-      message: 'Ошибка при авторизации',
-    };
+    return false;
   }
 };

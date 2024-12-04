@@ -3,8 +3,9 @@ import styles from '../../../styles/admin/Default.module.scss';
 import { useEffect, useState } from 'react';
 import { HTag, LinkButton } from '@/elements';
 import { ISubCategory } from '@/types';
-import { getAllSubCategories } from '@/api';
+import { checkUser, getAllSubCategories } from '@/api';
 import { SubCategoryForm, SubCategoryListItem } from '@/components/admin';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const SubCategoryPage = () => {
   const [subCategories, setSubCategories] = useState<ISubCategory[]>([]);
@@ -43,3 +44,32 @@ const SubCategoryPage = () => {
 };
 
 export default SubCategoryPage;
+
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  try {
+    const cookies = ctx.req.headers.cookie;
+    const isLogin = await checkUser(cookies);
+
+    if (isLogin) {
+      return {
+        props: {
+          message: 'login',
+        },
+      };
+    } else {
+      return {
+        redirect: {
+          destination: '/authorization/login',
+          permanent: false,
+        },
+      };
+    }
+  } catch (err) {
+    return {
+      redirect: {
+        destination: '/authorization/login',
+        permanent: false,
+      },
+    };
+  }
+};

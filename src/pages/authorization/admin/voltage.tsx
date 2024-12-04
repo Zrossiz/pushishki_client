@@ -2,9 +2,10 @@ import { AdminLayout } from '@/layout/admin/AdminLayout';
 import styles from '../../../styles/admin/Default.module.scss';
 import { useEffect, useState } from 'react';
 import { IVoltage } from '@/types';
-import { getAllVoltages } from '@/api';
+import { checkUser, getAllVoltages } from '@/api';
 import { HTag, LinkButton } from '@/elements';
 import { VoltageForm, VoltageListItem } from '@/components/admin';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const VoltagePage = () => {
   const [voltages, setVoltages] = useState<IVoltage[]>([]);
@@ -43,3 +44,32 @@ const VoltagePage = () => {
 };
 
 export default VoltagePage;
+
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  try {
+    const cookies = ctx.req.headers.cookie;
+    const isLogin = await checkUser(cookies);
+
+    if (isLogin) {
+      return {
+        props: {
+          message: 'login',
+        },
+      };
+    } else {
+      return {
+        redirect: {
+          destination: '/authorization/login',
+          permanent: false,
+        },
+      };
+    }
+  } catch (err) {
+    return {
+      redirect: {
+        destination: '/authorization/login',
+        permanent: false,
+      },
+    };
+  }
+};

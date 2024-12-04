@@ -4,7 +4,8 @@ import styles from '../../../styles/admin/Default.module.scss';
 import { useEffect, useState } from 'react';
 import { CategoryForm, CategoryListItem } from '@/components/admin';
 import { ICategory, ICategoryWithLength } from '@/types';
-import { getCategories } from '@/api';
+import { checkUser, getCategories } from '@/api';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const CategoryPage = () => {
   const [create, setCreate] = useState<boolean>(false);
@@ -43,3 +44,32 @@ const CategoryPage = () => {
 };
 
 export default CategoryPage;
+
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  try {
+    const cookies = ctx.req.headers.cookie;
+    const isLogin = await checkUser(cookies);
+
+    if (isLogin) {
+      return {
+        props: {
+          message: 'login',
+        },
+      };
+    } else {
+      return {
+        redirect: {
+          destination: '/authorization/login',
+          permanent: false,
+        },
+      };
+    }
+  } catch (err) {
+    return {
+      redirect: {
+        destination: '/authorization/login',
+        permanent: false,
+      },
+    };
+  }
+};

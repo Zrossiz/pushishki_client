@@ -8,7 +8,6 @@ import { useRouter } from 'next/router';
 
 const SubCategoryPage = ({ subCategories, category }: ISubCategoryPage) => {
   const router = useRouter();
-  console.log(router);
   return (
     <Layout
       title={`${category?.metaTitle ? category?.metaTitle : 'Ничего не найдено'} | Пушишки`}

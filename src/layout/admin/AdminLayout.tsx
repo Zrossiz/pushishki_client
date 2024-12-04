@@ -66,12 +66,6 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
   ];
 
   useEffect(() => {
-    (async () => {
-      const isLogin = await checkUser();
-      if (isLogin.message.startsWith('Ошибка')) {
-        return router.push('/');
-      }
-    })();
     for (let i = 0; i <= entities.length; i++) {
       if (entities[i]?.slug === pagePath) {
         setActive(entities[i]?.name);

@@ -1,4 +1,5 @@
 import {
+  checkUser,
   findProducts,
   getAllAges,
   getAllDrives,
@@ -16,6 +17,7 @@ import { useEffect, useState } from 'react';
 import styles from '../../../styles/admin/Product.module.scss';
 import { Pagination, ProductForm, ProductListItem } from '@/components/admin';
 import { LinkButton } from '@/elements';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const ProductPage = ({
   brands,
@@ -133,26 +135,47 @@ const ProductPage = ({
 
 export default ProductPage;
 
-export const getServerSideProps = async () => {
-  const countries = await getCountries();
-  const brands = await getBrands();
-  const categories = await getCategories();
-  const ages = await getAllAges();
-  const drives = await getAllDrives();
-  const voltages = await getAllVoltages();
-  const subCategories = await getAllSubCategories();
-  const manufacturers = await getAllManufacturers();
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  try {
+    const cookies = ctx.req.headers.cookie;
+    const isLogin = await checkUser(cookies);
 
-  return {
-    props: {
-      categories,
-      countries,
-      brands,
-      ages,
-      drives,
-      voltages,
-      subCategories,
-      manufacturers,
-    },
-  };
+    if (isLogin) {
+      const countries = await getCountries();
+      const brands = await getBrands();
+      const categories = await getCategories();
+      const ages = await getAllAges();
+      const drives = await getAllDrives();
+      const voltages = await getAllVoltages();
+      const subCategories = await getAllSubCategories();
+      const manufacturers = await getAllManufacturers();
+    
+      return {
+        props: {
+          categories,
+          countries,
+          brands,
+          ages,
+          drives,
+          voltages,
+          subCategories,
+          manufacturers,
+        },
+      };
+    } else {
+      return {
+        redirect: {
+          destination: '/authorization/login',
+          permanent: false,
+        },
+      };
+    }
+  } catch (err) {
+    return {
+      redirect: {
+        destination: '/authorization/login',
+        permanent: false,
+      },
+    };
+  }
 };

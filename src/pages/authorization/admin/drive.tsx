@@ -2,9 +2,10 @@ import { AdminLayout } from '@/layout/admin/AdminLayout';
 import styles from '../../../styles/admin/Default.module.scss';
 import { useEffect, useState } from 'react';
 import { IDrive } from '@/types';
-import { getAllDrives } from '@/api';
+import { checkUser, getAllDrives } from '@/api';
 import { HTag, LinkButton } from '@/elements';
 import { DriveForm, DriveListItem } from '@/components/admin';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const DrivePage = () => {
   const [drives, setDrives] = useState<IDrive[]>([]);
@@ -41,3 +42,32 @@ const DrivePage = () => {
 };
 
 export default DrivePage;
+
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  try {
+    const cookies = ctx.req.headers.cookie;
+    const isLogin = await checkUser(cookies);
+
+    if (isLogin) {
+      return {
+        props: {
+          message: 'login',
+        },
+      };
+    } else {
+      return {
+        redirect: {
+          destination: '/authorization/login',
+          permanent: false,
+        },
+      };
+    }
+  } catch (err) {
+    return {
+      redirect: {
+        destination: '/authorization/login',
+        permanent: false,
+      },
+    };
+  }
+};

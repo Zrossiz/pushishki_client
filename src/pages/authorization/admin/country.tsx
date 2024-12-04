@@ -4,7 +4,8 @@ import { HTag, LinkButton } from '@/elements';
 import { useEffect, useState } from 'react';
 import { CountryForm, CountryListItem } from '@/components/admin';
 import { ICountry, ICountryWithLength } from '@/types';
-import { getCountries } from '@/api';
+import { checkUser, getCountries } from '@/api';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const CountryPage = () => {
   const [create, setCreate] = useState<boolean>(false);
@@ -44,3 +45,32 @@ const CountryPage = () => {
 };
 
 export default CountryPage;
+
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  try {
+    const cookies = ctx.req.headers.cookie;
+    const isLogin = await checkUser(cookies);
+
+    if (isLogin) {
+      return {
+        props: {
+          message: 'login',
+        },
+      };
+    } else {
+      return {
+        redirect: {
+          destination: '/authorization/login',
+          permanent: false,
+        },
+      };
+    }
+  } catch (err) {
+    return {
+      redirect: {
+        destination: '/authorization/login',
+        permanent: false,
+      },
+    };
+  }
+};

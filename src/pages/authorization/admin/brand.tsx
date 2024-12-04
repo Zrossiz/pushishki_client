@@ -3,8 +3,9 @@ import styles from '../../../styles/admin/Default.module.scss';
 import { HTag, LinkButton } from '@/elements';
 import { useEffect, useState } from 'react';
 import { IBrand, IBrandWithLength } from '@/types';
-import { getBrands } from '@/api';
+import { checkUser, getBrands } from '@/api';
 import { BrandForm, BrandListItem } from '@/components/admin';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const BrandPage = () => {
   const [create, setCreate] = useState<boolean>(false);
@@ -43,3 +44,32 @@ const BrandPage = () => {
 };
 
 export default BrandPage;
+
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  try {
+    const cookies = ctx.req.headers.cookie;
+    const isLogin = await checkUser(cookies);
+
+    if (isLogin) {
+      return {
+        props: {
+          message: 'login',
+        },
+      };
+    } else {
+      return {
+        redirect: {
+          destination: '/authorization/login',
+          permanent: false,
+        },
+      };
+    }
+  } catch (err) {
+    return {
+      redirect: {
+        destination: '/authorization/login',
+        permanent: false,
+      },
+    };
+  }
+};
