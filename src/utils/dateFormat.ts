@@ -8,16 +8,16 @@ export const getBoundaryDatesByduration = (duration: string): string[] => {
     const dateTo: Date = new Date();
 
     switch (duration) {
-        case 'day':
+        case 'день':
             dateFrom.setDate(dateFrom.getDate() - 1)
             break;
-        case 'week':
+        case 'неделя':
             dateFrom.setDate(dateFrom.getDate() - 7)
             break;
-        case 'month':
+        case 'месяц':
             dateFrom.setMonth(dateFrom.getMonth() - 1)
             break
-        case 'year':
+        case 'год':
             dateFrom.setFullYear(dateFrom.getFullYear() - 1)
             break
         default:
