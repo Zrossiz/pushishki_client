@@ -6,8 +6,10 @@ import { useState } from 'react';
 export const StatisticItem = ({
     name, 
     value,
-    curValueDate,
-    setDuration
+    startDate,
+    endDate,
+    setStartDate,
+    setEndDate
 }: IStatisticItemProps) => {
     const [openSelect, setOpenSelect] = useState<boolean>(false);
 
@@ -17,10 +19,12 @@ export const StatisticItem = ({
                 <div className={styles.nameWrapper}>{name}</div>
                 <div className={styles.selectWrapper}>
                     <DurationSelect
-                        isOpen={openSelect}                        
+                        isOpen={openSelect}
                         setOpen={setOpenSelect}
-                        setDuration={setDuration}
-                        curValue={curValueDate} 
+                        startDate={startDate}
+                        endDate={endDate}
+                        setStartDate={setStartDate}
+                        setEndDate={setEndDate}
                     />
                 </div>
             </div>

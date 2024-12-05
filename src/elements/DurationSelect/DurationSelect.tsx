@@ -1,35 +1,39 @@
+import Calendar from 'react-calendar';
 import styles from './DurationSelect.module.scss';
 import { IDurationSelectProps } from './DurationSelect.props';
+import 'react-calendar/dist/Calendar.css';
+
 
 export const DurationSelect = ({
-    curValue, 
     isOpen,
-    setDuration,
-    setOpen,
+    startDate,
+    endDate,
+    setStartDate,
+    setEndDate,
+    setOpen
 }: IDurationSelectProps) => {
-    const values = ["день", "неделя", "месяц", "год"]
-
-    const selectValue = (value: string) => {
-        setDuration(value)
+    const onChange = (dates: any) => {
+        const [start, end] = dates;
+        
+        setStartDate(start);
+        setEndDate(end ?? start);
         setOpen(false)
-    }
+    };
 
     return (
         <>
             <div className={styles.wrapper} onClick={() => setOpen(true)}>
                 <div className={styles.value}>
-                    {curValue}
+                    Выбрать
                 </div>
             </div>
             {isOpen && (
                 <div className={styles.selectWrapper}>
-                    <ul>
-                        {values.map((item) => {
-                            return (
-                                <li onClick={() => selectValue(item)}>{item}</li>
-                            )
-                        })}
-                    </ul>
+                    <Calendar 
+                        onChange={onChange}
+                        value={[startDate, endDate]}
+                        selectRange
+                    />
                 </div>
             )}
         </>

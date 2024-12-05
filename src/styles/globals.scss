@@ -74,3 +74,18 @@ button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.react-calendar__tile--active {
+  background-color: green !important;
+  color: white !important;
+}
+
+.react-calendar__tile--range {
+  background-color: var(--light-green) !important;
+  color: black !important;
+}
+
+.react-calendar__tile--now {
+  background-color: var(--dark-green) !important;
+  color: white !important;
+}

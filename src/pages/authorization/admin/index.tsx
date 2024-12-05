@@ -8,34 +8,37 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const AdminPage = () => {
   const [ordersCount, setOrdersCount] = useState<number>(0);
-  const [durationOrdersCount, setDurationOrdersCount] = useState<string>("день");
+  const [startDateOrdersCount, setStartDateOrdersCount] = useState<any>(new Date());
+  const [endDateOrdersCount, setEndDateOrdersCount] = useState<any>(new Date());
 
   const [ordersSum, setOrdersSum] = useState<number>(0);
-  const [durationOrdersSum, setDurationOrdersSum] = useState<string>('день');
+  const [ordersSumStartDate, setOrdersSumStartDate] = useState<any>(new Date());
+  const [ordersSumEndDate, setOrdersSumEndDate] = useState<any>(new Date());
 
-  const [avgOrdersSum, setAvgOrdersSum] = useState<number>(0);
-  const [durationAvgOrdersSum, setDurationAvgOrdersSum] = useState<string>('день');
-
-  useEffect(() => {
-    (async () => {
-      const ordersCountApi = await getOrdersCount(durationOrdersCount);
-      setOrdersCount(ordersCountApi.count)
-    })()
-  }, [durationOrdersCount]);
+  const [avgSum, setAvgSum] = useState<number>(0);
+  const [avgSumStartDate, setAvgSumStartDate] = useState<any>(new Date());
+  const [avgSumEndDate, setAvgSumEndDate] = useState<any>(new Date());
 
   useEffect(() => {
     (async () => {
-      const ordersSumApi = await getOrdersSum(durationOrdersSum);
-      setOrdersSum(ordersSumApi.sum);
+      const ordersCountApi = await getOrdersCount(startDateOrdersCount, endDateOrdersCount);
+      setOrdersCount(ordersCountApi.count);
     })()
-  }, [durationOrdersSum])
+  }, [endDateOrdersCount])
 
   useEffect(() => {
     (async () => {
-      const ordersAvgSumApi = await getAveragePrice(durationAvgOrdersSum);
-      setAvgOrdersSum(ordersAvgSumApi.price);
+      const avgSumApi = await getAveragePrice(avgSumStartDate, avgSumEndDate)
+      setAvgSum(Math.round(avgSumApi.price))
     })()
-  }, [durationAvgOrdersSum])
+  }, [avgSumEndDate])
+
+  useEffect(() => {
+    (async () => {
+      const ordersSumApi = await getOrdersSum(ordersSumStartDate, ordersSumEndDate)
+      setOrdersSum(Math.round(ordersSumApi.sum))
+    })()
+  }, [ordersSumEndDate])
 
   return (
     <AdminLayout>
@@ -44,24 +47,30 @@ const AdminPage = () => {
           <StatisticItem 
             name={'Общее количество заказов шт.'} 
             value={ordersCount} 
-            curValueDate={durationOrdersCount} 
-            setDuration={setDurationOrdersCount}
+            startDate={startDateOrdersCount}
+            endDate={endDateOrdersCount}
+            setStartDate={setStartDateOrdersCount}
+            setEndDate={setEndDateOrdersCount}
           />
         </div>
         <div className={styles.item}>
           <StatisticItem 
             name={'Сумма продаж ₽'} 
             value={ordersSum} 
-            curValueDate={durationOrdersSum} 
-            setDuration={setDurationOrdersSum}
+            startDate={ordersSumStartDate}
+            endDate={ordersSumEndDate}
+            setStartDate={setOrdersSumStartDate}
+            setEndDate={setOrdersSumEndDate}
           />
         </div>
         <div className={styles.item}>
           <StatisticItem 
             name={'Средняя сумма продаж ₽'} 
-            value={avgOrdersSum} 
-            curValueDate={durationAvgOrdersSum} 
-            setDuration={setDurationAvgOrdersSum}
+            value={avgSum} 
+            startDate={avgSumStartDate}
+            endDate={avgSumEndDate}
+            setStartDate={setAvgSumStartDate}
+            setEndDate={setAvgSumEndDate}
           />
         </div>
       </div>
