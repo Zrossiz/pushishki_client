@@ -94,15 +94,19 @@ export const deleteCategory = async (slug: string): Promise<ICategory | { messag
   }
 };
 
-export const getSubCategoriesByCategory = async (categoryId: number): Promise<ISubCategory[] | { message: string }> => {
+export const getSubCategoriesByCategory = async (
+  categoryId: number,
+): Promise<ISubCategory[] | { message: string }> => {
   try {
-    const { data } = await axios.get<ISubCategory[]>(`${API_URL}/category/${categoryId}/sub-categories`);
-    
+    const { data } = await axios.get<ISubCategory[]>(
+      `${API_URL}/category/${categoryId}/sub-categories`,
+    );
+
     return data;
   } catch (err) {
     console.log(err);
     return {
-      message: 'Ошибка при получении подкатегорий категории'
-    }
+      message: 'Ошибка при получении подкатегорий категории',
+    };
   }
-}
+};

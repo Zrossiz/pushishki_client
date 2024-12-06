@@ -58,7 +58,9 @@ export const ProductForm = ({
   const [age, setAge] = useState<number>(product?.ageId ?? 0);
   const [manufacturerId, setManufacturerId] = useState<number>(product?.manufacturer?.id ?? 0);
   const [subCategories, setSubCategories] = useState<ISubCategory[]>();
-  const [subCategoriesOptions, setSubCategoriesOptions] = useState<{ value: number; label: string }[]>([]);
+  const [subCategoriesOptions, setSubCategoriesOptions] = useState<
+    { value: number; label: string }[]
+  >([]);
 
   let disabled = true;
 
@@ -199,7 +201,6 @@ export const ProductForm = ({
       label: item.name,
     }));
     if (options) {
-
       setSubCategoriesOptions(options);
     }
 
@@ -223,7 +224,7 @@ export const ProductForm = ({
           }
         }
       }
-  
+
       return newSubCategoriesProduct;
     }
 
@@ -471,33 +472,33 @@ export const ProductForm = ({
                   />
                 </div>
               )}
-{subCategoriesOptions && (
-        <div className={styles.selectWrapper}>
-          <label htmlFor="sub-categories">Подкатегория</label>
-          <Select
-            id="sub-categories"
-            options={subCategoriesOptions}
-            value={subCategoriesOptions.filter((option) =>
-              subCategoriesProduct.includes(option.value),
-            )}
-            onChange={(selectedOptions) => {
-              const selectedValues = selectedOptions
-                ? selectedOptions.map((option) => option.value)
-                : [];
-              setSubCategoriesProduct(selectedValues);
-            }}
-            theme={(theme) => ({
-              ...theme,
-              colors: {
-                ...theme.colors,
-                primary: 'green',
-              },
-            })}
-            placeholder="Выберите подкатегорию"
-            isMulti // активация множественного выбора
-          />
-        </div>
-      )}
+              {subCategoriesOptions && (
+                <div className={styles.selectWrapper}>
+                  <label htmlFor="sub-categories">Подкатегория</label>
+                  <Select
+                    id="sub-categories"
+                    options={subCategoriesOptions}
+                    value={subCategoriesOptions.filter((option) =>
+                      subCategoriesProduct.includes(option.value),
+                    )}
+                    onChange={(selectedOptions) => {
+                      const selectedValues = selectedOptions
+                        ? selectedOptions.map((option) => option.value)
+                        : [];
+                      setSubCategoriesProduct(selectedValues);
+                    }}
+                    theme={(theme) => ({
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        primary: 'green',
+                      },
+                    })}
+                    placeholder="Выберите подкатегорию"
+                    isMulti // активация множественного выбора
+                  />
+                </div>
+              )}
               <div className={styles.inputWrapper}>
                 <label>Новинки</label>
                 <input type="checkbox" checked={newModel} onChange={() => setNewModel(!newModel)} />

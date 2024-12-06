@@ -31,7 +31,7 @@ const SearchPage = ({ categories, bestsellers, products, curPage }: ISearchPageP
       }
       setStartSearch(true);
     }, 1000),
-    []
+    [],
   );
 
   const handleInputChange = (input: string) => {

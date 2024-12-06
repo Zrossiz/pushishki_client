@@ -11,12 +11,16 @@ export const loginUser = async (
   password: string,
 ): Promise<ILoginUser | { message: string }> => {
   try {
-    const user = await axiosInst.post(`${API_URL}/auth/login`, {
-      username,
-      password,
-    }, {
-      withCredentials: true
-    });
+    const user = await axiosInst.post(
+      `${API_URL}/auth/login`,
+      {
+        username,
+        password,
+      },
+      {
+        withCredentials: true,
+      },
+    );
 
     if (user.data.token) {
       setCookie('token', user.data.token, 90);
@@ -39,7 +43,7 @@ export const checkUser = async (cookies?: string): Promise<boolean> => {
 
     const { data } = await axios.get(`${API_URL}/auth/check`, {
       withCredentials: true,
-      headers
+      headers,
     });
 
     return true;

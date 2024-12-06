@@ -31,7 +31,7 @@ export const QuizQuestions = ({ setOpen, categories }: QuizQuestionsProps) => {
       const products: IProduct[] | { message: string } = await getQuizResults(
         category,
         age,
-        priceTo
+        priceTo,
       );
       // if ("message" in products) {
       //   router.push(`/categories/`);

@@ -8,7 +8,7 @@ export const axiosInst = axios.create({
   headers: {
     'api-key': API_KEY,
   },
-  withCredentials: true
+  withCredentials: true,
 });
 
 axiosInst.interceptors.request.use(

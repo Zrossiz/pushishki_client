@@ -149,7 +149,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSideP
       const voltages = await getAllVoltages();
       const subCategories = await getAllSubCategories();
       const manufacturers = await getAllManufacturers();
-    
+
       return {
         props: {
           categories,

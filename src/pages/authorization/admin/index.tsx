@@ -1,4 +1,10 @@
-import { checkUser, getAveragePrice, getMostSellingProducts, getOrdersCount, getOrdersSum } from '@/api';
+import {
+  checkUser,
+  getAveragePrice,
+  getMostSellingProducts,
+  getOrdersCount,
+  getOrdersSum,
+} from '@/api';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { AdminLayout } from '@/layout/admin/AdminLayout';
@@ -10,7 +16,7 @@ import { getDateOneYearAgo } from '@/utils';
 
 const AdminPage = () => {
   const dayOneYearAgo = getDateOneYearAgo();
-  
+
   const [ordersCount, setOrdersCount] = useState<number>(0);
   const [startDateOrdersCount, setStartDateOrdersCount] = useState<Date>(dayOneYearAgo);
   const [endDateOrdersCount, setEndDateOrdersCount] = useState<Date>(new Date());
@@ -31,38 +37,41 @@ const AdminPage = () => {
     (async () => {
       const ordersCountApi = await getOrdersCount(startDateOrdersCount, endDateOrdersCount);
       setOrdersCount(ordersCountApi.count);
-    })()
-  }, [endDateOrdersCount])
+    })();
+  }, [endDateOrdersCount]);
 
   useEffect(() => {
     (async () => {
-      const avgSumApi = await getAveragePrice(avgSumStartDate, avgSumEndDate)
-      setAvgSum(Math.round(avgSumApi.price))
-    })()
-  }, [avgSumEndDate])
+      const avgSumApi = await getAveragePrice(avgSumStartDate, avgSumEndDate);
+      setAvgSum(Math.round(avgSumApi.price));
+    })();
+  }, [avgSumEndDate]);
 
   useEffect(() => {
     (async () => {
-      const ordersSumApi = await getOrdersSum(ordersSumStartDate, ordersSumEndDate)
-      setOrdersSum(Math.round(ordersSumApi.sum))
-    })()
-  }, [ordersSumEndDate])
+      const ordersSumApi = await getOrdersSum(ordersSumStartDate, ordersSumEndDate);
+      setOrdersSum(Math.round(ordersSumApi.sum));
+    })();
+  }, [ordersSumEndDate]);
 
   useEffect(() => {
     (async () => {
-      const bestProductsApi = await getMostSellingProducts(bestProductsStartDate, bestProductsEndDate)
-      setBestProducts(bestProductsApi)
-    })()
-  }, [bestProductsEndDate])
+      const bestProductsApi = await getMostSellingProducts(
+        bestProductsStartDate,
+        bestProductsEndDate,
+      );
+      setBestProducts(bestProductsApi);
+    })();
+  }, [bestProductsEndDate]);
 
   return (
     <AdminLayout>
       <div className={styles.wrapper}>
         <div className={styles.countStatistic}>
           <div className={styles.item}>
-            <StatisticItem 
-              name={'Общее количество заказов шт.'} 
-              value={ordersCount} 
+            <StatisticItem
+              name={'Общее количество заказов шт.'}
+              value={ordersCount}
               startDate={startDateOrdersCount}
               endDate={endDateOrdersCount}
               setStartDate={setStartDateOrdersCount}
@@ -70,9 +79,9 @@ const AdminPage = () => {
             />
           </div>
           <div className={styles.item}>
-            <StatisticItem 
-              name={'Сумма продаж ₽'} 
-              value={ordersSum} 
+            <StatisticItem
+              name={'Сумма продаж ₽'}
+              value={ordersSum}
               startDate={ordersSumStartDate}
               endDate={ordersSumEndDate}
               setStartDate={setOrdersSumStartDate}
@@ -80,9 +89,9 @@ const AdminPage = () => {
             />
           </div>
           <div className={styles.item}>
-            <StatisticItem 
-              name={'Средняя сумма продаж ₽'} 
-              value={avgSum} 
+            <StatisticItem
+              name={'Средняя сумма продаж ₽'}
+              value={avgSum}
               startDate={avgSumStartDate}
               endDate={avgSumEndDate}
               setStartDate={setAvgSumStartDate}
@@ -92,13 +101,13 @@ const AdminPage = () => {
         </div>
         <div className={styles.entityStatistic}>
           <div className={styles.item}>
-            <ProductsStatisticItem 
-              name={"Самые продаваемые"} 
-              products={bestProducts} 
+            <ProductsStatisticItem
+              name={'Самые продаваемые'}
+              products={bestProducts}
               startDate={bestProductsStartDate}
-              endDate={bestProductsEndDate} 
-              setStartDate={setBestProductsStartDate} 
-              setEndDate={setBestProductsEndDate}            
+              endDate={bestProductsEndDate}
+              setStartDate={setBestProductsStartDate}
+              setEndDate={setBestProductsEndDate}
             />
           </div>
         </div>
