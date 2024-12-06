@@ -6,22 +6,25 @@ import { ProductsStatisticItem, StatisticItem } from '@/components/admin';
 import styles from '../../../styles/admin/Index.module.scss';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { IProduct } from '@/types';
+import { getDateOneYearAgo } from '@/utils';
 
 const AdminPage = () => {
+  const dayOneYearAgo = getDateOneYearAgo();
+  
   const [ordersCount, setOrdersCount] = useState<number>(0);
-  const [startDateOrdersCount, setStartDateOrdersCount] = useState<Date>(new Date());
+  const [startDateOrdersCount, setStartDateOrdersCount] = useState<Date>(dayOneYearAgo);
   const [endDateOrdersCount, setEndDateOrdersCount] = useState<Date>(new Date());
 
   const [ordersSum, setOrdersSum] = useState<number>(0);
-  const [ordersSumStartDate, setOrdersSumStartDate] = useState<Date>(new Date());
+  const [ordersSumStartDate, setOrdersSumStartDate] = useState<Date>(dayOneYearAgo);
   const [ordersSumEndDate, setOrdersSumEndDate] = useState<Date>(new Date());
 
   const [avgSum, setAvgSum] = useState<number>(0);
-  const [avgSumStartDate, setAvgSumStartDate] = useState<Date>(new Date());
+  const [avgSumStartDate, setAvgSumStartDate] = useState<Date>(dayOneYearAgo);
   const [avgSumEndDate, setAvgSumEndDate] = useState<Date>(new Date());
 
   const [bestProducts, setBestProducts] = useState<IProduct[]>([]);
-  const [bestProductsStartDate, setBestProductsStartDate] = useState<Date>(new Date());
+  const [bestProductsStartDate, setBestProductsStartDate] = useState<Date>(dayOneYearAgo);
   const [bestProductsEndDate, setBestProductsEndDate] = useState<Date>(new Date());
 
   useEffect(() => {

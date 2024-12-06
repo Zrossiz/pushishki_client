@@ -3,6 +3,12 @@ export const fromDateToString = (date: Date): string => {
     return res;
 } 
 
+export const getDateOneYearAgo = (): Date => {
+    const curDate = new Date();
+    curDate.setFullYear(curDate.getFullYear() - 1);
+    return curDate;
+}
+
 export const getBoundaryDatesByduration = (duration: string): string[] => {
     let dateFrom: Date = new Date();
     const dateTo: Date = new Date();
