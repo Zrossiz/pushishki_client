@@ -1,23 +1,28 @@
-import { checkUser, getAveragePrice, getOrdersCount, getOrdersSum } from '@/api';
+import { checkUser, getAveragePrice, getMostSellingProducts, getOrdersCount, getOrdersSum } from '@/api';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { AdminLayout } from '@/layout/admin/AdminLayout';
-import { StatisticItem } from '@/components/admin';
+import { ProductsStatisticItem, StatisticItem } from '@/components/admin';
 import styles from '../../../styles/admin/Index.module.scss';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+import { IProduct } from '@/types';
 
 const AdminPage = () => {
   const [ordersCount, setOrdersCount] = useState<number>(0);
-  const [startDateOrdersCount, setStartDateOrdersCount] = useState<any>(new Date());
-  const [endDateOrdersCount, setEndDateOrdersCount] = useState<any>(new Date());
+  const [startDateOrdersCount, setStartDateOrdersCount] = useState<Date>(new Date());
+  const [endDateOrdersCount, setEndDateOrdersCount] = useState<Date>(new Date());
 
   const [ordersSum, setOrdersSum] = useState<number>(0);
-  const [ordersSumStartDate, setOrdersSumStartDate] = useState<any>(new Date());
-  const [ordersSumEndDate, setOrdersSumEndDate] = useState<any>(new Date());
+  const [ordersSumStartDate, setOrdersSumStartDate] = useState<Date>(new Date());
+  const [ordersSumEndDate, setOrdersSumEndDate] = useState<Date>(new Date());
 
   const [avgSum, setAvgSum] = useState<number>(0);
-  const [avgSumStartDate, setAvgSumStartDate] = useState<any>(new Date());
-  const [avgSumEndDate, setAvgSumEndDate] = useState<any>(new Date());
+  const [avgSumStartDate, setAvgSumStartDate] = useState<Date>(new Date());
+  const [avgSumEndDate, setAvgSumEndDate] = useState<Date>(new Date());
+
+  const [bestProducts, setBestProducts] = useState<IProduct[]>([]);
+  const [bestProductsStartDate, setBestProductsStartDate] = useState<Date>(new Date());
+  const [bestProductsEndDate, setBestProductsEndDate] = useState<Date>(new Date());
 
   useEffect(() => {
     (async () => {
@@ -40,38 +45,59 @@ const AdminPage = () => {
     })()
   }, [ordersSumEndDate])
 
+  useEffect(() => {
+    (async () => {
+      const bestProductsApi = await getMostSellingProducts(bestProductsStartDate, bestProductsEndDate)
+      setBestProducts(bestProductsApi)
+    })()
+  }, [bestProductsEndDate])
+
   return (
     <AdminLayout>
       <div className={styles.wrapper}>
-        <div className={styles.item}>
-          <StatisticItem 
-            name={'Общее количество заказов шт.'} 
-            value={ordersCount} 
-            startDate={startDateOrdersCount}
-            endDate={endDateOrdersCount}
-            setStartDate={setStartDateOrdersCount}
-            setEndDate={setEndDateOrdersCount}
-          />
+        <div className={styles.countStatistic}>
+          <div className={styles.item}>
+            <StatisticItem 
+              name={'Общее количество заказов шт.'} 
+              value={ordersCount} 
+              startDate={startDateOrdersCount}
+              endDate={endDateOrdersCount}
+              setStartDate={setStartDateOrdersCount}
+              setEndDate={setEndDateOrdersCount}
+            />
+          </div>
+          <div className={styles.item}>
+            <StatisticItem 
+              name={'Сумма продаж ₽'} 
+              value={ordersSum} 
+              startDate={ordersSumStartDate}
+              endDate={ordersSumEndDate}
+              setStartDate={setOrdersSumStartDate}
+              setEndDate={setOrdersSumEndDate}
+            />
+          </div>
+          <div className={styles.item}>
+            <StatisticItem 
+              name={'Средняя сумма продаж ₽'} 
+              value={avgSum} 
+              startDate={avgSumStartDate}
+              endDate={avgSumEndDate}
+              setStartDate={setAvgSumStartDate}
+              setEndDate={setAvgSumEndDate}
+            />
+          </div>
         </div>
-        <div className={styles.item}>
-          <StatisticItem 
-            name={'Сумма продаж ₽'} 
-            value={ordersSum} 
-            startDate={ordersSumStartDate}
-            endDate={ordersSumEndDate}
-            setStartDate={setOrdersSumStartDate}
-            setEndDate={setOrdersSumEndDate}
-          />
-        </div>
-        <div className={styles.item}>
-          <StatisticItem 
-            name={'Средняя сумма продаж ₽'} 
-            value={avgSum} 
-            startDate={avgSumStartDate}
-            endDate={avgSumEndDate}
-            setStartDate={setAvgSumStartDate}
-            setEndDate={setAvgSumEndDate}
-          />
+        <div className={styles.entityStatistic}>
+          <div className={styles.item}>
+            <ProductsStatisticItem 
+              name={"Самые продаваемые"} 
+              products={bestProducts} 
+              startDate={bestProductsStartDate}
+              endDate={bestProductsEndDate} 
+              setStartDate={setBestProductsStartDate} 
+              setEndDate={setBestProductsEndDate}            
+            />
+          </div>
         </div>
       </div>
     </AdminLayout>

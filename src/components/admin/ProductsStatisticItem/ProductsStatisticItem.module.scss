@@ -1,0 +1,38 @@
+.wrapper {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 20px;
+    width: 400px;
+
+    .nameSelectWrapper {
+        display: flex;
+        justify-content: space-between;
+
+        .nameWrapper {
+            font-size: 20px;
+        }
+
+        .selectWrapper {
+            position: relative;
+        }
+    }
+
+    .resultWrapper {
+        margin-top: 20px;
+
+        li {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+
+            img {
+                border-radius: 10px;
+            }
+
+            span {
+                display: inline-block;
+                margin-left: 20px;
+            }
+        }
+    }
+}

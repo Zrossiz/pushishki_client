@@ -26,3 +26,4 @@ export * from './AgeForm/AgeForm';
 export * from './ManufacturerListItem/ManufacturerListItem';
 export * from './ManufacturerForm/ManufacturerForm';
 export * from './StatisticItem/StatisticItem';
+export * from './ProductsStatisticItem/ProductsStatisticItem';

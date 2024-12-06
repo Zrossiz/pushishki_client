@@ -1,9 +1,18 @@
 .wrapper {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 
-    .item {
-        margin-right: 20px;
+    .countStatistic {
+        display: flex;
+        flex-wrap: wrap;
+    
+        .item {
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+    }
+
+    .entityStatistic {
         margin-top: 10px;
     }
 }
