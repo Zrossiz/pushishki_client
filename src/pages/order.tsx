@@ -50,30 +50,27 @@ const OrderPage = () => {
   const router = useRouter();
 
   const checkout = async () => {
-    const order: IOrder | { message: string } = await postOrder(
+    const apiCart: IApiItemCart[] = [];
+
+    cart.forEach((item: IItemCart) => {
+      const basketItem = {
+        productId: +item.product.id,
+        quantity: +item.count,
+        price: +item.product.defaultPrice * +item.count,
+        color: item.color,
+      };
+      apiCart.push(basketItem);
+    });
+
+    const order = await postOrder(
       name,
       lastName,
       address,
       phone,
       delivery,
       totalProductsPrice,
+      apiCart
     );
-
-    const apiCart: IApiItemCart[] = [];
-
-    if ('id' in order) {
-      cart.forEach((item: IItemCart) => {
-        const basketItem = {
-          productId: +item.product.id,
-          orderId: order.id,
-          quantity: +item.count,
-          price: +item.product.defaultPrice * +item.count,
-          color: item.color,
-        };
-        apiCart.push(basketItem);
-      });
-    }
-    const basket = await createBasket(apiCart);
 
     setSuccess(true);
     setDelivery('');

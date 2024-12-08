@@ -10,7 +10,6 @@ export interface IItemCart {
 export interface IApiItemCart {
   productId: number;
   color?: string;
-  orderId: number;
   quantity: number;
   price: number;
 }

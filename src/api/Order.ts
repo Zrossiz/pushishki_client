@@ -1,4 +1,4 @@
-import { IOrder, IOrderWithLength } from '@/types';
+import { IApiItemCart, IOrder, IOrderWithLength } from '@/types';
 import { axiosInst } from '@/utils';
 import axios from 'axios';
 import getConfig from 'next/config';
@@ -14,7 +14,8 @@ export const postOrder = async (
   phone: string,
   delivery: string,
   price: number,
-): Promise<IOrder | { message: string }> => {
+  products: IApiItemCart[],
+): Promise<boolean> => {
   try {
     const { data } = await axiosInst.post(`${API_URL}/order`, {
       name,
@@ -22,6 +23,9 @@ export const postOrder = async (
       phone,
       address,
       price,
+      basket: {
+        objects: products
+      }
     });
 
     const order = await axios.post(`${BOT_URL}/bot/order`, {
@@ -33,12 +37,10 @@ export const postOrder = async (
       price,
     });
 
-    return data;
+    return true;
   } catch (err) {
     console.log(err);
-    return {
-      message: 'Ошибка при создании заказа',
-    };
+    return false;
   }
 };
 
