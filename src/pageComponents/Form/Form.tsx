@@ -8,15 +8,16 @@ import { MainPageReviews } from '@/components/client';
 import axios from 'axios';
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';
+import { sendQuestion } from '@/api';
 
 const { publicRuntimeConfig } = getConfig();
-const { BOT_URL, CLIENT_URL } = publicRuntimeConfig;
+const { API_URL, CLIENT_URL } = publicRuntimeConfig;
 
 export const Form = () => {
   const [send, setSend] = useState<boolean>(false);
   const [name, setName] = useState<string>('');
   const [question, setQuestion] = useState<string>('');
-  const [phone, setPhone] = useState<string>();
+  const [phone, setPhone] = useState<string>('');
 
   const router = useRouter();
 
@@ -24,15 +25,12 @@ export const Form = () => {
 
   const sendFormToTelegram = async () => {
     setSend(true);
-    await axios.post(`${BOT_URL}/bot/question`, {
-      name,
-      phone,
-      question,
-      link: `${CLIENT_URL}${link}`,
-    });
-    setInterval(() => {
-      setName('');
-      setQuestion('');
+    await sendQuestion(name, phone, question, `${CLIENT_URL}${link}`)
+    setName('');
+    setQuestion('');
+    setPhone('');
+
+    setTimeout(() => {
       setSend(false);
     }, 2000);
   };

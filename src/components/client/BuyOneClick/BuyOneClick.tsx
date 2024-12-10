@@ -4,9 +4,10 @@ import { BuyOneClickProps } from './BuyOneClick.props';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import { buyOneClick } from '@/api';
+// import { buyOneClick } from '@/api';
 import getConfig from 'next/config';
 import { InfoPopup } from '..';
+import { buyOneClick } from '@/api';
 
 const { publicRuntimeConfig } = getConfig();
 const { CLIENT_URL } = publicRuntimeConfig;

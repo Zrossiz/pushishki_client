@@ -28,15 +28,6 @@ export const postOrder = async (
       }
     });
 
-    const order = await axios.post(`${BOT_URL}/bot/order`, {
-      name,
-      lastName,
-      address,
-      phone,
-      delivery,
-      price,
-    });
-
     return true;
   } catch (err) {
     console.log(err);
@@ -51,7 +42,7 @@ export const buyOneClick = async (
   link: string,
 ): Promise<boolean | { message: string }> => {
   try {
-    await axios.post(`${BOT_URL}/bot/order/oneClick`, {
+    await axios.post(`${API_URL}/order/one-click`, {
       name,
       phone,
       productName,
@@ -93,3 +84,21 @@ export const setReadOrder = async (orderId: number): Promise<IOrder | { message:
     };
   }
 };
+
+export const sendQuestion = async (
+  name: string,
+  phone: string,
+  question: string,
+  link: string
+) => {
+  try {
+    await axios.post(`${API_URL}/order/question`, {
+      name,
+      phone,
+      question,
+      link,
+    });
+  } catch (err) {
+
+  }
+}

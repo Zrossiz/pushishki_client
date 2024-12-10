@@ -38,13 +38,7 @@ export const postReview = async (
       rating: +rating,
     };
     const review = await axios.post(`${API_URL}/review`, data);
-    await axios.post(`${BOT_URL}/bot/review`, {
-      id: review.data.id,
-      username: String(name),
-      title: String(title),
-      description: String(desc),
-      rating: +rating,
-    });
+
     return 'Success';
   } catch (err) {
     console.log(err);
