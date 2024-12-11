@@ -4,6 +4,7 @@
 
 - Next.JS
 - Framer motion
+- Sass
 
 ## Конфигурация .env
 
@@ -11,7 +12,12 @@
 - FILESERVER_URL адрес файл сервера
 - BOT_URL адрес бота
 - CLIENT_URL адрес клиентского приложение
+- API_KEY ключ api
+- SERVER_IP адрес сервера
 
-###
+### Старт приложения
 
-Вся бизнес логика лежит в /src/api
+```bash
+npm install 
+npm run dev
+```
