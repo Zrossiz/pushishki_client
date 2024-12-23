@@ -13,6 +13,7 @@ import { Layout } from '@/layout/client/Layout';
 const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
   const mainTitleRef = useRef(null);
   const mainTitleRefIsInView = useInView(mainTitleRef, { once: true });
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   const ref1 = useRef(null);
   const isInView1 = useInView(ref1, { once: true });
@@ -36,15 +37,22 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
         <section className={styles.firstDisplay}>
           <div className={styles.backgroundImgWrapper}>
             <div className={styles.backgroundImg}>
-              <Image src="/main.webp" fill style={{ objectFit: 'cover' }} alt="Главный фон" />
+              <Image
+                src="/main-desktop.webp"
+                fill
+                style={{ objectFit: 'cover' }}
+                alt="Главный фон"
+                priority
+                sizes="(max-width: 768px) 100vw, 1920px"
+              />
             </div>
           </div>
           <div className={styles.titleWrapper}>
-            <motion.h1
+          <motion.h1
               ref={mainTitleRef}
-              transition={{ delay: 0.4, duration: 1 }}
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: mainTitleRefIsInView ? 0 : 30, opacity: mainTitleRefIsInView ? 1 : 0 }}
+              transition={isMobile ? { duration: 0 } : { delay: 0.4, duration: 1 }}
+              initial={isMobile ? false : { y: 30, opacity: 0 }}
+              animate={isMobile ? false : { y: mainTitleRefIsInView ? 0 : 30, opacity: mainTitleRefIsInView ? 1 : 0 }}
             >
               Доставка электромоб
               <span>и</span>
@@ -93,9 +101,9 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
           <div className={styles.advantagesWrapper}>
             <motion.div
               ref={ref4}
-              transition={{ delay: 0.4, duration: 1 }}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: isInView4 ? 0 : -30, opacity: isInView4 ? 1 : 0 }}
+              transition={isMobile ? { duration: 0 } : { delay: 0.4, duration: 1 }}
+              initial={isMobile ? false : { x: -30, opacity: 0 }}
+              animate={isMobile ? false : { x: isInView4 ? 0 : -30, opacity: isInView4 ? 1 : 0 }}
               className={styles.titleWrapper}
             >
               <HTag tag="h2">
@@ -108,9 +116,9 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               <ul>
                 <motion.li
                   ref={ref1}
-                  transition={{ delay: 0.6, duration: 1 }}
-                  initial={{ x: 30, opacity: 0 }}
-                  animate={{ x: isInView1 ? 0 : 30, opacity: isInView1 ? 1 : 0 }}
+                  transition={isMobile ? { duration: 0 } : { delay: 0.6, duration: 1 }}
+                  initial={isMobile ? false : { x: 30, opacity: 0 }}
+                  animate={isMobile ? false : { x: isInView1 ? 0 : 30, opacity: isInView1 ? 1 : 0 }}
                   className={styles.itemWrapper}
                 >
                   <HTag tag="h3">
@@ -125,9 +133,9 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 <motion.li
                   className={styles.itemWrapper}
                   ref={ref2}
-                  transition={{ delay: 0.8, duration: 1 }}
-                  initial={{ x: -30, opacity: 0 }}
-                  animate={{ x: isInView2 ? 0 : -30, opacity: isInView2 ? 1 : 0 }}
+                  transition={isMobile ? { duration: 0 } : { delay: 0.8, duration: 1 }}
+                  initial={isMobile ? false : { x: -30, opacity: 0 }}
+                  animate={isMobile ? false : { x: isInView2 ? 0 : -30, opacity: isInView2 ? 1 : 0 }}
                 >
                   <HTag tag="h3">Покупайте только лучшее</HTag>
                   <span className={styles.span}>
@@ -138,9 +146,9 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 <motion.li
                   className={styles.itemWrapper}
                   ref={ref3}
-                  transition={{ delay: 1, duration: 1 }}
-                  initial={{ x: 30, opacity: 0 }}
-                  animate={{ x: isInView3 ? 0 : 30, opacity: isInView3 ? 1 : 0 }}
+                  transition={isMobile ? { duration: 0 } : { delay: 1, duration: 1 }}
+                  initial={isMobile ? false : { x: 30, opacity: 0 }}
+                  animate={isMobile ? false : { x: isInView3 ? 0 : 30, opacity: isInView3 ? 1 : 0 }}
                 >
                   <HTag tag="h3">Изучите наш большой ассортимент</HTag>
                   <span className={styles.span}>
@@ -165,11 +173,11 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
             <div className={styles.titleDescWrapper}>
               <motion.div
                 ref={infoTitleRef}
-                transition={{ delay: 0.6, duration: 1 }}
-                initial={{ x: 30, opacity: 0 }}
+                transition={isMobile ? { duration: 0 } : { delay: 0.6, duration: 1 }}
+                initial={isMobile ? false : { x: 30, opacity: 0 }}
                 animate={{
-                  x: infoTitleRefIsInView ? 0 : 30,
-                  opacity: infoTitleRefIsInView ? 1 : 0,
+                  x: isMobile ? 0 : infoTitleRefIsInView ? 0 : 30,
+                  opacity: isMobile ? 1 : infoTitleRefIsInView ? 1 : 0,
                 }}
                 className={styles.titleWrapper}
               >
