@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { HTag } from '@/elements';
 import cn from 'classnames';
 import { Form, Questions, Quiz, Slider, WhyChoose } from '@/pageComponents';
-import { motion, useInView } from 'framer-motion';
+// import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { getBestsellers, getCategories, getNewProducts } from '@/api';
 import { MainPageProps } from '@/types';
@@ -12,20 +12,20 @@ import { Layout } from '@/layout/client/Layout';
 
 const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
   const mainTitleRef = useRef(null);
-  const mainTitleRefIsInView = useInView(mainTitleRef, { once: true });
+  // const mainTitleRefIsInView = useInView(mainTitleRef, { once: true });
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-  const ref1 = useRef(null);
-  const isInView1 = useInView(ref1, { once: true });
-  const ref2 = useRef(null);
-  const isInView2 = useInView(ref2, { once: true });
-  const ref3 = useRef(null);
-  const isInView3 = useInView(ref3, { once: true });
-  const ref4 = useRef(null);
-  const isInView4 = useInView(ref4, { once: true });
+  // const ref1 = useRef(null);
+  // const isInView1 = useInView(ref1, { once: true });
+  // const ref2 = useRef(null);
+  // const isInView2 = useInView(ref2, { once: true });
+  // const ref3 = useRef(null);
+  // const isInView3 = useInView(ref3, { once: true });
+  // const ref4 = useRef(null);
+  // const isInView4 = useInView(ref4, { once: true });
 
   const infoTitleRef = useRef(null);
-  const infoTitleRefIsInView = useInView(infoTitleRef, { once: true });
+  // const infoTitleRefIsInView = useInView(infoTitleRef, { once: true });
 
   return (
     <Layout 
@@ -43,23 +43,17 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 style={{ objectFit: 'cover' }}
                 alt="Главный фон"
                 priority
-                sizes="(max-width: 768px) 100vw, 1920px"
               />
             </div>
           </div>
           <div className={styles.titleWrapper}>
-          <motion.h1
-              ref={mainTitleRef}
-              transition={isMobile ? { duration: 0 } : { delay: 0.4, duration: 1 }}
-              initial={isMobile ? false : { y: 30, opacity: 0 }}
-              animate={isMobile ? false : { y: mainTitleRefIsInView ? 0 : 30, opacity: mainTitleRefIsInView ? 1 : 0 }}
-            >
+          <h1>
               Доставка электромоб
               <span>и</span>
               лей
               <br />
               <span>и</span>&nbsp;радости ребенку
-            </motion.h1>
+            </h1>
           </div>
           <div className={styles.chooseWrapper}>
             <div className={styles.categoriesWrapper}>
@@ -99,11 +93,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
             />
           </div>
           <div className={styles.advantagesWrapper}>
-            <motion.div
-              ref={ref4}
-              transition={isMobile ? { duration: 0 } : { delay: 0.4, duration: 1 }}
-              initial={isMobile ? false : { x: -30, opacity: 0 }}
-              animate={isMobile ? false : { x: isInView4 ? 0 : -30, opacity: isInView4 ? 1 : 0 }}
+            <div
               className={styles.titleWrapper}
             >
               <HTag tag="h2">
@@ -111,14 +101,10 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 <br />
                 для вас время!
               </HTag>
-            </motion.div>
+            </div>
             <div className={styles.descWrapper}>
               <ul>
-                <motion.li
-                  ref={ref1}
-                  transition={isMobile ? { duration: 0 } : { delay: 0.6, duration: 1 }}
-                  initial={isMobile ? false : { x: 30, opacity: 0 }}
-                  animate={isMobile ? false : { x: isInView1 ? 0 : 30, opacity: isInView1 ? 1 : 0 }}
+                <li
                   className={styles.itemWrapper}
                 >
                   <HTag tag="h3">
@@ -129,26 +115,20 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                     <br />
                     ребенку с доставкой в удобное для вас время
                   </span>
-                </motion.li>
-                <motion.li
+                </li>
+                <li
                   className={styles.itemWrapper}
-                  ref={ref2}
-                  transition={isMobile ? { duration: 0 } : { delay: 0.8, duration: 1 }}
-                  initial={isMobile ? false : { x: -30, opacity: 0 }}
-                  animate={isMobile ? false : { x: isInView2 ? 0 : -30, opacity: isInView2 ? 1 : 0 }}
+                  
                 >
                   <HTag tag="h3">Покупайте только лучшее</HTag>
                   <span className={styles.span}>
                     Только у нас вы сможете увидеть уникальные марки автомобилей и другой детской
                     техники на любой вкус
                   </span>
-                </motion.li>
-                <motion.li
+                </li>
+                <li
                   className={styles.itemWrapper}
-                  ref={ref3}
-                  transition={isMobile ? { duration: 0 } : { delay: 1, duration: 1 }}
-                  initial={isMobile ? false : { x: 30, opacity: 0 }}
-                  animate={isMobile ? false : { x: isInView3 ? 0 : 30, opacity: isInView3 ? 1 : 0 }}
+                  
                 >
                   <HTag tag="h3">Изучите наш большой ассортимент</HTag>
                   <span className={styles.span}>
@@ -156,7 +136,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                     выберите для своего ребенка лучший подарок. В наличии всегда более 150 собранных
                     моделей
                   </span>
-                </motion.li>
+                </li>
               </ul>
             </div>
             <a href="#map" className={styles.iconWrapper}>
@@ -171,20 +151,13 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
         <section className={styles.map} id="map">
           <div className={styles.infoWrapper}>
             <div className={styles.titleDescWrapper}>
-              <motion.div
-                ref={infoTitleRef}
-                transition={isMobile ? { duration: 0 } : { delay: 0.6, duration: 1 }}
-                initial={isMobile ? false : { x: 30, opacity: 0 }}
-                animate={{
-                  x: isMobile ? 0 : infoTitleRefIsInView ? 0 : 30,
-                  opacity: isMobile ? 1 : infoTitleRefIsInView ? 1 : 0,
-                }}
+              <div
                 className={styles.titleWrapper}
               >
                 <HTag tag="h2">
                   Протестируйте <br /> перед заказом
                 </HTag>
-              </motion.div>
+              </div>
               <div className={styles.descWrapper}>
                 <span>
                   Приходите в наш шоурум, мы поможем <br />
