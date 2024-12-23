@@ -86,7 +86,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
             <Image
               fill
               style={{ objectFit: 'cover' }}
-              src={'/mgu.png'}
+              src={'/mgu.webp'}
               alt="Индивидуальный подход"
             />
           </div>
