@@ -36,7 +36,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
         <section className={styles.firstDisplay}>
           <div className={styles.backgroundImgWrapper}>
             <div className={styles.backgroundImg}>
-              <Image src="/main.png" fill style={{ objectFit: 'cover' }} alt="Главный фон" />
+              <Image src="/main.webp" fill style={{ objectFit: 'cover' }} alt="Главный фон" />
             </div>
           </div>
           <div className={styles.titleWrapper}>
