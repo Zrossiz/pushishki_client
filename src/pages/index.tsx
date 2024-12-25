@@ -9,6 +9,8 @@ import { useRef } from 'react';
 import { getBestsellers, getCategories, getNewProducts } from '@/api';
 import { MainPageProps } from '@/types';
 import { Layout } from '@/layout/client/Layout';
+import Snowfall from 'react-snowfall'
+
 
 const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
   const mainTitleRef = useRef(null);
@@ -34,11 +36,21 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
       keyWords='электромобиль детский, купить детский электромобиль, электромобиль детский с пультом, аккумулятор для детского электромобиля, магазин детских электромобилей, электромобиль детский двухместный, детские электромобили в москве,детский мотоцикл, купить детский мотоцикл, детский мотоцикл на аккумуляторе, детский квадроцикл, купить детский квадроцикл, квадроцикл детский электрический, квадроцикл детский бензиновый, толокар детский, веломобиль детскийсамокат детский, самокат трехколесный детский, самокат детский двухколесный, беговел, беговелы, беговел купить, беговел для детей'
     >
       <>
+        <Snowfall
+          snowflakeCount={200}
+          color="white"
+          style={{
+            position: 'fixed',
+            width: '100vw',
+            height: '100vh',
+            zIndex: 10
+          }}
+        />
         <section className={styles.firstDisplay}>
           <div className={styles.backgroundImgWrapper}>
             <div className={styles.backgroundImg}>
               <Image
-                src="/main-desktop.webp"
+                src="/main.webp"
                 fill
                 style={{ objectFit: 'cover' }}
                 alt="Главный фон"
