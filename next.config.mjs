@@ -9,7 +9,7 @@ const nextConfig = {
     API_KEY: process.env.API_KEY,
   },
   images: {
-    domains: [process.env.SERVER_IP, 'image.pushishki.ru', 'localhost'],
+    domains: [process.env.SERVER_IP, 'images.pushishki.ru', 'localhost'],
   },
 };
 
