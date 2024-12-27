@@ -47,7 +47,13 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
         <section className={styles.firstDisplay}>
           <div className={styles.backgroundImgWrapper}>
             <div className={styles.backgroundImg}>
-              <Image src="/main.webp" fill style={{ objectFit: 'cover' }} alt="Главный фон" />
+              <Image 
+                src="/main.webp" 
+                layout='fill'
+                objectFit='cover'
+                alt="Главный фон" 
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
           <div className={styles.titleWrapper}>
@@ -56,6 +62,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               transition={{ delay: 0.4, duration: 1 }}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: mainTitleRefIsInView ? 0 : 30, opacity: mainTitleRefIsInView ? 1 : 0 }}
+              whileInView={window.innerWidth > 768 ? 'animate' : undefined}
             >
               Доставка электромоб
               <span>и</span>
@@ -108,6 +115,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               initial={{ x: -30, opacity: 0 }}
               animate={{ x: isInView4 ? 0 : -30, opacity: isInView4 ? 1 : 0 }}
               className={styles.titleWrapper}
+              whileInView={window.innerWidth > 768 ? 'animate' : undefined}
             >
               <HTag tag="h2">
                 Доставка в удобное
@@ -123,6 +131,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   initial={{ x: 30, opacity: 0 }}
                   animate={{ x: isInView1 ? 0 : 30, opacity: isInView1 ? 1 : 0 }}
                   className={styles.itemWrapper}
+                  whileInView={window.innerWidth > 768 ? 'animate' : undefined}
                 >
                   <HTag tag="h3">
                     Гибкое время <br /> доставки
@@ -139,6 +148,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   transition={{ delay: 0.8, duration: 1 }}
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: isInView2 ? 0 : -30, opacity: isInView2 ? 1 : 0 }}
+                  whileInView={window.innerWidth > 768 ? 'animate' : undefined}
                 >
                   <HTag tag="h3">Покупайте только лучшее</HTag>
                   <span className={styles.span}>
@@ -152,6 +162,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   transition={{ delay: 1, duration: 1 }}
                   initial={{ x: 30, opacity: 0 }}
                   animate={{ x: isInView3 ? 0 : 30, opacity: isInView3 ? 1 : 0 }}
+                  whileInView={window.innerWidth > 768 ? 'animate' : undefined}
                 >
                   <HTag tag="h3">Изучите наш большой ассортимент</HTag>
                   <span className={styles.span}>
@@ -183,6 +194,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   opacity: infoTitleRefIsInView ? 1 : 0,
                 }}
                 className={styles.titleWrapper}
+                whileInView={window.innerWidth > 768 ? 'animate' : undefined}
               >
                 <HTag tag="h2">
                   Протестируйте <br /> перед заказом
@@ -243,7 +255,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
             <iframe
               src="https://yandex.ru/map-widget/v1/?um=constructor%3A9851e814dd4a7db8fa6c766b41f911822c247c52a643e0e2db22f970cdf2ffa8&amp;source=constructor"
               width="100%"
-              height="720"
+              height={window.innerWidth < 768 ? "320" : "720"}
               frameBorder="0"
             ></iframe>
           </div>
