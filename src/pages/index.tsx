@@ -4,30 +4,28 @@ import Image from 'next/image';
 import { HTag } from '@/elements';
 import cn from 'classnames';
 import { Form, Questions, Quiz, Slider, WhyChoose } from '@/pageComponents';
-// import { motion, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { getBestsellers, getCategories, getNewProducts } from '@/api';
 import { MainPageProps } from '@/types';
 import { Layout } from '@/layout/client/Layout';
-import Snowfall from 'react-snowfall'
-
+import Snowfall from 'react-snowfall';
 
 const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
   const mainTitleRef = useRef(null);
-  // const mainTitleRefIsInView = useInView(mainTitleRef, { once: true });
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const mainTitleRefIsInView = useInView(mainTitleRef, { once: true });
 
-  // const ref1 = useRef(null);
-  // const isInView1 = useInView(ref1, { once: true });
-  // const ref2 = useRef(null);
-  // const isInView2 = useInView(ref2, { once: true });
-  // const ref3 = useRef(null);
-  // const isInView3 = useInView(ref3, { once: true });
-  // const ref4 = useRef(null);
-  // const isInView4 = useInView(ref4, { once: true });
+  const ref1 = useRef(null);
+  const isInView1 = useInView(ref1, { once: true });
+  const ref2 = useRef(null);
+  const isInView2 = useInView(ref2, { once: true });
+  const ref3 = useRef(null);
+  const isInView3 = useInView(ref3, { once: true });
+  const ref4 = useRef(null);
+  const isInView4 = useInView(ref4, { once: true });
 
   const infoTitleRef = useRef(null);
-  // const infoTitleRefIsInView = useInView(infoTitleRef, { once: true });
+  const infoTitleRefIsInView = useInView(infoTitleRef, { once: true });
 
   return (
     <Layout 
@@ -37,35 +35,34 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
     >
       <>
         <Snowfall
-          snowflakeCount={200}
-          color="white"
-          style={{
-            position: 'fixed',
-            width: '100vw',
-            height: '100vh',
-            zIndex: 10
-          }}
-        />
+            snowflakeCount={100}
+            color="white"
+            style={{
+              position: 'fixed',
+              width: '100vw',
+              height: '100vh',
+              zIndex: 1000
+            }}
+          />
         <section className={styles.firstDisplay}>
           <div className={styles.backgroundImgWrapper}>
             <div className={styles.backgroundImg}>
-              <Image
-                src="/main.webp"
-                fill
-                style={{ objectFit: 'cover' }}
-                alt="Главный фон"
-                priority
-              />
+              <Image src="/main.webp" fill style={{ objectFit: 'cover' }} alt="Главный фон" />
             </div>
           </div>
           <div className={styles.titleWrapper}>
-          <h1>
+            <motion.h1
+              ref={mainTitleRef}
+              transition={{ delay: 0.4, duration: 1 }}
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: mainTitleRefIsInView ? 0 : 30, opacity: mainTitleRefIsInView ? 1 : 0 }}
+            >
               Доставка электромоб
               <span>и</span>
               лей
               <br />
               <span>и</span>&nbsp;радости ребенку
-            </h1>
+            </motion.h1>
           </div>
           <div className={styles.chooseWrapper}>
             <div className={styles.categoriesWrapper}>
@@ -105,7 +102,11 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
             />
           </div>
           <div className={styles.advantagesWrapper}>
-            <div
+            <motion.div
+              ref={ref4}
+              transition={{ delay: 0.4, duration: 1 }}
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: isInView4 ? 0 : -30, opacity: isInView4 ? 1 : 0 }}
               className={styles.titleWrapper}
             >
               <HTag tag="h2">
@@ -113,10 +114,14 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 <br />
                 для вас время!
               </HTag>
-            </div>
+            </motion.div>
             <div className={styles.descWrapper}>
               <ul>
-                <li
+                <motion.li
+                  ref={ref1}
+                  transition={{ delay: 0.6, duration: 1 }}
+                  initial={{ x: 30, opacity: 0 }}
+                  animate={{ x: isInView1 ? 0 : 30, opacity: isInView1 ? 1 : 0 }}
                   className={styles.itemWrapper}
                 >
                   <HTag tag="h3">
@@ -127,20 +132,26 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                     <br />
                     ребенку с доставкой в удобное для вас время
                   </span>
-                </li>
-                <li
+                </motion.li>
+                <motion.li
                   className={styles.itemWrapper}
-                  
+                  ref={ref2}
+                  transition={{ delay: 0.8, duration: 1 }}
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: isInView2 ? 0 : -30, opacity: isInView2 ? 1 : 0 }}
                 >
                   <HTag tag="h3">Покупайте только лучшее</HTag>
                   <span className={styles.span}>
                     Только у нас вы сможете увидеть уникальные марки автомобилей и другой детской
                     техники на любой вкус
                   </span>
-                </li>
-                <li
+                </motion.li>
+                <motion.li
                   className={styles.itemWrapper}
-                  
+                  ref={ref3}
+                  transition={{ delay: 1, duration: 1 }}
+                  initial={{ x: 30, opacity: 0 }}
+                  animate={{ x: isInView3 ? 0 : 30, opacity: isInView3 ? 1 : 0 }}
                 >
                   <HTag tag="h3">Изучите наш большой ассортимент</HTag>
                   <span className={styles.span}>
@@ -148,7 +159,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                     выберите для своего ребенка лучший подарок. В наличии всегда более 150 собранных
                     моделей
                   </span>
-                </li>
+                </motion.li>
               </ul>
             </div>
             <a href="#map" className={styles.iconWrapper}>
@@ -163,13 +174,20 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
         <section className={styles.map} id="map">
           <div className={styles.infoWrapper}>
             <div className={styles.titleDescWrapper}>
-              <div
+              <motion.div
+                ref={infoTitleRef}
+                transition={{ delay: 0.6, duration: 1 }}
+                initial={{ x: 30, opacity: 0 }}
+                animate={{
+                  x: infoTitleRefIsInView ? 0 : 30,
+                  opacity: infoTitleRefIsInView ? 1 : 0,
+                }}
                 className={styles.titleWrapper}
               >
                 <HTag tag="h2">
                   Протестируйте <br /> перед заказом
                 </HTag>
-              </div>
+              </motion.div>
               <div className={styles.descWrapper}>
                 <span>
                   Приходите в наш шоурум, мы поможем <br />
