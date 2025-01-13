@@ -28,6 +28,7 @@ export const ProductCard = ({
   productVariants,
   reviews,
 }: IProductCardPageProps) => {
+  console.log(productVariants);
   const router = useRouter();
   const [activeVariant, setActiveVariant] = useState<number>(0);
   const [openBuyOnClick, setOpenBuyOnClick] = useState<boolean>(false);
@@ -376,7 +377,7 @@ export const ProductCard = ({
                     })}
                     style={{ backgroundColor: item?.color?.color || 'transparent' }}
                   >
-                    {item.color.image && item.color.image.startsWith('http') && (
+                    {item.color.image && (
                       <Image
                         src={`${FILESERVER_URL}/upload/${item.color.image}`}
                         width={32}

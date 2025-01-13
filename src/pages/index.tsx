@@ -52,7 +52,6 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 layout='fill'
                 objectFit='cover'
                 alt="Главный фон" 
-                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </div>
