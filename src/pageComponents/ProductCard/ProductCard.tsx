@@ -28,7 +28,6 @@ export const ProductCard = ({
   productVariants,
   reviews,
 }: IProductCardPageProps) => {
-  console.log(productVariants);
   const router = useRouter();
   const [activeVariant, setActiveVariant] = useState<number>(0);
   const [openBuyOnClick, setOpenBuyOnClick] = useState<boolean>(false);
@@ -40,7 +39,16 @@ export const ProductCard = ({
   const [description, setDescription] = useState<string>('');
   const [option, setOption] = useState<string>('Характеристики');
 
-  const [activePrice, setActivePrice] = useState<number>(product?.defaultPrice || 0);
+  let defaultActivePrice = 0;
+  if (product) {
+    if (productVariants && productVariants?.length > 0) {
+      defaultActivePrice = productVariants[0].price;
+    } else {
+      defaultActivePrice = product.defaultPrice;
+    }
+  }
+
+  const [activePrice, setActivePrice] = useState<number>(defaultActivePrice);
 
   const [isAdded, setIsAdded] = useState<boolean>(false);
 
