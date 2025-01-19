@@ -5,6 +5,7 @@ export interface IItemCart {
   count: number;
   color: string | undefined;
   variantId: number;
+  variantImage: string;
 }
 
 export interface IApiItemCart {

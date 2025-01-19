@@ -42,7 +42,7 @@ export const CartItem = ({
     >
       <div className={styles.imgWrapper}>
         <Image
-          src={`${FILESERVER_URL}/upload/${product.product.image}`}
+          src={`${FILESERVER_URL}/upload/${product.variantImage}`}
           alt={product.product.name}
           width={150}
           height={100}
