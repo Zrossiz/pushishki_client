@@ -34,7 +34,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
       keyWords='электромобиль детский, купить детский электромобиль, электромобиль детский с пультом, аккумулятор для детского электромобиля, магазин детских электромобилей, электромобиль детский двухместный, детские электромобили в москве,детский мотоцикл, купить детский мотоцикл, детский мотоцикл на аккумуляторе, детский квадроцикл, купить детский квадроцикл, квадроцикл детский электрический, квадроцикл детский бензиновый, толокар детский, веломобиль детскийсамокат детский, самокат трехколесный детский, самокат детский двухколесный, беговел, беговелы, беговел купить, беговел для детей'
     >
       <>
-        <Snowfall
+        {/* <Snowfall
             snowflakeCount={100}
             color="white"
             style={{
@@ -43,7 +43,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               height: '100vh',
               zIndex: 1000
             }}
-          />
+          /> */}
         <section className={styles.firstDisplay}>
           <div className={styles.backgroundImgWrapper}>
             <div className={styles.backgroundImg}>
@@ -52,6 +52,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 layout='fill'
                 objectFit='cover'
                 alt="Главный фон" 
+                priority
               />
             </div>
           </div>
@@ -90,7 +91,13 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 <br />
                 электромобиль
                 <div className={styles.iconWrapper}>
-                  <Image src="/icons/Settings.svg" width={50} height={50} alt="Категории" />
+                  <Image 
+                    src="/icons/Settings.svg" 
+                    width={50} 
+                    height={50} 
+                    alt="Категории" 
+                    loading="lazy"
+                  />
                 </div>
               </Link>
             </div>
@@ -104,6 +111,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               style={{ objectFit: 'cover' }}
               src={'/mgu.webp'}
               alt="Индивидуальный подход"
+              loading="lazy"
             />
           </div>
           <div className={styles.advantagesWrapper}>
@@ -168,7 +176,13 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               </ul>
             </div>
             <a href="#map" className={styles.iconWrapper}>
-              <Image src={'/icons/TopArrow.svg'} width={42} height={42} alt="Контакты" />
+              <Image 
+                src={'/icons/TopArrow.svg'} 
+                width={42} 
+                height={42} 
+                alt="Контакты" 
+                loading="lazy"
+              />
             </a>
           </div>
         </section>
@@ -250,6 +264,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               width="100%"
               height="720"
               frameBorder="0"
+              loading='lazy'
             ></iframe>
           </div>
         </section>
@@ -262,9 +277,11 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const bestSellers = await getBestsellers();
-  const newProducts = await getNewProducts();
-  const categories = await getCategories();
+  const [bestSellers, newProducts, categories] = await Promise.all([
+    getBestsellers(),
+    getNewProducts(),
+    getCategories(),
+  ]);
 
   return {
     props: {
