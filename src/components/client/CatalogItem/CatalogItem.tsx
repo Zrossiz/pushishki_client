@@ -13,6 +13,7 @@ const { FILESERVER_URL } = publicRuntimeConfig;
 
 export const CatalogItem = ({ product, localStorageFavorites, customHref }: CatalogItemProps) => {
   const router = useRouter();
+  console.log(router);
 
   const formattedPrice: string =
     Intl.NumberFormat('ru-RU', {
@@ -54,6 +55,12 @@ export const CatalogItem = ({ product, localStorageFavorites, customHref }: Cata
     return localStorage.setItem('favorites', JSON.stringify(favorites));
   };
 
+  let formattedRouteForQueryParams: string = `${router.asPath}/${product.slug}`;
+  if (router.asPath.includes("?")) {
+    const splittedPath = router.asPath.split("?");
+    formattedRouteForQueryParams = `${splittedPath[0]}/${product.slug}/?${splittedPath[1]}`
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.imgWrapper}>
@@ -71,7 +78,7 @@ export const CatalogItem = ({ product, localStorageFavorites, customHref }: Cata
           <div className={styles.buttonWrapper}>
             <LinkButton
               element="link"
-              href={customHref ? customHref : `${router.asPath}/${product.slug}`}
+              href={customHref ? customHref : formattedRouteForQueryParams}
             >
               Выбрать
             </LinkButton>
