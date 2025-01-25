@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 export const Sort = () => {
   const router = useRouter();
 
-  const settings: string[] = ['Сначала дешевые', 'Сначала дорогие'];
+  const settings: string[] = ['Сначала подешевле', 'Сначала подороже'];
 
   const [setting, setSetting] = useState<number>(1);
   const [open, setOpen] = useState<boolean>(false);
