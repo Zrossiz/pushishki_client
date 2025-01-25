@@ -31,7 +31,7 @@ const ContactsPage = () => {
               <a href="tel:+79857660713">8 495-766-07-13</a>
             </div>
             <div className={styles.mailWrapper}>
-              <a href="mailto:info@pushishki.ru">info@pushishki.ru</a>
+              <a href="mailto:pushishki@mail.ru">pushishki@mail.ru</a>
             </div>
             <div className={styles.callUs}>
               Перед посещением шоурума, свяжитесь с нами для 

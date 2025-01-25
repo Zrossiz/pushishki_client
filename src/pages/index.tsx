@@ -246,7 +246,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                   <a href="https://www.avito.ru/brands/pushishki" target="_blank">
                     Авито
                   </a>
-                  <a href="mailto:info@pushishki.ru" target="_blank">
+                  <a href="mailto:pushishki@mail.ru" target="_blank">
                     E-mail
                   </a>
                 </div>
