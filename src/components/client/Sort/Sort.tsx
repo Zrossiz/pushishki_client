@@ -9,7 +9,7 @@ export const Sort = () => {
 
   const settings: string[] = ['Сначала подешевле', 'Сначала подороже'];
 
-  const [setting, setSetting] = useState<number>(1);
+  const [setting, setSetting] = useState<number>(0);
   const [open, setOpen] = useState<boolean>(false);
 
   const chooseSetting = (index: number) => {
