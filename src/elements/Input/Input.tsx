@@ -78,7 +78,10 @@ export const Input = ({
         input.value = inputNumbersValue;
       }
     }
+
+    setTimeout(() => onPhoneInput(e), 0);
   };
+
   switch (type) {
     case 'text':
       return (
