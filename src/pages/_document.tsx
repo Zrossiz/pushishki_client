@@ -5,9 +5,9 @@ export default function Document() {
     <Html lang="ru">
       <Head>
         <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-              __html: `
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
                 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){
                 (m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();
                 k=e.createElement(t);k.async=1;k.src=r;k.onload=k.onreadystatechange=function(){
@@ -20,12 +20,16 @@ export default function Document() {
                   accurateTrackBounce:true,
                   webvisor:true
                 });
-              `
+              `,
           }}
         />
         <noscript>
           <div>
-            <img src="https://mc.yandex.ru/watch/19471360" style={{ position: 'absolute', left: '-9999px' }} alt="" />
+            <img
+              src="https://mc.yandex.ru/watch/19471360"
+              style={{ position: 'absolute', left: '-9999px' }}
+              alt=""
+            />
           </div>
         </noscript>
       </Head>

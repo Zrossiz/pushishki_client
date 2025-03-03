@@ -28,10 +28,10 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
   const infoTitleRefIsInView = useInView(infoTitleRef, { once: true });
 
   return (
-    <Layout 
+    <Layout
       title="Главная | Пушишки"
-      description='В магазине Pushishki вы сможете купить новые и качественные детские электромобили, а так же другой  детский транспорт с гарантией и по лучшей цене.'
-      keyWords='электромобиль детский, купить детский электромобиль, электромобиль детский с пультом, аккумулятор для детского электромобиля, магазин детских электромобилей, электромобиль детский двухместный, детские электромобили в москве,детский мотоцикл, купить детский мотоцикл, детский мотоцикл на аккумуляторе, детский квадроцикл, купить детский квадроцикл, квадроцикл детский электрический, квадроцикл детский бензиновый, толокар детский, веломобиль детскийсамокат детский, самокат трехколесный детский, самокат детский двухколесный, беговел, беговелы, беговел купить, беговел для детей'
+      description="В магазине Pushishki вы сможете купить новые и качественные детские электромобили, а так же другой  детский транспорт с гарантией и по лучшей цене."
+      keyWords="электромобиль детский, купить детский электромобиль, электромобиль детский с пультом, аккумулятор для детского электромобиля, магазин детских электромобилей, электромобиль детский двухместный, детские электромобили в москве,детский мотоцикл, купить детский мотоцикл, детский мотоцикл на аккумуляторе, детский квадроцикл, купить детский квадроцикл, квадроцикл детский электрический, квадроцикл детский бензиновый, толокар детский, веломобиль детскийсамокат детский, самокат трехколесный детский, самокат детский двухколесный, беговел, беговелы, беговел купить, беговел для детей"
     >
       <>
         {/* <Snowfall
@@ -47,13 +47,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
         <section className={styles.firstDisplay}>
           <div className={styles.backgroundImgWrapper}>
             <div className={styles.backgroundImg}>
-              <Image 
-                src="/main.webp" 
-                layout='fill'
-                objectFit='cover'
-                alt="Главный фон" 
-                priority
-              />
+              <Image src="/main.webp" layout="fill" objectFit="cover" alt="Главный фон" priority />
             </div>
           </div>
           <div className={styles.titleWrapper}>
@@ -91,11 +85,11 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
                 <br />
                 электромобиль
                 <div className={styles.iconWrapper}>
-                  <Image 
-                    src="/icons/Settings.svg" 
-                    width={50} 
-                    height={50} 
-                    alt="Категории" 
+                  <Image
+                    src="/icons/Settings.svg"
+                    width={50}
+                    height={50}
+                    alt="Категории"
                     loading="lazy"
                   />
                 </div>
@@ -176,11 +170,11 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               </ul>
             </div>
             <a href="#map" className={styles.iconWrapper}>
-              <Image 
-                src={'/icons/TopArrow.svg'} 
-                width={42} 
-                height={42} 
-                alt="Контакты" 
+              <Image
+                src={'/icons/TopArrow.svg'}
+                width={42}
+                height={42}
+                alt="Контакты"
                 loading="lazy"
               />
             </a>
@@ -264,7 +258,7 @@ const Home = ({ bestSellers, newProducts, categories }: MainPageProps) => {
               width="100%"
               height="720"
               frameBorder="0"
-              loading='lazy'
+              loading="lazy"
             ></iframe>
           </div>
         </section>

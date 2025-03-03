@@ -69,7 +69,7 @@ const OrderPage = () => {
       phone,
       delivery,
       totalProductsPrice,
-      apiCart
+      apiCart,
     );
 
     setSuccess(true);

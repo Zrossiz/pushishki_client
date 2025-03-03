@@ -25,7 +25,7 @@ export const Form = () => {
 
   const sendFormToTelegram = async () => {
     setSend(true);
-    await sendQuestion(name, phone, question, `${CLIENT_URL}${link}`)
+    await sendQuestion(name, phone, question, `${CLIENT_URL}${link}`);
     setName('');
     setQuestion('');
     setPhone('');

@@ -158,7 +158,7 @@ export const ProductCard = ({
           : undefined,
       count: 1,
       variantId: productVariants ? productVariants[activeVariant]?.id : 0,
-      variantImage: productVariants ? productVariants[activeVariant].images[0] : ""
+      variantImage: productVariants ? productVariants[activeVariant].images[0] : '',
     });
     return localStorage.setItem('cart', JSON.stringify(cart));
   };

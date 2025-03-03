@@ -56,9 +56,9 @@ export const CatalogItem = ({ product, localStorageFavorites, customHref }: Cata
   };
 
   let formattedRouteForQueryParams: string = `${router.asPath}/${product.slug}`;
-  if (router.asPath.includes("?")) {
-    const splittedPath = router.asPath.split("?");
-    formattedRouteForQueryParams = `${splittedPath[0]}/${product.slug}/?${splittedPath[1]}`
+  if (router.asPath.includes('?')) {
+    const splittedPath = router.asPath.split('?');
+    formattedRouteForQueryParams = `${splittedPath[0]}/${product.slug}/?${splittedPath[1]}`;
   }
 
   return (

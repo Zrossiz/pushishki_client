@@ -4,11 +4,7 @@ import { ProductVariantInfoProps } from './ProductVariantInfo.props';
 import Image from 'next/image';
 import { Input } from '@/elements';
 import { useEffect, useState } from 'react';
-import {
-  activateProductVariant,
-  deleteFile,
-  updateProductVariant,
-} from '@/api';
+import { activateProductVariant, deleteFile, updateProductVariant } from '@/api';
 import { DeleteItem } from '..';
 
 const { publicRuntimeConfig } = getConfig();
@@ -43,12 +39,14 @@ export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) 
 
   return (
     <div className={styles.wrapper}>
-      {deleteForm && <DeleteItem 
-        idOrSlug={productVariant.id} 
-        entity={'product-variant'} 
-        name={productVariant.color.title} 
-        setOpen={setDeleteForm} 
-      />}
+      {deleteForm && (
+        <DeleteItem
+          idOrSlug={productVariant.id}
+          entity={'product-variant'}
+          name={productVariant.color.title}
+          setOpen={setDeleteForm}
+        />
+      )}
       <div className={styles.infoWrapper}>
         {productVariant.color.color ? (
           <div

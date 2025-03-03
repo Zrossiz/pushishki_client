@@ -24,8 +24,8 @@ export const postOrder = async (
       address,
       price,
       basket: {
-        objects: products
-      }
+        objects: products,
+      },
     });
 
     return true;
@@ -85,12 +85,7 @@ export const setReadOrder = async (orderId: number): Promise<IOrder | { message:
   }
 };
 
-export const sendQuestion = async (
-  name: string,
-  phone: string,
-  question: string,
-  link: string
-) => {
+export const sendQuestion = async (name: string, phone: string, question: string, link: string) => {
   try {
     await axios.post(`${API_URL}/order/question`, {
       name,
@@ -98,7 +93,5 @@ export const sendQuestion = async (
       question,
       link,
     });
-  } catch (err) {
-
-  }
-}
+  } catch (err) {}
+};
