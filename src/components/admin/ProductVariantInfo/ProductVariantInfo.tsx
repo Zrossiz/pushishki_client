@@ -7,10 +7,9 @@ import { useEffect, useState } from 'react';
 import {
   activateProductVariant,
   deleteFile,
-  deleteProductVariant,
   updateProductVariant,
 } from '@/api';
-import { IProductVariant } from '@/types';
+import { DeleteItem } from '..';
 
 const { publicRuntimeConfig } = getConfig();
 const { FILESERVER_URL } = publicRuntimeConfig;
@@ -19,12 +18,7 @@ export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) 
   const [price, setPrice] = useState<number>(productVariant.price);
   const [images, setImages] = useState<string[]>(productVariant.images);
   const [active, setActive] = useState<boolean>(productVariant.active);
-
-  const deleteVariant = async (id: number) => {
-    const variant: IProductVariant | { message: string } = await deleteProductVariant(id);
-
-    window.location.reload();
-  };
+  const [deleteForm, setDeleteForm] = useState<boolean>(false);
 
   const deleteImage = async (image: string) => {
     const deletedImageIndex = images.indexOf(image);
@@ -49,6 +43,12 @@ export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) 
 
   return (
     <div className={styles.wrapper}>
+      {deleteForm && <DeleteItem 
+        idOrSlug={productVariant.id} 
+        entity={'product-variant'} 
+        name={productVariant.color.title} 
+        setOpen={setDeleteForm} 
+      />}
       <div className={styles.infoWrapper}>
         {productVariant.color.color ? (
           <div
@@ -71,21 +71,19 @@ export const ProductVariantInfo = ({ productVariant }: ProductVariantInfoProps) 
         <div className={styles.setActive} onClick={() => setActive(!active)}>
           Опубликован: {active ? 'да' : 'нет'}
         </div>
-        <div className={styles.deleteWrapper} onClick={() => deleteVariant(productVariant.id)}>
+        <div className={styles.deleteWrapper} onClick={() => setDeleteForm(true)}>
           <Image src="/icons/Trash.svg" width={30} height={30} alt={'Удалить'} />
         </div>
       </div>
       <div className={styles.galleryWrapper}>
-        {images.map((item: string) => {
-          return (
-            <div className={styles.img}>
-              <div className={styles.delete} onClick={() => deleteImage(item)}>
-                <Image src="/icons/Close.svg" width={20} height={20} alt="Удалить" />
-              </div>
-              <Image src={`${FILESERVER_URL}/upload/${item}`} alt={item} fill />
+        {images.map((item: string) => (
+          <div className={styles.img} key={item}>
+            <div className={styles.delete} onClick={() => deleteImage(item)}>
+              <Image src="/icons/Close.svg" width={20} height={20} alt="Удалить" />
             </div>
-          );
-        })}
+            <Image src={`${FILESERVER_URL}/upload/${item}`} alt={item} fill />
+          </div>
+        ))}
       </div>
     </div>
   );
