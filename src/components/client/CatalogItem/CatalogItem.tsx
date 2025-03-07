@@ -68,7 +68,7 @@ export const CatalogItem = ({ product, localStorageFavorites, customHref }: Cata
       </div>
       <div className={styles.infoWrapper}>
         <div className={styles.nameWrapper}>
-          <span>{product.name}</span>
+          <span dangerouslySetInnerHTML={{ __html: product.name.replace("электроскутер", "электро&shy;скутер") }} />
         </div>
         <div className={styles.priceWrapper}>
           от <span>{formattedPrice}</span>
