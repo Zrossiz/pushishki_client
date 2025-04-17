@@ -4,362 +4,604 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
 <url>
-  <loc>https://pushishki.ru/</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>1.00</priority>
+	<loc>https://pushishki.ru/</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/elektromobili</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/mototehnika</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/velotehnika</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/velotehnika</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/spectehnika</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/spectehnika</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/aksessury</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/aksessury</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/search</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/search</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/favorites</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/favorites</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/cart</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/cart</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/detskiy-elektromotocikl-A005AA</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-elektromotocikl-A005AA</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-BMW-M4-(A004AA)</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Mercedes-Benz-G63-Y777YY</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-BMW-G007GG</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-BMW-G007GG</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Mercedes-Benz-G63-Y777YY</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-baggi-gruzovik-HC307</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-baggi-gruzovik-HC307</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Toyota-m888bh</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Toyota-m888bh</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/katalki-i-modeli-dlya-malyshey-/detskiy-tolokar-elektromobil-Mercedes-Benz-G63-%28Z001ZZ-A%29</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/katalki-i-modeli-dlya-malyshey-/detskiy-tolokar-Mercedes-Benz-G63-(Z001ZZ-A)</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-elektroskuter-Vespa-K777PX-A</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Porsche-F333FF</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-elektromotocikl-m111bh</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/detskiy-elektroskuter-Vespa-K444PX</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Mercedes-Benz-GLE-450</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/detskiy-elektroskuter-Vespa-K777PX-A</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-motocikl-Moto-Augusta-800RC-YKB5937</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/detskiy-elektroskuter-Vespa-K444PX-A</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Porsche-F333FF</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/detskiy-elektromotocikl-m111bh</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-elektroskuter-Vespa-K444PX-A</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Mercedes-Benz-GLE-450</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-JEEP-m003bh</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/detskiy-motocikl-Moto-Augusta-800RC-YKB5937</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-BMW-M4-%28A004AA%29</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/spectehnika/detskiy-elektromobil-ekskavator-pogruzchik-A777MP</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-elektromotocikl-m009bh</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Rolls-Royce-(E444EE)-</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-elektroskuter-Vespa-K444PX</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/detskiy-kvadrocikl-HL-Renegade-X-2WD---HL578</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-elektromotocikl-M777ML</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/contacts</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.80</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Mercedes-m333bh-</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Jeep-E007EE</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/sub-category</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://pushishki.ru/categories/spectehnika/detskiy-elektromobil-ekskavator-pogruzchik-A777MP</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/velotehnika/sub-category</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Rolls-Royce-%28E444EE%29-</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/katalki-i-modeli-dlya-malyshey-</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-baggi-P555PP</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/aksessuary</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.64</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-kvadrocikl-HL-Renegade-X-2WD---HL578</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Buggy-M222MM</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Lamborghini-Hurac%C3%A1n-STO-%28E888EE%29</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-gruzovik-H005HH</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-elektrokvadrocikl-T001TT-4WD</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/baggi</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-kvadrocikl-HL-Renegade-X-2WD---HL568</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-elektromotocikl-K003PX-%28tricikl%29</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/retro-modeli</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/categories/katalki-i-modeli-dlya-malyshey-/detskiy-tolokar-Mercedes-Benz-GLS-600-Z003ZZ-D</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/sub-category/kvadrocikly</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/detskiy-elektrotricikl-Z333ZZ</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-baggi-C111CC</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/velotehnika/sub-category/velomobili</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/contacts</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/velotehnika/sub-category/begovely</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/order</loc>
+	<lastmod>2025-04-17T22:25:19+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/velotehnika/sub-category/samokaty</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.51</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/detskiy-elektromobil-Jeep-m222bh</loc>
+	<lastmod>2025-04-17T22:25:21+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye/detskiy-elektromobil-Mercedes-Benz-G63-Y777YY</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category</loc>
+	<lastmod>2025-04-17T22:25:24+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye/detskiy-elektromobil-BMW-G007GG</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category</loc>
+	<lastmod>2025-04-17T22:25:24+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye/detskiy-elektromobil-baggi-gruzovik-HC307</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/velotehnika/sub-category</loc>
+	<lastmod>2025-04-17T22:25:24+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye/detskiy-elektromobil-Toyota-m888bh</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/katalki-i-modeli-dlya-malyshey-</loc>
+	<lastmod>2025-04-17T22:25:24+01:00</lastmod>
+	<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy/detskiy-elektromobil-Mercedes-Benz-G63-Y777YY</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/aksessuary</loc>
+	<lastmod>2025-04-17T22:25:24+01:00</lastmod>
+	<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy/detskiy-elektromobil-baggi-gruzovik-HC307</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye</loc>
+	<lastmod>2025-04-17T22:25:33+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy/detskiy-elektromobil-Toyota-m888bh</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy</loc>
+	<lastmod>2025-04-17T22:25:33+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye/detskiy-elektromobil-BMW-G007GG</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye</loc>
+	<lastmod>2025-04-17T22:25:33+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye/detskiy-elektromobil-Rolls-Royce-(E444EE)-</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy</loc>
+	<lastmod>2025-04-17T22:25:33+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye/detskiy-elektromobil-BMW-M4-(A004AA)</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/baggi</loc>
+	<lastmod>2025-04-17T22:25:33+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye/detskiy-elektromobil-Porsche-F333FF</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye</loc>
+	<lastmod>2025-04-17T22:25:33+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-Rolls-Royce-(E444EE)-</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/retro-modeli</loc>
+	<lastmod>2025-04-17T22:25:33+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-BMW-M4-(A004AA)</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/kvadrocikly</loc>
+	<lastmod>2025-04-17T22:25:33+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-Porsche-F333FF</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly</loc>
+	<lastmod>2025-04-17T22:25:33+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/baggi/detskiy-elektromobil-baggi-gruzovik-HC307</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/velotehnika/sub-category/velomobili</loc>
+	<lastmod>2025-04-17T22:25:34+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-Mercedes-Benz-G63-Y777YY</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/velotehnika/sub-category/begovely</loc>
+	<lastmod>2025-04-17T22:25:34+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-baggi-gruzovik-HC307</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/velotehnika/sub-category/samokaty</loc>
+	<lastmod>2025-04-17T22:25:34+01:00</lastmod>
+	<priority>0.4</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-Toyota-m888bh</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye/detskiy-elektromobil-gruzovik-H005HH</loc>
+	<lastmod>2025-04-17T22:25:34+01:00</lastmod>
+	<priority>0.2</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/elektromobili/sub-category/retro-modeli/detskiy-elektromobil-Rolls-Royce-(E444EE)-</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye/detskiy-elektromobil-Toyota-m888bh</loc>
+	<lastmod>2025-04-17T22:25:34+01:00</lastmod>
+	<priority>0.2</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/sub-category/kvadrocikly/detskiy-kvadrocikl-HL-Renegade-X-2WD---HL578</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye/detskiy-elektromobil-baggi-P555PP</loc>
+	<lastmod>2025-04-17T22:25:34+01:00</lastmod>
+	<priority>0.2</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektromotocikl-A005AA</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye/detskiy-elektromobil-baggi-gruzovik-HC307</loc>
+	<lastmod>2025-04-17T22:25:34+01:00</lastmod>
+	<priority>0.2</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektromotocikl-m111bh</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye/detskiy-elektromobil-BMW-G007GG</loc>
+	<lastmod>2025-04-17T22:25:34+01:00</lastmod>
+	<priority>0.2</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-motocikl-Moto-Augusta-800RC-YKB5937</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye/detskiy-elektromobil-Mercedes-Benz-G63-Y777YY</loc>
+	<lastmod>2025-04-17T22:25:34+01:00</lastmod>
+	<priority>0.2</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektroskuter-Vespa-K777PX-A</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dvuhmestnye/detskiy-elektromobil-Buggy-M222MM</loc>
+	<lastmod>2025-04-17T22:25:34+01:00</lastmod>
+	<priority>0.2</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektroskuter-Vespa-K444PX-A</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy/detskiy-elektromobil-Jeep-m222bh</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
 </url>
 <url>
-  <loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektroskuter-Vespa-K444PX</loc>
-  <lastmod>2025-01-21T13:02:49+00:00</lastmod>
-  <priority>0.41</priority>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy/detskiy-elektromobil-baggi-C111CC</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
 </url>
-
-
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy/detskiy-elektromobil-Jeep-E007EE</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy/detskiy-elektromobil-Toyota-m888bh</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy/detskiy-elektromobil-baggi-gruzovik-HC307</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy/detskiy-elektromobil-JEEP-m003bh</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/dzhipy/detskiy-elektromobil-Mercedes-Benz-G63-Y777YY</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye/detskiy-elektromobil-Porsche-F333FF</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye/detskiy-elektromobil-Lamborghini-Hurac%C3%A1n-STO-%28E888EE%29</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye/detskiy-elektromobil-BMW-M4-%28A004AA%29</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye/detskiy-elektromobil-Mercedes-m333bh-</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye/detskiy-elektromobil-Rolls-Royce-%28E444EE%29-</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/legkovye/detskiy-elektromobil-BMW-G007GG</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-Porsche-F333FF</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-Lamborghini-Hurac%C3%A1n-STO-%28E888EE%29</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-BMW-M4-%28A004AA%29</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-Jeep-m222bh</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-Mercedes-m333bh-</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-baggi-C111CC</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-Rolls-Royce-%28E444EE%29-</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-Jeep-E007EE</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/velosipedy/detskiy-elektromobil-JEEP-m003bh</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/baggi/detskiy-elektromobil-baggi-C111CC</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/baggi/detskiy-elektromobil-gruzovik-H005HH</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/baggi/detskiy-elektromobil-baggi-P555PP</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/baggi/detskiy-elektromobil-baggi-gruzovik-HC307</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/baggi/detskiy-elektromobil-Buggy-M222MM</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-Mercedes-m333bh-</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-Jeep-m222bh</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-baggi-C111CC</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-gruzovik-H005HH</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-Jeep-E007EE</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-Toyota-m888bh</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-baggi-gruzovik-HC307</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-JEEP-m003bh</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/polnoprivodnye/detskiy-elektromobil-Mercedes-Benz-G63-Y777YY</loc>
+	<lastmod>2025-04-17T22:25:35+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/kvadrocikly/detskiy-kvadrocikl-HL-Renegade-X-2WD---HL578</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/kvadrocikly/detskiy-kvadrocikl-HL-Renegade-X-2WD---HL568</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/kvadrocikly/detskiy-elektrokvadrocikl-T001TT-4WD</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/kvadrocikly/detskiy-elektrokvadrocikl-McLaren-JL212-%28P111BP%29</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/elektromobili/sub-category/retro-modeli/detskiy-elektromobil-Rolls-Royce-%28E444EE%29-</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektroskuter-Vespa-K444PX</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektroskuter-Vespa-K444PX-A</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektrotricikl-Z333ZZ</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektromotocikl-K003PX-%28tricikl%29</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektroskuter-Vespa-K777PX-A</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektromotocikl-m009bh</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektromotocikl-M777ML</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-motocikl-Moto-Augusta-800RC-YKB5937</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektromotocikl-A005AA</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://pushishki.ru/categories/mototehnika/sub-category/motocikly/detskiy-elektromotocikl-m111bh</loc>
+	<lastmod>2025-04-17T22:25:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
 </urlset>
