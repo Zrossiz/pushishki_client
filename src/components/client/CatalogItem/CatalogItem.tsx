@@ -114,7 +114,7 @@ export const CatalogItem = ({ product, localStorageFavorites, customHref }: Cata
             ) : (
               <div className={cn(styles.availableCheck, styles.notAvailable)}></div>
             )}
-            <div className={styles.availableText}>В наличии</div>
+            <div className={styles.availableText}>{product.inStock ? "В наличии" : "Нет в наличии"}</div>
           </div>
         </div>
       </div>

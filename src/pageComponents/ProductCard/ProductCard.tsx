@@ -434,7 +434,7 @@ export const ProductCard = ({
               </div>
               <div className={styles.deliveryWrapper}>
                 <span>Доставка в пределах МКАД - бесплатно</span>
-                <span className={styles.grey}>Доставка за пределами МКАД - 40 рублей за 1 км</span>
+                <span className={styles.grey}>Доставка за пределами МКАД - 50 рублей за 1 км</span>
               </div>
               <div className={styles.contactsWrapper}>
                 Связаться с нами: <a href="">8&nbsp;(495)&nbsp;766-07-13</a>
