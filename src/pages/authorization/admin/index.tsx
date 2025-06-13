@@ -6,10 +6,9 @@ import {
   getOrdersSum,
 } from '@/api';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import { AdminLayout } from '@/layout/admin/AdminLayout';
 import { ProductsStatisticItem, StatisticItem } from '@/components/admin';
-import styles from '../../../styles/admin/Index.module.scss';
+import styles from '@/styles/admin/Index.module.scss';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { IProduct } from '@/types';
 import { getDateOneYearAgo } from '@/utils';
