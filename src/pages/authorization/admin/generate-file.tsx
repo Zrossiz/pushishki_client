@@ -1,4 +1,4 @@
-import { CreateLicenseForm, CreateRightsForm } from "@/components/admin";
+import { CreateLicenseForm, CreateNumbersForm } from "@/components/admin";
 import { LinkButton } from "@/elements";
 import { AdminLayout } from "@/layout/admin/AdminLayout";
 import styles from "@/styles/admin/GenerateFile.module.scss";
@@ -6,13 +6,13 @@ import { useState } from "react";
 
 const GenerateFilePage = () => {
     const [createLicense, setCreateLicense] = useState(false);
-    const [createRights, setCreateRights] = useState(false);
+    const [createNumbers, setCreateNumbers] = useState(false);
 
     return (
         <AdminLayout>
             <>
                 {createLicense && <CreateLicenseForm setOpen={setCreateLicense} /> }
-                {createRights && <CreateRightsForm setOpen={setCreateRights} /> }
+                {createNumbers && <CreateNumbersForm setOpen={setCreateNumbers} /> }
                 <div className={styles.wrapper}>
                     <div className={styles.btn}>
                         <LinkButton 
@@ -25,7 +25,7 @@ const GenerateFilePage = () => {
                         <LinkButton 
                             element="button"
                             children="Сгенерировать номера"
-                            onClick={() => setCreateRights(true)}
+                            onClick={() => setCreateNumbers(true)}
                         />
                     </div>
                 </div>

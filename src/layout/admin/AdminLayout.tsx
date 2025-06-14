@@ -63,6 +63,10 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
       name: 'Привод',
       slug: 'drive',
     },
+    {
+      name: 'Генерация документов',
+      slug: 'generate-file'
+    }
   ];
 
   useEffect(() => {

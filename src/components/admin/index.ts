@@ -28,4 +28,4 @@ export * from './ManufacturerForm/ManufacturerForm';
 export * from './StatisticItem/StatisticItem';
 export * from './ProductsStatisticItem/ProductsStatisticItem';
 export * from "./CreateLicenseForm/CreateLicenseForm";
-export * from "./CreateRightsForm/CreateRightsForm";
+export * from "./CreateNumbersForm/CreateNumbersForm";
